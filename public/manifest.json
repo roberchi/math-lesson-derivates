@@ -1,0 +1,9 @@
+{
+  "name": "Derivate — Corso interattivo",
+  "short_name": "Derivate",
+  "lang": "it",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f6f1",
+  "theme_color": "#17243f"
+}
