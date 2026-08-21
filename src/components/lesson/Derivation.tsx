@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
-import { BlockMath, InlineMath } from 'react-katex';
+import { BlockMath } from 'react-katex';
 import { MathText } from '@/components/math/MathText';
 
 export interface DerivationStep {
@@ -18,15 +18,48 @@ export interface DerivationStep {
   explanation: string;
 }
 
-export function Derivation({ title, formula, steps, conclusion, defaultExpanded = false }: { title: string; formula: string; steps: DerivationStep[]; conclusion: string; defaultExpanded?: boolean }) {
+interface DerivationProps {
+  title: string;
+  formula: string;
+  meaning: string;
+  steps: DerivationStep[];
+  conclusion: string;
+  defaultExpanded?: boolean;
+}
+
+export function Derivation({ title, formula, meaning, steps, conclusion, defaultExpanded = false }: DerivationProps) {
   return (
     <Accordion defaultExpanded={defaultExpanded} sx={{ border: '1px solid', borderColor: 'rgba(65,88,208,.28)', borderRadius: '10px !important', overflow: 'hidden' }}>
-      <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} sx={{ px: { xs: 2, sm: 2.5 }, py: .75 }}>
-        <Box sx={{ flex: 1 }}>
-          <Typography variant="caption" color="primary.main" fontWeight={800}>VERSIONE DIMOSTRATIVA</Typography>
-          <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={1} mt={.5}>
-            <Typography variant="h3" sx={{ fontSize: '1.35rem' }}>{title}</Typography>
-            <Box sx={{ color: 'primary.main', pr: 2 }}><InlineMath math={formula} /></Box>
+      <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} sx={{ px: { xs: 2, sm: 2.5 }, py: 1.25, '& .MuiAccordionSummary-content': { minWidth: 0 } }}>
+        <Box sx={{ flex: 1, minWidth: 0, pr: { xs: .5, sm: 1.5 } }}>
+          <Stack direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" alignItems={{ md: 'stretch' }} gap={{ xs: 2, md: 3 }}>
+            <Box sx={{ flex: 1, minWidth: 0 }}>
+              <Typography variant="caption" color="primary.main" fontWeight={800}>VERSIONE DIMOSTRATIVA</Typography>
+              <Typography variant="h3" sx={{ fontSize: { xs: '1.3rem', sm: '1.45rem' }, mt: .5 }}>{title}</Typography>
+              <Box sx={{ mt: 1.25 }}>
+                <Typography variant="caption" color="text.secondary" fontWeight={800}>COME SI LEGGE E QUANDO SI USA</Typography>
+                <Typography component="div" variant="body2" color="text.secondary" sx={{ mt: .35, maxWidth: 650 }}>
+                  <MathText text={meaning} />
+                </Typography>
+              </Box>
+            </Box>
+            <Box sx={{
+              alignSelf: { md: 'center' },
+              minWidth: { md: 330 },
+              maxWidth: '100%',
+              px: { xs: 1.5, sm: 2.25 },
+              py: 1.25,
+              color: 'primary.main',
+              bgcolor: 'rgba(65,88,208,.07)',
+              border: '1px solid rgba(65,88,208,.18)',
+              borderRadius: 2,
+              overflowX: 'auto',
+              fontSize: { xs: '1.08rem', sm: '1.28rem', lg: '1.38rem' },
+              '& .katex-display': { m: 0, textAlign: 'center' },
+            }}>
+              <Typography variant="caption" color="primary.main" fontWeight={800} sx={{ display: 'block', mb: .5 }}>FORMULA</Typography>
+              <BlockMath math={formula} />
+            </Box>
           </Stack>
         </Box>
       </AccordionSummary>
