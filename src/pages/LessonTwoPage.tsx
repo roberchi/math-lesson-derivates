@@ -19,6 +19,7 @@ import {
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import { BlockMath, InlineMath } from 'react-katex';
 import { Navigate, useParams } from 'react-router-dom';
+import { ChainRuleLayers } from '@/components/lesson/ChainRuleLayers';
 import { Derivation } from '@/components/lesson/Derivation';
 import { DerivativeTheoremsAppendix } from '@/components/lesson/DerivativeTheoremsAppendix';
 import { HistoryNote } from '@/components/lesson/HistoryNote';
@@ -133,13 +134,7 @@ function RulesSection() {
       </Stack>
 
       <SectionBlock eyebrow="Esempio canonico" title="sin(x²): leggere gli strati">
-        <Paper elevation={0} sx={{ p: 3, border: '1px solid', borderColor: 'divider' }}>
-          <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={4}><Typography variant="caption" color="primary.main">INTERNO</Typography><Box mt={1}><InlineMath math="g(x)=x^2,\quad g'(x)=2x" /></Box></Grid>
-            <Grid item xs={12} sm={4}><Typography variant="caption" color="primary.main">ESTERNO</Typography><Box mt={1}><InlineMath math="f(u)=\sin u,\quad f'(u)=\cos u" /></Box></Grid>
-            <Grid item xs={12} sm={4}><Typography variant="caption" color="primary.main">COMPOSIZIONE</Typography><Box mt={1}><InlineMath math="(\sin x^2)'=\cos(x^2)\,2x" /></Box></Grid>
-          </Grid>
-        </Paper>
+        <ChainRuleLayers />
       </SectionBlock>
 
       <HistoryNote title="Il trucco nella regola del prodotto" summary="Aggiungere e sottrarre lo stesso termine trasforma un’espressione opaca in due rapporti incrementali." href="https://en.wikipedia.org/wiki/Product_rule">
