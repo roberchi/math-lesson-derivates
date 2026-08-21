@@ -20,6 +20,7 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import { BlockMath, InlineMath } from 'react-katex';
 import { Navigate, useParams } from 'react-router-dom';
 import { Derivation } from '@/components/lesson/Derivation';
+import { DerivativeTheoremsAppendix } from '@/components/lesson/DerivativeTheoremsAppendix';
 import { HistoryNote } from '@/components/lesson/HistoryNote';
 import { LessonScaffold, PerspectiveCard, SectionBlock } from '@/components/lesson/LessonScaffold';
 import { TaylorLab } from '@/components/labs/TaylorLab';
@@ -33,7 +34,8 @@ export function LessonTwoPage() {
   if (sectionId === 'fondamentali') return <FundamentalsSection />;
   if (sectionId === 'regole') return <RulesSection />;
   if (sectionId === 'derivata-seconda') return <SecondDerivativeSection />;
-  return <TaylorSection />;
+  if (sectionId === 'taylor') return <TaylorSection />;
+  return <TheoremsSection />;
 }
 
 function WarmupSection() {
@@ -165,7 +167,7 @@ function SecondDerivativeSection() {
         <Typography paragraph>Un punto è stazionario quando <InlineMath math="f'(x_0)=0" />: la tangente è orizzontale. Può essere un massimo, un minimo o un flesso; per distinguerli servirà studiare il segno di f′ e f″.</Typography>
         <Paper elevation={0} sx={{ p: 3, border: '1px solid', borderColor: 'divider', overflowX: 'auto' }}><BlockMath math="f(x)=x^3-3x\quad\Rightarrow\quad f'(x)=3x^2-3\quad\Rightarrow\quad x=\pm1" /><Typography variant="body2" color="text.secondary">I due punti hanno tangente orizzontale. La derivata seconda <InlineMath math="f''(x)=6x" /> aiuta a capire che uno è un massimo e l’altro un minimo.</Typography></Paper>
       </SectionBlock>
-      <Alert severity="info">Questo è solo un ponte: massimi, minimi, flessi e teoremi di Rolle e Lagrange saranno sviluppati nel modulo sullo studio completo di funzione.</Alert>
+      <Alert severity="info">Questo è solo un ponte: lo studio completo di massimi, minimi e flessi verrà più avanti. Nell’appendice dopo Taylor troverai invece Rolle, Lagrange e gli altri teoremi letti in modo grafico e pratico.</Alert>
     </LessonScaffold>
   );
 }
@@ -198,6 +200,19 @@ function TaylorSection() {
       <HistoryNote title="Taylor, MacLaurin e Cauchy" summary="La formula nasce nel Settecento; capire quando rappresenta davvero la funzione richiederà un altro secolo." href="https://mathshistory.st-andrews.ac.uk/Biographies/Taylor/">
         Brook Taylor pubblicò la formula nel 1715. Colin MacLaurin studiò sistematicamente il caso centrato in zero. Nell’Ottocento Cauchy chiarì che possedere derivate di ogni ordine non garantisce automaticamente che la serie converga alla funzione.
       </HistoryNote>
+    </LessonScaffold>
+  );
+}
+
+function TheoremsSection() {
+  return (
+    <LessonScaffold
+      sectionId="teoremi"
+      eyebrow="Appendice · Approfondimento facoltativo"
+      title="I teoremi che fanno lavorare la derivata"
+      lead="Non è ancora uno studio di funzione: è una cassetta degli attrezzi. Ogni teorema parte da una figura, risponde a una domanda concreta e dichiara chiaramente quando può essere usato."
+    >
+      <DerivativeTheoremsAppendix />
     </LessonScaffold>
   );
 }
