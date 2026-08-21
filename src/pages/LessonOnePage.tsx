@@ -91,19 +91,19 @@ function DefinitionSection() {
 
       <SectionBlock eyebrow="Tre derivazioni obbligatorie" title="Le formule nascono dal limite">
         <Stack spacing={2}>
-          <Derivation title="Derivata di x²" formula="(x^2)'=2x" defaultExpanded steps={[
+          <Derivation title="Derivata di x²" formula="(x^2)'=2x" meaning="Dice che la pendenza della parabola \(y=x^2\), in ogni punto \(x\), vale \(2x\). A destra dell’origine è positiva, a sinistra è negativa e in zero vale zero." defaultExpanded steps={[
             { label: 'Rapporto incrementale', formula: "\\frac{(x+h)^2-x^2}{h}", explanation: 'Partiamo dalla definizione con \\(f(x)=x^2\\).' },
             { label: 'Sviluppa il quadrato', formula: "\\frac{x^2+2xh+h^2-x^2}{h}", explanation: 'Usiamo \\((x+h)^2=x^2+2xh+h^2\\) e cancelliamo \\(x^2\\).' },
             { label: 'Semplifica h', formula: "\\frac{h(2x+h)}{h}=2x+h", explanation: 'Per \\(h\\neq0\\) possiamo semplificare il fattore h.' },
             { label: 'Passa al limite', formula: "\\lim_{h\\to0}(2x+h)=2x", explanation: 'Quando h tende a zero rimane \\(2x\\).' },
           ]} conclusion="Quindi, per ogni x, \((x^2)'=2x\)." />
-          <Derivation title="Derivata di sin x" formula="(\sin x)'=\cos x" steps={[
+          <Derivation title="Derivata di sin x" formula="(\sin x)'=\cos x" meaning="Dice che la pendenza del grafico del seno nel punto \(x\) è il valore del coseno nello stesso punto. Quando \(\cos x=0\), il seno ha tangente orizzontale." steps={[
             { label: 'Rapporto incrementale', formula: "\\frac{\\sin(x+h)-\\sin x}{h}", explanation: 'La definizione applicata al seno.' },
             { label: 'Prostaferesi', formula: "\\sin(x+h)-\\sin x=2\\cos\\left(x+\\frac h2\\right)\\sin\\frac h2", explanation: 'Usiamo la formula per la differenza di due seni.' },
             { label: 'Riorganizza', formula: "\\cos\\left(x+\\frac h2\\right)\\frac{\\sin(h/2)}{h/2}", explanation: 'Compare il limite notevole \\(\\sin t/t\\) con \\(t=h/2\\).' },
             { label: 'Passa al limite', formula: "\\cos(x+0)\\cdot1=\\cos x", explanation: 'Il coseno è continuo e il limite notevole vale 1.' },
           ]} conclusion="Il seno diventa coseno: \((\sin x)'=\cos x\)." />
-          <Derivation title="Derivata di eˣ" formula="(e^x)'=e^x" steps={[
+          <Derivation title="Derivata di eˣ" formula="(e^x)'=e^x" meaning="Dice che l’esponenziale cresce, in ogni punto, con una velocità uguale al proprio valore. Per esempio, quando \(e^x=3\), anche la sua pendenza vale 3." steps={[
             { label: 'Rapporto incrementale', formula: "\\frac{e^{x+h}-e^x}{h}", explanation: 'Applichiamo la definizione.' },
             { label: 'Raccogli eˣ', formula: "e^x\\frac{e^h-1}{h}", explanation: 'Poiché \\(e^{x+h}=e^xe^h\\), il fattore \\(e^x\\) esce dal rapporto.' },
             { label: 'Limite notevole', formula: "e^x\\lim_{h\\to0}\\frac{e^h-1}{h}=e^x\\cdot1", explanation: 'Usiamo il limite notevole dell’esponenziale.' },

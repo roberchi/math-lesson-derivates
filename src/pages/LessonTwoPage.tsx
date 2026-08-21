@@ -76,18 +76,18 @@ function FundamentalsSection() {
 
       <SectionBlock eyebrow="Versione dimostrativa" title="Tre idee da saper ricostruire">
         <Stack spacing={2}>
-          <Derivation title="Potenza intera" formula="(x^n)'=nx^{n-1}" steps={[
+          <Derivation title="Potenza intera" formula="(x^n)'=nx^{n-1}" meaning="Serve a derivare una potenza di \(x\): l’esponente \(n\) scende davanti come moltiplicatore e poi diminuisce di uno. Per esempio, \((x^3)'=3x^2\)." steps={[
             { label: 'Definizione', formula: "\\frac{(x+h)^n-x^n}{h}", explanation: 'Partiamo dal rapporto incrementale.' },
             { label: 'Binomio di Newton', formula: "(x+h)^n=x^n+nx^{n-1}h+\\binom n2x^{n-2}h^2+\\cdots+h^n", explanation: 'Il primo termine cancella \\(x^n\\); tutti gli altri contengono h.' },
             { label: 'Dividi per h', formula: "nx^{n-1}+\\binom n2x^{n-2}h+\\cdots+h^{n-1}", explanation: 'Dopo la semplificazione solo il primo termine non conserva un fattore h.' },
             { label: 'Limite', formula: "\\lim_{h\\to0}(nx^{n-1}+h\\cdot\\ldots)=nx^{n-1}", explanation: 'I termini che contengono h tendono a zero.' },
           ]} conclusion="La regola della potenza non è un trucco: è il primo coefficiente del binomio di Newton che sopravvive al limite." />
-          <Derivation title="Logaritmo naturale" formula="(\ln x)'=1/x" steps={[
+          <Derivation title="Logaritmo naturale" formula="(\ln x)'=1/x" meaning="Dice che la pendenza di \(\ln x\) nel punto \(x\) è il reciproco di \(x\). Vale nel dominio del logaritmo, quindi per \(x>0\)." steps={[
             { label: 'Funzioni inverse', formula: "y=\\ln x\\iff x=e^y", explanation: 'Il logaritmo naturale è l’inversa dell’esponenziale.' },
             { label: 'Deriva implicitamente', formula: "1=e^y\\frac{dy}{dx}", explanation: 'Deriviamo entrambi i membri rispetto a x; la catena produce dy/dx.' },
             { label: 'Sostituisci e risolvi', formula: "\\frac{dy}{dx}=\\frac1{e^y}=\\frac1x", explanation: 'Poiché \\(e^y=x\\), otteniamo il reciproco di x.' },
           ]} conclusion="Per x > 0, \((\ln x)'=1/x\)." />
-          <Derivation title="Coseno" formula="(\cos x)'=-\sin x" steps={[
+          <Derivation title="Coseno" formula="(\cos x)'=-\sin x" meaning="Dice che la pendenza del coseno nel punto \(x\) è l’opposto del valore del seno nello stesso punto. Il segno meno indica che il coseno inizialmente scende." steps={[
             { label: 'Formula di addizione', formula: "\\cos(x+h)=\\cos x\\cos h-\\sin x\\sin h", explanation: 'Sostituiamo nel rapporto incrementale.' },
             { label: 'Separa', formula: "\\cos x\\frac{\\cos h-1}{h}-\\sin x\\frac{\\sin h}{h}", explanation: 'Compaiono due limiti notevoli.' },
             { label: 'Limiti notevoli', formula: "\\cos x\\cdot0-\\sin x\\cdot1=-\\sin x", explanation: '\\((\\cos h-1)/h\\to0\\) e \\(\\sin h/h\\to1\\).' },
@@ -110,22 +110,22 @@ function RulesSection() {
   return (
     <LessonScaffold sectionId="regole" eyebrow="Lezione 2 · 0:40–1:10" title="Quattro regole, quattro idee" lead="Per ogni regola teniamo insieme formula operativa, dimostrazione dal limite e lettura verbale. La regola è pronta all’uso solo dopo aver capito da dove viene.">
       <Stack spacing={2}>
-        <Derivation title="Linearità" formula="(\alpha f+\beta g)'=\alpha f'+\beta g'" defaultExpanded steps={[
+        <Derivation title="Linearità" formula="(\alpha f+\beta g)'=\alpha f'+\beta g'" meaning="Serve per somme e multipli: \(f\) e \(g\) sono funzioni, mentre \(\alpha\) e \(\beta\) sono numeri costanti. Si deriva ogni funzione separatamente e si mantengono le costanti." defaultExpanded steps={[
           { label: 'Rapporto incrementale', formula: "\\frac{\\alpha[f(x+h)-f(x)]+\\beta[g(x+h)-g(x)]}{h}", explanation: 'Raggruppiamo separatamente le variazioni di f e g.' },
           { label: 'Separa e passa al limite', formula: "\\alpha\\lim_{h\\to0}\\frac{f(x+h)-f(x)}h+\\beta\\lim_{h\\to0}\\frac{g(x+h)-g(x)}h", explanation: 'Il limite della somma è la somma dei limiti; le costanti escono.' },
         ]} conclusion="Derivare è un’operazione lineare." />
-        <Derivation title="Regola del prodotto" formula="(fg)'=f'g+fg'" steps={[
+        <Derivation title="Regola del prodotto" formula="(fg)'=f'g+fg'" meaning="Serve quando \(f(x)\) e \(g(x)\) sono moltiplicate. Si deriva prima \(f\) lasciando ferma \(g\), poi si lascia ferma \(f\) e si deriva \(g\); infine si sommano i due contributi." steps={[
           { label: 'Definizione', formula: "\\frac{f(x+h)g(x+h)-f(x)g(x)}h", explanation: 'Il numeratore non si separa direttamente.' },
           { label: 'Aggiungi zero', formula: "\\frac{f(x+h)g(x+h)-f(x)g(x+h)+f(x)g(x+h)-f(x)g(x)}h", explanation: 'Aggiungiamo e sottraiamo \\(f(x)g(x+h)\\): è il trucco di Leibniz.' },
           { label: 'Raccogli', formula: "g(x+h)\\frac{f(x+h)-f(x)}h+f(x)\\frac{g(x+h)-g(x)}h", explanation: 'Ora riconosciamo i due rapporti incrementali.' },
           { label: 'Limite', formula: "g(x)f'(x)+f(x)g'(x)", explanation: 'La derivabilità implica continuità, quindi \\(g(x+h)\\to g(x)\\).' },
         ]} conclusion="Si deriva un fattore alla volta, lasciando fermo l’altro, e si sommano i contributi." />
-        <Derivation title="Regola del quoziente" formula="\left(\frac fg\right)'=\frac{f'g-fg'}{g^2}" steps={[
+        <Derivation title="Regola del quoziente" formula="\left(\frac fg\right)'=\frac{f'g-fg'}{g^2}" meaning="Serve quando una funzione \(f\) è divisa per una funzione \(g\), con \(g(x)\neq0\). Al numeratore l’ordine è importante: derivata del sopra per sotto, meno sopra per derivata del sotto." steps={[
           { label: 'Riscrivi come prodotto', formula: "f=\\frac fg\\cdot g", explanation: 'La ricaviamo dalla regola del prodotto, con \\(g\\neq0\\).' },
           { label: 'Deriva', formula: "f'=\\left(\\frac fg\\right)'g+\\frac fg\\,g'", explanation: 'Applichiamo la regola del prodotto al membro destro.' },
           { label: 'Isola la derivata', formula: "\\left(\\frac fg\\right)'=\\frac{f'g-fg'}{g^2}", explanation: 'Portiamo il secondo termine a sinistra e dividiamo per g.' },
         ]} conclusion="Nel numeratore l’ordine conta: derivata del sopra per sotto meno sopra per derivata del sotto." />
-        <Derivation title="Regola della catena" formula="(f\circ g)'=f'(g)\,g'" steps={[
+        <Derivation title="Regola della catena" formula="(f\circ g)'=f'(g)\,g'" meaning="Serve quando una funzione è dentro un’altra: \(f\circ g\) significa \(f(g(x))\). Si deriva la funzione esterna, la si valuta nell’interno e si moltiplica per la derivata della funzione interna." steps={[
           { label: 'Rapporto della composta', formula: "\\frac{f(g(x+h))-f(g(x))}{h}", explanation: 'La variazione esterna dipende dalla variazione della funzione interna.' },
           { label: 'Introduci k', formula: "\\frac{f(g(x)+k)-f(g(x))}{k}\\cdot\\frac{g(x+h)-g(x)}h,\\quad k=g(x+h)-g(x)", explanation: 'Moltiplichiamo e dividiamo per la variazione interna k.' },
           { label: 'Passa al limite', formula: "f'(g(x))\\cdot g'(x)", explanation: 'Per continuità di g, \\(h\\to0\\) implica \\(k\\to0\\).' },
