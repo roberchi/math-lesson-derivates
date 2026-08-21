@@ -23,6 +23,7 @@ import { Derivation } from '@/components/lesson/Derivation';
 import { HistoryNote } from '@/components/lesson/HistoryNote';
 import { LessonScaffold, PerspectiveCard, SectionBlock } from '@/components/lesson/LessonScaffold';
 import { TaylorLab } from '@/components/labs/TaylorLab';
+import { ConcavityExamples, SecondDerivativeLab } from '@/components/labs/SecondDerivativeLab';
 import { MathText } from '@/components/math/MathText';
 import { lessonTwoSections } from '@/data/course';
 
@@ -151,7 +152,7 @@ function RulesSection() {
 
 function SecondDerivativeSection() {
   return (
-    <LessonScaffold sectionId="derivata-seconda" eyebrow="Lezione 2 · 1:20–1:40" title="La derivata della derivata" lead="f″ misura come cambia la pendenza. Sul grafico descrive la concavità; nel moto descrive l’accelerazione.">
+    <LessonScaffold sectionId="derivata-seconda" eyebrow="Lezione 2 · 1:20–1:50" title="La derivata della derivata" lead="f″ misura come cambia la pendenza. Sul grafico descrive la concavità; nel moto descrive l’accelerazione.">
       <Paper elevation={0} sx={{ bgcolor: 'custom.ink', color: '#F2F5FA', p: { xs: 3, sm: 4 }, textAlign: 'center' }}>
         <Typography variant="h4" sx={{ color: '#91A3FA', mb: 1 }}>Derivata seconda</Typography>
         <Box sx={{ overflowX: 'auto', '& .katex': { fontSize: '1.35em' } }}><BlockMath math="f''(x)=(f'(x))'=\frac{d^2y}{dx^2}=D^2f(x)" /></Box>
@@ -161,6 +162,18 @@ function SecondDerivativeSection() {
         <Grid item xs={12} md={4}><PerspectiveCard icon="⌢" label="f″ < 0" title="Concava verso il basso">Le pendenze diminuiscono: il grafico ha la forma di una cupola.</PerspectiveCard></Grid>
         <Grid item xs={12} md={4}><PerspectiveCard icon="a" label="FISICA" title="Accelerazione"><MathText text={"Se \\(s(t)\\) è la posizione, \\(v(t)=s'(t)\\) e \\(a(t)=s''(t)\\)."} /></PerspectiveCard></Grid>
       </Grid>
+      <SectionBlock eyebrow="Prima guarda, poi calcola" title="La derivata seconda è il verso in cui piega il grafico">
+        <Typography paragraph>
+          Non basta ricordare “coppa” e “cupola”. La derivata seconda confronta le pendenze di tangenti vicine: se aumentano, <InlineMath math="f''>0" />; se diminuiscono, <InlineMath math="f''<0" />. Le linee gialle nei grafici rendono visibile proprio questa variazione.
+        </Typography>
+        <ConcavityExamples />
+      </SectionBlock>
+      <SectionBlock eyebrow="Laboratorio interattivo" title="Muovi il punto e osserva cambiare la curvatura">
+        <Typography paragraph>
+          Sposta il punto lungo la funzione e confronta tangente, segno di <InlineMath math="f''" /> e cerchio osculatore. Il cerchio non sostituisce la tangente: aggiunge l’informazione su quanto e verso dove la curva sta piegando.
+        </Typography>
+        <SecondDerivativeLab />
+      </SectionBlock>
       <SectionBlock eyebrow="Anteprima dello studio di funzione" title="Punti stazionari e flessi">
         <Typography paragraph>Un punto è stazionario quando <InlineMath math="f'(x_0)=0" />: la tangente è orizzontale. Può essere un massimo, un minimo o un flesso; per distinguerli servirà studiare il segno di f′ e f″.</Typography>
         <Paper elevation={0} sx={{ p: 3, border: '1px solid', borderColor: 'divider', overflowX: 'auto' }}><BlockMath math="f(x)=x^3-3x\quad\Rightarrow\quad f'(x)=3x^2-3\quad\Rightarrow\quad x=\pm1" /><Typography variant="body2" color="text.secondary">I due punti hanno tangente orizzontale. La derivata seconda <InlineMath math="f''(x)=6x" /> aiuta a capire che uno è un massimo e l’altro un minimo.</Typography></Paper>
@@ -177,7 +190,7 @@ function TaylorSection() {
     ['\\cos x', '1-\\frac{x^2}{2!}+\\frac{x^4}{4!}-\\cdots'],
   ];
   return (
-    <LessonScaffold sectionId="taylor" eyebrow="Lezione 2 · 1:40–1:55 · Opzionale" title="Il DNA locale di una funzione" lead="Le derivate non servono soltanto a calcolare pendenze: raccolte tutte nello stesso punto, possono costruire polinomi che imitano una funzione.">
+    <LessonScaffold sectionId="taylor" eyebrow="Lezione 2 · 1:50–2:05 · Opzionale" title="Il DNA locale di una funzione" lead="Le derivate non servono soltanto a calcolare pendenze: raccolte tutte nello stesso punto, possono costruire polinomi che imitano una funzione.">
       <Alert severity="warning" icon="★"><strong>Approfondimento avanzato.</strong> Questa sezione non fa parte della verifica di base.</Alert>
       <SectionBlock eyebrow="Costruzione in tre passi" title="Quante informazioni vogliamo conservare?">
         <Stack spacing={1.5}>
