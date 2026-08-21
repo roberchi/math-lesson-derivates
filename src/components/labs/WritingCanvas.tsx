@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Box, Button, IconButton, Slider, Stack, Tooltip, Typography } from '@mui/material';
 import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
@@ -7,9 +7,10 @@ import CloseFullscreenRoundedIcon from '@mui/icons-material/CloseFullscreenRound
 import DeleteSweepRoundedIcon from '@mui/icons-material/DeleteSweepRounded';
 import HighlightRoundedIcon from '@mui/icons-material/HighlightRounded';
 import OpenInFullRoundedIcon from '@mui/icons-material/OpenInFullRounded';
+import PanToolAltRoundedIcon from '@mui/icons-material/PanToolAltRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 
-type Tool = 'pen' | 'highlight' | 'eraser';
+type Tool = 'pen' | 'highlight' | 'eraser' | 'pan';
 
 const SURFACE_WIDTH = 1200;
 const INITIAL_SURFACE_HEIGHT = 680;
@@ -20,11 +21,51 @@ export function WritingCanvas({ label = 'Spazio di lavoro', onShowSolution }: { 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const drawing = useRef(false);
+  const drawingPointer = useRef<number | null>(null);
+  const pageUnlock = useRef<(() => void) | null>(null);
+  const unlockTimer = useRef<number | null>(null);
   const [tool, setTool] = useState<Tool>('pen');
   const [color, setColor] = useState('#263B8F');
   const [size, setSize] = useState(4);
   const [expanded, setExpanded] = useState(false);
   const [surfaceHeight, setSurfaceHeight] = useState(INITIAL_SURFACE_HEIGHT);
+
+  const releasePageLock = useCallback(() => {
+    if (unlockTimer.current !== null) {
+      window.clearTimeout(unlockTimer.current);
+      unlockTimer.current = null;
+    }
+    pageUnlock.current?.();
+    pageUnlock.current = null;
+  }, []);
+
+  const lockPageForPencil = () => {
+    if (pageUnlock.current) return;
+
+    const preventPalmScroll = (event: TouchEvent) => event.preventDefault();
+    const viewport = scrollRef.current;
+    const previousOverflow = viewport?.style.overflow ?? '';
+    const previousOverscroll = document.documentElement.style.overscrollBehavior;
+
+    document.addEventListener('touchmove', preventPalmScroll, { passive: false, capture: true });
+    document.documentElement.style.overscrollBehavior = 'none';
+    if (viewport) viewport.style.overflow = 'hidden';
+
+    pageUnlock.current = () => {
+      document.removeEventListener('touchmove', preventPalmScroll, true);
+      document.documentElement.style.overscrollBehavior = previousOverscroll;
+      if (viewport) viewport.style.overflow = previousOverflow;
+    };
+  };
+
+  const releasePageLockAfterPalm = () => {
+    if (!pageUnlock.current) return;
+    if (unlockTimer.current !== null) window.clearTimeout(unlockTimer.current);
+    // Il palmo può restare sul display per qualche istante dopo il sollevamento della Pencil.
+    unlockTimer.current = window.setTimeout(releasePageLock, 300);
+  };
+
+  useEffect(() => () => releasePageLock(), [releasePageLock]);
 
   const coordinates = (event: React.PointerEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current!;
@@ -36,11 +77,20 @@ export function WritingCanvas({ label = 'Spazio di lavoro', onShowSolution }: { 
   };
 
   const start = (event: React.PointerEvent<HTMLCanvasElement>) => {
-    // Un dito serve a spostarsi nel foglio; Pencil, stilo e mouse scrivono.
-    if (event.pointerType === 'touch') return;
+    if (tool === 'pan') return;
+
+    // In modalità disegno il dito è sempre ignorato: serve da palm rejection.
+    if (event.pointerType === 'touch') {
+      event.preventDefault();
+      return;
+    }
+    if (drawingPointer.current !== null) return;
+
     event.preventDefault();
+    if (event.pointerType !== 'mouse') lockPageForPencil();
     event.currentTarget.setPointerCapture(event.pointerId);
     drawing.current = true;
+    drawingPointer.current = event.pointerId;
     const context = canvasRef.current?.getContext('2d');
     if (!context) return;
     const point = coordinates(event);
@@ -49,7 +99,7 @@ export function WritingCanvas({ label = 'Spazio di lavoro', onShowSolution }: { 
   };
 
   const move = (event: React.PointerEvent<HTMLCanvasElement>) => {
-    if (!drawing.current || event.pointerType === 'touch') return;
+    if (tool === 'pan' || !drawing.current || event.pointerId !== drawingPointer.current) return;
     event.preventDefault();
     const context = canvasRef.current?.getContext('2d');
     if (!context) return;
@@ -65,14 +115,17 @@ export function WritingCanvas({ label = 'Spazio di lavoro', onShowSolution }: { 
     context.stroke();
   };
 
-  const stop = () => {
+  const stop = (event: React.PointerEvent<HTMLCanvasElement>) => {
+    if (event.pointerId !== drawingPointer.current) return;
     drawing.current = false;
+    drawingPointer.current = null;
     const context = canvasRef.current?.getContext('2d');
     if (context) {
       context.closePath();
       context.globalAlpha = 1;
       context.globalCompositeOperation = 'source-over';
     }
+    if (event.pointerType !== 'mouse') releasePageLockAfterPalm();
   };
 
   const clear = () => {
@@ -117,13 +170,20 @@ export function WritingCanvas({ label = 'Spazio di lavoro', onShowSolution }: { 
             {label.toUpperCase()} · PENCIL/STILO COMPATIBILE
           </Typography>
           <Typography variant="caption" color="text.secondary">
-            Scrivi con penna o mouse · scorri con un dito, rotella o trackpad
+            {tool === 'pan'
+              ? 'MODALITÀ SPOSTA · trascina il foglio con un dito'
+              : 'MODALITÀ DISEGNO · foglio bloccato e protezione palmo attiva'}
           </Typography>
         </Box>
         <Stack direction="row" alignItems="center" gap={0.5} flexWrap="wrap">
           <Tooltip title="Penna"><IconButton size="small" color={tool === 'pen' ? 'primary' : 'default'} onClick={() => setTool('pen')} aria-label="Penna"><BorderColorRoundedIcon fontSize="small" /></IconButton></Tooltip>
           <Tooltip title="Evidenziatore"><IconButton size="small" color={tool === 'highlight' ? 'primary' : 'default'} onClick={() => setTool('highlight')} aria-label="Evidenziatore"><HighlightRoundedIcon fontSize="small" /></IconButton></Tooltip>
           <Tooltip title="Gomma"><IconButton size="small" color={tool === 'eraser' ? 'primary' : 'default'} onClick={() => setTool('eraser')} aria-label="Gomma"><CleaningServicesRoundedIcon fontSize="small" /></IconButton></Tooltip>
+          <Tooltip title="Sposta il foglio">
+            <IconButton size="small" color={tool === 'pan' ? 'primary' : 'default'} onClick={() => setTool('pan')} aria-label="Sposta il foglio" aria-pressed={tool === 'pan'}>
+              <PanToolAltRoundedIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
           <input type="color" value={color} onChange={(event) => setColor(event.target.value)} aria-label="Colore tratto" style={{ width: 28, height: 28, border: 0, padding: 0, background: 'transparent' }} />
           <Box sx={{ width: 70, px: 1 }}><Slider size="small" min={2} max={12} value={size} onChange={(_event, value) => setSize(value as number)} aria-label="Dimensione tratto" /></Box>
           <Tooltip title={expanded ? 'Riduci la vista' : 'Allarga la vista'}>
@@ -180,8 +240,10 @@ export function WritingCanvas({ label = 'Spazio di lavoro', onShowSolution }: { 
               width: SURFACE_WIDTH,
               height: surfaceHeight,
               display: 'block',
-              cursor: tool === 'eraser' ? 'cell' : 'crosshair',
-              touchAction: 'pan-x pan-y',
+              cursor: tool === 'pan' ? 'grab' : tool === 'eraser' ? 'cell' : 'crosshair',
+              touchAction: tool === 'pan' ? 'pan-x pan-y' : 'none',
+              userSelect: 'none',
+              WebkitUserSelect: 'none',
             }}
           />
         </Box>
