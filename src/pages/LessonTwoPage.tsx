@@ -56,6 +56,13 @@ function WarmupSection() {
         <Typography variant="h2" sx={{ fontSize: '2.25rem', mb: 1 }}>Costruire, non ricevere, la tabella.</Typography>
         <Typography sx={{ color: '#C9D2E0' }}>Ogni formula fondamentale e ogni regola verrà ricavata da ciò che già sappiamo sui limiti.</Typography>
       </Paper>
+      <SectionBlock eyebrow="Prerequisiti riattivati" title="I due limiti notevoli che useremo">
+        <Typography paragraph>Non li stiamo dimostrando qui: li richiamiamo numericamente e li dichiariamo come risultati già noti. Sono il ponte necessario per derivare seno ed esponenziale senza passaggi nascosti.</Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}><Paper elevation={0} sx={{ p: 2.5, border: '1px solid', borderColor: 'divider', overflowX: 'auto' }}><BlockMath math="\lim_{t\to0}\frac{\sin t}{t}=1" /><Typography variant="body2" color="text.secondary">Per t = 0,1 il rapporto vale circa 0,9983; per t = 0,01 vale circa 0,99998.</Typography></Paper></Grid>
+          <Grid item xs={12} sm={6}><Paper elevation={0} sx={{ p: 2.5, border: '1px solid', borderColor: 'divider', overflowX: 'auto' }}><BlockMath math="\lim_{t\to0}\frac{e^t-1}{t}=1" /><Typography variant="body2" color="text.secondary">Per t = 0,1 il rapporto vale circa 1,0517; per t = 0,01 vale circa 1,0050.</Typography></Paper></Grid>
+        </Grid>
+      </SectionBlock>
     </LessonScaffold>
   );
 }
@@ -65,7 +72,6 @@ function FundamentalsSection() {
     ['c', 'Δy = 0', '0'],
     ['x^n', 'binomio di Newton', 'nx^{n-1}'],
     ['e^x', '\\lim (e^h-1)/h=1', 'e^x'],
-    ['\\ln x', 'inversa di e^x', '\\frac1x'],
     ['\\sin x', '\\lim \\sin h/h=1', '\\cos x'],
     ['\\cos x', 'formule di addizione', '-\\sin x'],
   ];
@@ -83,11 +89,11 @@ function FundamentalsSection() {
             { label: 'Dividi per h', formula: "nx^{n-1}+\\binom n2x^{n-2}h+\\cdots+h^{n-1}", explanation: 'Dopo la semplificazione solo il primo termine non conserva un fattore h.' },
             { label: 'Limite', formula: "\\lim_{h\\to0}(nx^{n-1}+h\\cdot\\ldots)=nx^{n-1}", explanation: 'I termini che contengono h tendono a zero.' },
           ]} conclusion="La regola della potenza non è un trucco: è il primo coefficiente del binomio di Newton che sopravvive al limite." />
-          <Derivation title="Logaritmo naturale" formula="(\ln x)'=1/x" meaning="Dice che la pendenza di \(\ln x\) nel punto \(x\) è il reciproco di \(x\). Vale nel dominio del logaritmo, quindi per \(x>0\)." steps={[
-            { label: 'Funzioni inverse', formula: "y=\\ln x\\iff x=e^y", explanation: 'Il logaritmo naturale è l’inversa dell’esponenziale.' },
-            { label: 'Deriva implicitamente', formula: "1=e^y\\frac{dy}{dx}", explanation: 'Deriviamo entrambi i membri rispetto a x; la catena produce dy/dx.' },
-            { label: 'Sostituisci e risolvi', formula: "\\frac{dy}{dx}=\\frac1{e^y}=\\frac1x", explanation: 'Poiché \\(e^y=x\\), otteniamo il reciproco di x.' },
-          ]} conclusion="Per x > 0, \((\ln x)'=1/x\)." />
+          <Derivation title="Seno · dimostrazione guidata" formula="(\sin x)'=\cos x" meaning="Il coseno misura la pendenza del seno nello stesso punto." defaultExpanded steps={[
+            { label: 'Rapporto incrementale', formula: "\\frac{\\sin(x+h)-\\sin x}{h}", explanation: 'Partiamo dalla definizione.' },
+            { label: 'Formula di prostaferesi', formula: "\\sin(x+h)-\\sin x=2\\cos(x+h/2)\\sin(h/2)", explanation: 'Trasformiamo la differenza in un prodotto.' },
+            { label: 'Limite notevole', formula: "\\cos(x+h/2)\\frac{\\sin(h/2)}{h/2}\\to\\cos x", explanation: 'Il secondo fattore tende a 1, come richiamato nel warm-up.' },
+          ]} conclusion="Quindi \((\sin x)'=\cos x\)." />
           <Derivation title="Coseno" formula="(\cos x)'=-\sin x" meaning="Dice che la pendenza del coseno nel punto \(x\) è l’opposto del valore del seno nello stesso punto. Il segno meno indica che il coseno inizialmente scende." steps={[
             { label: 'Formula di addizione', formula: "\\cos(x+h)=\\cos x\\cos h-\\sin x\\sin h", explanation: 'Sostituiamo nel rapporto incrementale.' },
             { label: 'Separa', formula: "\\cos x\\frac{\\cos h-1}{h}-\\sin x\\frac{\\sin h}{h}", explanation: 'Compaiono due limiti notevoli.' },
@@ -128,13 +134,20 @@ function RulesSection() {
         ]} conclusion="Nel numeratore l’ordine conta: derivata del sopra per sotto meno sopra per derivata del sotto." />
         <Derivation title="Regola della catena" formula="(f\circ g)'=f'(g)\,g'" meaning="Serve quando una funzione è dentro un’altra: \(f\circ g\) significa \(f(g(x))\). Si deriva la funzione esterna, la si valuta nell’interno e si moltiplica per la derivata della funzione interna." steps={[
           { label: 'Rapporto della composta', formula: "\\frac{f(g(x+h))-f(g(x))}{h}", explanation: 'La variazione esterna dipende dalla variazione della funzione interna.' },
-          { label: 'Introduci k', formula: "\\frac{f(g(x)+k)-f(g(x))}{k}\\cdot\\frac{g(x+h)-g(x)}h,\\quad k=g(x+h)-g(x)", explanation: 'Moltiplichiamo e dividiamo per la variazione interna k.' },
+          { label: 'Introduci k senza dividere per zero', formula: "\\varphi(k)\\frac{g(x+h)-g(x)}h,\\quad k=g(x+h)-g(x)", explanation: "Poniamo φ(k)=[f(g(x)+k)-f(g(x))]/k per k≠0 e φ(0)=f′(g(x)). Così l'identità resta valida anche quando la variazione interna è zero." },
           { label: 'Passa al limite', formula: "f'(g(x))\\cdot g'(x)", explanation: 'Per continuità di g, \\(h\\to0\\) implica \\(k\\to0\\).' },
         ]} conclusion="Deriva l’esterno valutato nell’interno, poi moltiplica per la derivata dell’interno." />
       </Stack>
 
       <SectionBlock eyebrow="Esempio canonico" title="sin(x²): leggere gli strati">
         <ChainRuleLayers />
+      </SectionBlock>
+      <SectionBlock eyebrow="Dopo la catena" title="Ora possiamo giustificare il logaritmo">
+        <Derivation title="Logaritmo naturale · approfondimento" formula="(\ln x)'=1/x" meaning="La dimostrazione usa la catena, quindi viene presentata solo adesso." steps={[
+          { label: 'Funzioni inverse', formula: "y=\\ln x\\iff e^y=x", explanation: 'Il logaritmo è l’inversa dell’esponenziale.' },
+          { label: 'Deriva con la catena', formula: "e^y\\frac{dy}{dx}=1", explanation: 'Derivando e^y rispetto a x compare dy/dx.' },
+          { label: 'Risolvi', formula: "\\frac{dy}{dx}=\\frac1{e^y}=\\frac1x", explanation: 'Sostituiamo e^y=x, con x>0.' },
+        ]} conclusion="La prova non è più circolare: la regola della catena è già stata costruita." />
       </SectionBlock>
 
       <HistoryNote title="Il trucco nella regola del prodotto" summary="Aggiungere e sottrarre lo stesso termine trasforma un’espressione opaca in due rapporti incrementali." href="https://en.wikipedia.org/wiki/Product_rule">

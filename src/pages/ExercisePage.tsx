@@ -35,6 +35,7 @@ import { useProgressStore } from '@/store/progressStore';
 import { useUIStore } from '@/store/uiStore';
 import type { SolutionStep } from '@/types/exercise';
 import { buildAdaptiveOrder, calculateScore, createSeededChoices, stripLatex } from '@/utils/learning';
+import { getClassMetrics } from '@/utils/learning';
 
 const shake = keyframes`
   0%, 100% { transform: translateX(0); }
@@ -55,6 +56,7 @@ export function ExercisePage() {
   const finalize = useProgressStore((state) => state.finalizeExercise);
   const markSolution = useProgressStore((state) => state.markSolutionViewed);
   const markProof = useProgressStore((state) => state.markProofViewed);
+  const passProofCheckpoint = useProgressStore((state) => state.passProofCheckpoint);
   const completeClass = useProgressStore((state) => state.completeClass);
   const resetExercise = useProgressStore((state) => state.resetExercise);
   const notify = useUIStore((state) => state.showSnackbar);
@@ -68,7 +70,9 @@ export function ExercisePage() {
   const [hintOpen, setHintOpen] = useState(false);
   const [proofOpen, setProofOpen] = useState(false);
   const [solutionOpen, setSolutionOpen] = useState(false);
+  const [helpLevel, setHelpLevel] = useState(0);
   const [feedback, setFeedback] = useState<Feedback>(null);
+  const [proofChoice, setProofChoice] = useState<number | null>(null);
   const nextButton = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -81,7 +85,9 @@ export function ExercisePage() {
     setHintOpen(false);
     setProofOpen(false);
     setSolutionOpen(false);
+    setHelpLevel(0);
     setFeedback(null);
+    setProofChoice(null);
   }, [exId]);
 
   const choices = useMemo(
@@ -90,8 +96,8 @@ export function ExercisePage() {
   );
 
   if (!db || !cls || !exercise) return db ? <Navigate to="/" replace /> : null;
-  const effectivelyUnlocked = progress.classes[classId]?.unlocked ||
-    cls.prerequisite_classes.every((id) => progress.classes[id]?.completed);
+  const effectivelyUnlocked = progress.classes[classId]?.unlocked || progress.classes[classId]?.consultation ||
+    cls.prerequisite_classes.every((id) => progress.classes[id]?.mastered && progress.classes[id]?.unlocked);
   if (!effectivelyUnlocked) return <Navigate to="/" replace />;
 
   const ordered = buildAdaptiveOrder(cls.exercises, classId, progress);
@@ -101,12 +107,20 @@ export function ExercisePage() {
   const tries = attempt?.tries ?? [];
   const done = attempt?.done ?? false;
   const rules = db.progression_rules.scoring;
+  const isRepresentativeProof = cls.exercises.find((item) => item.proof_from_limit)?.id === exId;
+  const checkpoint = exercise.proof_from_limit?.checkpoint ?? {
+    prompt: 'Qual è il passaggio che rende valida questa dimostrazione?',
+    choices: ['Semplificare per h quando h è diverso da zero e solo dopo passare al limite', 'Porre subito h uguale a zero', 'Copiare la formula finale senza il rapporto incrementale'],
+    correctIndex: 0,
+    explanation: 'Nel rapporto h resta diverso da zero; soltanto il limite descrive che cosa accade quando h si avvicina a zero.',
+  };
 
   const finishClassIfNeeded = () => {
+    const currentProgress = useProgressStore.getState().progress;
     const everyOtherDone = cls.exercises.every(
-      (item) => item.id === exId || progress.classes[classId]?.attempts[item.id]?.done,
+      (item) => currentProgress.classes[classId]?.attempts[item.id]?.done,
     );
-    if (everyOtherDone) completeClass(classId);
+    if (everyOtherDone) completeClass(classId, getClassMetrics(cls, currentProgress).mastered);
     return everyOtherDone;
   };
 
@@ -131,7 +145,7 @@ export function ExercisePage() {
         setFeedback({ type: 'error', title: 'Tentativi terminati', body: 'Osserva la risposta corretta e studia i passaggi della soluzione.' });
         setSolutionOpen(true);
       } else {
-        setFeedback({ type: 'error', title: 'Non è corretto', body: `Riprova: ti ${3 - nextTries.length === 1 ? 'rimane' : 'rimangono'} ${3 - nextTries.length} ${3 - nextTries.length === 1 ? 'tentativo' : 'tentativi'}.` });
+        setFeedback({ type: 'error', title: 'Non è corretto', body: `${choices[selected].feedback} Ti ${3 - nextTries.length === 1 ? 'rimane' : 'rimangono'} ${3 - nextTries.length} ${3 - nextTries.length === 1 ? 'tentativo' : 'tentativi'}.` });
       }
     }
   };
@@ -146,11 +160,18 @@ export function ExercisePage() {
     setFeedback({ type: 'info', title: 'Soluzione mostrata', body: 'Studia i passaggi: potrai ripetere l’esercizio quando vuoi.' });
   };
 
+  const advanceHelp = () => {
+    if (helpLevel < 3) {
+      setHelpLevel((value) => value + 1);
+      return;
+    }
+    showSolution();
+  };
+
   const toggleProof = (_event: React.SyntheticEvent, expanded: boolean) => {
     setProofOpen(expanded);
     if (expanded && done && !attempt?.proofViewed) {
-      markProof(classId, exId, rules.viewed_proof_bonus);
-      notify(`📐 +${rules.viewed_proof_bonus} punto per la dimostrazione`);
+      markProof(classId, exId, 0);
     }
   };
 
@@ -238,10 +259,16 @@ export function ExercisePage() {
         ) : (
           <Button ref={nextButton} variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} onClick={goForward} sx={{ flex: 1 }}>Prosegui</Button>
         )}
-        <Button variant="outlined" size="large" color="inherit" startIcon={done ? <RefreshRoundedIcon /> : <VisibilityOutlinedIcon />} onClick={done ? retry : showSolution}>
-          {done ? 'Riprova esercizio' : 'Mostra soluzione'}
+        <Button variant="outlined" size="large" color="inherit" startIcon={done ? <RefreshRoundedIcon /> : <VisibilityOutlinedIcon />} onClick={done ? retry : advanceHelp}>
+          {done ? 'Riprova esercizio' : helpLevel === 0 ? 'Mostra un indizio' : helpLevel === 1 ? 'Richiama il concetto' : helpLevel === 2 ? 'Mostra il primo passaggio' : 'Mostra la soluzione completa'}
         </Button>
       </Stack>
+
+      {!done && helpLevel > 0 && <Alert severity="info" sx={{ mb: 2 }}>
+        {helpLevel === 1 && <MathText text={exercise.problem.hint ?? 'Individua prima la struttura della funzione e la regola necessaria.'} />}
+        {helpLevel === 2 && <>Richiamo: scrivi prima la regola generale, poi assegna un nome alle funzioni coinvolte e soltanto dopo sostituisci.</>}
+        {helpLevel >= 3 && <><strong>Primo passaggio:</strong> <MathText text={`\\(${exercise.solution_steps[0]?.latex ?? exercise.answer.latex}\\) — ${exercise.solution_steps[0]?.explanation ?? ''}`} /></>}
+      </Alert>}
 
       {feedback && (
         <Alert severity={feedback.type} sx={{ mb: 3 }} action={feedback.points !== undefined ? <Chip label={`+${feedback.points} pt`} color="success" size="small" /> : undefined}>
@@ -254,13 +281,19 @@ export function ExercisePage() {
           <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}>
             <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ sm: 'center' }} gap={1}>
               <Typography fontWeight={800} sx={{ color: 'custom.gold' }}>📐 Dimostrazione dal limite</Typography>
-              <Chip size="small" label={attempt?.proofViewed ? 'bonus ottenuto ✓' : `+${rules.viewed_proof_bonus} pt bonus`} color="warning" variant="outlined" />
+              <Chip size="small" label={attempt?.proofViewed ? 'letta ✓' : 'lettura guidata'} color="warning" variant="outlined" />
             </Stack>
           </AccordionSummary>
           <AccordionDetails sx={{ bgcolor: 'background.paper', p: { xs: 2, sm: 3 } }}>
             <Typography variant="h3" mb={2}>{exercise.proof_from_limit.title}</Typography>
             <StepList steps={exercise.proof_from_limit.steps} color="gold" />
             <Box sx={{ mt: 2, p: 2, bgcolor: 'custom.goldLight', borderLeft: '3px solid', borderColor: 'custom.gold' }}><Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>Conclusione</Typography><MathText text={exercise.proof_from_limit.conclusion} /></Box>
+            {isRepresentativeProof && <Paper elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'warning.light' }}>
+              <Typography fontWeight={800} mb={1}>Checkpoint di comprensione</Typography>
+              <Typography variant="body2" mb={1.5}>{checkpoint.prompt}</Typography>
+              <Stack gap={1}>{checkpoint.choices.map((choice, index) => <Button key={choice} variant={proofChoice === index ? 'contained' : 'outlined'} color={proofChoice !== null && index === checkpoint.correctIndex ? 'success' : 'warning'} onClick={() => { setProofChoice(index); if (index === checkpoint.correctIndex) passProofCheckpoint(classId, exId); }}>{choice}</Button>)}</Stack>
+              {proofChoice !== null && <Alert severity={proofChoice === checkpoint.correctIndex ? 'success' : 'warning'} sx={{ mt: 1.5 }}>{proofChoice === checkpoint.correctIndex ? checkpoint.explanation : 'Rileggi il passaggio in cui compare h e riprova.'}</Alert>}
+            </Paper>}
           </AccordionDetails>
         </Accordion>
       )}

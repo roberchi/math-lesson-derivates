@@ -8,7 +8,7 @@ describe('progressStore', () => {
     useProgressStore.setState({ progress: { ...DEFAULT_PROGRESS, classes: {} } });
   });
 
-  it('registra punteggio e bonus una sola volta', () => {
+  it('registra il punteggio senza bonus di lettura', () => {
     const store = useProgressStore.getState();
     store.initializeClasses(['classe']);
     store.unlockClass('classe');
@@ -18,7 +18,7 @@ describe('progressStore', () => {
     store.markProofViewed('classe', 'esercizio', 1);
 
     const progress = useProgressStore.getState().progress;
-    expect(progress.totalPoints).toBe(4);
+    expect(progress.totalPoints).toBe(3);
     expect(progress.classes.classe.attempts.esercizio.proofViewed).toBe(true);
   });
 

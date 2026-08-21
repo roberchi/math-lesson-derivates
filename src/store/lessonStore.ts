@@ -2,10 +2,12 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface LessonProgressStore {
-  completedSections: string[];
+  readSections: string[];
+  verifiedConcepts: string[];
   lastSectionId: string | null;
-  markComplete: (sectionId: string) => void;
-  markIncomplete: (sectionId: string) => void;
+  markRead: (sectionId: string) => void;
+  markUnread: (sectionId: string) => void;
+  verifyConcept: (conceptId: string) => void;
   setLastSection: (sectionId: string) => void;
   resetLessons: () => void;
 }
@@ -13,23 +15,27 @@ interface LessonProgressStore {
 export const useLessonStore = create<LessonProgressStore>()(
   persist(
     (set) => ({
-      completedSections: [],
+      readSections: [],
+      verifiedConcepts: [],
       lastSectionId: null,
-      markComplete: (sectionId) =>
+      markRead: (sectionId) =>
         set((state) => ({
-          completedSections: state.completedSections.includes(sectionId)
-            ? state.completedSections
-            : [...state.completedSections, sectionId],
+          readSections: state.readSections.includes(sectionId)
+            ? state.readSections
+            : [...state.readSections, sectionId],
         })),
-      markIncomplete: (sectionId) =>
+      markUnread: (sectionId) =>
         set((state) => ({
-          completedSections: state.completedSections.filter((id) => id !== sectionId),
+          readSections: state.readSections.filter((id) => id !== sectionId),
         })),
+      verifyConcept: (conceptId) => set((state) => ({
+        verifiedConcepts: state.verifiedConcepts.includes(conceptId) ? state.verifiedConcepts : [...state.verifiedConcepts, conceptId],
+      })),
       setLastSection: (lastSectionId) => set({ lastSectionId }),
-      resetLessons: () => set({ completedSections: [], lastSectionId: null }),
+      resetLessons: () => set({ readSections: [], verifiedConcepts: [], lastSectionId: null }),
     }),
     {
-      name: 'derivate_lesson_progress_v1',
+      name: 'derivate_lesson_progress_v2',
       storage: createJSONStorage(() => localStorage),
     },
   ),

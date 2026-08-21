@@ -11,7 +11,10 @@ import {
 
 const emptyClass = (): ClassProgress => ({
   unlocked: false,
+  seen: false,
   completed: false,
+  mastered: false,
+  consultation: false,
   attempts: {},
 });
 
@@ -24,7 +27,9 @@ interface ProgressStore {
   finalizeExercise: (classId: string, exerciseId: string, score: number) => void;
   markSolutionViewed: (classId: string, exerciseId: string) => void;
   markProofViewed: (classId: string, exerciseId: string, bonus: number) => void;
-  completeClass: (classId: string) => void;
+  passProofCheckpoint: (classId: string, exerciseId: string) => void;
+  completeClass: (classId: string, mastered: boolean) => void;
+  startConsultation: (classId: string) => void;
   resetExercise: (classId: string, exerciseId: string) => void;
   resetProgress: () => void;
   importProgress: (json: string) => boolean;
@@ -83,6 +88,10 @@ export const useProgressStore = create<ProgressStore>()(
             ...state.progress,
             lastVisitedClassId: classId,
             lastVisitedExerciseId: exerciseId,
+            classes: {
+              ...state.progress.classes,
+              [classId]: { ...(state.progress.classes[classId] ?? emptyClass()), seen: true },
+            },
           },
         })),
       recordAttempt: (classId, exerciseId, result) =>
@@ -110,17 +119,11 @@ export const useProgressStore = create<ProgressStore>()(
             solutionViewed: true,
           })),
         })),
-      markProofViewed: (classId, exerciseId, bonus) =>
-        set((state) => {
-          const existing = state.progress.classes[classId]?.attempts[exerciseId];
-          if (!existing?.done || existing.proofViewed) return state;
-          const next = updateAttempt(state.progress, classId, exerciseId, (attempt) => ({
-            ...attempt,
-            proofViewed: true,
-          }));
-          return { progress: { ...next, totalPoints: next.totalPoints + bonus } };
-        }),
-      completeClass: (classId) =>
+      markProofViewed: (classId, exerciseId) =>
+        set((state) => ({ progress: updateAttempt(state.progress, classId, exerciseId, (attempt) => ({ ...attempt, proofViewed: true })) })),
+      passProofCheckpoint: (classId, exerciseId) =>
+        set((state) => ({ progress: updateAttempt(state.progress, classId, exerciseId, (attempt) => ({ ...attempt, proofCheckpointPassed: true })) })),
+      completeClass: (classId, mastered) =>
         set((state) => ({
           progress: {
             ...state.progress,
@@ -128,17 +131,28 @@ export const useProgressStore = create<ProgressStore>()(
               ...state.progress.classes,
               [classId]: {
                 ...(state.progress.classes[classId] ?? emptyClass()),
+                seen: true,
                 completed: true,
+                mastered,
                 completedAt: new Date().toISOString(),
               },
             },
           },
         })),
+      startConsultation: (classId) => set((state) => ({
+        progress: {
+          ...state.progress,
+          classes: {
+            ...state.progress.classes,
+            [classId]: { ...(state.progress.classes[classId] ?? emptyClass()), consultation: true, seen: true },
+          },
+        },
+      })),
       resetExercise: (classId, exerciseId) =>
         set((state) => {
           const previous = state.progress.classes[classId]?.attempts[exerciseId];
           if (!previous) return state;
-          const deduction = (previous.score ?? 0) + (previous.proofViewed ? 1 : 0);
+          const deduction = previous.score ?? 0;
           const next = updateAttempt(state.progress, classId, exerciseId, () => ({ ...EMPTY_ATTEMPT }));
           return {
             progress: {
@@ -146,7 +160,7 @@ export const useProgressStore = create<ProgressStore>()(
               totalPoints: Math.max(0, next.totalPoints - deduction),
               classes: {
                 ...next.classes,
-                [classId]: { ...next.classes[classId], completed: false, completedAt: undefined },
+                [classId]: { ...next.classes[classId], completed: false, mastered: false, completedAt: undefined },
               },
             },
           };
@@ -156,7 +170,7 @@ export const useProgressStore = create<ProgressStore>()(
       importProgress: (json) => {
         try {
           const parsed = JSON.parse(json) as UserProgress;
-          if (parsed.version !== 3 || typeof parsed.classes !== 'object') return false;
+          if (parsed.version !== 4 || typeof parsed.classes !== 'object') return false;
           set({ progress: parsed });
           return true;
         } catch {
@@ -165,9 +179,9 @@ export const useProgressStore = create<ProgressStore>()(
       },
     }),
     {
-      name: 'deriv_progress_v3',
+      name: 'deriv_progress_v4',
       storage: createJSONStorage(() => localStorage),
-      version: 3,
+      version: 4,
       partialize: (state) => ({ progress: state.progress }),
     },
   ),

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { buildAdaptiveOrder, calculateScore } from './learning';
-import type { Exercise } from '@/types/exercise';
+import { buildAdaptiveOrder, calculateScore, getClassMetrics } from './learning';
+import type { Exercise, ExerciseClass } from '@/types/exercise';
 import type { UserProgress } from '@/types/progress';
 
 const rules = {
@@ -23,6 +23,22 @@ describe('calculateScore', () => {
   });
 });
 
+describe('mastery', () => {
+  const exercise = (id: string): Exercise => ({ id, difficulty: 1, title: id, tags: [], problem: { text: id }, answer: { latex: id }, proof_from_limit: null, solution_steps: [] });
+  const cls: ExerciseClass = { id: 'c', title: 'c', description: '', icon: '', prerequisite_classes: [], exercises: [exercise('a'), exercise('b'), exercise('c')] };
+  const progress = (scores: number[]): UserProgress => ({
+    version: 4, totalPoints: scores.reduce((sum, score) => sum + score, 0), lastVisitedClassId: null, lastVisitedExerciseId: null,
+    classes: { c: { unlocked: true, seen: true, completed: true, mastered: false, consultation: false, attempts: Object.fromEntries(scores.map((score, index) => [cls.exercises[index].id, { tries: score ? ['correct'] : ['wrong', 'wrong', 'wrong'], score, done: true, proofViewed: true, proofCheckpointPassed: true, solutionViewed: false }])) } },
+  });
+
+  it('richiede il 70% e almeno due risposte corrette, escludendo la lettura delle prove', () => {
+    expect(getClassMetrics(cls, progress([3, 3, 1])).mastered).toBe(true);
+    expect(getClassMetrics(cls, progress([3, 3, 0])).mastered).toBe(false);
+    expect(getClassMetrics(cls, progress([3, 0, 0])).mastered).toBe(false);
+    expect(getClassMetrics(cls, progress([3, 3, 1])).bonus).toBe(0);
+  });
+});
+
 describe('buildAdaptiveOrder', () => {
   it('mette prima gli incompleti e poi i completati con score basso', () => {
     const exercise = (id: string, difficulty: 1 | 2 | 3): Exercise => ({
@@ -37,14 +53,17 @@ describe('buildAdaptiveOrder', () => {
     });
     const exercises = [exercise('done-high', 1), exercise('todo-hard', 3), exercise('done-low', 2), exercise('todo-easy', 1)];
     const progress: UserProgress = {
-      version: 3,
+      version: 4,
       totalPoints: 0,
       lastVisitedClassId: null,
       lastVisitedExerciseId: null,
       classes: {
         c: {
           unlocked: true,
+          seen: true,
           completed: false,
+          mastered: false,
+          consultation: false,
           attempts: {
             'done-high': { tries: ['correct'], score: 3, done: true, proofViewed: false, solutionViewed: false },
             'done-low': { tries: ['wrong', 'wrong', 'correct'], score: 1, done: true, proofViewed: false, solutionViewed: false },

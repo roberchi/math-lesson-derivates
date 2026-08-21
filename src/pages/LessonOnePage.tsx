@@ -6,6 +6,7 @@ import { HistoryNote } from '@/components/lesson/HistoryNote';
 import { LessonScaffold, PerspectiveCard, SectionBlock } from '@/components/lesson/LessonScaffold';
 import { GeometryLab } from '@/components/labs/GeometryLab';
 import { MathText } from '@/components/math/MathText';
+import { VelocityInquiry } from '@/components/lesson/VelocityInquiry';
 import { lessonOneSections } from '@/data/course';
 
 export function LessonOnePage() {
@@ -31,6 +32,7 @@ function VelocitySection() {
           ].map((item) => <Grid item xs={12} sm={4} key={item.label}><Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}><Typography variant="caption" color="primary.main">{item.label}</Typography><Typography variant="h3" sx={{ my: 1 }}>{item.value}</Typography><Typography variant="body2">{item.body}</Typography></Paper></Grid>)}
         </Grid>
       </SectionBlock>
+      <VelocityInquiry />
 
       <Paper elevation={0} sx={{ bgcolor: 'custom.ink', color: '#F2F5FA', p: { xs: 3, sm: 4 }, borderRadius: 2 }}>
         <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>Il ponte verso il limite</Typography>
@@ -64,6 +66,11 @@ function GeometrySection() {
           <MathLine number="3" formula="\lim_{h\to0}(2+h)=2" text="La pendenza della tangente in x₀ = 1 è 2." />
         </Stack>
       </SectionBlock>
+      <SectionBlock eyebrow="Un’altra direzione" title="La retta normale">
+        <Typography paragraph>La normale passa per lo stesso punto della tangente, ma è perpendicolare. Se la tangente ha pendenza finita e diversa da zero, <InlineMath math="m_n=-1/m_t" />.</Typography>
+        <Paper elevation={0} sx={{ p: 2.5, border: '1px solid', borderColor: 'divider', overflowX: 'auto' }}><BlockMath math="f(x)=x^2,\ x_0=1:\quad m_t=2,\quad t:y-1=2(x-1),\quad n:y-1=-\frac12(x-1)" /></Paper>
+        <Typography variant="body2" color="text.secondary" mt={1.5}>Se la tangente è orizzontale, la normale è verticale: <InlineMath math="x=x_0" />. Se la tangente è verticale, la normale è orizzontale: <InlineMath math="y=f(x_0)" />.</Typography>
+      </SectionBlock>
       <HistoryNote title="Leibniz, gli infinitesimi e dy/dx" summary="La notazione dy/dx conserva l’intuizione geometrica di un rapporto fra variazioni." href="https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/">
         Nel 1675 Leibniz introdusse i simboli dx e dy. Li pensava come variazioni infinitamente piccole: un’idea potentissima, anche se la base rigorosa arriverà nell’Ottocento con la definizione di limite di Cauchy.
       </HistoryNote>
@@ -86,10 +93,10 @@ function DefinitionSection() {
           <Grid item xs={12} sm={6}><PerspectiveCard icon="•" label="IN UN PUNTO" title="f′(x₀) è un numero">Misura la pendenza o il tasso di variazione in uno specifico punto x₀.</PerspectiveCard></Grid>
           <Grid item xs={12} sm={6}><PerspectiveCard icon="ƒ" label="PER OGNI PUNTO" title="f′(x) è una funzione">Ripetendo il limite per ogni x otteniamo una nuova funzione: la funzione derivata.</PerspectiveCard></Grid>
         </Grid>
-        <Stack direction="row" gap={1} flexWrap="wrap" useFlexGap mt={2}>{["f'(x)\\;\\text{(Lagrange)}", '\\frac{dy}{dx}\\;\\text{(Leibniz)}', 'Df\\;\\text{(operatoriale)}', '\\dot{x}\\;\\text{(Newton, nel tempo)}'].map((math) => <Paper key={math} elevation={0} sx={{ py: 1, px: 1.5, border: '1px solid', borderColor: 'divider' }}><InlineMath math={math} /></Paper>)}</Stack>
+        <Paper component="details" elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'divider' }}><Typography component="summary" fontWeight={700} sx={{ cursor: 'pointer' }}>Approfondimento: quattro notazioni storiche</Typography><Stack direction="row" gap={1} flexWrap="wrap" useFlexGap mt={2}>{["f'(x)\\;\\text{(Lagrange)}", '\\frac{dy}{dx}\\;\\text{(Leibniz)}', 'Df\\;\\text{(operatoriale)}', '\\dot{x}\\;\\text{(Newton, nel tempo)}'].map((math) => <Paper key={math} elevation={0} sx={{ py: 1, px: 1.5, border: '1px solid', borderColor: 'divider' }}><InlineMath math={math} /></Paper>)}</Stack></Paper>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Tre derivazioni obbligatorie" title="Le formule nascono dal limite">
+      <SectionBlock eyebrow="Dimostrazione guidata obbligatoria" title="La formula nasce dal limite">
         <Stack spacing={2}>
           <Derivation title="Derivata di x²" formula="(x^2)'=2x" meaning="Dice che la pendenza della parabola \(y=x^2\), in ogni punto \(x\), vale \(2x\). A destra dell’origine è positiva, a sinistra è negativa e in zero vale zero." defaultExpanded steps={[
             { label: 'Rapporto incrementale', formula: "\\frac{(x+h)^2-x^2}{h}", explanation: 'Partiamo dalla definizione con \\(f(x)=x^2\\).' },
@@ -97,17 +104,6 @@ function DefinitionSection() {
             { label: 'Semplifica h', formula: "\\frac{h(2x+h)}{h}=2x+h", explanation: 'Per \\(h\\neq0\\) possiamo semplificare il fattore h.' },
             { label: 'Passa al limite', formula: "\\lim_{h\\to0}(2x+h)=2x", explanation: 'Quando h tende a zero rimane \\(2x\\).' },
           ]} conclusion="Quindi, per ogni x, \((x^2)'=2x\)." />
-          <Derivation title="Derivata di sin x" formula="(\sin x)'=\cos x" meaning="Dice che la pendenza del grafico del seno nel punto \(x\) è il valore del coseno nello stesso punto. Quando \(\cos x=0\), il seno ha tangente orizzontale." steps={[
-            { label: 'Rapporto incrementale', formula: "\\frac{\\sin(x+h)-\\sin x}{h}", explanation: 'La definizione applicata al seno.' },
-            { label: 'Prostaferesi', formula: "\\sin(x+h)-\\sin x=2\\cos\\left(x+\\frac h2\\right)\\sin\\frac h2", explanation: 'Usiamo la formula per la differenza di due seni.' },
-            { label: 'Riorganizza', formula: "\\cos\\left(x+\\frac h2\\right)\\frac{\\sin(h/2)}{h/2}", explanation: 'Compare il limite notevole \\(\\sin t/t\\) con \\(t=h/2\\).' },
-            { label: 'Passa al limite', formula: "\\cos(x+0)\\cdot1=\\cos x", explanation: 'Il coseno è continuo e il limite notevole vale 1.' },
-          ]} conclusion="Il seno diventa coseno: \((\sin x)'=\cos x\)." />
-          <Derivation title="Derivata di eˣ" formula="(e^x)'=e^x" meaning="Dice che l’esponenziale cresce, in ogni punto, con una velocità uguale al proprio valore. Per esempio, quando \(e^x=3\), anche la sua pendenza vale 3." steps={[
-            { label: 'Rapporto incrementale', formula: "\\frac{e^{x+h}-e^x}{h}", explanation: 'Applichiamo la definizione.' },
-            { label: 'Raccogli eˣ', formula: "e^x\\frac{e^h-1}{h}", explanation: 'Poiché \\(e^{x+h}=e^xe^h\\), il fattore \\(e^x\\) esce dal rapporto.' },
-            { label: 'Limite notevole', formula: "e^x\\lim_{h\\to0}\\frac{e^h-1}{h}=e^x\\cdot1", explanation: 'Usiamo il limite notevole dell’esponenziale.' },
-          ]} conclusion="L’esponenziale è uguale alla propria derivata: \((e^x)'=e^x\)." />
         </Stack>
       </SectionBlock>
 
@@ -158,6 +154,13 @@ function InterpretationsSection() {
             { icon: '€', title: 'Costo marginale', formula: "C'(q)", body: 'Quanto costa produrre una piccola unità in più.' },
           ].map((item) => <Grid item xs={12} sm={6} key={item.title}><Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}><Stack direction="row" gap={2}><Typography fontSize="1.6rem">{item.icon}</Typography><Box><Typography variant="h3" sx={{ fontSize: '1.3rem' }}>{item.title}</Typography><Box my={1} color="primary.main"><InlineMath math={item.formula} /></Box><Typography variant="body2">{item.body}</Typography></Box></Stack></Paper></Grid>)}
         </Grid>
+      </SectionBlock>
+      <SectionBlock eyebrow="Problema interpretato" title="Quanto costa produrre una unità in più?">
+        <Paper elevation={0} sx={{ p: 3, border: '1px solid', borderColor: 'divider' }}>
+          <Typography paragraph>Una piccola impresa modella il costo totale, in euro, con <InlineMath math="C(q)=0{,}02q^2+8q+500" />, dove q è il numero di pezzi.</Typography>
+          <BlockMath math="C'(q)=0{,}04q+8\quad\Rightarrow\quad C'(100)=12" />
+          <Typography><strong>Interpretazione:</strong> attorno a 100 pezzi, produrre un pezzo aggiuntivo aumenta il costo di circa 12 €. Il segno positivo indica un aumento; l’unità è <strong>euro per pezzo</strong>. La derivata permette una decisione locale senza ricalcolare l’intero costo.</Typography>
+        </Paper>
       </SectionBlock>
       <Paper elevation={0} sx={{ p: 3, bgcolor: 'custom.goldLight', borderLeft: '4px solid', borderColor: 'custom.gold' }}>
         <Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>Domanda di chiusura</Typography>

@@ -32,7 +32,8 @@ export function SettingsPage() {
   const exportProgress = useProgressStore((state) => state.exportProgress);
   const importProgress = useProgressStore((state) => state.importProgress);
   const notify = useUIStore((state) => state.showSnackbar);
-  const completedSections = useLessonStore((state) => state.completedSections);
+  const readSections = useLessonStore((state) => state.readSections);
+  const verifiedConcepts = useLessonStore((state) => state.verifiedConcepts);
   const lastSectionId = useLessonStore((state) => state.lastSectionId);
   const resetLessons = useLessonStore((state) => state.resetLessons);
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -41,8 +42,8 @@ export function SettingsPage() {
 
   const download = () => {
     const payload = JSON.stringify({
-      version: 1,
-      lessonProgress: { completedSections, lastSectionId },
+      version: 2,
+      lessonProgress: { readSections, verifiedConcepts, lastSectionId },
       exerciseProgress: JSON.parse(exportProgress()) as unknown,
     }, null, 2);
     const blob = new Blob([payload], { type: 'application/json' });
@@ -60,12 +61,13 @@ export function SettingsPage() {
     const text = await file.text();
     let valid = false;
     try {
-      const parsed = JSON.parse(text) as { lessonProgress?: { completedSections?: string[]; lastSectionId?: string | null }; exerciseProgress?: unknown };
+      const parsed = JSON.parse(text) as { lessonProgress?: { readSections?: string[]; verifiedConcepts?: string[]; lastSectionId?: string | null }; exerciseProgress?: unknown };
       if (parsed.exerciseProgress) {
         valid = importProgress(JSON.stringify(parsed.exerciseProgress));
-        if (valid && Array.isArray(parsed.lessonProgress?.completedSections)) {
+        if (valid && Array.isArray(parsed.lessonProgress?.readSections)) {
           useLessonStore.setState({
-            completedSections: parsed.lessonProgress.completedSections,
+            readSections: parsed.lessonProgress.readSections,
+            verifiedConcepts: parsed.lessonProgress.verifiedConcepts ?? [],
             lastSectionId: parsed.lessonProgress.lastSectionId ?? null,
           });
         }
@@ -105,7 +107,7 @@ export function SettingsPage() {
         <SettingRow
           icon={<UploadOutlinedIcon />}
           title="Importa progresso"
-          description="Ripristina un file esportato da questa app (schema v3)."
+          description="Ripristina un file esportato da questa app (schema progresso v4)."
           action={<><input ref={fileInput} hidden type="file" accept="application/json" onChange={upload} /><Button onClick={() => fileInput.current?.click()} startIcon={<UploadOutlinedIcon />}>Importa</Button></>}
         />
       </Paper>
@@ -122,7 +124,7 @@ export function SettingsPage() {
       <Dialog open={confirmOpen} onClose={() => setConfirmOpen(false)}>
         <DialogTitle>Azzerare tutto il progresso?</DialogTitle>
         <DialogContent><DialogContentText>L’operazione rimuoverà definitivamente sezioni lette, punti, risposte e classi completate. Puoi esportare prima una copia di sicurezza.</DialogContentText></DialogContent>
-        <DialogActions><Button onClick={() => setConfirmOpen(false)}>Annulla</Button><Button color="error" variant="contained" onClick={() => { resetProgress(); resetLessons(); setConfirmOpen(false); notify('Progresso azzerato', 'info'); }}>Azzera tutto</Button></DialogActions>
+        <DialogActions><Button onClick={() => setConfirmOpen(false)}>Annulla</Button><Button color="error" variant="contained" onClick={() => { resetProgress(); resetLessons(); localStorage.removeItem('deriv_progress_v3'); localStorage.removeItem('deriv_progress_v4'); localStorage.removeItem('derivate_lesson_progress_v1'); localStorage.removeItem('derivate_lesson_progress_v2'); localStorage.removeItem('derivate_conclusione_v1'); setConfirmOpen(false); notify('Progresso azzerato', 'info'); }}>Azzera tutto</Button></DialogActions>
       </Dialog>
     </Box>
   );

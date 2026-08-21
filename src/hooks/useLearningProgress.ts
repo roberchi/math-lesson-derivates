@@ -21,7 +21,7 @@ export function useClassUnlocker() {
     const unlockable = db.classes.filter(
       (cls) =>
         !progress.classes[cls.id]?.unlocked &&
-        cls.prerequisite_classes.every((id) => progress.classes[id]?.completed),
+        cls.prerequisite_classes.every((id) => progress.classes[id]?.mastered && progress.classes[id]?.unlocked),
     );
     unlockable.forEach((cls) => unlock(cls.id));
     if (initialized.current && unlockable.length) {

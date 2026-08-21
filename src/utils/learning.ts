@@ -51,18 +51,19 @@ export function getClassMetrics(cls: ExerciseClass, progress: UserProgress) {
     (sum, exercise) => sum + (attempts[exercise.id]?.score ?? 0),
     0,
   );
-  const bonus = cls.exercises.reduce(
-    (sum, exercise) => sum + (attempts[exercise.id]?.proofViewed ? 1 : 0),
-    0,
-  );
+  const bonus = 0;
   const maxScore = cls.exercises.length * 3;
+  const correctCount = cls.exercises.filter((exercise) => (attempts[exercise.id]?.score ?? 0) > 0).length;
+  const percent = maxScore ? Math.round((score / maxScore) * 100) : 0;
   return {
     completed,
     total: cls.exercises.length,
     score,
     bonus,
     maxScore,
-    percent: maxScore ? Math.round((score / maxScore) * 100) : 0,
+    percent,
+    correctCount,
+    mastered: percent >= 70 && correctCount >= Math.min(2, cls.exercises.length),
     progressPercent: cls.exercises.length
       ? Math.round((completed / cls.exercises.length) * 100)
       : 0,
@@ -91,7 +92,7 @@ export function computeGlobalStats(db: ExerciseDB, progress: UserProgress) {
       ({ cls, exercise }) =>
         progress.classes[cls.id]?.attempts[exercise.id]?.proofViewed,
     ).length,
-    classesCompleted: db.classes.filter((cls) => progress.classes[cls.id]?.completed)
+    classesCompleted: db.classes.filter((cls) => progress.classes[cls.id]?.mastered)
       .length,
     classesTotal: db.classes.length,
   };
@@ -110,7 +111,7 @@ export function getResumeTarget(db: ExerciseDB, progress: UserProgress) {
 
   for (const cls of db.classes) {
     const classProgress = progress.classes[cls.id];
-    if (!classProgress?.unlocked || classProgress.completed) continue;
+    if ((!classProgress?.unlocked && !classProgress?.consultation) || classProgress.mastered) continue;
     const next = buildAdaptiveOrder(cls.exercises, cls.id, progress).find(
       (exercise) => !classProgress.attempts[exercise.id]?.done,
     );
@@ -120,20 +121,12 @@ export function getResumeTarget(db: ExerciseDB, progress: UserProgress) {
 }
 
 export function getResultMessage(percent: number) {
-  if (percent >= 80) {
+  if (percent >= 70) {
     return {
       emoji: '🏆',
       title: 'Eccellente!',
       body: 'Hai padroneggiato questa classe. Procedi con fiducia alla successiva.',
       severity: 'success' as const,
-    };
-  }
-  if (percent >= 55) {
-    return {
-      emoji: '👍',
-      title: 'Buon lavoro!',
-      body: 'Puoi proseguire. Ripassa gli esercizi nei quali hai ottenuto meno punti.',
-      severity: 'info' as const,
     };
   }
   return {
@@ -153,24 +146,40 @@ export function stripLatex(text: string) {
 
 export function createSeededChoices(exercise: Exercise, cls: ExerciseClass, db: ExerciseDB) {
   const correct = exercise.answer.latex;
-  const sameClass = cls.exercises
-    .filter((item) => item.id !== exercise.id)
-    .map((item) => item.answer.latex);
-  const all = db.classes
-    .flatMap((item) => item.exercises)
-    .filter((item) => item.id !== exercise.id)
-    .map((item) => item.answer.latex);
-  const fallbacks = ["f'(x) = 0", "f'(x) = 1", "f'(x) = x", "f'(x) = -f(x)"];
-  const unique = [...new Set([...sameClass, ...all, ...fallbacks])].filter(
-    (value) => value !== correct,
-  );
+  void cls; void db;
+  const authored = exercise.distractors ?? defaultDistractors(exercise);
   let seed = [...exercise.id].reduce((sum, char) => sum + char.charCodeAt(0), 0);
   const random = () => {
     seed = (seed * 9301 + 49297) % 233280;
     return seed / 233280;
   };
-  const distractors = [...unique].sort(() => random() - 0.5).slice(0, 3);
-  return [correct, ...distractors]
-    .sort(() => random() - 0.5)
-    .map((latex) => ({ latex, isCorrect: latex === correct }));
+  return [
+    { latex: correct, isCorrect: true, feedback: exercise.answer.text ?? 'Risposta corretta.', misconceptionId: null },
+    ...authored.map((item) => ({ ...item, isCorrect: false })),
+  ].sort(() => random() - 0.5);
+}
+
+function defaultDistractors(exercise: Exercise): NonNullable<Exercise['distractors']> {
+  const answer = exercise.answer.latex;
+  const tag = exercise.tags.join(' ');
+  if (tag.includes('catena')) return [
+    { latex: `${answer}\\,\\text{ senza il fattore interno}`, feedback: 'Hai derivato lo strato esterno ma manca la derivata dello strato interno.', misconceptionId: 'chain-inner-missing' },
+    { latex: "f'(x)=g'(x)", feedback: 'Hai derivato solo la funzione interna: bisogna derivare anche quella esterna.', misconceptionId: 'chain-outer-missing' },
+    { latex: "f'(x)=f'(g(x))+g'(x)", feedback: 'Nella catena i contributi si moltiplicano, non si sommano.', misconceptionId: 'chain-added' },
+  ];
+  if (tag.includes('prodotto')) return [
+    { latex: "f'(x)=f'(x)g'(x)", feedback: 'La derivata di un prodotto non è il prodotto delle derivate.', misconceptionId: 'product-derivatives' },
+    { latex: "f'(x)=f'(x)g(x)", feedback: 'Hai derivato solo il primo fattore: manca il secondo contributo.', misconceptionId: 'product-first-only' },
+    { latex: "f'(x)=f(x)g'(x)", feedback: 'Hai derivato solo il secondo fattore: manca il primo contributo.', misconceptionId: 'product-second-only' },
+  ];
+  if (tag.includes('quoziente')) return [
+    { latex: "f'(x)=\\frac{f'(x)}{g'(x)}", feedback: 'La derivata del quoziente non è il quoziente delle derivate.', misconceptionId: 'quotient-derivatives' },
+    { latex: "f'(x)=\\frac{f'g-fg'}{g}", feedback: 'Al denominatore deve comparire il quadrato della funzione sotto.', misconceptionId: 'quotient-square' },
+    { latex: "f'(x)=\\frac{fg'-f'g}{g^2}", feedback: 'I termini del numeratore sono invertiti: il segno cambia.', misconceptionId: 'quotient-order' },
+  ];
+  return [
+    { latex: "f'(x)=0", feedback: 'Zero è corretto solo quando la funzione non varia oppure in particolari punti.', misconceptionId: 'always-zero' },
+    { latex: "f'(x)=f(x)", feedback: 'Una funzione coincide con la propria derivata solo in casi speciali, come l’esponenziale.', misconceptionId: 'copy-function' },
+    { latex: "f'(x)=1", feedback: 'Uno è la derivata di x, non una risposta universale.', misconceptionId: 'always-one' },
+  ];
 }

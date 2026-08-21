@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Box, Button, IconButton, Slider, Stack, Tooltip, Typography } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, IconButton, Slider, Stack, Tooltip, Typography } from '@mui/material';
 import AddBoxRoundedIcon from '@mui/icons-material/AddBoxRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import CleaningServicesRoundedIcon from '@mui/icons-material/CleaningServicesRounded';
@@ -247,6 +247,14 @@ export function WritingCanvas({ label = 'Spazio di lavoro', onShowSolution }: { 
             }}
           />
         </Box>
+      </Box>
+      <Box sx={{ p: 1.5, borderTop: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
+        <Typography variant="caption" color="text.secondary" display="block">AUTOVALUTAZIONE · QUESTO FOGLIO NON VIENE CORRETTO AUTOMATICAMENTE</Typography>
+        <Stack direction={{ xs: 'column', sm: 'row' }} gap={{ sm: 2 }}>
+          <FormControlLabel control={<Checkbox size="small" />} label="Ho scritto la regola usata" />
+          <FormControlLabel control={<Checkbox size="small" />} label="Ho mostrato i passaggi" />
+          <FormControlLabel control={<Checkbox size="small" />} label="Ho controllato segni e dominio" />
+        </Stack>
       </Box>
     </Box>
   );

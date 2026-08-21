@@ -29,6 +29,7 @@ export function DashboardPage() {
   const loading = useDBStore((state) => state.loading);
   const error = useDBStore((state) => state.error);
   const progress = useProgressStore((state) => state.progress);
+  const startConsultation = useProgressStore((state) => state.startConsultation);
   const navigate = useNavigate();
 
   if (loading || !db) {
@@ -85,6 +86,7 @@ export function DashboardPage() {
           const classProgress = progress.classes[cls.id];
           const unlocked = classProgress?.unlocked ?? false;
           const completed = classProgress?.completed ?? false;
+          const mastered = classProgress?.mastered ?? false;
           const metrics = getClassMetrics(cls, progress);
           const prerequisite = cls.prerequisite_classes.map((id) => stripLatex(db.classes.find((item) => item.id === id)?.title ?? id)).join(', ');
           const card = (
@@ -108,10 +110,11 @@ export function DashboardPage() {
                   </Stack>
                   <LinearProgress variant="determinate" value={metrics.progressPercent} sx={{ mb: 1.5 }} />
                   <Typography variant="caption" sx={{ color: completed ? 'success.main' : unlocked ? 'primary.main' : 'text.disabled', fontWeight: 700 }}>
-                    {completed ? '✓ COMPLETATA' : unlocked ? metrics.completed ? '● IN CORSO' : index === 0 ? 'INIZIA DA QUI →' : 'DISPONIBILE →' : '🔒 BLOCCATA'}
+                    {mastered ? '✓ PADRONEGGIATA' : completed ? '↻ DA RECUPERARE' : unlocked ? metrics.completed ? '● IN CORSO' : index === 0 ? 'INIZIA DA QUI →' : 'DISPONIBILE →' : '🔒 BLOCCATA NEL PERCORSO GUIDATO'}
                   </Typography>
                 </CardContent>
               </CardActionArea>
+              {!unlocked && <Button fullWidth onClick={() => { startConsultation(cls.id); navigate(`/class/${cls.id}`); }}>Consulta comunque</Button>}
             </Card>
           );
           return <Grid item xs={12} sm={6} md={4} key={cls.id}>{unlocked ? card : <Tooltip title={`Completa prima: ${prerequisite}`}><span style={{ display: 'block', height: '100%' }}>{card}</span></Tooltip>}</Grid>;

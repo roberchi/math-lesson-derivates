@@ -34,13 +34,14 @@ export function ResultsPage() {
   if (metrics.completed < metrics.total) return <Navigate to={`/class/${classId}`} replace />;
   const message = getResultMessage(metrics.percent);
   const classIndex = db.classes.findIndex((item) => item.id === classId);
-  const nextClass = db.classes.slice(classIndex + 1).find((item) => progress.classes[item.id]?.unlocked);
+  const nextClass = metrics.mastered ? db.classes.slice(classIndex + 1).find((item) => progress.classes[item.id]?.unlocked) : undefined;
+  const recovery = cls.exercises.filter((exercise) => (progress.classes[classId]?.attempts[exercise.id]?.score ?? 0) < 2);
 
   return (
     <Box sx={{ maxWidth: 900, mx: 'auto' }}>
       <Box sx={{ textAlign: 'center', mb: 4 }}>
         <Typography sx={{ fontSize: '4rem', lineHeight: 1, mb: 2 }}>{message.emoji}</Typography>
-        <Typography variant="h4" color="primary.main" mb={1}>Classe completata</Typography>
+        <Typography variant="h4" color="primary.main" mb={1}>{metrics.mastered ? 'Classe padroneggiata' : 'Classe completata · recupero necessario'}</Typography>
         <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', sm: '4rem' }, mb: 1 }}>{message.title}</Typography>
         <Typography color="text.secondary">{stripLatex(cls.title)}</Typography>
       </Box>
@@ -49,7 +50,7 @@ export function ResultsPage() {
         <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center" spacing={{ xs: 2, sm: 5 }} divider={<Divider orientation="vertical" flexItem />}>
           <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1 }}>{metrics.score}</Typography><Typography variant="caption" color="text.secondary">PUNTI SU {metrics.maxScore}</Typography></Box>
           <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1 }}>{metrics.percent}%</Typography><Typography variant="caption" color="text.secondary">RISULTATO</Typography></Box>
-          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1, color: 'custom.gold' }}>+{metrics.bonus}</Typography><Typography variant="caption" color="text.secondary">BONUS LETTURA</Typography></Box>
+          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1, color: metrics.mastered ? 'success.main' : 'warning.main' }}>{metrics.correctCount}</Typography><Typography variant="caption" color="text.secondary">RISPOSTE CORRETTE</Typography></Box>
         </Stack>
       </Paper>
       <Alert severity={message.severity} sx={{ mb: 4 }}>{message.body}</Alert>
@@ -76,6 +77,7 @@ export function ResultsPage() {
 
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="center" gap={1.5}>
         {nextClass && <Button variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} onClick={() => navigate(`/class/${nextClass.id}`)}>Prossima classe</Button>}
+        {!metrics.mastered && recovery.length > 0 && <Button variant="contained" color="warning" size="large" startIcon={<RefreshRoundedIcon />} onClick={() => navigate(`/class/${classId}/exercise/${recovery[0].id}`)}>Avvia recupero ({recovery.length})</Button>}
         <Button variant="outlined" size="large" startIcon={<RefreshRoundedIcon />} onClick={() => navigate(`/class/${classId}`)}>Ripassa la classe</Button>
         <Button color="inherit" size="large" startIcon={<HomeRoundedIcon />} onClick={() => navigate('/')}>Dashboard</Button>
       </Stack>

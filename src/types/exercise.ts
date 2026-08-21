@@ -16,6 +16,20 @@ export interface ProofFromLimit {
   title: string;
   steps: SolutionStep[];
   conclusion: string;
+  checkpoint?: ProofCheckpoint;
+}
+
+export interface ProofCheckpoint {
+  prompt: string;
+  choices: string[];
+  correctIndex: number;
+  explanation: string;
+}
+
+export interface Distractor {
+  latex: string;
+  feedback: string;
+  misconceptionId: string;
 }
 
 export interface Exercise {
@@ -25,6 +39,7 @@ export interface Exercise {
   tags: string[];
   problem: { text: string; hint?: string };
   answer: { latex: string; text?: string };
+  distractors?: [Distractor, Distractor, Distractor];
   proof_from_limit: ProofFromLimit | null;
   solution_steps: SolutionStep[];
 }
@@ -47,6 +62,11 @@ export interface ScoringRules {
   viewed_proof_bonus: number;
 }
 
+export interface ProgressionThresholds {
+  advance_difficulty?: { min_correct_in_class: number; min_score_pct: number };
+  remediation?: { max_correct_in_class: number };
+}
+
 export interface ExerciseDB {
   meta: {
     version: string;
@@ -59,7 +79,7 @@ export interface ExerciseDB {
   classes: ExerciseClass[];
   progression_rules: {
     description: string;
-    thresholds: Record<string, unknown>;
+    thresholds: ProgressionThresholds;
     scoring: ScoringRules;
   };
 }

@@ -13,7 +13,6 @@ import {
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import PrintRoundedIcon from '@mui/icons-material/PrintRounded';
-import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { WritingCanvas } from '@/components/labs/WritingCanvas';
@@ -150,8 +149,6 @@ export function WorksheetPage() {
   const exercises = first ? sheetOne : sheetTwo;
   const title = first ? 'Definizione e significato geometrico' : 'Regole di derivazione';
   const time = first ? '25 minuti' : '30 minuti';
-  const exerciseKeys = exercises.map((exercise) => `${sheetId}-${exercise.number}`);
-  const allSolutionsOpen = exerciseKeys.every((key) => openSolutions.includes(key));
 
   const revealSolution = (key: string) => {
     setOpenSolutions((current) => current.includes(key) ? current : [...current, key]);
@@ -166,17 +163,7 @@ export function WorksheetPage() {
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={1.5} mb={4} className="no-print">
         <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit">Panoramica</Button>
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={1}>
-          <Button
-            variant={allSolutionsOpen ? 'outlined' : 'contained'}
-            color="warning"
-            startIcon={allSolutionsOpen ? <VisibilityOffRoundedIcon /> : <VisibilityRoundedIcon />}
-            onClick={() => {
-              setOpenSolutions(allSolutionsOpen ? [] : exerciseKeys);
-              if (!allSolutionsOpen) setOpenWorkspaces([]);
-            }}
-          >
-            {allSolutionsOpen ? 'Nascondi soluzioni' : 'Mostra tutte le soluzioni'}
-          </Button>
+          <Chip label="Correzione guidata · una soluzione alla volta" color="warning" variant="outlined" />
           <Button variant="outlined" startIcon={<PrintRoundedIcon />} onClick={() => window.print()}>Stampa scheda</Button>
         </Stack>
       </Stack>

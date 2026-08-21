@@ -4,8 +4,6 @@ import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlineRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import PrintRoundedIcon from '@mui/icons-material/PrintRounded';
-import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
-import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { Link } from 'react-router-dom';
 import { WritingCanvas } from '@/components/labs/WritingCanvas';
 import { MathText } from '@/components/math/MathText';
@@ -24,6 +22,7 @@ const problems = [
       'Passando al limite per \\(h\\to0\\) otteniamo \\(f^{\\prime}(a)=4a-1\\), quindi \\(f^{\\prime}(x)=4x-1\\).',
     ],
     result: '\\(\\boxed{f^{\\prime}(x)=4x-1}\\)',
+    rubric: '2 pt definizione corretta · 3 pt sviluppo del rapporto · 1 pt limite e risultato',
   },
   {
     number: 2,
@@ -37,6 +36,7 @@ const problems = [
       'Ancora con la forma punto–pendenza: \\(y-2=-\\frac19(x-2)\\), cioè \\(y=-\\frac19x+\\frac{20}{9}\\).',
     ],
     result: '\\(\\boxed{t:y=9x-16}\\) e \\(\\boxed{n:y=-\\frac19x+\\frac{20}{9}}\\)',
+    rubric: '2 pt derivata e pendenza · 2 pt tangente · 2 pt normale',
   },
   {
     number: 3,
@@ -50,31 +50,27 @@ const problems = [
       'd) Ancora funzione composta: \\((\\ln u)^{\\prime}=u^{\\prime}/u\\), con \\(u=1+x^2\\). Quindi \\((\\ln(1+x^2))^{\\prime}=\\frac{2x}{1+x^2}\\).',
     ],
     result: '\\(\\boxed{e^x(x^2+2x)}\\); \\(\\boxed{\\frac{x^2-2x-1}{(x-1)^2}}\\); \\(\\boxed{6x\\cos(3x^2)}\\); \\(\\boxed{\\frac{2x}{1+x^2}}\\)',
+    rubric: '2,5 pt per ciascuna derivata: regola indicata, passaggi e risultato',
   },
   {
     number: 4,
     points: 8,
-    title: 'Sfida',
-    prompt: 'Per \\(f(x)=xe^x\\): a) calcola \\(f′(x)\\) e \\(f′′(x)\\); b) trova e classifica i punti stazionari; c) costruisci il polinomio di Taylor di ordine 3 centrato in zero.',
+    title: 'Derivata seconda e concavità',
+    prompt: 'Per \\(f(x)=xe^x\\): a) calcola \\(f′(x)\\) e \\(f′′(x)\\); b) trova e classifica il punto stazionario; c) individua dove cambia la concavità e il flesso.',
     steps: [
       'Con la regola del prodotto: \\(f^{\\prime}(x)=e^x+xe^x=e^x(x+1)\\). Derivando ancora: \\(f^{\\prime\\prime}(x)=e^x(x+1)+e^x=e^x(x+2)\\).',
       'I punti stazionari soddisfano \\(e^x(x+1)=0\\). Poiché \\(e^x>0\\), deve essere \\(x=-1\\); il punto è \\((-1,-e^{-1})\\).',
       'Classificazione: \\(f^{\\prime\\prime}(-1)=e^{-1}>0\\), quindi il punto stazionario è un minimo locale.',
-      'Per Taylor servono i valori in zero: \\(f(0)=0\\), \\(f^{\\prime}(0)=1\\), \\(f^{\\prime\\prime}(0)=2\\). Inoltre \\(f^{\\prime\\prime\\prime}(x)=e^x(x+3)\\), quindi \\(f^{\\prime\\prime\\prime}(0)=3\\).',
-      'Applichiamo la formula: $$T_3(x)=f(0)+f^{\\prime}(0)x+\\frac{f^{\\prime\\prime}(0)}{2!}x^2+\\frac{f^{\\prime\\prime\\prime}(0)}{3!}x^3=x+x^2+\\frac{x^3}{2}.$$ ',
+      'Poiché \\(e^x>0\\), il segno di \\(f^{\\prime\\prime}(x)=e^x(x+2)\\) dipende da \\(x+2\\): è negativo per \\(x<-2\\) e positivo per \\(x>-2\\).',
+      'La concavità cambia in \\(x=-2\\), quindi il flesso è \\((-2,-2e^{-2})\\).',
     ],
-    result: '\\(\\boxed{f^{\\prime}=e^x(x+1),\\ f^{\\prime\\prime}=e^x(x+2)}\\), minimo in \\((-1,-e^{-1})\\), \\(\\boxed{T_3(x)=x+x^2+\\frac12x^3}\\)',
+    result: '\\(\\boxed{f^{\\prime}=e^x(x+1),\\ f^{\\prime\\prime}=e^x(x+2)}\\), minimo in \\((-1,-e^{-1})\\), flesso in \\((-2,-2e^{-2})\\)',
+    rubric: '2 pt derivate · 3 pt punto stazionario e classificazione · 3 pt segno di f″ e flesso',
   },
 ];
 
 export function VerificationPage() {
   const [openSolutions, setOpenSolutions] = useState<number[]>([]);
-  const allSolutionsOpen = openSolutions.length === problems.length;
-
-  const toggleAllSolutions = () => {
-    setOpenSolutions(allSolutionsOpen ? [] : problems.map((problem) => problem.number));
-  };
-
   const toggleSolution = (problemNumber: number) => {
     setOpenSolutions((current) => (
       current.includes(problemNumber)
@@ -95,14 +91,7 @@ export function VerificationPage() {
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={1.5} mb={4} className="no-print">
         <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit">Panoramica</Button>
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={1}>
-          <Button
-            variant={allSolutionsOpen ? 'outlined' : 'contained'}
-            color="warning"
-            startIcon={allSolutionsOpen ? <VisibilityOffRoundedIcon /> : <VisibilityRoundedIcon />}
-            onClick={toggleAllSolutions}
-          >
-            {allSolutionsOpen ? 'Nascondi tutte le soluzioni' : 'Mostra tutte le soluzioni'}
-          </Button>
+          <Chip label="Correzione guidata · una soluzione alla volta" color="warning" variant="outlined" />
           <Button variant="outlined" startIcon={<PrintRoundedIcon />} onClick={() => window.print()}>Stampa verifica</Button>
         </Stack>
       </Stack>
@@ -133,6 +122,7 @@ export function VerificationPage() {
                   <Chip label={`${problem.points} pt`} color="primary" variant="outlined" />
                 </Stack>
                 <Typography component="div" mb={2.5}><MathText text={problem.prompt} /></Typography>
+                <Alert severity="info" icon={false} sx={{ mb: 2 }}><strong>Rubrica:</strong> {problem.rubric}</Alert>
                 <Box className="digital-workspace"><WritingCanvas label={`Problema ${problem.number}`} onShowSolution={() => revealSolution(problem.number)} /></Box>
                 <Box className="print-writing-space" sx={{ display: 'none', height: 250, backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #C9D5E8 32px)' }} />
               </Box>
@@ -177,6 +167,10 @@ export function VerificationPage() {
           );
         })}
       </Stack>
+      <Paper elevation={0} sx={{ mt: 3, p: 3, border: '1px dashed', borderColor: 'warning.main', bgcolor: 'custom.goldLight' }}>
+        <Typography variant="h3" mb={1}>Sfida bonus · Taylor (non inclusa nei 30 punti)</Typography>
+        <Typography>Costruisci il polinomio di Taylor di ordine 3, centrato in zero, per <MathText text="\\(f(x)=xe^x\\)" />. Usalo come approfondimento dopo aver concluso la prova base.</Typography>
+      </Paper>
     </Box>
   );
 }
