@@ -1,0 +1,812 @@
+URL: https://math-lesson-derivates.vercel.app/scheda/1
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+Nascondi soluzioni
+Stampa scheda
+SCHEDA ESERCIZI §1
+Definizione e significato geometrico
+25 minuti
+
+Nome ____________________
+
+Mostra tutti i passaggi. Nei calcoli per definizione, scrivi il rapporto incrementale prima di eseguire le semplificazioni.
+
+1
+Rapporto incrementale
+Per definizione
+Base
+Per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+−
+3
+𝑥
++
+2
+f(x)=x
+2
+−3x+2, calcola e semplifica il rapporto incrementale nel punto 
+𝑥
+0
+=
+2
+x
+0
+	​
+
+=2, poi determina 
+𝑓
+′
+(
+2
+)
+f′(2).
+
+✏️ Foglio di lavoro digitale
+
+ESERCIZIO 1 · PENCIL/STILO COMPATIBILE
+MODALITÀ SPOSTA · trascina il foglio con un dito
+Soluzione
+Cancella
+
+Soluzione guidata con i passaggi
+
+Calcoliamo 
+𝑓
+(
+2
+)
+=
+0
+f(2)=0 e 
+𝑓
+(
+2
++
+ℎ
+)
+=
+(
+2
++
+ℎ
+)
+2
+−
+3
+(
+2
++
+ℎ
+)
++
+2
+=
+ℎ
++
+ℎ
+2
+f(2+h)=(2+h)
+2
+−3(2+h)+2=h+h
+2
+.
+Il rapporto incrementale è
+𝑓
+(
+2
++
+ℎ
+)
+−
+𝑓
+(
+2
+)
+ℎ
+=
+ℎ
++
+ℎ
+2
+ℎ
+=
+1
++
+ℎ
+,
+ℎ
+≠
+0.
+h
+f(2+h)−f(2)
+	​
+
+=
+h
+h+h
+2
+	​
+
+=1+h,h
+
+=0.
+Passando al limite per 
+ℎ
+→
+0
+h→0 otteniamo la derivata nel punto.
+RISULTATO
+𝑓
+′
+(
+2
+)
+=
+1
+f
+′
+(2)=1
+	​
+
+2
+Tre derivate per definizione
+Per definizione
+Base
+Calcola dal limite del rapporto incrementale le derivate di: a) 
+3
+𝑥
++
+5
+3x+5; b) 
+𝑥
+3
+x
+3
+; c) 
+1
+/
+𝑥
+1/x. Indica il dominio.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+a) Per 
+𝑓
+(
+𝑥
+)
+=
+3
+𝑥
++
+5
+f(x)=3x+5: 
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
+=
+3
+ℎ
+ℎ
+=
+3
+h
+f(x+h)−f(x)
+	​
+
+=
+h
+3h
+	​
+
+=3, quindi 
+𝑓
+′
+(
+𝑥
+)
+=
+3
+f
+′
+(x)=3.
+b) Per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+f(x)=x
+3
+:
+(
+𝑥
++
+ℎ
+)
+3
+−
+𝑥
+3
+ℎ
+=
+3
+𝑥
+2
++
+3
+𝑥
+ℎ
++
+ℎ
+2
+⟶
+3
+𝑥
+2
+.
+h
+(x+h)
+3
+−x
+3
+	​
+
+=3x
+2
++3xh+h
+2
+⟶3x
+2
+.
+c) Per 
+𝑓
+(
+𝑥
+)
+=
+1
+/
+𝑥
+f(x)=1/x, con 
+𝑥
+≠
+0
+x
+
+=0:
+1
+/
+(
+𝑥
++
+ℎ
+)
+−
+1
+/
+𝑥
+ℎ
+=
+−
+1
+𝑥
+(
+𝑥
++
+ℎ
+)
+⟶
+−
+1
+𝑥
+2
+.
+h
+1/(x+h)−1/x
+	​
+
+=−
+x(x+h)
+1
+	​
+
+⟶−
+x
+2
+1
+	​
+
+.
+La funzione 
+1
+/
+𝑥
+1/x e la sua derivata hanno dominio 
+𝑅
+∖
+{
+0
+}
+R∖{0}.
+RISULTATO
+3
+3
+	​
+
+, 
+3
+𝑥
+2
+3x
+2
+	​
+
+, 
+−
+1
+/
+𝑥
+2
+−1/x
+2
+	​
+
+3
+Rette tangenti
+Geometrico
+★★
+Per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+f(x)=x
+2
+: a) trova la tangente in 
+𝑥
+0
+=
+3
+x
+0
+	​
+
+=3; b) cerca i punti con tangente parallela all’asse x; c) cerca i punti con tangente che forma un angolo di 45° con l’asse x.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+Poiché 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+f(x)=x
+2
+, si ha 
+𝑓
+′
+(
+𝑥
+)
+=
+2
+𝑥
+f
+′
+(x)=2x. In 
+𝑥
+0
+=
+3
+x
+0
+	​
+
+=3: 
+𝑚
+=
+6
+m=6 e 
+𝑃
+=
+(
+3
+,
+9
+)
+P=(3,9), dunque 
+𝑦
+−
+9
+=
+6
+(
+𝑥
+−
+3
+)
+y−9=6(x−3).
+Una tangente parallela all’asse x ha pendenza zero: 
+2
+𝑥
+=
+0
+2x=0, quindi il punto è 
+(
+0
+,
+0
+)
+(0,0).
+Un angolo di 
+45
+∘
+45
+∘
+ dà pendenza 
+tan
+⁡
+45
+∘
+=
+1
+tan45
+∘
+=1: 
+2
+𝑥
+=
+1
+2x=1, quindi 
+𝑥
+=
+1
+/
+2
+x=1/2 e 
+𝑃
+=
+(
+1
+/
+2
+,
+1
+/
+4
+)
+P=(1/2,1/4).
+RISULTATO
+𝑦
+=
+6
+𝑥
+−
+9
+y=6x−9
+	​
+
+; punto 
+(
+0
+,
+0
+)
+(0,0); 
+𝑦
+=
+𝑥
+−
+1
+/
+4
+y=x−1/4
+	​
+
+4
+Valore assoluto
+Derivabilità
+★★
+Studia la derivabilità di 
+𝑓
+(
+𝑥
+)
+=
+∣
+𝑥
+−
+2
+∣
+f(x)=∣x−2∣ in 
+𝑥
+0
+=
+2
+x
+0
+	​
+
+=2 calcolando separatamente le derivate destra e sinistra. Disegna il grafico.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+Scriviamo la funzione a tratti: 
+𝑓
+(
+𝑥
+)
+=
+2
+−
+𝑥
+f(x)=2−x se 
+𝑥
+<
+2
+x<2, mentre 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+−
+2
+f(x)=x−2 se 
+𝑥
+≥
+2
+x≥2.
+La derivata sinistra vale 
+𝑓
+−
+′
+(
+2
+)
+=
+−
+1
+f
+−
+′
+	​
+
+(2)=−1; la derivata destra vale 
+𝑓
++
+′
+(
+2
+)
+=
+1
+f
++
+′
+	​
+
+(2)=1.
+I due limiti sono finiti ma diversi: nel grafico compare un punto angoloso.
+RISULTATO
+𝑓
+ non 
+e
+ˋ
+ derivabile in 
+𝑥
+=
+2
+f non 
+e
+ˋ
+ derivabile in x=2
+	​
+
+5
+Una sfida di derivabilità
+Sfida
+★★★
+Studia la derivabilità di 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+∣
+𝑥
+∣
+f(x)=x∣x∣ in 
+𝑥
+0
+=
+0
+x
+0
+	​
+
+=0. Scrivi la funzione a tratti e fai uno schizzo del grafico prima di calcolare.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+La forma a tratti è 
+𝑥
+∣
+𝑥
+∣
+=
+−
+𝑥
+2
+x∣x∣=−x
+2
+ per 
+𝑥
+<
+0
+x<0 e 
+𝑥
+∣
+𝑥
+∣
+=
+𝑥
+2
+x∣x∣=x
+2
+ per 
+𝑥
+≥
+0
+x≥0.
+Dal rapporto incrementale in zero: 
+𝑓
+(
+ℎ
+)
+−
+𝑓
+(
+0
+)
+ℎ
+=
+∣
+ℎ
+∣
+h
+f(h)−f(0)
+	​
+
+=∣h∣.
+Sia da sinistra sia da destra 
+∣
+ℎ
+∣
+→
+0
+∣h∣→0, quindi i due limiti coincidono.
+RISULTATO
+𝑓
+′
+(
+0
+)
+=
+0
+f
+′
+(0)=0
+	​
+
+: la funzione è derivabile in zero.
+Riduci la vista
+Aggiungi spazio in fondo al foglio

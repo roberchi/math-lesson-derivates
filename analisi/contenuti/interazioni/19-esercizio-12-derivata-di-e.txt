@@ -1,0 +1,403 @@
+URL: https://math-lesson-derivates.vercel.app/class/funzioni_elementari/exercise/fel_002
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 12 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Derivate di sin, cos, eˣ, ln
+ESERCIZIO 3 / 3
+ESERCIZIO
+Derivata di eˣ
+Medio
+esponenziale
+limite notevole
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f(x)=e
+x
+ usando la definizione.
+Nascondi suggerimento
+Raccogli 
+𝑒
+𝑥
+e
+x
+ fuori e usa il limite notevole 
+lim
+⁡
+ℎ
+→
+0
+𝑒
+ℎ
+−
+1
+ℎ
+=
+1
+lim
+h→0
+	​
+
+h
+e
+h
+−1
+	​
+
+=1.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+2
+𝑥
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+f
+′
+(x)=2xsinx+x
+2
+cosx
+B
+𝑦
+=
+9
+𝑥
+−
+16
+y=9x−16
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f
+′
+(x)=e
+x
+D
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−
+x
+2
+1
+	​
+
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione dal limite — l'autoderività di eˣ
+1
+SCRIVI IL RAPPORTO INCREMENTALE
+𝑒
+𝑥
++
+ℎ
+−
+𝑒
+𝑥
+ℎ
+h
+e
+x+h
+−e
+x
+	​
+
+Forma standard.
+2
+RACCOGLI \(E^X\) USANDO \(E^{A+B}=E^A E^B\)
+𝑒
+𝑥
+⋅
+𝑒
+ℎ
+−
+𝑒
+𝑥
+ℎ
+=
+𝑒
+𝑥
+⋅
+𝑒
+ℎ
+−
+1
+ℎ
+h
+e
+x
+⋅e
+h
+−e
+x
+	​
+
+=e
+x
+⋅
+h
+e
+h
+−1
+	​
+
+𝑒
+𝑥
++
+ℎ
+=
+𝑒
+𝑥
+⋅
+𝑒
+ℎ
+e
+x+h
+=e
+x
+⋅e
+h
+. Il fattore 
+𝑒
+𝑥
+e
+x
+ non dipende da 
+ℎ
+h, quindi esce dal limite.
+3
+USA IL LIMITE NOTEVOLE
+lim
+⁡
+ℎ
+→
+0
+𝑒
+ℎ
+−
+1
+ℎ
+=
+1
+h→0
+lim
+	​
+
+h
+e
+h
+−1
+	​
+
+=1
+Questo limite — equivalente alla definizione di 
+𝑒
+e — è un risultato fondamentale. Si dimostra usando la definizione di 
+𝑒
+=
+lim
+⁡
+𝑛
+→
+∞
+(
+1
++
+1
+/
+𝑛
+)
+𝑛
+e=lim
+n→∞
+	​
+
+(1+1/n)
+n
+.
+4
+CONCLUDE
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+⋅
+1
+=
+𝑒
+𝑥
+f
+′
+(x)=e
+x
+⋅1=e
+x
+Il risultato sorprendente: 
+𝑒
+𝑥
+e
+x
+ è la sua stessa derivata.
+CONCLUSIONE
+(
+𝑒
+𝑥
+)
+′
+=
+𝑒
+𝑥
+(e
+x
+)
+′
+=e
+x
+. È l'unica funzione (a meno di costante moltiplicativa) con questa proprietà, e descrive qualsiasi fenomeno in cui la velocità di crescita è proporzionale alla grandezza stessa (crescita batterica, decadimento radioattivo, interessi composti).
+
+📖 Soluzione passo per passo
+
+1
+RISULTATO
+(
+𝑒
+𝑥
+)
+′
+=
+𝑒
+𝑥
+(e
+x
+)
+′
+=e
+x
+Proprietà unica: la funzione esponenziale è invariante per derivazione.
+Precedente
+3 DI 3
+Successivo
+📐 +1 punto per la dimostrazione

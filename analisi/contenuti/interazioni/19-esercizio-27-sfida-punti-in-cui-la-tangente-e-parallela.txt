@@ -1,0 +1,429 @@
+URL: https://math-lesson-derivates.vercel.app/class/applicazioni/exercise/app_004
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 16 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Retta tangente, stazionari e applicazioni
+ESERCIZIO 4 / 4
+ESERCIZIO
+Sfida — punti in cui la tangente è parallela
+Sfida
+tangente
+parallelo
+PROBLEMA
+Trova tutti i punti di 
+𝑓
+(
+𝑥
+)
+=
+𝑒
+𝑥
+sin
+⁡
+𝑥
+f(x)=e
+x
+sinx in 
+[
+0
+,
+𝜋
+]
+[0,π] dove la retta tangente è parallela all'asse 
+𝑥
+x (pendenza zero). Classifica ciascun punto come massimo o minimo locale.
+Nascondi suggerimento
+Parallela all'asse x significa 
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0. Dopo aver calcolato 
+𝑓
+′
+f
+′
+, studia il segno attorno ai punti trovati.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+cos
+⁡
+𝑥
+f
+′
+(x)=cosx
+B
+𝑓
+′
+(
+𝑥
+)
+=
+3
+cos
+⁡
+𝑥
+−
+2
+𝑒
+𝑥
+f
+′
+(x)=3cosx−2e
+x
+C
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+[
+(
+2
+𝑥
++
+𝑥
+2
+)
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+]
+f
+′
+(x)=e
+x
+[(2x+x
+2
+)sinx+x
+2
+cosx]
+𝑥
+≈
+2.356
+(
+=
+3
+𝜋
+4
+)
+x≈2.356(=
+4
+3π
+	​
+
+)
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+CALCOLA \(F'\) CON LA REGOLA DEL PRODOTTO
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+sin
+⁡
+𝑥
++
+𝑒
+𝑥
+cos
+⁡
+𝑥
+=
+𝑒
+𝑥
+(
+sin
+⁡
+𝑥
++
+cos
+⁡
+𝑥
+)
+f
+′
+(x)=e
+x
+sinx+e
+x
+cosx=e
+x
+(sinx+cosx)
+(
+𝑒
+𝑥
+sin
+⁡
+𝑥
+)
+′
+=
+𝑒
+𝑥
+sin
+⁡
+𝑥
++
+𝑒
+𝑥
+cos
+⁡
+𝑥
+(e
+x
+sinx)
+′
+=e
+x
+sinx+e
+x
+cosx.
+2
+PONI \(F'(X)=0\)
+𝑒
+𝑥
+(
+sin
+⁡
+𝑥
++
+cos
+⁡
+𝑥
+)
+=
+0
+⇒
+sin
+⁡
+𝑥
++
+cos
+⁡
+𝑥
+=
+0
+e
+x
+(sinx+cosx)=0⇒sinx+cosx=0
+𝑒
+𝑥
+>
+0
+e
+x
+>0 sempre, quindi solo 
+sin
+⁡
+𝑥
++
+cos
+⁡
+𝑥
+=
+0
+sinx+cosx=0.
+3
+RISOLVI IN \([0,\PI]\)
+tan
+⁡
+𝑥
+=
+−
+1
+⇒
+𝑥
+=
+3
+𝜋
+4
+tanx=−1⇒x=
+4
+3π
+	​
+
+sin
+⁡
+𝑥
+=
+−
+cos
+⁡
+𝑥
+⇒
+tan
+⁡
+𝑥
+=
+−
+1
+sinx=−cosx⇒tanx=−1. In 
+[
+0
+,
+𝜋
+]
+[0,π] la soluzione è 
+𝑥
+=
+3
+𝜋
+/
+4
+x=3π/4.
+4
+CLASSIFICAZIONE: SEGNO DI \(F'\)
+𝑥
+<
+3
+𝜋
+4
+:
+sin
+⁡
+𝑥
++
+cos
+⁡
+𝑥
+>
+0
+⇒
+𝑓
+′
+>
+0
+;
+𝑥
+>
+3
+𝜋
+4
+:
+𝑓
+′
+<
+0
+x<
+4
+3π
+	​
+
+:sinx+cosx>0⇒f
+′
+>0;x>
+4
+3π
+	​
+
+:f
+′
+<0
+Il segno cambia da + a −: è un massimo locale.
+Precedente
+4 DI 4
+Successivo

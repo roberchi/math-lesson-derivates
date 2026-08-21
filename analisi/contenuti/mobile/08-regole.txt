@@ -1,0 +1,759 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/regole
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 390x844
+MAIN_WORDS_APPROX: 573
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+★ 0 pt
+Panoramica
+30 min
+LEZIONE 2 · 0:40–1:10
+Quattro regole, quattro idee
+
+Per ogni regola teniamo insieme formula operativa, dimostrazione dal limite e lettura verbale. La regola è pronta all’uso solo dopo aver capito da dove viene.
+
+VERSIONE DIMOSTRATIVA
+Linearità
+COME SI LEGGE E QUANDO SI USA
+Serve per somme e multipli: 
+𝑓
+f e 
+𝑔
+g sono funzioni, mentre 
+𝛼
+α e 
+𝛽
+β sono numeri costanti. Si deriva ogni funzione separatamente e si mantengono le costanti.
+FORMULA
+(
+𝛼
+𝑓
++
+𝛽
+𝑔
+)
+′
+=
+𝛼
+𝑓
+′
++
+𝛽
+𝑔
+′
+(αf+βg)
+′
+=αf
+′
++βg
+′
+1
+RAPPORTO INCREMENTALE
+𝛼
+[
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+]
++
+𝛽
+[
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+]
+ℎ
+h
+α[f(x+h)−f(x)]+β[g(x+h)−g(x)]
+	​
+
+Raggruppiamo separatamente le variazioni di f e g.
+2
+SEPARA E PASSA AL LIMITE
+𝛼
+lim
+⁡
+ℎ
+→
+0
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
++
+𝛽
+lim
+⁡
+ℎ
+→
+0
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+ℎ
+α
+h→0
+lim
+	​
+
+h
+f(x+h)−f(x)
+	​
+
++β
+h→0
+lim
+	​
+
+h
+g(x+h)−g(x)
+	​
+
+Il limite della somma è la somma dei limiti; le costanti escono.
+CONCLUSIONE
+Derivare è un’operazione lineare.
+VERSIONE DIMOSTRATIVA
+Regola del prodotto
+COME SI LEGGE E QUANDO SI USA
+Serve quando 
+𝑓
+(
+𝑥
+)
+f(x) e 
+𝑔
+(
+𝑥
+)
+g(x) sono moltiplicate. Si deriva prima 
+𝑓
+f lasciando ferma 
+𝑔
+g, poi si lascia ferma 
+𝑓
+f e si deriva 
+𝑔
+g; infine si sommano i due contributi.
+FORMULA
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+(fg)
+′
+=f
+′
+g+fg
+′
+VERSIONE DIMOSTRATIVA
+Regola del quoziente
+COME SI LEGGE E QUANDO SI USA
+Serve quando una funzione 
+𝑓
+f è divisa per una funzione 
+𝑔
+g, con 
+𝑔
+(
+𝑥
+)
+≠
+0
+g(x)
+
+=0. Al numeratore l’ordine è importante: derivata del sopra per sotto, meno sopra per derivata del sotto.
+FORMULA
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+𝑔
+2
+(
+g
+f
+	​
+
+)
+′
+=
+g
+2
+f
+′
+g−fg
+′
+	​
+
+VERSIONE DIMOSTRATIVA
+Regola della catena
+COME SI LEGGE E QUANDO SI USA
+Serve quando una funzione è dentro un’altra: 
+𝑓
+∘
+𝑔
+f∘g significa 
+𝑓
+(
+𝑔
+(
+𝑥
+)
+)
+f(g(x)). Si deriva la funzione esterna, la si valuta nell’interno e si moltiplica per la derivata della funzione interna.
+FORMULA
+(
+𝑓
+∘
+𝑔
+)
+′
+=
+𝑓
+′
+(
+𝑔
+)
+ 
+𝑔
+′
+(f∘g)
+′
+=f
+′
+(g)g
+′
+ESEMPIO CANONICO
+sin(x²): leggere gli strati
+INTERNO
+𝑔
+(
+𝑥
+)
+=
+𝑥
+2
+,
+𝑔
+′
+(
+𝑥
+)
+=
+2
+𝑥
+g(x)=x
+2
+,g
+′
+(x)=2x
+ESTERNO
+𝑓
+(
+𝑢
+)
+=
+sin
+⁡
+𝑢
+,
+𝑓
+′
+(
+𝑢
+)
+=
+cos
+⁡
+𝑢
+f(u)=sinu,f
+′
+(u)=cosu
+COMPOSIZIONE
+(
+sin
+⁡
+𝑥
+2
+)
+′
+=
+cos
+⁡
+(
+𝑥
+2
+)
+ 
+2
+𝑥
+(sinx
+2
+)
+′
+=cos(x
+2
+)2x
+UNA STORIA DI IDEE
+
+Aggiungere e sottrarre lo stesso termine trasforma un’espressione opaca in due rapporti incrementali.
+
+Approfondisci
+UNA STORIA DI IDEE
+
+dy/dx = dy/du · du/dx è un’intuizione eccellente, ma il limite spiega perché funziona.
+
+Approfondisci
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Derivate fondamentali
+Derivata seconda
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "button",
+    "type": "button",
+    "label": "Apri il percorso",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "f′",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "a",
+    "type": null,
+    "label": "Panoramica",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Linearità COME SI LEGGE E QUANDO SI USA Serve per somme e multipli: 𝑓 f e 𝑔 g sono funzioni, mentre 𝛼 α e 𝛽 β sono numeri costanti. Si deriva ogni funzione separatamente e si mantengono le costanti. FORMULA ( 𝛼 𝑓",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "true"
+  },
+  {
+    "i": 6,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Regola del prodotto COME SI LEGGE E QUANDO SI USA Serve quando 𝑓 ( 𝑥 ) f(x) e 𝑔 ( 𝑥 ) g(x) sono moltiplicate. Si deriva prima 𝑓 f lasciando ferma 𝑔 g, poi si lascia ferma 𝑓 f e si deriva 𝑔 g; infine si sommano ",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 7,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Regola del quoziente COME SI LEGGE E QUANDO SI USA Serve quando una funzione 𝑓 f è divisa per una funzione 𝑔 g, con 𝑔 ( 𝑥 ) ≠ 0 g(x)  =0. Al numeratore l’ordine è importante: derivata del sopra per sotto, meno sop",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 8,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Regola della catena COME SI LEGGE E QUANDO SI USA Serve quando una funzione è dentro un’altra: 𝑓 ∘ 𝑔 f∘g significa 𝑓 ( 𝑔 ( 𝑥 ) ) f(g(x)). Si deriva la funzione esterna, la si valuta nell’interno e si moltiplica pe",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 9,
+    "tag": "button",
+    "type": "button",
+    "label": "Approfondisci",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "button",
+    "type": "button",
+    "label": "Approfondisci",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "button",
+    "type": "button",
+    "label": "Segna come completata",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "button",
+    "type": "button",
+    "label": "Derivate fondamentali",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "button",
+    "type": "button",
+    "label": "Derivata seconda",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 24,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 26,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 27,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 28,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 29,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  }
+]

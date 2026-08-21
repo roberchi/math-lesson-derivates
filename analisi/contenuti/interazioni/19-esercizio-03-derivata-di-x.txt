@@ -1,0 +1,467 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_003
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 3 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Rapporto incrementale e definizione
+ESERCIZIO 7 / 7
+ESERCIZIO
+Derivata di x²
+Base
+potenza
+definizione
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+f(x)=x
+2
+ usando la definizione.
+Nascondi suggerimento
+Ricorda: 
+(
+𝑥
++
+ℎ
+)
+2
+=
+𝑥
+2
++
+2
+𝑥
+ℎ
++
+ℎ
+2
+(x+h)
+2
+=x
+2
++2xh+h
+2
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+−
+6
+𝑥
+f
+′
+(x)=20x
+3
+−6x
+𝑓
+′
+(
+𝑥
+)
+=
+2
+𝑥
+f
+′
+(x)=2x
+C
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+f
+′
+(x)=20x
+3
+D
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione dal limite del rapporto incrementale
+1
+CALCOLA \(F(X+H)\) SVILUPPANDO IL QUADRATO
+𝑓
+(
+𝑥
++
+ℎ
+)
+=
+(
+𝑥
++
+ℎ
+)
+2
+=
+𝑥
+2
++
+2
+𝑥
+ℎ
++
+ℎ
+2
+f(x+h)=(x+h)
+2
+=x
+2
++2xh+h
+2
+Usiamo il quadrato di un binomio: 
+(
+𝑎
++
+𝑏
+)
+2
+=
+𝑎
+2
++
+2
+𝑎
+𝑏
++
+𝑏
+2
+(a+b)
+2
+=a
+2
++2ab+b
+2
+.
+2
+CALCOLA \(F(X+H)-F(X)\)
+(
+𝑥
+2
++
+2
+𝑥
+ℎ
++
+ℎ
+2
+)
+−
+𝑥
+2
+=
+2
+𝑥
+ℎ
++
+ℎ
+2
+(x
+2
++2xh+h
+2
+)−x
+2
+=2xh+h
+2
+Il termine 
+𝑥
+2
+x
+2
+ si cancella con quello di 
+𝑓
+(
+𝑥
+)
+f(x).
+3
+DIVIDI PER \(H\)
+2
+𝑥
+ℎ
++
+ℎ
+2
+ℎ
+=
+2
+𝑥
++
+ℎ
+h
+2xh+h
+2
+	​
+
+=2x+h
+Raccogliamo 
+ℎ
+h al numeratore: 
+ℎ
+(
+2
+𝑥
++
+ℎ
+)
+/
+ℎ
+=
+2
+𝑥
++
+ℎ
+h(2x+h)/h=2x+h. Valido per 
+ℎ
+≠
+0
+h
+
+=0.
+4
+PASSA AL LIMITE
+𝑓
+′
+(
+𝑥
+)
+=
+lim
+⁡
+ℎ
+→
+0
+(
+2
+𝑥
++
+ℎ
+)
+=
+2
+𝑥
+f
+′
+(x)=
+h→0
+lim
+	​
+
+(2x+h)=2x
+Il termine 
+ℎ
+h tende a 0, rimane solo 
+2
+𝑥
+2x.
+CONCLUSIONE
+Risultato: 
+(
+𝑥
+2
+)
+′
+=
+2
+𝑥
+(x
+2
+)
+′
+=2x. Questo è il caso 
+𝑛
+=
+2
+n=2 della regola generale 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+.
+
+📖 Soluzione passo per passo
+
+1
+APPLICA LA REGOLA DELLE POTENZE
+𝑓
+′
+(
+𝑥
+)
+=
+2
+⋅
+𝑥
+2
+−
+1
+=
+2
+𝑥
+f
+′
+(x)=2⋅x
+2−1
+=2x
+Formula 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+ con 
+𝑛
+=
+2
+n=2.
+Precedente
+7 DI 7
+Successivo
+📐 +1 punto per la dimostrazione

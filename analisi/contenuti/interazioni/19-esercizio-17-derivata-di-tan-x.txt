@@ -1,0 +1,635 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_quoziente/exercise/quot_001
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 14 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola del quoziente (fg)'=f'g-fg'g^2
+ESERCIZIO 2 / 2
+ESERCIZIO
+Derivata di tan x
+Medio
+quoziente
+tan
+PROBLEMA
+Deriva 
+𝑓
+(
+𝑥
+)
+=
+tan
+⁡
+𝑥
+f(x)=tanx usando la regola del quoziente applicata a 
+sin
+⁡
+𝑥
+/
+cos
+⁡
+𝑥
+sinx/cosx.
+Nascondi suggerimento
+𝑓
+=
+sin
+⁡
+𝑥
+,
+𝑔
+=
+cos
+⁡
+𝑥
+f=sinx,g=cosx. Poi usa 
+sin
+⁡
+2
+𝑥
++
+cos
+⁡
+2
+𝑥
+=
+1
+sin
+2
+x+cos
+2
+x=1.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+f
+′
+(x)=20x
+3
+B
+𝑦
+=
+9
+𝑥
+−
+16
+y=9x−16
+C
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f
+′
+(x)=e
+x
+(
+tan
+⁡
+𝑥
+)
+′
+=
+1
+cos
+⁡
+2
+𝑥
+(tanx)
+′
+=
+cos
+2
+x
+1
+	​
+
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Derivazione della regola del quoziente dal limite
+1
+SCRIVI \(F/G\) E IL SUO RAPPORTO INCREMENTALE
+𝑓
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
+)
+ℎ
+h
+g(x+h)
+f(x+h)
+	​
+
+−
+g(x)
+f(x)
+	​
+
+	​
+
+Rapporto incrementale standard per la funzione quoziente.
+2
+METTI ALLO STESSO DENOMINATORE
+𝑓
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+ℎ
+⋅
+𝑔
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
+)
+h⋅g(x+h)g(x)
+f(x+h)g(x)−f(x)g(x+h)
+	​
+
+Denominatore comune 
+𝑔
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
+)
+g(x+h)g(x).
+3
+AGGIUNGI E SOTTRAI \(F(X)G(X)\) AL NUMERATORE
+[
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+]
+𝑔
+(
+𝑥
+)
+−
+𝑓
+(
+𝑥
+)
+[
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+]
+ℎ
+⋅
+𝑔
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
+)
+h⋅g(x+h)g(x)
+[f(x+h)−f(x)]g(x)−f(x)[g(x+h)−g(x)]
+	​
+
+Stesso trucco della regola del prodotto: aggiungiamo zero per separare i contributi.
+4
+DIVIDI PER \(H\) E PASSA AL LIMITE
+𝑓
+′
+(
+𝑥
+)
+𝑔
+(
+𝑥
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+′
+(
+𝑥
+)
+[
+𝑔
+(
+𝑥
+)
+]
+2
+[g(x)]
+2
+f
+′
+(x)g(x)−f(x)g
+′
+(x)
+	​
+
+Per 
+ℎ
+→
+0
+h→0: 
+𝑔
+(
+𝑥
++
+ℎ
+)
+→
+𝑔
+(
+𝑥
+)
+g(x+h)→g(x), i due rapporti tendono a 
+𝑓
+′
+f
+′
+ e 
+𝑔
+′
+g
+′
+.
+CONCLUSIONE
+(
+𝑓
+/
+𝑔
+)
+′
+=
+(
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+)
+/
+𝑔
+2
+(f/g)
+′
+=(f
+′
+g−fg
+′
+)/g
+2
+. Per tan x: 
+𝑓
+=
+sin
+⁡
+𝑥
+,
+𝑔
+=
+cos
+⁡
+𝑥
+⇒
+(
+cos
+⁡
+2
+𝑥
++
+sin
+⁡
+2
+𝑥
+)
+/
+cos
+⁡
+2
+𝑥
+=
+1
+/
+cos
+⁡
+2
+𝑥
+f=sinx,g=cosx⇒(cos
+2
+x+sin
+2
+x)/cos
+2
+x=1/cos
+2
+x.
+
+📖 Soluzione passo per passo
+
+1
+IMPOSTA IL QUOZIENTE
+tan
+⁡
+𝑥
+=
+sin
+⁡
+𝑥
+cos
+⁡
+𝑥
+,
+𝑓
+=
+sin
+⁡
+𝑥
+,
+ 
+𝑔
+=
+cos
+⁡
+𝑥
+tanx=
+cosx
+sinx
+	​
+
+,f=sinx, g=cosx
+Identificazione delle parti.
+2
+CALCOLA LE DERIVATE
+𝑓
+′
+=
+cos
+⁡
+𝑥
+,
+𝑔
+′
+=
+−
+sin
+⁡
+𝑥
+f
+′
+=cosx,g
+′
+=−sinx
+Derivate elementari note.
+3
+APPLICA LA REGOLA
+cos
+⁡
+𝑥
+⋅
+cos
+⁡
+𝑥
+−
+sin
+⁡
+𝑥
+⋅
+(
+−
+sin
+⁡
+𝑥
+)
+cos
+⁡
+2
+𝑥
+=
+cos
+⁡
+2
+𝑥
++
+sin
+⁡
+2
+𝑥
+cos
+⁡
+2
+𝑥
+cos
+2
+x
+cosx⋅cosx−sinx⋅(−sinx)
+	​
+
+=
+cos
+2
+x
+cos
+2
+x+sin
+2
+x
+	​
+
+Numeratore: 
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+f
+′
+g−fg
+′
+.
+4
+USA L'IDENTITÀ FONDAMENTALE
+1
+cos
+⁡
+2
+𝑥
+cos
+2
+x
+1
+	​
+
+sin
+⁡
+2
+𝑥
++
+cos
+⁡
+2
+𝑥
+=
+1
+sin
+2
+x+cos
+2
+x=1.
+Precedente
+2 DI 2
+Successivo
+📐 +1 punto per la dimostrazione

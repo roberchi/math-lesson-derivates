@@ -1,0 +1,728 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-1/definizione
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 390x844
+MAIN_WORDS_APPROX: 563
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+★ 0 pt
+Panoramica
+25 min
+LEZIONE 1 · 0:30–0:55
+La definizione formale
+
+Ora diamo forma precisa all’intuizione geometrica e fisica. La derivata esiste quando il rapporto incrementale tende a un valore finito.
+
+DEFINIZIONE
+
+f si dice derivabile in x₀ se esiste finito il limite
+
+𝑓
+′
+(
+𝑥
+0
+)
+=
+lim
+⁡
+ℎ
+→
+0
+𝑓
+(
+𝑥
+0
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+0
+)
+ℎ
+f
+′
+(x
+0
+	​
+
+)=
+h→0
+lim
+	​
+
+h
+f(x
+0
+	​
+
++h)−f(x
+0
+	​
+
+)
+	​
+
+
+Quel numero è la derivata di f in x₀.
+
+Un numero oppure una funzione?
+•
+IN UN PUNTO
+f′(x₀) è un numero
+Misura la pendenza o il tasso di variazione in uno specifico punto x₀.
+ƒ
+PER OGNI PUNTO
+f′(x) è una funzione
+Ripetendo il limite per ogni x otteniamo una nuova funzione: la funzione derivata.
+𝑓
+′
+(
+𝑥
+)
+  
+(Lagrange)
+f
+′
+(x)(Lagrange)
+𝑑
+𝑦
+𝑑
+𝑥
+  
+(Leibniz)
+dx
+dy
+	​
+
+(Leibniz)
+𝐷
+𝑓
+  
+(operatoriale)
+Df(operatoriale)
+𝑥
+˙
+  
+(Newton, nel tempo)
+x
+˙
+(Newton, nel tempo)
+TRE DERIVAZIONI OBBLIGATORIE
+Le formule nascono dal limite
+VERSIONE DIMOSTRATIVA
+Derivata di x²
+COME SI LEGGE E QUANDO SI USA
+Dice che la pendenza della parabola 
+𝑦
+=
+𝑥
+2
+y=x
+2
+, in ogni punto 
+𝑥
+x, vale 
+2
+𝑥
+2x. A destra dell’origine è positiva, a sinistra è negativa e in zero vale zero.
+FORMULA
+(
+𝑥
+2
+)
+′
+=
+2
+𝑥
+(x
+2
+)
+′
+=2x
+1
+RAPPORTO INCREMENTALE
+(
+𝑥
++
+ℎ
+)
+2
+−
+𝑥
+2
+ℎ
+h
+(x+h)
+2
+−x
+2
+	​
+
+Partiamo dalla definizione con 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+f(x)=x
+2
+.
+2
+SVILUPPA IL QUADRATO
+𝑥
+2
++
+2
+𝑥
+ℎ
++
+ℎ
+2
+−
+𝑥
+2
+ℎ
+h
+x
+2
++2xh+h
+2
+−x
+2
+	​
+
+Usiamo 
+(
+𝑥
++
+ℎ
+)
+2
+=
+𝑥
+2
++
+2
+𝑥
+ℎ
++
+ℎ
+2
+(x+h)
+2
+=x
+2
++2xh+h
+2
+ e cancelliamo 
+𝑥
+2
+x
+2
+.
+3
+SEMPLIFICA H
+ℎ
+(
+2
+𝑥
++
+ℎ
+)
+ℎ
+=
+2
+𝑥
++
+ℎ
+h
+h(2x+h)
+	​
+
+=2x+h
+Per 
+ℎ
+≠
+0
+h
+
+=0 possiamo semplificare il fattore h.
+4
+PASSA AL LIMITE
+lim
+⁡
+ℎ
+→
+0
+(
+2
+𝑥
++
+ℎ
+)
+=
+2
+𝑥
+h→0
+lim
+	​
+
+(2x+h)=2x
+Quando h tende a zero rimane 
+2
+𝑥
+2x.
+CONCLUSIONE
+Quindi, per ogni x, 
+(
+𝑥
+2
+)
+′
+=
+2
+𝑥
+(x
+2
+)
+′
+=2x.
+VERSIONE DIMOSTRATIVA
+Derivata di sin x
+COME SI LEGGE E QUANDO SI USA
+Dice che la pendenza del grafico del seno nel punto 
+𝑥
+x è il valore del coseno nello stesso punto. Quando 
+cos
+⁡
+𝑥
+=
+0
+cosx=0, il seno ha tangente orizzontale.
+FORMULA
+(
+sin
+⁡
+𝑥
+)
+′
+=
+cos
+⁡
+𝑥
+(sinx)
+′
+=cosx
+VERSIONE DIMOSTRATIVA
+Derivata di eˣ
+COME SI LEGGE E QUANDO SI USA
+Dice che l’esponenziale cresce, in ogni punto, con una velocità uguale al proprio valore. Per esempio, quando 
+𝑒
+𝑥
+=
+3
+e
+x
+=3, anche la sua pendenza vale 3.
+FORMULA
+(
+𝑒
+𝑥
+)
+′
+=
+𝑒
+𝑥
+(e
+x
+)
+′
+=e
+x
+UNA STORIA DI IDEE
+
+Due scoperte indipendenti, una disputa accesa e notazioni che usiamo ancora oggi.
+
+Approfondisci
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Geometria
+Derivabilità
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "button",
+    "type": "button",
+    "label": "Apri il percorso",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "f′",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "a",
+    "type": null,
+    "label": "Panoramica",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Derivata di x² COME SI LEGGE E QUANDO SI USA Dice che la pendenza della parabola 𝑦 = 𝑥 2 y=x 2 , in ogni punto 𝑥 x, vale 2 𝑥 2x. A destra dell’origine è positiva, a sinistra è negativa e in zero vale zero. FORMULA ",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "true"
+  },
+  {
+    "i": 6,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Derivata di sin x COME SI LEGGE E QUANDO SI USA Dice che la pendenza del grafico del seno nel punto 𝑥 x è il valore del coseno nello stesso punto. Quando cos ⁡ 𝑥 = 0 cosx=0, il seno ha tangente orizzontale. FORMULA (",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 7,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Derivata di eˣ COME SI LEGGE E QUANDO SI USA Dice che l’esponenziale cresce, in ogni punto, con una velocità uguale al proprio valore. Per esempio, quando 𝑒 𝑥 = 3 e x =3, anche la sua pendenza vale 3. FORMULA ( 𝑒 𝑥",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 8,
+    "tag": "button",
+    "type": "button",
+    "label": "Approfondisci",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "button",
+    "type": "button",
+    "label": "Segna come completata",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "button",
+    "type": "button",
+    "label": "Geometria",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "button",
+    "type": "button",
+    "label": "Derivabilità",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 24,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 26,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 27,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  }
+]

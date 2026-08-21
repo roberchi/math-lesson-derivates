@@ -1,0 +1,90 @@
+URL: https://math-lesson-derivates.vercel.app/settings
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+100%
+★ 0 pt
+IL TUO PERCORSO
+
+11
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+
+Velocità istantanea
+
+Geometria
+
+Definizione formale
+
+Derivabilità
+
+Interpretazione fisica
+
+LEZIONE 2
+
+Warm-up
+
+Derivate fondamentali
+
+Regole di derivazione
+
+Derivata seconda
+
+Taylor · opzionale
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 100%
+Torna alla dashboard
+PREFERENZE
+Impostazioni
+
+Personalizza la lettura e gestisci il tuo progresso locale.
+
+Tema scuro
+
+Riduce la luminosità e mantiene alto il contrasto delle formule.
+
+Esporta progresso
+
+Scarica una copia JSON dei tuoi risultati.
+
+Esporta
+
+Importa progresso
+
+Ripristina un file esportato da questa app (schema v3).
+
+Importa
+Il file non è un progresso valido o usa una versione non compatibile.
+Ricomincia il percorso
+
+Cancella sezioni lette, punti, tentativi e classi completate da questo browser.
+
+Resetta progresso
+DERIVATE · VERSIONE 1.0.0 · I DATI RESTANO NEL TUO BROWSER
+Azzerare tutto il progresso?
+
+L’operazione rimuoverà definitivamente sezioni lette, punti, risposte e classi completate. Puoi esportare prima una copia di sicurezza.
+
+Annulla
+Azzera tutto

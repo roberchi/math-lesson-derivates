@@ -1,0 +1,493 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-1/velocita
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 1440x1000
+MAIN_WORDS_APPROX: 286
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+10 min
+LEZIONE 1 · 0:00–0:10
+Una velocità in un solo istante
+
+Prima della formula viene il problema: la velocità media descrive un intervallo, ma come possiamo misurare il movimento in un istante che non ha durata?
+
+LA SITUAZIONE CONCRETA
+Un oggetto sta cadendo
+
+Immagina di osservare un oggetto che cade. Il suo spazio percorso non cresce sempre allo stesso ritmo: ogni secondo va più veloce. Conoscendo due posizioni possiamo calcolare la velocità media, ma il tachimetro mostra qualcosa di diverso: una velocità in quell’istante.
+
+OSSERVO
+due posizioni
+
+La posizione al tempo t e poco dopo, al tempo t + h.
+
+MISURO
+una variazione
+
+Quanto spazio è stato percorso durante quel piccolo intervallo.
+
+DOMANDO
+e in un istante?
+
+Rendiamo l’intervallo sempre più piccolo, senza porlo uguale a zero.
+
+IL PONTE VERSO IL LIMITE
+
+Dopo aver formulato la domanda, possiamo darle un linguaggio. Se la legge oraria è 
+𝑠
+(
+𝑡
+)
+=
+1
+2
+𝑔
+𝑡
+2
+s(t)=
+2
+1
+	​
+
+gt
+2
+, la velocità media tra 
+𝑡
+t e 
+𝑡
++
+ℎ
+t+h è:
+
+𝑣
+𝑚
+=
+𝑠
+(
+𝑡
++
+ℎ
+)
+−
+𝑠
+(
+𝑡
+)
+ℎ
+v
+m
+	​
+
+=
+h
+s(t+h)−s(t)
+	​
+
+
+La velocità istantanea emerge osservando cosa succede quando 
+ℎ
+h si avvicina a zero. È esattamente il tipo di domanda a cui risponde un limite.
+
+UNA STORIA DI IDEE
+
+Galileo descrive il moto accelerato nel 1638, ma gli manca ancora il calcolo infinitesimale.
+
+Approfondisci
+Domanda da portare alla sezione successiva: se la velocità è la pendenza di un grafico spazio-tempo, come troviamo la pendenza di una curva in un punto?
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Panoramica
+Geometria
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "a",
+    "type": null,
+    "label": "f′ Derivate dal limite alla padronanza",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "div",
+    "type": null,
+    "label": "Panoramica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "div",
+    "type": null,
+    "label": "1 Velocità istantanea",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "div",
+    "type": null,
+    "label": "2 Geometria",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 6,
+    "tag": "div",
+    "type": null,
+    "label": "3 Definizione formale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 7,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivabilità",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 8,
+    "tag": "div",
+    "type": null,
+    "label": "5 Interpretazione fisica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "div",
+    "type": null,
+    "label": "1 Warm-up",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "div",
+    "type": null,
+    "label": "2 Derivate fondamentali",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "div",
+    "type": null,
+    "label": "3 Regole di derivazione",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivata seconda",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "div",
+    "type": null,
+    "label": "5 Taylor · opzionale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "6 Teoremi · appendice",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §1",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §2",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "Verifica finale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizi adattivi",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "a",
+    "type": null,
+    "label": "Panoramica",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "button",
+    "type": "button",
+    "label": "Approfondisci",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "button",
+    "type": "button",
+    "label": "Segna come completata",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "button",
+    "type": "button",
+    "label": "Panoramica",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "button",
+    "type": "button",
+    "label": "Geometria",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  }
+]

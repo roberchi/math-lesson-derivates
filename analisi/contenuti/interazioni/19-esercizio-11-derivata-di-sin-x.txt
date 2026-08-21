@@ -1,0 +1,546 @@
+URL: https://math-lesson-derivates.vercel.app/class/funzioni_elementari/exercise/fel_001
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 11 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Derivate di sin, cos, eˣ, ln
+ESERCIZIO 3 / 3
+ESERCIZIO
+Derivata di sin x
+Medio
+trigonometria
+limite notevole
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+sin
+⁡
+𝑥
+f(x)=sinx, ricavando il risultato dal limite del rapporto incrementale.
+Nascondi suggerimento
+Usa la formula di prostaferesi: 
+sin
+⁡
+𝐴
+−
+sin
+⁡
+𝐵
+=
+2
+cos
+⁡
+𝐴
++
+𝐵
+2
+sin
+⁡
+𝐴
+−
+𝐵
+2
+sinA−sinB=2cos
+2
+A+B
+	​
+
+sin
+2
+A−B
+	​
+
+.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+(
+cos
+⁡
+𝑥
+−
+sin
+⁡
+𝑥
+)
+f
+′
+(x)=e
+x
+(cosx−sinx)
+B
+𝑓
+′
+(
+𝑥
+)
+=
+𝑥
+2
+−
+2
+𝑥
+−
+1
+(
+𝑥
+−
+1
+)
+2
+f
+′
+(x)=
+(x−1)
+2
+x
+2
+−2x−1
+	​
+
+𝑓
+′
+(
+𝑥
+)
+=
+cos
+⁡
+𝑥
+f
+′
+(x)=cosx
+D
+𝑓
+′
+(
+𝑥
+)
+=
+3
+f
+′
+(x)=3
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione completa dal limite
+1
+SCRIVI IL RAPPORTO INCREMENTALE
+sin
+⁡
+(
+𝑥
++
+ℎ
+)
+−
+sin
+⁡
+𝑥
+ℎ
+h
+sin(x+h)−sinx
+	​
+
+Forma standard.
+2
+APPLICA LA FORMULA DI PROSTAFERESI
+sin
+⁡
+(
+𝑥
++
+ℎ
+)
+−
+sin
+⁡
+𝑥
+=
+2
+cos
+⁡
+ ⁣
+(
+𝑥
++
+ℎ
+2
+)
+sin
+⁡
+ ⁣
+(
+ℎ
+2
+)
+sin(x+h)−sinx=2cos(x+
+2
+h
+	​
+
+)sin(
+2
+h
+	​
+
+)
+Con 
+𝐴
+=
+𝑥
++
+ℎ
+A=x+h e 
+𝐵
+=
+𝑥
+B=x: 
+sin
+⁡
+𝐴
+−
+sin
+⁡
+𝐵
+=
+2
+cos
+⁡
+𝐴
++
+𝐵
+2
+sin
+⁡
+𝐴
+−
+𝐵
+2
+sinA−sinB=2cos
+2
+A+B
+	​
+
+sin
+2
+A−B
+	​
+
+.
+3
+RISCRIVI IL RAPPORTO
+2
+cos
+⁡
+(
+𝑥
++
+ℎ
+/
+2
+)
+sin
+⁡
+(
+ℎ
+/
+2
+)
+ℎ
+=
+cos
+⁡
+ ⁣
+(
+𝑥
++
+ℎ
+2
+)
+⋅
+sin
+⁡
+(
+ℎ
+/
+2
+)
+ℎ
+/
+2
+h
+2cos(x+h/2)sin(h/2)
+	​
+
+=cos(x+
+2
+h
+	​
+
+)⋅
+h/2
+sin(h/2)
+	​
+
+Dividiamo per 
+ℎ
+h, poi riscriviamo 
+sin
+⁡
+(
+ℎ
+/
+2
+)
+/
+(
+ℎ
+/
+2
+)
+sin(h/2)/(h/2) moltiplicando e dividendo per 
+1
+/
+2
+1/2.
+4
+USA IL LIMITE NOTEVOLE \(\LIM_{T\TO 0}\FRAC{\SIN T}{T}=1\)
+lim
+⁡
+ℎ
+→
+0
+sin
+⁡
+(
+ℎ
+/
+2
+)
+ℎ
+/
+2
+=
+1
+h→0
+lim
+	​
+
+h/2
+sin(h/2)
+	​
+
+=1
+Qui 
+𝑡
+=
+ℎ
+/
+2
+→
+0
+t=h/2→0 quando 
+ℎ
+→
+0
+h→0. Il limite notevole si applica.
+5
+COMPLETA IL CALCOLO
+lim
+⁡
+ℎ
+→
+0
+cos
+⁡
+ ⁣
+(
+𝑥
++
+ℎ
+2
+)
+⋅
+1
+=
+cos
+⁡
+(
+𝑥
++
+0
+)
+=
+cos
+⁡
+𝑥
+h→0
+lim
+	​
+
+cos(x+
+2
+h
+	​
+
+)⋅1=cos(x+0)=cosx
+Il coseno è continuo, quindi il limite è semplicemente 
+cos
+⁡
+𝑥
+cosx.
+CONCLUSIONE
+(
+sin
+⁡
+𝑥
+)
+′
+=
+cos
+⁡
+𝑥
+(sinx)
+′
+=cosx. La catena sin→cos→(−sin)→(−cos)→sin si ripete ciclicamente derivando.
+
+📖 Soluzione passo per passo
+
+1
+RISULTATO DIRETTO
+(
+sin
+⁡
+𝑥
+)
+′
+=
+cos
+⁡
+𝑥
+(sinx)
+′
+=cosx
+Formula fondamentale, ricavata usando il limite notevole 
+lim
+⁡
+𝑡
+→
+0
+sin
+⁡
+𝑡
+𝑡
+=
+1
+lim
+t→0
+	​
+
+t
+sint
+	​
+
+=1.
+Precedente
+3 DI 3
+Successivo
+📐 +1 punto per la dimostrazione

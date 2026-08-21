@@ -1,0 +1,625 @@
+URL: https://math-lesson-derivates.vercel.app/class/potenze/exercise/pot_003
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 10 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola delle potenze (x^n)' = nx^n-1
+ESERCIZIO 3 / 3
+ESERCIZIO
+Potenza con esponente razionale
+Medio
+radice
+esponente razionale
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
++
+1
+𝑥
+2
+f(x)=
+x
+	​
+
++
+x
+2
+1
+	​
+
+.
+Nascondi suggerimento
+Riscrivi tutto come potenze: 
+𝑥
+=
+𝑥
+1
+/
+2
+x
+	​
+
+=x
+1/2
+ e 
+1
+/
+𝑥
+2
+=
+𝑥
+−
+2
+1/x
+2
+=x
+−2
+.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0
+B
+𝑓
+′
+(
+2
+)
+=
+1
+f
+′
+(2)=1
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+−
+2
+𝑥
+3
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+−
+x
+3
+2
+	​
+
+D
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−
+x
+2
+1
+	​
+
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Come funziona la regola per \(n\) razionale?
+1
+PER \(\SQRT{X}=X^{1/2}\): DAL LIMITE (VISTO IN DETTAGLIO NELLA CLASSE PRECEDENTE)
+𝑥
++
+ℎ
+−
+𝑥
+ℎ
+→
+ℎ
+→
+0
+1
+2
+𝑥
+=
+1
+2
+𝑥
+−
+1
+/
+2
+h
+x+h
+	​
+
+−
+x
+	​
+
+	​
+
+h→0
+	​
+
+2
+x
+	​
+
+1
+	​
+
+=
+2
+1
+	​
+
+x
+−1/2
+Il trucco del coniugato dà esattamente il risultato che ci aspettiamo da 
+(
+𝑥
+1
+/
+2
+)
+′
+=
+1
+2
+𝑥
+−
+1
+/
+2
+(x
+1/2
+)
+′
+=
+2
+1
+	​
+
+x
+−1/2
+.
+2
+PER \(X^{-2}=1/X^2\): DAL LIMITE
+1
+(
+𝑥
++
+ℎ
+)
+2
+−
+1
+𝑥
+2
+ℎ
+=
+𝑥
+2
+−
+(
+𝑥
++
+ℎ
+)
+2
+ℎ
+⋅
+𝑥
+2
+(
+𝑥
++
+ℎ
+)
+2
+=
+−
+2
+𝑥
+ℎ
+−
+ℎ
+2
+ℎ
+⋅
+𝑥
+2
+(
+𝑥
++
+ℎ
+)
+2
+h
+(x+h)
+2
+1
+	​
+
+−
+x
+2
+1
+	​
+
+	​
+
+=
+h⋅x
+2
+(x+h)
+2
+x
+2
+−(x+h)
+2
+	​
+
+=
+h⋅x
+2
+(x+h)
+2
+−2xh−h
+2
+	​
+
+Differenza di frazioni, poi semplificazione.
+3
+SEMPLIFICA E PRENDI IL LIMITE
+−
+2
+𝑥
+−
+ℎ
+𝑥
+2
+(
+𝑥
++
+ℎ
+)
+2
+→
+ℎ
+→
+0
+−
+2
+𝑥
+𝑥
+4
+=
+−
+2
+𝑥
+3
+x
+2
+(x+h)
+2
+−2x−h
+	​
+
+h→0
+	​
+
+x
+4
+−2x
+	​
+
+=−
+x
+3
+2
+	​
+
+Cancella 
+ℎ
+h, poi fai tendere 
+ℎ
+→
+0
+h→0.
+CONCLUSIONE
+La regola 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+ vale per tutti gli 
+𝑛
+∈
+𝑄
+n∈Q. Il limite del rapporto incrementale dà sempre lo stesso schema.
+
+📖 Soluzione passo per passo
+
+1
+RISCRIVI COME POTENZE
+𝑓
+(
+𝑥
+)
+=
+𝑥
+1
+/
+2
++
+𝑥
+−
+2
+f(x)=x
+1/2
++x
+−2
+Conversione fondamentale per applicare la regola.
+2
+DERIVA \(X^{1/2}\)
+(
+𝑥
+1
+/
+2
+)
+′
+=
+1
+2
+𝑥
+−
+1
+/
+2
+=
+1
+2
+𝑥
+(x
+1/2
+)
+′
+=
+2
+1
+	​
+
+x
+−1/2
+=
+2
+x
+	​
+
+1
+	​
+
+𝑛
+=
+1
+/
+2
+n=1/2, quindi 
+𝑛
+−
+1
+=
+−
+1
+/
+2
+n−1=−1/2.
+3
+DERIVA \(X^{-2}\)
+(
+𝑥
+−
+2
+)
+′
+=
+−
+2
+𝑥
+−
+3
+=
+−
+2
+𝑥
+3
+(x
+−2
+)
+′
+=−2x
+−3
+=−
+x
+3
+2
+	​
+
+𝑛
+=
+−
+2
+n=−2, quindi 
+𝑛
+−
+1
+=
+−
+3
+n−1=−3.
+4
+SOMMA
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+−
+2
+𝑥
+3
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+−
+x
+3
+2
+	​
+
+Linearità della derivata.
+Precedente
+3 DI 3
+Successivo
+📐 +1 punto per la dimostrazione

@@ -1,0 +1,635 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_006
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 28 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Rapporto incrementale e definizione
+ESERCIZIO 7 / 7
+ESERCIZIO
+Derivata di √x
+Medio
+radice
+potenza razionale
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+f(x)=
+x
+	​
+
+ (con 
+𝑥
+>
+0
+x>0) usando la definizione.
+Nascondi suggerimento
+Moltiplica e dividi per il coniugato 
+𝑥
++
+ℎ
++
+𝑥
+x+h
+	​
+
++
+x
+	​
+
+ per eliminare la radice al numeratore.
+Scegli la risposta corretta
+2 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+cos
+⁡
+𝑥
+f
+′
+(x)=cosx
+B
+𝑓
+′
+(
+𝑥
+)
+=
+3
+sin
+⁡
+(
+6
+𝑥
+)
+f
+′
+(x)=3sin(6x)
+C
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+Prosegui
+Riprova esercizio
+Corretto!
+La derivata di √x è 1/(2√x).
++3 pt
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione dal limite del rapporto incrementale
+1
+SCRIVI IL RAPPORTO INCREMENTALE
+𝑥
++
+ℎ
+−
+𝑥
+ℎ
+h
+x+h
+	​
+
+−
+x
+	​
+
+	​
+
+Forma iniziale del rapporto. Il problema è che per 
+ℎ
+→
+0
+h→0 abbiamo una forma 
+0
+/
+0
+0/0.
+2
+MOLTIPLICA PER IL CONIUGATO
+𝑥
++
+ℎ
+−
+𝑥
+ℎ
+⋅
+𝑥
++
+ℎ
++
+𝑥
+𝑥
++
+ℎ
++
+𝑥
+h
+x+h
+	​
+
+−
+x
+	​
+
+	​
+
+⋅
+x+h
+	​
+
++
+x
+	​
+
+x+h
+	​
+
++
+x
+	​
+
+	​
+
+Moltiplicare per 1 nella forma del coniugato non cambia il valore, ma trasforma il numeratore in una differenza di quadrati.
+3
+SEMPLIFICA IL NUMERATORE
+(
+𝑥
++
+ℎ
+)
+−
+𝑥
+ℎ
+(
+𝑥
++
+ℎ
++
+𝑥
+)
+=
+ℎ
+ℎ
+(
+𝑥
++
+ℎ
++
+𝑥
+)
+h(
+x+h
+	​
+
++
+x
+	​
+
+)
+(x+h)−x
+	​
+
+=
+h(
+x+h
+	​
+
++
+x
+	​
+
+)
+h
+	​
+
+(
+𝐴
+−
+𝐵
+)
+(
+𝐴
++
+𝐵
+)
+=
+𝐴
+−
+𝐵
+(
+A
+	​
+
+−
+B
+	​
+
+)(
+A
+	​
+
++
+B
+	​
+
+)=A−B. Qui 
+𝐴
+=
+𝑥
++
+ℎ
+A=x+h e 
+𝐵
+=
+𝑥
+B=x.
+4
+CANCELLA \(H\)
+1
+𝑥
++
+ℎ
++
+𝑥
+x+h
+	​
+
++
+x
+	​
+
+1
+	​
+
+L'
+ℎ
+h si cancella (valido per 
+ℎ
+≠
+0
+h
+
+=0).
+5
+PASSA AL LIMITE
+lim
+⁡
+ℎ
+→
+0
+1
+𝑥
++
+ℎ
++
+𝑥
+=
+1
+2
+𝑥
+h→0
+lim
+	​
+
+x+h
+	​
+
++
+x
+	​
+
+1
+	​
+
+=
+2
+x
+	​
+
+1
+	​
+
+Per 
+ℎ
+→
+0
+h→0: 
+𝑥
++
+ℎ
+→
+𝑥
+x+h
+	​
+
+→
+x
+	​
+
+, quindi il denominatore 
+→
+2
+𝑥
+→2
+x
+	​
+
+.
+CONCLUSIONE
+(
+𝑥
+)
+′
+=
+1
+/
+(
+2
+𝑥
+)
+(
+x
+	​
+
+)
+′
+=1/(2
+x
+	​
+
+). Equivalente a 
+𝑥
+1
+/
+2
+x
+1/2
+: con la regola 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+ otteniamo 
+1
+2
+𝑥
+−
+1
+/
+2
+=
+1
+/
+(
+2
+𝑥
+)
+2
+1
+	​
+
+x
+−1/2
+=1/(2
+x
+	​
+
+). ✓
+
+📖 Soluzione passo per passo
+
+1
+RISCRIVI COME POTENZA RAZIONALE
+𝑓
+(
+𝑥
+)
+=
+𝑥
+1
+/
+2
+f(x)=x
+1/2
+𝑥
+=
+𝑥
+1
+/
+2
+x
+	​
+
+=x
+1/2
+.
+2
+APPLICA LA REGOLA
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+1
+/
+2
+−
+1
+=
+1
+2
+𝑥
+−
+1
+/
+2
+=
+1
+2
+𝑥
+f
+′
+(x)=
+2
+1
+	​
+
+x
+1/2−1
+=
+2
+1
+	​
+
+x
+−1/2
+=
+2
+x
+	​
+
+1
+	​
+
+Formula 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+ con 
+𝑛
+=
+1
+/
+2
+n=1/2.
+Precedente
+7 DI 7
+Successivo

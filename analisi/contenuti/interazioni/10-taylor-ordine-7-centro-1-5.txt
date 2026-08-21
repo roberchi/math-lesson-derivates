@@ -1,0 +1,570 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/taylor
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+15 min
+LEZIONE 2 · 1:50–2:05 · OPZIONALE
+Il DNA locale di una funzione
+
+Taylor risponde a una domanda concreta: possiamo sostituire, vicino a un punto scelto, una funzione difficile con un polinomio più semplice che le assomigli molto?
+
+★
+Approfondimento avanzato. Questa sezione non fa parte della verifica di base.
+PRIMA DELLA FORMULA
+Che cosa stiamo cercando di ottenere?
+
+Funzioni come 
+𝑒
+𝑥
+e
+x
+, 
+sin
+⁡
+𝑥
+sinx o 
+cos
+⁡
+𝑥
+cosx non sono polinomi. Taylor costruisce però un sostituto locale, chiamato polinomio approssimante: una formula fatta soltanto di somme, prodotti e potenze, quindi facile da calcolare e da disegnare.
+
+“Approssimare” non significa trovare una copia esatta. Significa scegliere un punto 
+𝑥
+0
+x
+0
+	​
+
+ e costruire un polinomio che lì abbia lo stesso valore e, aggiungendo termini, la stessa pendenza, la stessa curvatura e così via. Vicino a 
+𝑥
+0
+x
+0
+	​
+
+ le due curve quasi si sovrappongono; allontanandosi possono separarsi.
+
+L’OBIETTIVO
+Una funzione più maneggevole
+
+Usare un polinomio semplice al posto della funzione originale, ma soltanto nella zona in cui la somiglianza è abbastanza buona.
+
+IL CENTRO X₀
+Il punto di massima fedeltà
+
+È il punto attorno al quale costruiamo l’approssimazione. Cambiare centro significa chiedere al polinomio di essere preciso in un’altra zona.
+
+L’ERRORE
+Quanto siamo lontani
+
+In un punto x è la distanza verticale tra i due grafici: 
+∣
+𝑓
+(
+𝑥
+)
+−
+𝑃
+𝑛
+(
+𝑥
+)
+∣
+∣f(x)−P
+n
+	​
+
+(x)∣. Errore piccolo significa approssimazione buona.
+
+Un esempio senza tecnicismi
+
+Vicino a zero, 
+𝑒
+𝑥
+e
+x
+ assomiglia alla retta 
+1
++
+𝑥
+1+x. Per 
+𝑥
+=
+0,1
+x=0,1 otteniamo 
+1
++
+0,1
+=
+1,1
+1+0,1=1,1, mentre il valore reale è circa 
+1,10517
+1,10517. L’errore è circa 
+0,00517
+0,00517: non è zero, ma sappiamo esattamente che cosa stiamo perdendo usando la formula più semplice.
+
+COSTRUZIONE IN TRE PASSI
+Quante informazioni vogliamo conservare?
+P0
+Stesso valore
+
+Il polinomio costante sa soltanto a quale altezza si trova la funzione nel centro scelto.
+
+𝑃
+0
+(
+𝑥
+)
+=
+𝑓
+(
+𝑥
+0
+)
+P
+0
+	​
+
+(x)=f(x
+0
+	​
+
+)
+P1
+Stesso valore e stessa pendenza
+
+Aggiungiamo la retta tangente: nel centro le due curve hanno anche la stessa direzione.
+
+𝑃
+1
+(
+𝑥
+)
+=
+𝑓
+(
+𝑥
+0
+)
++
+𝑓
+′
+(
+𝑥
+0
+)
+(
+𝑥
+−
+𝑥
+0
+)
+P
+1
+	​
+
+(x)=f(x
+0
+	​
+
+)+f
+′
+(x
+0
+	​
+
+)(x−x
+0
+	​
+
+)
+P2
+Aggiungiamo la curvatura
+
+La derivata seconda fa coincidere anche il modo in cui la curva si piega.
+
+𝑃
+2
+(
+𝑥
+)
+=
+𝑓
+(
+𝑥
+0
+)
++
+𝑓
+′
+(
+𝑥
+0
+)
+(
+𝑥
+−
+𝑥
+0
+)
++
+𝑓
+′
+′
+(
+𝑥
+0
+)
+2
+!
+(
+𝑥
+−
+𝑥
+0
+)
+2
+P
+2
+	​
+
+(x)=f(x
+0
+	​
+
+)+f
+′
+(x
+0
+	​
+
+)(x−x
+0
+	​
+
+)+
+2!
+f
+′′
+(x
+0
+	​
+
+)
+	​
+
+(x−x
+0
+	​
+
+)
+2
+𝑃
+𝑛
+(
+𝑥
+)
+=
+∑
+𝑘
+=
+0
+𝑛
+𝑓
+(
+𝑘
+)
+(
+𝑥
+0
+)
+𝑘
+!
+(
+𝑥
+−
+𝑥
+0
+)
+𝑘
+P
+n
+	​
+
+(x)=
+k=0
+∑
+n
+	​
+
+k!
+f
+(k)
+(x
+0
+	​
+
+)
+	​
+
+(x−x
+0
+	​
+
+)
+k
+
+Non devi memorizzare subito la sommatoria: dice soltanto “prendi le informazioni della funzione in 
+𝑥
+0
+x
+0
+	​
+
+ e aggiungile una alla volta, dalla posizione fino alle variazioni più fini”.
+
+LABORATORIO
+Sposta il centro e osserva dove il polinomio funziona
+𝑒
+𝑥
+e
+x
+sin
+⁡
+𝑥
+sinx
+cos
+⁡
+𝑥
+cosx
+funzione
+P2
+errore
+Trascina per spostare · rotella o pulsanti per zoomare
+PUNTO CENTRALE · x₀ = 0
+ORDINE DEL POLINOMIO · 2
+POLINOMIO VISUALIZZATO
+𝑃
+2
+(
+𝑥
+)
+≈
+1
+−
+0.5
+ 
+𝑥
+2
+P
+2
+	​
+
+(x)≈1−0.5x
+2
+I coefficienti sono arrotondati a tre cifre; il grafico usa i valori completi.
+
+La derivata seconda aggiunge la curvatura: le due curve si assomigliano più a lungo.
+
+La linea verde misura la distanza tra funzione e polinomio in 
+𝑥
+=
+𝑥
+0
++
+0,75
+=
+0.75
+x=x
+0
+	​
+
++0,75=0.75.
+
+ERRORE IN x = 0.75
+1.29e-2
+Tre sviluppi fondamentali centrati in zero
+𝑒
+𝑥
+e
+x
+1
++
+𝑥
++
+𝑥
+2
+2
+!
++
+𝑥
+3
+3
+!
++
+⋯
+1+x+
+2!
+x
+2
+	​
+
++
+3!
+x
+3
+	​
+
++⋯
+sin
+⁡
+𝑥
+sinx
+𝑥
+−
+𝑥
+3
+3
+!
++
+𝑥
+5
+5
+!
+−
+⋯
+x−
+3!
+x
+3
+	​
+
++
+5!
+x
+5
+	​
+
+−⋯
+cos
+⁡
+𝑥
+cosx
+1
+−
+𝑥
+2
+2
+!
++
+𝑥
+4
+4
+!
+−
+⋯
+1−
+2!
+x
+2
+	​
+
++
+4!
+x
+4
+	​
+
+−⋯
+
+Quando il centro è zero si parla anche di sviluppo di MacLaurin. Per queste tre funzioni la serie completa converge su tutto ℝ, ma con un numero finito di termini l’approssimazione è generalmente migliore vicino al centro.
+
+Insight centrale
+
+Ogni termine usa una derivata di ordine k nel centro scelto. La derivata è il DNA locale della funzione: contiene l’informazione su valore, direzione, curvatura e variazioni di ordine superiore. L’errore ci ricorda però che informazione locale non significa uguaglianza ovunque.
+
+UNA STORIA DI IDEE
+
+La formula nasce nel Settecento; capire quando rappresenta davvero la funzione richiederà un altro secolo.
+
+Approfondisci
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Derivata seconda
+Teoremi · appendice

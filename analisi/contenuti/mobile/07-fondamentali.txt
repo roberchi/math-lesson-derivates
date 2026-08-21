@@ -1,0 +1,651 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/fondamentali
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 390x844
+MAIN_WORDS_APPROX: 423
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+★ 0 pt
+Panoramica
+30 min
+LEZIONE 2 · 0:10–0:40
+La tabella, costruita insieme
+
+La colonna centrale è la più importante: ricorda quale idea produce la formula, così puoi ricostruirla quando la memoria non basta.
+
+Funzione	Strumento	Derivata
+
+𝑐
+c	
+Δ
+𝑦
+=
+0
+Δy=0	
+0
+0
+
+𝑥
+𝑛
+x
+n
+	
+𝑏
+𝑖
+𝑛
+𝑜
+𝑚
+𝑖
+𝑜
+𝑑
+𝑖
+𝑁
+𝑒
+𝑤
+𝑡
+𝑜
+𝑛
+binomiodiNewton	
+𝑛
+𝑥
+𝑛
+−
+1
+nx
+n−1
+
+
+𝑒
+𝑥
+e
+x
+	
+lim
+⁡
+(
+𝑒
+ℎ
+−
+1
+)
+/
+ℎ
+=
+1
+lim(e
+h
+−1)/h=1	
+𝑒
+𝑥
+e
+x
+
+
+ln
+⁡
+𝑥
+lnx	
+𝑖
+𝑛
+𝑣
+𝑒
+𝑟
+𝑠
+𝑎
+𝑑
+𝑖
+𝑒
+𝑥
+inversadie
+x
+	
+1
+𝑥
+x
+1
+	​
+
+
+
+sin
+⁡
+𝑥
+sinx	
+lim
+⁡
+sin
+⁡
+ℎ
+/
+ℎ
+=
+1
+limsinh/h=1	
+cos
+⁡
+𝑥
+cosx
+
+cos
+⁡
+𝑥
+cosx	
+𝑓
+𝑜
+𝑟
+𝑚
+𝑢
+𝑙
+𝑒
+𝑑
+𝑖
+𝑎
+𝑑
+𝑑
+𝑖
+𝑧
+𝑖
+𝑜
+𝑛
+𝑒
+formulediaddizione	
+−
+sin
+⁡
+𝑥
+−sinx
+VERSIONE DIMOSTRATIVA
+Tre idee da saper ricostruire
+VERSIONE DIMOSTRATIVA
+Potenza intera
+COME SI LEGGE E QUANDO SI USA
+Serve a derivare una potenza di 
+𝑥
+x: l’esponente 
+𝑛
+n scende davanti come moltiplicatore e poi diminuisce di uno. Per esempio, 
+(
+𝑥
+3
+)
+′
+=
+3
+𝑥
+2
+(x
+3
+)
+′
+=3x
+2
+.
+FORMULA
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+VERSIONE DIMOSTRATIVA
+Logaritmo naturale
+COME SI LEGGE E QUANDO SI USA
+Dice che la pendenza di 
+ln
+⁡
+𝑥
+lnx nel punto 
+𝑥
+x è il reciproco di 
+𝑥
+x. Vale nel dominio del logaritmo, quindi per 
+𝑥
+>
+0
+x>0.
+FORMULA
+(
+ln
+⁡
+𝑥
+)
+′
+=
+1
+/
+𝑥
+(lnx)
+′
+=1/x
+VERSIONE DIMOSTRATIVA
+Coseno
+COME SI LEGGE E QUANDO SI USA
+Dice che la pendenza del coseno nel punto 
+𝑥
+x è l’opposto del valore del seno nello stesso punto. Il segno meno indica che il coseno inizialmente scende.
+FORMULA
+(
+cos
+⁡
+𝑥
+)
+′
+=
+−
+sin
+⁡
+𝑥
+(cosx)
+′
+=−sinx
+Perché 
+(
+𝑒
+𝑥
+)
+′
+=
+𝑒
+𝑥
+(e
+x
+)
+′
+=e
+x
+ è straordinario
+
+È l’unica funzione la cui velocità di crescita coincide sempre con il suo valore. Per questo appare in crescita batterica, decadimento radioattivo e interesse composto continuo.
+
+UNA STORIA DI IDEE
+
+Quando il tasso di crescita è proporzionale alla quantità presente, compare eˣ.
+
+Approfondisci
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Warm-up
+Regole di derivazione
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "button",
+    "type": "button",
+    "label": "Apri il percorso",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "f′",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "a",
+    "type": null,
+    "label": "Panoramica",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Potenza intera COME SI LEGGE E QUANDO SI USA Serve a derivare una potenza di 𝑥 x: l’esponente 𝑛 n scende davanti come moltiplicatore e poi diminuisce di uno. Per esempio, ( 𝑥 3 ) ′ = 3 𝑥 2 (x 3 ) ′ =3x 2 . FORMULA ",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 6,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Logaritmo naturale COME SI LEGGE E QUANDO SI USA Dice che la pendenza di ln ⁡ 𝑥 lnx nel punto 𝑥 x è il reciproco di 𝑥 x. Vale nel dominio del logaritmo, quindi per 𝑥 > 0 x>0. FORMULA ( ln ⁡ 𝑥 ) ′ = 1 / 𝑥 (lnx) ′ ",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 7,
+    "tag": "button",
+    "type": "button",
+    "label": "VERSIONE DIMOSTRATIVA Coseno COME SI LEGGE E QUANDO SI USA Dice che la pendenza del coseno nel punto 𝑥 x è l’opposto del valore del seno nello stesso punto. Il segno meno indica che il coseno inizialmente scende. FORMULA ( cos ⁡ 𝑥 ) ′ = −",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 8,
+    "tag": "button",
+    "type": "button",
+    "label": "Approfondisci",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "button",
+    "type": "button",
+    "label": "Segna come completata",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "button",
+    "type": "button",
+    "label": "Warm-up",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "button",
+    "type": "button",
+    "label": "Regole di derivazione",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 24,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 26,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 27,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  }
+]

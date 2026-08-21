@@ -1,0 +1,107 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_001
+
+Vai al contenuto
+f′
+★ 0 pt
+Rapporto incrementale e definizione
+ESERCIZIO 1 / 7
+ESERCIZIO
+Derivata di una costante
+Base
+costante
+definizione
+PROBLEMA
+Calcola la derivata di 
+𝑓
+(
+𝑥
+)
+=
+7
+f(x)=7 utilizzando la definizione tramite limite del rapporto incrementale.
+Mostra suggerimento
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+3
+cos
+⁡
+𝑥
+−
+2
+𝑒
+𝑥
+f
+′
+(x)=3cosx−2e
+x
+B
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0
+C
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−
+x
+2
+1
+	​
+
+D
+(
+tan
+⁡
+𝑥
+)
+′
+=
+1
+cos
+⁡
+2
+𝑥
+(tanx)
+′
+=
+cos
+2
+x
+1
+	​
+
+Conferma risposta
+Mostra soluzione
+
+📐 Dimostrazione dal limite
+
++1 pt bonus
+
+📖 Soluzione passo per passo
+
+Precedente
+1 DI 7
+Successivo

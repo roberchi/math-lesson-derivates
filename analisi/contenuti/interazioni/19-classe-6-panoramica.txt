@@ -1,0 +1,147 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_catena
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 14 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Torna al percorso
+∘
+CLASSE 6 DI 7
+Regola della catena 
+(
+𝑓
+∘
+𝑔
+)
+′
+=
+𝑓
+′
+(
+𝑔
+)
+⋅
+𝑔
+′
+(f∘g)
+′
+=f
+′
+(g)⋅g
+′
+
+Derivazione di funzioni composte — la regola più importante e più usata.
+
+PREREQUISITI
+Regola del prodotto (fg)'=f'g+fg'
+Derivate di sin, cos, eˣ, ln
+
+0/5
+
+COMPLETATI
+Esercizi
+
+L’ordine si adatta ai tuoi risultati: prima ciò che serve consolidare.
+
+Inizia la classe
+
+Funzione di funzione semplice
+
+catena · sin · polinomio
+Medio
+📐
+—
+
+Esponenziale composto
+
+catena · exp
+Medio
+—
+
+Potenza di funzione
+
+catena · potenza · composizione
+Medio
+—
+
+Logaritmo composto
+
+catena · ln · logaritmo
+Medio
+—
+
+Catena doppia
+
+catena · sin · composizione
+Avanzato
+—

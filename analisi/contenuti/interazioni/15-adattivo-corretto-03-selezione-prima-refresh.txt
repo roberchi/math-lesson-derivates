@@ -1,0 +1,205 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_003
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 8 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Rapporto incrementale e definizione
+ESERCIZIO 1 / 7
+ESERCIZIO
+Derivata di x²
+Base
+potenza
+definizione
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+f(x)=x
+2
+ usando la definizione.
+Nascondi suggerimento
+Ricorda: 
+(
+𝑥
++
+ℎ
+)
+2
+=
+𝑥
+2
++
+2
+𝑥
+ℎ
++
+ℎ
+2
+(x+h)
+2
+=x
+2
++2xh+h
+2
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+−
+6
+𝑥
+f
+′
+(x)=20x
+3
+−6x
+B
+𝑓
+′
+(
+𝑥
+)
+=
+2
+𝑥
+f
+′
+(x)=2x
+C
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+f
+′
+(x)=20x
+3
+D
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+Conferma risposta
+Mostra soluzione
+
+📐 Dimostrazione dal limite
+
++1 pt bonus
+
+📖 Soluzione passo per passo
+
+Precedente
+1 DI 7
+Successivo

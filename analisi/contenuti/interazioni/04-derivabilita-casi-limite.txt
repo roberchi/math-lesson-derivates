@@ -1,0 +1,324 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-1/derivabilita
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+25 min
+LEZIONE 1 · 1:05–1:30
+Continua non significa derivabile
+
+Una funzione derivabile è sempre continua. Il contrario, però, può fallire: un grafico può non spezzarsi e avere comunque uno spigolo o una tangente verticale.
+
+TEOREMA
+Derivabilità ⇒ continuità
+
+Se f è derivabile in x₀, allora è continua in x₀. La dimostrazione usa lo stesso rapporto incrementale:
+
+𝑓
+(
+𝑥
+0
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+0
+)
+=
+𝑓
+(
+𝑥
+0
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+0
+)
+ℎ
+⋅
+ℎ
+⟶
+𝑓
+′
+(
+𝑥
+0
+)
+⋅
+0
+=
+0
+f(x
+0
+	​
+
++h)−f(x
+0
+	​
+
+)=
+h
+f(x
+0
+	​
+
++h)−f(x
+0
+	​
+
+)
+	​
+
+⋅h⟶f
+′
+(x
+0
+	​
+
+)⋅0=0
+
+Quindi 
+𝑓
+(
+𝑥
+0
++
+ℎ
+)
+→
+𝑓
+(
+𝑥
+0
+)
+f(x
+0
+	​
+
++h)→f(x
+0
+	​
+
+). Il viceversa non vale: 
+𝑓
+(
+𝑥
+)
+=
+∣
+𝑥
+∣
+f(x)=∣x∣ è continua in 0 ma le pendenze laterali sono −1 e +1.
+
+LABORATORIO DEI CASI LIMITE
+Che cosa fa la secante nel punto singolare?
+
+Seleziona i tre casi e porta x₀ a zero. Nel punto angoloso le due pendenze laterali non coincidono; nella cuspide e nella tangente verticale la pendenza non resta finita.
+
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+f(x)=x
+2
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+f(x)=x
+3
+𝑓
+(
+𝑥
+)
+=
+sin
+⁡
+𝑥
+f(x)=sinx
+𝑓
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f(x)=e
+x
+𝑓
+(
+𝑥
+)
+=
+∣
+𝑥
+∣
+f(x)=∣x∣
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+/
+3
+f(x)=x
+2/3
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+f(x)=
+3
+x
+	​
+
+secante
+tangente
+PUNTO BASE · x₀ = 0.00
+INCREMENTO · h = 1.50
+Δy / Δx
+0.7631
+f′(x₀)
+non finita
+Anima h → 0
+Punto angoloso
+𝑓
+(
+𝑥
+)
+=
+∣
+𝑥
+∣
+f(x)=∣x∣
+
+Le derivate laterali esistono e sono finite, ma hanno valori diversi.
+
+Cuspide
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+/
+3
+f(x)=x
+2/3
+
+Le pendenze laterali diventano infinite con segni opposti: il grafico forma una punta.
+
+Tangente verticale
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+f(x)=
+3
+x
+	​
+
+
+Le pendenze crescono senza limite con lo stesso segno: la tangente è verticale.
+
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Definizione formale
+Interpretazione fisica

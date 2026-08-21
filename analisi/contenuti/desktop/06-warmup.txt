@@ -1,0 +1,453 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/warmup
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 1440x1000
+MAIN_WORDS_APPROX: 94
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+10 min
+LEZIONE 2 · 0:00–0:10
+Tre domande per ripartire
+
+Prima di costruire le regole operative, recuperiamo le idee della prima lezione. Rispondi a voce o su carta, poi apri la correzione.
+
+01
+
+Quali sono le tre letture della derivata?
+
+02
+
+Che differenza c’è tra f′(x₀) e f′(x)?
+
+03
+
+Continuità implica derivabilità?
+
+OBIETTIVO DELL’ORA
+Costruire, non ricevere, la tabella.
+
+Ogni formula fondamentale e ogni regola verrà ricavata da ciò che già sappiamo sui limiti.
+
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Interpretazione fisica
+Derivate fondamentali
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "a",
+    "type": null,
+    "label": "f′ Derivate dal limite alla padronanza",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "div",
+    "type": null,
+    "label": "Panoramica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "div",
+    "type": null,
+    "label": "1 Velocità istantanea",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "div",
+    "type": null,
+    "label": "2 Geometria",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 6,
+    "tag": "div",
+    "type": null,
+    "label": "3 Definizione formale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 7,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivabilità",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 8,
+    "tag": "div",
+    "type": null,
+    "label": "5 Interpretazione fisica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "div",
+    "type": null,
+    "label": "1 Warm-up",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "div",
+    "type": null,
+    "label": "2 Derivate fondamentali",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "div",
+    "type": null,
+    "label": "3 Regole di derivazione",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivata seconda",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "div",
+    "type": null,
+    "label": "5 Taylor · opzionale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "6 Teoremi · appendice",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §1",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §2",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "Verifica finale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizi adattivi",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "a",
+    "type": null,
+    "label": "Panoramica",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "button",
+    "type": "button",
+    "label": "01 Quali sono le tre letture della derivata?",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 21,
+    "tag": "button",
+    "type": "button",
+    "label": "02 Che differenza c’è tra f′(x₀) e f′(x)?",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 22,
+    "tag": "button",
+    "type": "button",
+    "label": "03 Continuità implica derivabilità?",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 23,
+    "tag": "button",
+    "type": "button",
+    "label": "Segna come completata",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 24,
+    "tag": "button",
+    "type": "button",
+    "label": "Interpretazione fisica",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "button",
+    "type": "button",
+    "label": "Derivate fondamentali",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  }
+]

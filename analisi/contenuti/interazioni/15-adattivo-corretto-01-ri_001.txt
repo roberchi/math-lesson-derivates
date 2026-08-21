@@ -1,0 +1,326 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_001
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 4 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Rapporto incrementale e definizione
+ESERCIZIO 7 / 7
+ESERCIZIO
+Derivata di una costante
+Base
+costante
+definizione
+PROBLEMA
+Calcola la derivata di 
+𝑓
+(
+𝑥
+)
+=
+7
+f(x)=7 utilizzando la definizione tramite limite del rapporto incrementale.
+Nascondi suggerimento
+Cosa succede a 
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+f(x+h)−f(x) quando 
+𝑓
+f è costante?
+Scegli la risposta corretta
+2 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+3
+cos
+⁡
+𝑥
+−
+2
+𝑒
+𝑥
+f
+′
+(x)=3cosx−2e
+x
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0
+C
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−
+x
+2
+1
+	​
+
+D
+(
+tan
+⁡
+𝑥
+)
+′
+=
+1
+cos
+⁡
+2
+𝑥
+(tanx)
+′
+=
+cos
+2
+x
+1
+	​
+
+Prosegui
+Riprova esercizio
+Corretto!
+La derivata di una costante è zero.
++3 pt
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione dal limite del rapporto incrementale
+1
+SCRIVI IL RAPPORTO INCREMENTALE
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
+h
+f(x+h)−f(x)
+	​
+
+Per definizione, la derivata è il limite di questo rapporto per 
+ℎ
+→
+0
+h→0.
+2
+SOSTITUISCI \(F(X)=7\)
+7
+−
+7
+ℎ
+=
+0
+ℎ
+=
+0
+h
+7−7
+	​
+
+=
+h
+0
+	​
+
+=0
+Poiché 
+𝑓
+f non dipende da 
+𝑥
+x, anche 
+𝑓
+(
+𝑥
++
+ℎ
+)
+=
+7
+f(x+h)=7. La differenza è sempre zero.
+3
+PASSA AL LIMITE
+𝑓
+′
+(
+𝑥
+)
+=
+lim
+⁡
+ℎ
+→
+0
+0
+=
+0
+f
+′
+(x)=
+h→0
+lim
+	​
+
+0=0
+Il limite di una funzione costantemente uguale a 0 è 0, qualunque sia 
+ℎ
+h.
+CONCLUSIONE
+In generale, per ogni costante 
+𝑐
+c: 
+(
+𝑐
+)
+′
+=
+0
+(c)
+′
+=0. Intuitivamente: una funzione costante non cambia mai, quindi il suo tasso di variazione è zero.
+
+📖 Soluzione passo per passo
+
+1
+IDENTIFICA LA FUNZIONE
+𝑓
+(
+𝑥
+)
+=
+7
+f(x)=7
+Funzione costante: il suo valore è sempre 7 indipendentemente da 
+𝑥
+x.
+2
+APPLICA LA REGOLA
+𝑓
+′
+(
+𝑥
+)
+=
+(
+7
+)
+′
+=
+0
+f
+′
+(x)=(7)
+′
+=0
+La derivata di qualsiasi costante è 0.
+Precedente
+7 DI 7
+Successivo

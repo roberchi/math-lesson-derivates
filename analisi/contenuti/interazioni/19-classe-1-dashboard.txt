@@ -1,0 +1,259 @@
+URL: https://math-lesson-derivates.vercel.app/esercizi
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+ALLENAMENTO ADATTIVO
+Dalla lezione
+alla padronanza.
+
+Esercizi organizzati per prerequisiti e difficoltà. Gli argomenti da consolidare tornano per primi, mentre nuove classi si sbloccano con i tuoi progressi.
+
+Inizia gli esercizi
+
+0/27
+
+esercizi completati
+
+0%
+
+corretti al primo colpo
+
+0
+
+dimostrazioni lette
+
+LE CLASSI DI PROBLEMI
+Il tuo percorso
+
+Completa una classe per sbloccare i concetti che dipendono da essa.
+
+∂
+01
+Rapporto incrementale e definizione
+
+Calcolo diretto dal limite del rapporto incrementale — la radice di tutto.
+
+Base
+Medio
+7 ESERCIZI · 21 PT
+0%
+INIZIA DA QUI →
+02
+Regola delle potenze 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+
+Derivazione di monomi, potenze intere, razionali e negative.
+
+Base
+Medio
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+03
+Derivate di sin, cos, eˣ, ln
+
+Le derivate delle funzioni trascendenti fondamentali, tutte ricavate dal limite usando i limiti notevoli.
+
+Medio
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+04
+Regola del prodotto 
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+(fg)
+′
+=f
+′
+g+fg
+′
+
+Derivazione di prodotti di funzioni — con la dimostrazione dal limite e il trucco di Leibniz.
+
+Medio
+Avanzato
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+05
+Regola del quoziente 
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+𝑔
+2
+(
+g
+f
+	​
+
+)
+′
+=
+g
+2
+f
+′
+g−fg
+′
+	​
+
+
+Derivazione di frazioni di funzioni — e come ricavarla dalla regola del prodotto.
+
+Medio
+2 ESERCIZI · 6 PT
+0%
+🔒 BLOCCATA
+06
+Regola della catena 
+(
+𝑓
+∘
+𝑔
+)
+′
+=
+𝑓
+′
+(
+𝑔
+)
+⋅
+𝑔
+′
+(f∘g)
+′
+=f
+′
+(g)⋅g
+′
+
+Derivazione di funzioni composte — la regola più importante e più usata.
+
+Medio
+Avanzato
+5 ESERCIZI · 15 PT
+0%
+🔒 BLOCCATA
+07
+Retta tangente, stazionari e applicazioni
+
+Usare la derivata per studiare il comportamento di una funzione — massimi, minimi, tangenti.
+
+Medio
+Avanzato
+Sfida
+4 ESERCIZI · 12 PT
+0%
+🔒 BLOCCATA

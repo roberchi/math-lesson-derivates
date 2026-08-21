@@ -1,0 +1,323 @@
+URL: https://math-lesson-derivates.vercel.app/class/applicazioni/exercise/app_003
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 16 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Retta tangente, stazionari e applicazioni
+ESERCIZIO 4 / 4
+ESERCIZIO
+Equazione della normale
+Avanzato
+normale
+tangente
+PROBLEMA
+Trova l'equazione della retta normale (perpendicolare alla tangente) al grafico di 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+f(x)=
+x
+	​
+
+ nel punto 
+𝑃
+=
+(
+4
+,
+2
+)
+P=(4,2).
+Nascondi suggerimento
+La retta normale ha pendenza 
+−
+1
+/
+𝑓
+′
+(
+𝑥
+0
+)
+−1/f
+′
+(x
+0
+	​
+
+). Due rette sono perpendicolari se il prodotto delle pendenze è −1.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+𝑦
+=
+−
+4
+𝑥
++
+18
+y=−4x+18
+B
+𝑓
+′
+(
+𝑥
+)
+=
+3
+f
+′
+(x)=3
+C
+𝑓
+′
+(
+𝑥
+)
+=
+−
+tan
+⁡
+𝑥
+f
+′
+(x)=−tanx
+D
+𝑦
+=
+9
+𝑥
+−
+16
+y=9x−16
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+CALCOLA \(F'(X)\)
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+Derivata di 
+𝑥
+x
+	​
+
+.
+2
+VALUTA IN \(X_0=4\)
+𝑓
+′
+(
+4
+)
+=
+1
+2
+4
+=
+1
+4
+f
+′
+(4)=
+2
+4
+	​
+
+1
+	​
+
+=
+4
+1
+	​
+
+Pendenza della tangente.
+3
+PENDENZA DELLA NORMALE
+𝑚
+⊥
+=
+−
+1
+1
+/
+4
+=
+−
+4
+m
+⊥
+	​
+
+=−
+1/4
+1
+	​
+
+=−4
+Rette perpendicolari: 
+𝑚
+1
+⋅
+𝑚
+2
+=
+−
+1
+m
+1
+	​
+
+⋅m
+2
+	​
+
+=−1.
+4
+EQUAZIONE DELLA NORMALE
+𝑦
+−
+2
+=
+−
+4
+(
+𝑥
+−
+4
+)
+⇒
+𝑦
+=
+−
+4
+𝑥
++
+18
+y−2=−4(x−4)⇒y=−4x+18
+Formula punto-pendenza con 
+(
+𝑥
+0
+,
+𝑦
+0
+)
+=
+(
+4
+,
+2
+)
+(x
+0
+	​
+
+,y
+0
+	​
+
+)=(4,2) e 
+𝑚
+=
+−
+4
+m=−4.
+Precedente
+4 DI 4
+Successivo

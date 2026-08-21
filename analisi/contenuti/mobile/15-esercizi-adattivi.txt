@@ -1,0 +1,560 @@
+URL: https://math-lesson-derivates.vercel.app/esercizi
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 390x844
+MAIN_WORDS_APPROX: 341
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+★ 0 pt
+ALLENAMENTO ADATTIVO
+Dalla lezione
+alla padronanza.
+
+Esercizi organizzati per prerequisiti e difficoltà. Gli argomenti da consolidare tornano per primi, mentre nuove classi si sbloccano con i tuoi progressi.
+
+Inizia gli esercizi
+
+0/27
+
+esercizi completati
+
+0%
+
+corretti al primo colpo
+
+0
+
+dimostrazioni lette
+
+LE CLASSI DI PROBLEMI
+Il tuo percorso
+
+Completa una classe per sbloccare i concetti che dipendono da essa.
+
+∂
+01
+Rapporto incrementale e definizione
+
+Calcolo diretto dal limite del rapporto incrementale — la radice di tutto.
+
+Base
+Medio
+7 ESERCIZI · 21 PT
+0%
+INIZIA DA QUI →
+02
+Regola delle potenze 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+
+Derivazione di monomi, potenze intere, razionali e negative.
+
+Base
+Medio
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+03
+Derivate di sin, cos, eˣ, ln
+
+Le derivate delle funzioni trascendenti fondamentali, tutte ricavate dal limite usando i limiti notevoli.
+
+Medio
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+04
+Regola del prodotto 
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+(fg)
+′
+=f
+′
+g+fg
+′
+
+Derivazione di prodotti di funzioni — con la dimostrazione dal limite e il trucco di Leibniz.
+
+Medio
+Avanzato
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+05
+Regola del quoziente 
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+𝑔
+2
+(
+g
+f
+	​
+
+)
+′
+=
+g
+2
+f
+′
+g−fg
+′
+	​
+
+
+Derivazione di frazioni di funzioni — e come ricavarla dalla regola del prodotto.
+
+Medio
+2 ESERCIZI · 6 PT
+0%
+🔒 BLOCCATA
+06
+Regola della catena 
+(
+𝑓
+∘
+𝑔
+)
+′
+=
+𝑓
+′
+(
+𝑔
+)
+⋅
+𝑔
+′
+(f∘g)
+′
+=f
+′
+(g)⋅g
+′
+
+Derivazione di funzioni composte — la regola più importante e più usata.
+
+Medio
+Avanzato
+5 ESERCIZI · 15 PT
+0%
+🔒 BLOCCATA
+07
+Retta tangente, stazionari e applicazioni
+
+Usare la derivata per studiare il comportamento di una funzione — massimi, minimi, tangenti.
+
+Medio
+Avanzato
+Sfida
+4 ESERCIZI · 12 PT
+0%
+🔒 BLOCCATA
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "button",
+    "type": "button",
+    "label": "Apri il percorso",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "f′",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "button",
+    "type": "button",
+    "label": "Inizia gli esercizi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "button",
+    "type": "button",
+    "label": "∂ 01 Rapporto incrementale e definizione Calcolo diretto dal limite del rapporto incrementale — la radice di tutto. Base Medio 7 ESERCIZI · 21 PT 0% INIZIA DA QUI →",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 6,
+    "tag": "button",
+    "type": "button",
+    "label": "02 Regola delle potenze ( 𝑥 𝑛 ) ′ = 𝑛 𝑥 𝑛 − 1 (x n ) ′ =nx n−1 Derivazione di monomi, potenze intere, razionali e negative. Base Medio 3 ESERCIZI · 9 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 7,
+    "tag": "button",
+    "type": "button",
+    "label": "03 Derivate di sin, cos, eˣ, ln Le derivate delle funzioni trascendenti fondamentali, tutte ricavate dal limite usando i limiti notevoli. Medio 3 ESERCIZI · 9 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 8,
+    "tag": "button",
+    "type": "button",
+    "label": "04 Regola del prodotto ( 𝑓 𝑔 ) ′ = 𝑓 ′ 𝑔 + 𝑓 𝑔 ′ (fg) ′ =f ′ g+fg ′ Derivazione di prodotti di funzioni — con la dimostrazione dal limite e il trucco di Leibniz. Medio Avanzato 3 ESERCIZI · 9 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "button",
+    "type": "button",
+    "label": "05 Regola del quoziente ( 𝑓 𝑔 ) ′ = 𝑓 ′ 𝑔 − 𝑓 𝑔 ′ 𝑔 2 ( g f ​ ) ′ = g 2 f ′ g−fg ′ ​ Derivazione di frazioni di funzioni — e come ricavarla dalla regola del prodotto. Medio 2 ESERCIZI · 6 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "button",
+    "type": "button",
+    "label": "06 Regola della catena ( 𝑓 ∘ 𝑔 ) ′ = 𝑓 ′ ( 𝑔 ) ⋅ 𝑔 ′ (f∘g) ′ =f ′ (g)⋅g ′ Derivazione di funzioni composte — la regola più importante e più usata. Medio Avanzato 5 ESERCIZI · 15 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "button",
+    "type": "button",
+    "label": "07 Retta tangente, stazionari e applicazioni Usare la derivata per studiare il comportamento di una funzione — massimi, minimi, tangenti. Medio Avanzato Sfida 4 ESERCIZI · 12 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 24,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 26,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 27,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  }
+]

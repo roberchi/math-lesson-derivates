@@ -1,0 +1,182 @@
+URL: https://math-lesson-derivates.vercel.app/
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+100%
+★ 0 pt
+IL TUO PERCORSO
+
+11
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+
+Velocità istantanea
+
+Geometria
+
+Definizione formale
+
+Derivabilità
+
+Interpretazione fisica
+
+LEZIONE 2
+
+Warm-up
+
+Derivate fondamentali
+
+Regole di derivazione
+
+Derivata seconda
+
+Taylor · opzionale
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 100%
+CORSO GUIDATO · 2 LEZIONI DA 2 ORE
+Derivate:
+dal limite alla padronanza.
+
+Partiamo da una domanda concreta — come si misura una velocità in un singolo istante? — e costruiamo geometria, definizione e regole senza saltare i passaggi.
+
+Riprendi la lezione
+11/11 SEZIONI COMPLETATE
+PROGRESSO DEL CORSO
+100%
+UNA DOMANDA, TRE RISPOSTE
+Cos’è la derivata?
+◢
+GEOMETRICA
+Una pendenza
+È la pendenza della retta tangente, ottenuta come limite delle rette secanti.
+lim
+ANALITICA
+Un limite
+È il limite del rapporto incrementale quando l’incremento tende a zero.
+↗
+FISICA
+Un tasso istantaneo
+È quanto rapidamente una grandezza cambia in un preciso istante.
+LEZIONE 01
+2 ore
+Il concetto di derivata
+
+Dal moto di un corpo alla definizione formale
+
+OBIETTIVO
+
+Costruire la derivata come oggetto geometrico, analitico e fisico.
+
+✓
+
+Il problema: velocità istantanea
+
+10 min
+✓
+
+Geometria della derivata
+
+20 min
+✓
+
+Definizione formale
+
+25 min
+
+☕
+
+PAUSA + SCHEDA ESERCIZI §1 · 10 MIN
+✓
+
+Derivabilità e punti singolari
+
+25 min
+✓
+
+Interpretazione fisica
+
+25 min
+5/5 SEZIONI COMPLETATE
+LEZIONE 02
+2 ore + appendice
+Regole, Taylor e teoremi
+
+Dalle dimostrazioni alla padronanza del calcolo
+
+OBIETTIVO
+
+Ricavare le regole dai limiti, applicarle e consultare i principali teoremi attraverso figure e casi pratici.
+
+✓
+
+Ripasso e warm-up
+
+10 min
+✓
+
+Derivate fondamentali
+
+30 min
+✓
+
+Regole di derivazione
+
+30 min
+
+☕
+
+PAUSA + SCHEDA ESERCIZI §2 · 10 MIN
+✓
+
+Derivata seconda
+
+30 min
+✓
+
+Serie di Taylor
+
+15 min
+✓
+
+Appendice: teoremi della derivata
+
+45 min
+6/6 SEZIONI COMPLETATE
+MATERIALI ASSOCIATI
+Allenati e verifica
+Scheda §1
+
+Definizione e significato geometrico · 25 min
+
+Scheda §2
+
+Regole di derivazione · 30 min
+
+Verifica finale
+
+4 problemi · 30 punti · 45 min
+
+Esercizi adattivi
+
+27 esercizi con difficoltà progressiva

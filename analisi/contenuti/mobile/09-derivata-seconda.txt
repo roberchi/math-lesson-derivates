@@ -1,0 +1,820 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/derivata-seconda
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 390x844
+MAIN_WORDS_APPROX: 726
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+★ 0 pt
+Panoramica
+30 min
+LEZIONE 2 · 1:20–1:50
+La derivata della derivata
+
+f″ misura come cambia la pendenza. Sul grafico descrive la concavità; nel moto descrive l’accelerazione.
+
+DERIVATA SECONDA
+𝑓
+′
+′
+(
+𝑥
+)
+=
+(
+𝑓
+′
+(
+𝑥
+)
+)
+′
+=
+𝑑
+2
+𝑦
+𝑑
+𝑥
+2
+=
+𝐷
+2
+𝑓
+(
+𝑥
+)
+f
+′′
+(x)=(f
+′
+(x))
+′
+=
+dx
+2
+d
+2
+y
+	​
+
+=D
+2
+f(x)
+⌣
+f″ > 0
+Concava verso l’alto
+Le pendenze aumentano: il grafico ha la forma di una coppa.
+⌢
+f″ < 0
+Concava verso il basso
+Le pendenze diminuiscono: il grafico ha la forma di una cupola.
+a
+FISICA
+Accelerazione
+Se 
+𝑠
+(
+𝑡
+)
+s(t) è la posizione, 
+𝑣
+(
+𝑡
+)
+=
+𝑠
+′
+(
+𝑡
+)
+v(t)=s
+′
+(t) e 
+𝑎
+(
+𝑡
+)
+=
+𝑠
+′
+′
+(
+𝑡
+)
+a(t)=s
+′′
+(t).
+PRIMA GUARDA, POI CALCOLA
+La derivata seconda è il verso in cui piega il grafico
+
+Non basta ricordare “coppa” e “cupola”. La derivata seconda confronta le pendenze di tangenti vicine: se aumentano, 
+𝑓
+′
+′
+>
+0
+f
+′′
+>0; se diminuiscono, 
+𝑓
+′
+′
+<
+0
+f
+′′
+<0. Le linee gialle nei grafici rendono visibile proprio questa variazione.
+
+𝑓
+′
+′
+(
+𝑥
+)
+>
+0
+f
+′′
+(x)>0
+Concava verso l’alto
+
+Procedendo da sinistra a destra, le pendenze aumentano: da negative diventano nulle e poi positive.
+
+𝑓
+′
+′
+(
+𝑥
+)
+<
+0
+f
+′′
+(x)<0
+Concava verso il basso
+
+Procedendo da sinistra a destra, le pendenze diminuiscono: da positive diventano nulle e poi negative.
+
+cambio di concavità
+𝑓
+′
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′′
+(x
+0
+	​
+
+)=0
+Possibile flesso
+
+Se la derivata seconda cambia segno, anche la concavità cambia. Il solo valore zero, però, non basta.
+
+LABORATORIO INTERATTIVO
+Muovi il punto e osserva cambiare la curvatura
+
+Sposta il punto lungo la funzione e confronta tangente, segno di 
+𝑓
+′
+′
+f
+′′
+ e cerchio osculatore. Il cerchio non sostituisce la tangente: aggiunge l’informazione su quanto e verso dove la curva sta piegando.
+
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+6
+−
+𝑥
+f(x)=
+6
+x
+3
+	​
+
+−x
+𝑓
+(
+𝑥
+)
+=
+0,35
+𝑥
+2
+−
+1
+f(x)=0,35x
+2
+−1
+𝑓
+(
+𝑥
+)
+=
+1
+−
+0,35
+𝑥
+2
+f(x)=1−0,35x
+2
+𝑓
+(
+𝑥
+)
+=
+1,4
+sin
+⁡
+𝑥
+f(x)=1,4sinx
+funzione
+tangente
+cerchio osculatore
+SPOSTA IL PUNTO · x₀ = -1.80
+Anima il punto
+Pendenza
+
+𝑓
+′
+(
+𝑥
+0
+)
+f
+′
+(x
+0
+	​
+
+)
+
+0.620
+Variazione pendenza
+
+𝑓
+′
+′
+(
+𝑥
+0
+)
+f
+′′
+(x
+0
+	​
+
+)
+
+-1.800
+Curvatura
+
+𝑘
+𝑎
+𝑝
+𝑝
+𝑎
+kappa
+
+-1.105
+Raggio del cerchio
+
+𝑅
+R
+
+0.905
+
+Concava verso il basso
+
+Le pendenze stanno diminuendo: la tangente ruota in senso orario mentre il punto avanza.
+
+Perché un cerchio? La tangente riproduce valore e pendenza; il cerchio osculatore riproduce anche la curvatura locale. Il suo raggio soddisfa 
+𝑅
+=
+1
+/
+∣
+𝑘
+𝑎
+𝑝
+𝑝
+𝑎
+∣
+R=1/∣
+kappa∣, con
+𝑘
+𝑎
+𝑝
+𝑝
+𝑎
+=
+𝑓
+′
+′
+/
+(
+1
++
+(
+𝑓
+′
+)
+2
+)
+3
+/
+2
+kappa=f
+′′
+/(1+(f
+′
+)
+2
+)
+3/2
+. Più il raggio è piccolo, più la curva piega.
+
+ANTEPRIMA DELLO STUDIO DI FUNZIONE
+Punti stazionari e flessi
+
+Un punto è stazionario quando 
+𝑓
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′
+(x
+0
+	​
+
+)=0: la tangente è orizzontale. Può essere un massimo, un minimo o un flesso; per distinguerli servirà studiare il segno di f′ e f″.
+
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+−
+3
+𝑥
+⇒
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑥
+2
+−
+3
+⇒
+𝑥
+=
+±
+1
+f(x)=x
+3
+−3x⇒f
+′
+(x)=3x
+2
+−3⇒x=±1
+
+I due punti hanno tangente orizzontale. La derivata seconda 
+𝑓
+′
+′
+(
+𝑥
+)
+=
+6
+𝑥
+f
+′′
+(x)=6x aiuta a capire che uno è un massimo e l’altro un minimo.
+
+Questo è solo un ponte: lo studio completo di massimi, minimi e flessi verrà più avanti. Nell’appendice dopo Taylor troverai invece Rolle, Lagrange e gli altri teoremi letti in modo grafico e pratico.
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Regole di derivazione
+Taylor · opzionale
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "button",
+    "type": "button",
+    "label": "Apri il percorso",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "f′",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "a",
+    "type": null,
+    "label": "Panoramica",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "button",
+    "type": "button",
+    "label": "𝑓 ( 𝑥 ) = 𝑥 3 6 − 𝑥 f(x)= 6 x 3 ​ −x",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 6,
+    "tag": "button",
+    "type": "button",
+    "label": "𝑓 ( 𝑥 ) = 0,35 𝑥 2 − 1 f(x)=0,35x 2 −1",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 7,
+    "tag": "button",
+    "type": "button",
+    "label": "𝑓 ( 𝑥 ) = 1 − 0,35 𝑥 2 f(x)=1−0,35x 2",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 8,
+    "tag": "button",
+    "type": "button",
+    "label": "𝑓 ( 𝑥 ) = 1,4 sin ⁡ 𝑥 f(x)=1,4sinx",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "input",
+    "type": "range",
+    "label": "Posizione del punto sulla funzione",
+    "href": null,
+    "value": "-1.8",
+    "min": "-2.8",
+    "max": "2.8",
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "button",
+    "type": "button",
+    "label": "Anima il punto",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "button",
+    "type": "button",
+    "label": "Segna come completata",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "button",
+    "type": "button",
+    "label": "Regole di derivazione",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "button",
+    "type": "button",
+    "label": "Taylor · opzionale",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 24,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 26,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 27,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 28,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 29,
+    "tag": "div",
+    "type": null,
+    "label": "",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  }
+]

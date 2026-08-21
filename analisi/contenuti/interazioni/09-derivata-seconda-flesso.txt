@@ -1,0 +1,493 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/derivata-seconda
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+30 min
+LEZIONE 2 · 1:20–1:50
+La derivata della derivata
+
+f″ misura come cambia la pendenza. Sul grafico descrive la concavità; nel moto descrive l’accelerazione.
+
+DERIVATA SECONDA
+𝑓
+′
+′
+(
+𝑥
+)
+=
+(
+𝑓
+′
+(
+𝑥
+)
+)
+′
+=
+𝑑
+2
+𝑦
+𝑑
+𝑥
+2
+=
+𝐷
+2
+𝑓
+(
+𝑥
+)
+f
+′′
+(x)=(f
+′
+(x))
+′
+=
+dx
+2
+d
+2
+y
+	​
+
+=D
+2
+f(x)
+⌣
+f″ > 0
+Concava verso l’alto
+Le pendenze aumentano: il grafico ha la forma di una coppa.
+⌢
+f″ < 0
+Concava verso il basso
+Le pendenze diminuiscono: il grafico ha la forma di una cupola.
+a
+FISICA
+Accelerazione
+Se 
+𝑠
+(
+𝑡
+)
+s(t) è la posizione, 
+𝑣
+(
+𝑡
+)
+=
+𝑠
+′
+(
+𝑡
+)
+v(t)=s
+′
+(t) e 
+𝑎
+(
+𝑡
+)
+=
+𝑠
+′
+′
+(
+𝑡
+)
+a(t)=s
+′′
+(t).
+PRIMA GUARDA, POI CALCOLA
+La derivata seconda è il verso in cui piega il grafico
+
+Non basta ricordare “coppa” e “cupola”. La derivata seconda confronta le pendenze di tangenti vicine: se aumentano, 
+𝑓
+′
+′
+>
+0
+f
+′′
+>0; se diminuiscono, 
+𝑓
+′
+′
+<
+0
+f
+′′
+<0. Le linee gialle nei grafici rendono visibile proprio questa variazione.
+
+𝑓
+′
+′
+(
+𝑥
+)
+>
+0
+f
+′′
+(x)>0
+Concava verso l’alto
+
+Procedendo da sinistra a destra, le pendenze aumentano: da negative diventano nulle e poi positive.
+
+𝑓
+′
+′
+(
+𝑥
+)
+<
+0
+f
+′′
+(x)<0
+Concava verso il basso
+
+Procedendo da sinistra a destra, le pendenze diminuiscono: da positive diventano nulle e poi negative.
+
+cambio di concavità
+𝑓
+′
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′′
+(x
+0
+	​
+
+)=0
+Possibile flesso
+
+Se la derivata seconda cambia segno, anche la concavità cambia. Il solo valore zero, però, non basta.
+
+LABORATORIO INTERATTIVO
+Muovi il punto e osserva cambiare la curvatura
+
+Sposta il punto lungo la funzione e confronta tangente, segno di 
+𝑓
+′
+′
+f
+′′
+ e cerchio osculatore. Il cerchio non sostituisce la tangente: aggiunge l’informazione su quanto e verso dove la curva sta piegando.
+
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+6
+−
+𝑥
+f(x)=
+6
+x
+3
+	​
+
+−x
+𝑓
+(
+𝑥
+)
+=
+0,35
+𝑥
+2
+−
+1
+f(x)=0,35x
+2
+−1
+𝑓
+(
+𝑥
+)
+=
+1
+−
+0,35
+𝑥
+2
+f(x)=1−0,35x
+2
+𝑓
+(
+𝑥
+)
+=
+1,4
+sin
+⁡
+𝑥
+f(x)=1,4sinx
+funzione
+tangente
+cerchio osculatore
+SPOSTA IL PUNTO · x₀ = -2.10
+Anima il punto
+Pendenza
+
+𝑓
+′
+(
+𝑥
+0
+)
+f
+′
+(x
+0
+	​
+
+)
+
+-0.707
+Variazione pendenza
+
+𝑓
+′
+′
+(
+𝑥
+0
+)
+f
+′′
+(x
+0
+	​
+
+)
+
+1.208
+Curvatura
+
+𝑘
+𝑎
+𝑝
+𝑝
+𝑎
+kappa
+
+0.658
+Raggio del cerchio
+
+𝑅
+R
+
+1.519
+
+Concava verso l’alto
+
+Le pendenze stanno aumentando: la tangente ruota in senso antiorario mentre il punto avanza.
+
+Perché un cerchio? La tangente riproduce valore e pendenza; il cerchio osculatore riproduce anche la curvatura locale. Il suo raggio soddisfa 
+𝑅
+=
+1
+/
+∣
+𝑘
+𝑎
+𝑝
+𝑝
+𝑎
+∣
+R=1/∣
+kappa∣, con
+𝑘
+𝑎
+𝑝
+𝑝
+𝑎
+=
+𝑓
+′
+′
+/
+(
+1
++
+(
+𝑓
+′
+)
+2
+)
+3
+/
+2
+kappa=f
+′′
+/(1+(f
+′
+)
+2
+)
+3/2
+. Più il raggio è piccolo, più la curva piega.
+
+ANTEPRIMA DELLO STUDIO DI FUNZIONE
+Punti stazionari e flessi
+
+Un punto è stazionario quando 
+𝑓
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′
+(x
+0
+	​
+
+)=0: la tangente è orizzontale. Può essere un massimo, un minimo o un flesso; per distinguerli servirà studiare il segno di f′ e f″.
+
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+−
+3
+𝑥
+⇒
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑥
+2
+−
+3
+⇒
+𝑥
+=
+±
+1
+f(x)=x
+3
+−3x⇒f
+′
+(x)=3x
+2
+−3⇒x=±1
+
+I due punti hanno tangente orizzontale. La derivata seconda 
+𝑓
+′
+′
+(
+𝑥
+)
+=
+6
+𝑥
+f
+′′
+(x)=6x aiuta a capire che uno è un massimo e l’altro un minimo.
+
+Questo è solo un ponte: lo studio completo di massimi, minimi e flessi verrà più avanti. Nell’appendice dopo Taylor troverai invece Rolle, Lagrange e gli altri teoremi letti in modo grafico e pratico.
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Regole di derivazione
+Taylor · opzionale

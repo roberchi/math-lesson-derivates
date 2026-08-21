@@ -1,0 +1,461 @@
+URL: https://math-lesson-derivates.vercel.app/class/applicazioni/exercise/app_001
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 16 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Retta tangente, stazionari e applicazioni
+ESERCIZIO 4 / 4
+ESERCIZIO
+Retta tangente
+Medio
+tangente
+geometrico
+PROBLEMA
+Trova l'equazione della retta tangente al grafico di 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+−
+3
+𝑥
+f(x)=x
+3
+−3x nel punto 
+𝑃
+=
+(
+2
+,
+2
+)
+P=(2,2).
+Nascondi suggerimento
+La retta tangente in 
+(
+𝑥
+0
+,
+𝑓
+(
+𝑥
+0
+)
+)
+(x
+0
+	​
+
+,f(x
+0
+	​
+
+)) ha equazione 
+𝑦
+−
+𝑓
+(
+𝑥
+0
+)
+=
+𝑓
+′
+(
+𝑥
+0
+)
+(
+𝑥
+−
+𝑥
+0
+)
+y−f(x
+0
+	​
+
+)=f
+′
+(x
+0
+	​
+
+)(x−x
+0
+	​
+
+).
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f
+′
+(x)=e
+x
+B
+𝑥
+=
+−
+1
+ (minimo locale)
+,
+𝑓
+(
+−
+1
+)
+=
+−
+𝑒
+−
+1
+x=−1 (minimo locale),f(−1)=−e
+−1
+C
+𝑦
+=
+−
+4
+𝑥
++
+18
+y=−4x+18
+𝑦
+=
+9
+𝑥
+−
+16
+y=9x−16
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Connessione con la definizione: perché la pendenza è f'(x₀)?
+1
+LA PENDENZA DELLA SECANTE TRA \((X_0,F(X_0))\) E \((X,F(X))\)
+𝑚
+sec
+=
+𝑓
+(
+𝑥
+)
+−
+𝑓
+(
+𝑥
+0
+)
+𝑥
+−
+𝑥
+0
+m
+sec
+	​
+
+=
+x−x
+0
+	​
+
+f(x)−f(x
+0
+	​
+
+)
+	​
+
+Questa è la pendenza della retta che unisce due punti del grafico.
+2
+PER \(X\TO X_0\), LA SECANTE DIVENTA LA TANGENTE
+𝑚
+tan
+=
+lim
+⁡
+𝑥
+→
+𝑥
+0
+𝑓
+(
+𝑥
+)
+−
+𝑓
+(
+𝑥
+0
+)
+𝑥
+−
+𝑥
+0
+=
+𝑓
+′
+(
+𝑥
+0
+)
+m
+tan
+	​
+
+=
+x→x
+0
+	​
+
+lim
+	​
+
+x−x
+0
+	​
+
+f(x)−f(x
+0
+	​
+
+)
+	​
+
+=f
+′
+(x
+0
+	​
+
+)
+Sostituendo 
+𝑥
+=
+𝑥
+0
++
+ℎ
+x=x
+0
+	​
+
++h, questo limite è esattamente la definizione di 
+𝑓
+′
+(
+𝑥
+0
+)
+f
+′
+(x
+0
+	​
+
+). La derivata è la pendenza della tangente.
+CONCLUSIONE
+La derivata non è solo una formula astratta: è letteralmente la pendenza della retta che tocca il grafico in un punto.
+
+📖 Soluzione passo per passo
+
+1
+CALCOLA LA DERIVATA
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑥
+2
+−
+3
+f
+′
+(x)=3x
+2
+−3
+Regola delle potenze + linearità.
+2
+VALUTA IN \(X_0=2\)
+𝑓
+′
+(
+2
+)
+=
+3
+⋅
+4
+−
+3
+=
+9
+f
+′
+(2)=3⋅4−3=9
+La pendenza della tangente in 
+𝑃
+P è 9.
+3
+EQUAZIONE DELLA RETTA
+𝑦
+−
+2
+=
+9
+(
+𝑥
+−
+2
+)
+⇒
+𝑦
+=
+9
+𝑥
+−
+16
+y−2=9(x−2)⇒y=9x−16
+Formula 
+𝑦
+−
+𝑦
+0
+=
+𝑚
+(
+𝑥
+−
+𝑥
+0
+)
+y−y
+0
+	​
+
+=m(x−x
+0
+	​
+
+) con 
+𝑚
+=
+9
+m=9, 
+(
+𝑥
+0
+,
+𝑦
+0
+)
+=
+(
+2
+,
+2
+)
+(x
+0
+	​
+
+,y
+0
+	​
+
+)=(2,2).
+Precedente
+4 DI 4
+Successivo
+📐 +1 punto per la dimostrazione
