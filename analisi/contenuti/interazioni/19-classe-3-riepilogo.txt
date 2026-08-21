@@ -1,0 +1,135 @@
+URL: https://math-lesson-derivates.vercel.app/class/funzioni_elementari/results
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 12 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+
+📚
+
+CLASSE COMPLETATA
+Ripasso consigliato
+
+Derivate di sin, cos, eˣ, ln
+
+0
+
+PUNTI SU 9
+
+0%
+
+RISULTATO
+
++2
+
+BONUS LETTURA
+Hai completato la classe, ma il punteggio è basso. Rivedi gli esercizi con 0 punti prima di proseguire.
+Riepilogo esercizi
+Esercizio	Tentativi	Dimostrazione	Punti
+
+
+Derivata di sin x
+
+	—	
+📐 letta
+	
+
+0 + 1
+
+
+
+
+Derivata di eˣ
+
+	—	
+📐 letta
+	
+
+0 + 1
+
+
+
+
+Combinazione lineare di funzioni elementari
+
+	—	
+
+n/d
+
+	
+
+0
+
+Prossima classe
+Ripassa la classe
+Dashboard

@@ -1,0 +1,311 @@
+URL: https://math-lesson-derivates.vercel.app/class/funzioni_elementari/exercise/fel_003
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 12 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Derivate di sin, cos, eˣ, ln
+ESERCIZIO 3 / 3
+ESERCIZIO
+Combinazione lineare di funzioni elementari
+Medio
+linearità
+sin
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+3
+sin
+⁡
+𝑥
+−
+2
+𝑒
+𝑥
++
+4
+f(x)=3sinx−2e
+x
++4.
+Nascondi suggerimento
+Usa la linearità: 
+(
+𝛼
+𝑓
++
+𝛽
+𝑔
+)
+′
+=
+𝛼
+𝑓
+′
++
+𝛽
+𝑔
+′
+(αf+βg)
+′
+=αf
+′
++βg
+′
+.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+𝑓
+′
+(
+𝑥
+)
+=
+3
+cos
+⁡
+𝑥
+−
+2
+𝑒
+𝑥
+f
+′
+(x)=3cosx−2e
+x
+B
+𝑓
+′
+(
+𝑥
+)
+=
+−
+𝑓
+(
+𝑥
+)
+f
+′
+(x)=−f(x)
+C
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑒
+3
+𝑥
+−
+1
+f
+′
+(x)=3e
+3x−1
+D
+𝑓
+′
+(
+𝑥
+)
+=
+3
+f
+′
+(x)=3
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+DERIVA \(3\SIN X\)
+(
+3
+sin
+⁡
+𝑥
+)
+′
+=
+3
+cos
+⁡
+𝑥
+(3sinx)
+′
+=3cosx
+Costante fuori, poi 
+(
+sin
+⁡
+𝑥
+)
+′
+=
+cos
+⁡
+𝑥
+(sinx)
+′
+=cosx.
+2
+DERIVA \(-2E^X\)
+(
+−
+2
+𝑒
+𝑥
+)
+′
+=
+−
+2
+𝑒
+𝑥
+(−2e
+x
+)
+′
+=−2e
+x
+(
+𝑒
+𝑥
+)
+′
+=
+𝑒
+𝑥
+(e
+x
+)
+′
+=e
+x
+, la costante −2 esce.
+3
+DERIVA LA COSTANTE
+(
+4
+)
+′
+=
+0
+(4)
+′
+=0
+Derivata di costante = 0.
+4
+SOMMA
+𝑓
+′
+(
+𝑥
+)
+=
+3
+cos
+⁡
+𝑥
+−
+2
+𝑒
+𝑥
+f
+′
+(x)=3cosx−2e
+x
+Il termine costante 
+4
+4 sparisce.
+Precedente
+3 DI 3
+Successivo
+🔓 Nuova classe sbloccata: Regola del prodotto (fg)'=f'g+fg'

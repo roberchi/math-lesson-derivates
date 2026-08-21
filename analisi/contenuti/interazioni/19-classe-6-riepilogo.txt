@@ -1,0 +1,163 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_catena/results
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 15 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+
+📚
+
+CLASSE COMPLETATA
+Ripasso consigliato
+
+Regola della catena (f g)'=f'(g) g'
+
+0
+
+PUNTI SU 15
+
+0%
+
+RISULTATO
+
++1
+
+BONUS LETTURA
+Hai completato la classe, ma il punteggio è basso. Rivedi gli esercizi con 0 punti prima di proseguire.
+Riepilogo esercizi
+Esercizio	Tentativi	Dimostrazione	Punti
+
+
+Funzione di funzione semplice
+
+	—	
+📐 letta
+	
+
+0 + 1
+
+
+
+
+Esponenziale composto
+
+	—	
+
+n/d
+
+	
+
+0
+
+
+
+
+Potenza di funzione
+
+	—	
+
+n/d
+
+	
+
+0
+
+
+
+
+Catena doppia
+
+	—	
+
+n/d
+
+	
+
+0
+
+
+
+
+Logaritmo composto
+
+	—	
+
+n/d
+
+	
+
+0
+
+Prossima classe
+Ripassa la classe
+Dashboard

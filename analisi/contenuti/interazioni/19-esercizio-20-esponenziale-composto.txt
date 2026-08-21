@@ -1,0 +1,298 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_catena/exercise/cat_002
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 15 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola della catena (f g)'=f'(g) g'
+ESERCIZIO 5 / 5
+ESERCIZIO
+Esponenziale composto
+Medio
+catena
+exp
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑒
+3
+𝑥
+−
+1
+f(x)=e
+3x−1
+.
+Nascondi suggerimento
+Esterno: 
+𝑒
+𝑢
+e
+u
+, interno: 
+3
+𝑥
+−
+1
+3x−1.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑒
+3
+𝑥
+−
+1
+f
+′
+(x)=3e
+3x−1
+B
+𝑓
+′
+(
+𝑥
+)
+=
+−
+𝑓
+(
+𝑥
+)
+f
+′
+(x)=−f(x)
+C
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+(
+cos
+⁡
+𝑥
+−
+sin
+⁡
+𝑥
+)
+f
+′
+(x)=e
+x
+(cosx−sinx)
+D
+𝑓
+′
+(
+𝑥
+)
+=
+−
+tan
+⁡
+𝑥
+f
+′
+(x)=−tanx
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+IDENTIFICA
+𝑓
+(
+𝑢
+)
+=
+𝑒
+𝑢
+,
+ 
+𝑔
+(
+𝑥
+)
+=
+3
+𝑥
+−
+1
+⇒
+𝑓
+′
+(
+𝑢
+)
+=
+𝑒
+𝑢
+,
+ 
+𝑔
+′
+(
+𝑥
+)
+=
+3
+f(u)=e
+u
+, g(x)=3x−1⇒f
+′
+(u)=e
+u
+, g
+′
+(x)=3
+L'esponenziale ha derivata se stesso.
+2
+CATENA
+(
+𝑒
+3
+𝑥
+−
+1
+)
+′
+=
+𝑒
+3
+𝑥
+−
+1
+⋅
+3
+=
+3
+𝑒
+3
+𝑥
+−
+1
+(e
+3x−1
+)
+′
+=e
+3x−1
+⋅3=3e
+3x−1
+𝑓
+′
+(
+𝑔
+(
+𝑥
+)
+)
+⋅
+𝑔
+′
+(
+𝑥
+)
+f
+′
+(g(x))⋅g
+′
+(x).
+Precedente
+5 DI 5
+Successivo

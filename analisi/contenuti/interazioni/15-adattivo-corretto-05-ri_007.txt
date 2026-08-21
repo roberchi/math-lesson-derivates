@@ -1,0 +1,479 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_007
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 20 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Rapporto incrementale e definizione
+ESERCIZIO 7 / 7
+ESERCIZIO
+Rapporto incrementale — calcolo numerico
+Base
+numerico
+applicazione
+PROBLEMA
+Per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+−
+3
+𝑥
++
+2
+f(x)=x
+2
+−3x+2, calcola il rapporto incrementale in 
+𝑥
+0
+=
+2
+x
+0
+	​
+
+=2 con 
+ℎ
+=
+1
+h=1, poi con 
+ℎ
+=
+0.1
+h=0.1, poi con 
+ℎ
+=
+0.01
+h=0.01. Cosa noti? Qual è il valore esatto di 
+𝑓
+′
+(
+2
+)
+f
+′
+(2)?
+Nascondi suggerimento
+Calcola 
+𝑓
+(
+2
++
+ℎ
+)
+f(2+h) per ogni valore di 
+ℎ
+h, poi fai la differenza con 
+𝑓
+(
+2
+)
+f(2) e dividi per 
+ℎ
+h.
+Scegli la risposta corretta
+2 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0
+𝑓
+′
+(
+2
+)
+=
+1
+f
+′
+(2)=1
+C
+𝑥
+=
+−
+1
+ (minimo locale)
+,
+𝑓
+(
+−
+1
+)
+=
+−
+𝑒
+−
+1
+x=−1 (minimo locale),f(−1)=−e
+−1
+D
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑒
+3
+𝑥
+−
+1
+f
+′
+(x)=3e
+3x−1
+Prosegui
+Riprova esercizio
+Corretto!
+I rapporti incrementali convergono a 1 man mano che h diminuisce.
++3 pt
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Calcolo esatto dal limite
+1
+CALCOLA \(F(2)\)
+𝑓
+(
+2
+)
+=
+4
+−
+6
++
+2
+=
+0
+f(2)=4−6+2=0
+Sostituisci 
+𝑥
+=
+2
+x=2.
+2
+CALCOLA \(F(2+H)\)
+𝑓
+(
+2
++
+ℎ
+)
+=
+(
+2
++
+ℎ
+)
+2
+−
+3
+(
+2
++
+ℎ
+)
++
+2
+=
+4
++
+4
+ℎ
++
+ℎ
+2
+−
+6
+−
+3
+ℎ
++
+2
+=
+ℎ
+2
++
+ℎ
+f(2+h)=(2+h)
+2
+−3(2+h)+2=4+4h+h
+2
+−6−3h+2=h
+2
++h
+Espandi il quadrato e semplifica raccogliendo i termini simili.
+3
+RAPPORTO INCREMENTALE
+𝑓
+(
+2
++
+ℎ
+)
+−
+𝑓
+(
+2
+)
+ℎ
+=
+ℎ
+2
++
+ℎ
+−
+0
+ℎ
+=
+ℎ
++
+1
+h
+f(2+h)−f(2)
+	​
+
+=
+h
+h
+2
++h−0
+	​
+
+=h+1
+Il rapporto semplifica a 
+ℎ
++
+1
+h+1.
+4
+VERIFICA NUMERICA E LIMITE
+ℎ
+=
+1
+:
+  
+2
+ℎ
+=
+0.1
+:
+  
+1.1
+ℎ
+=
+0.01
+:
+  
+1.01
+lim
+⁡
+ℎ
+→
+0
+(
+ℎ
++
+1
+)
+=
+1
+h=1:2h=0.1:1.1h=0.01:1.01
+h→0
+lim
+	​
+
+(h+1)=1
+I valori numerici convergono a 1 da destra. Il limite conferma 
+𝑓
+′
+(
+2
+)
+=
+1
+f
+′
+(2)=1.
+CONCLUSIONE
+La convergenza numerica illustra visivamente cosa significa il limite: il rapporto incrementale si avvicina sempre di più alla derivata esatta.
+
+📖 Soluzione passo per passo
+
+1
+SCHEMA NUMERICO
+Δ
+ℎ
+=
+𝑓
+(
+2
++
+ℎ
+)
+−
+𝑓
+(
+2
+)
+ℎ
+=
+ℎ
++
+1
+Δ
+h
+	​
+
+=
+h
+f(2+h)−f(2)
+	​
+
+=h+1
+Formula chiusa del rapporto incrementale per questa funzione.
+2
+TRE VALORI
+ℎ
+=
+1
+⇒
+2
+;
+ℎ
+=
+0.1
+⇒
+1.1
+;
+ℎ
+=
+0.01
+⇒
+1.01
+h=1⇒2;h=0.1⇒1.1;h=0.01⇒1.01
+Convergenza monotona verso 1.
+3
+RISULTATO ESATTO
+𝑓
+′
+(
+2
+)
+=
+lim
+⁡
+ℎ
+→
+0
+(
+ℎ
++
+1
+)
+=
+1
+f
+′
+(2)=
+h→0
+lim
+	​
+
+(h+1)=1
+La derivata in 
+𝑥
+0
+=
+2
+x
+0
+	​
+
+=2.
+Precedente
+7 DI 7
+Successivo

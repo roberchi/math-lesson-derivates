@@ -1,0 +1,120 @@
+URL: https://math-lesson-derivates.vercel.app/class/applicazioni
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 15 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Torna al percorso
+📈
+CLASSE 7 DI 7
+Retta tangente, stazionari e applicazioni
+
+Usare la derivata per studiare il comportamento di una funzione — massimi, minimi, tangenti.
+
+PREREQUISITI
+Regola della catena (f g)'=f'(g) g'
+Regola del quoziente (fg)'=f'g-fg'g^2
+
+0/4
+
+COMPLETATI
+Esercizi
+
+L’ordine si adatta ai tuoi risultati: prima ciò che serve consolidare.
+
+Inizia la classe
+
+Retta tangente
+
+tangente · geometrico · applicazione
+Medio
+📐
+—
+
+Punti stazionari
+
+stazionari · massimo · minimo
+Avanzato
+—
+
+Equazione della normale
+
+normale · tangente · geometrico
+Avanzato
+—
+
+Sfida — punti in cui la tangente è parallela
+
+tangente · parallelo · sfida
+Sfida
+—

@@ -1,0 +1,140 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Torna al percorso
+∂
+CLASSE 1 DI 7
+Rapporto incrementale e definizione
+
+Calcolo diretto dal limite del rapporto incrementale — la radice di tutto.
+
+0/7
+
+COMPLETATI
+Esercizi
+
+L’ordine si adatta ai tuoi risultati: prima ciò che serve consolidare.
+
+Inizia la classe
+
+Derivata di una costante
+
+costante · definizione · base
+Base
+📐
+—
+
+Derivata di una funzione lineare
+
+lineare · definizione · base
+Base
+📐
+—
+
+Derivata di x²
+
+potenza · definizione · classico
+Base
+📐
+—
+
+Derivata di x³
+
+potenza · definizione · binomio
+Base
+📐
+—
+
+Rapporto incrementale — calcolo numerico
+
+numerico · applicazione · geometrico
+Base
+📐
+—
+
+Derivata di 1/x
+
+potenza negativa · definizione · frazioni
+Medio
+📐
+—
+
+Derivata di √x
+
+radice · potenza razionale · razionalizzazione
+Medio
+📐
+—

@@ -1,0 +1,1710 @@
+URL: https://math-lesson-derivates.vercel.app/scheda/2
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 1440x1000
+MAIN_WORDS_APPROX: 355
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+Mostra tutte le soluzioni
+Stampa scheda
+SCHEDA ESERCIZI §2
+Regole di derivazione
+30 minuti
+
+Nome ____________________
+
+Mostra tutti i passaggi. Nei calcoli per definizione, scrivi il rapporto incrementale prima di eseguire le semplificazioni.
+
+1
+Tabella fondamentale
+Regole base
+Base
+Deriva: a) 
+5
+𝑥
+4
+−
+3
+𝑥
+2
++
+7
+5x
+4
+−3x
+2
++7; b) 
+𝑥
++
+1
+/
+𝑥
+2
+x
+	​
+
++1/x
+2
+; c) 
+2
+𝑒
+𝑥
+−
+4
+ln
+⁡
+𝑥
+2e
+x
+−4lnx; d) 
+3
+sin
+⁡
+𝑥
+−
+cos
+⁡
+𝑥
+3sinx−cosx.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+2
+Prodotti
+Prodotto
+Base
+Calcola la derivata di: a) 
+𝑥
+2
+sin
+⁡
+𝑥
+x
+2
+sinx; b) 
+𝑒
+𝑥
+cos
+⁡
+𝑥
+e
+x
+cosx. Indica chiaramente i due fattori e le loro derivate.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+3
+Quozienti
+Quoziente
+Medio
+Calcola la derivata di: a) 
+(
+𝑥
+2
++
+1
+)
+/
+(
+𝑥
+−
+1
+)
+(x
+2
++1)/(x−1); b) 
+tan
+⁡
+𝑥
+tanx, riscrivendola come 
+sin
+⁡
+𝑥
+/
+cos
+⁡
+𝑥
+sinx/cosx.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+4
+Funzioni composte
+Catena
+★★
+Deriva: a) 
+sin
+⁡
+(
+𝑥
+2
+)
+sin(x
+2
+); b) 
+𝑒
+3
+𝑥
+−
+1
+e
+3x−1
+; c) 
+(
+𝑥
+3
++
+5
+)
+4
+(x
+3
++5)
+4
+; d) 
+ln
+⁡
+(
+cos
+⁡
+𝑥
+)
+ln(cosx). Evidenzia interno ed esterno.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+5
+Derivata seconda
+Seconda derivata
+★★
+Data 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+4
+−
+6
+𝑥
+2
++
+1
+f(x)=x
+4
+−6x
+2
++1, calcola 
+𝑓
+′′
+(
+𝑥
+)
+f′′(x) e determina i candidati punti di flesso.
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+6
+Regole combinate
+Sfida
+★★★
+Per 
+𝑓
+(
+𝑥
+)
+=
+𝑒
+𝑥
+sin
+⁡
+(
+2
+𝑥
+)
+f(x)=e
+x
+sin(2x), calcola 
+𝑓
+′
+(
+𝑥
+)
+f′(x) e determina i punti stazionari nell’intervallo 
+[
+0
+,
+𝜋
+]
+[0,π].
+
+✏️ Foglio di lavoro digitale
+
+Soluzione guidata con i passaggi
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "a",
+    "type": null,
+    "label": "f′ Derivate dal limite alla padronanza",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "div",
+    "type": null,
+    "label": "Panoramica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "div",
+    "type": null,
+    "label": "1 Velocità istantanea",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "div",
+    "type": null,
+    "label": "2 Geometria",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 6,
+    "tag": "div",
+    "type": null,
+    "label": "3 Definizione formale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 7,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivabilità",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 8,
+    "tag": "div",
+    "type": null,
+    "label": "5 Interpretazione fisica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "div",
+    "type": null,
+    "label": "1 Warm-up",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "div",
+    "type": null,
+    "label": "2 Derivate fondamentali",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "div",
+    "type": null,
+    "label": "3 Regole di derivazione",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivata seconda",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "div",
+    "type": null,
+    "label": "5 Taylor · opzionale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "6 Teoremi · appendice",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §1",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §2",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "Verifica finale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizi adattivi",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "a",
+    "type": null,
+    "label": "Panoramica",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "button",
+    "type": "button",
+    "label": "Mostra tutte le soluzioni",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "button",
+    "type": "button",
+    "label": "Stampa scheda",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "button",
+    "type": "button",
+    "label": "Vedi soluzione svolta",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "button",
+    "type": "button",
+    "label": "✏️ Foglio di lavoro digitale",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 24,
+    "tag": "button",
+    "type": "button",
+    "label": "Penna",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "button",
+    "type": "button",
+    "label": "Evidenziatore",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 26,
+    "tag": "button",
+    "type": "button",
+    "label": "Gomma",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 27,
+    "tag": "button",
+    "type": "button",
+    "label": "Sposta il foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 28,
+    "tag": "input",
+    "type": "color",
+    "label": "Colore tratto",
+    "href": null,
+    "value": "#263b8f",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 29,
+    "tag": "input",
+    "type": "range",
+    "label": "Dimensione tratto",
+    "href": null,
+    "value": "4",
+    "min": "2",
+    "max": "12",
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 30,
+    "tag": "button",
+    "type": "button",
+    "label": "Allarga area di scrittura",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 31,
+    "tag": "button",
+    "type": "button",
+    "label": "Aggiungi spazio al foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 32,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 33,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 34,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizio 1: foglio scorrevole",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 35,
+    "tag": "button",
+    "type": "button",
+    "label": "Soluzione guidata con i passaggi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 36,
+    "tag": "button",
+    "type": "button",
+    "label": "Vedi soluzione svolta",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 37,
+    "tag": "button",
+    "type": "button",
+    "label": "✏️ Foglio di lavoro digitale",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 38,
+    "tag": "button",
+    "type": "button",
+    "label": "Penna",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 39,
+    "tag": "button",
+    "type": "button",
+    "label": "Evidenziatore",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 40,
+    "tag": "button",
+    "type": "button",
+    "label": "Gomma",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 41,
+    "tag": "button",
+    "type": "button",
+    "label": "Sposta il foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 42,
+    "tag": "input",
+    "type": "color",
+    "label": "Colore tratto",
+    "href": null,
+    "value": "#263b8f",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 43,
+    "tag": "input",
+    "type": "range",
+    "label": "Dimensione tratto",
+    "href": null,
+    "value": "4",
+    "min": "2",
+    "max": "12",
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 44,
+    "tag": "button",
+    "type": "button",
+    "label": "Allarga area di scrittura",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 45,
+    "tag": "button",
+    "type": "button",
+    "label": "Aggiungi spazio al foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 46,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 47,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 48,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizio 2: foglio scorrevole",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 49,
+    "tag": "button",
+    "type": "button",
+    "label": "Soluzione guidata con i passaggi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 50,
+    "tag": "button",
+    "type": "button",
+    "label": "Vedi soluzione svolta",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 51,
+    "tag": "button",
+    "type": "button",
+    "label": "✏️ Foglio di lavoro digitale",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 52,
+    "tag": "button",
+    "type": "button",
+    "label": "Penna",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 53,
+    "tag": "button",
+    "type": "button",
+    "label": "Evidenziatore",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 54,
+    "tag": "button",
+    "type": "button",
+    "label": "Gomma",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 55,
+    "tag": "button",
+    "type": "button",
+    "label": "Sposta il foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 56,
+    "tag": "input",
+    "type": "color",
+    "label": "Colore tratto",
+    "href": null,
+    "value": "#263b8f",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 57,
+    "tag": "input",
+    "type": "range",
+    "label": "Dimensione tratto",
+    "href": null,
+    "value": "4",
+    "min": "2",
+    "max": "12",
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 58,
+    "tag": "button",
+    "type": "button",
+    "label": "Allarga area di scrittura",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 59,
+    "tag": "button",
+    "type": "button",
+    "label": "Aggiungi spazio al foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 60,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 61,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 62,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizio 3: foglio scorrevole",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 63,
+    "tag": "button",
+    "type": "button",
+    "label": "Soluzione guidata con i passaggi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 64,
+    "tag": "button",
+    "type": "button",
+    "label": "Vedi soluzione svolta",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 65,
+    "tag": "button",
+    "type": "button",
+    "label": "✏️ Foglio di lavoro digitale",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 66,
+    "tag": "button",
+    "type": "button",
+    "label": "Penna",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 67,
+    "tag": "button",
+    "type": "button",
+    "label": "Evidenziatore",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 68,
+    "tag": "button",
+    "type": "button",
+    "label": "Gomma",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 69,
+    "tag": "button",
+    "type": "button",
+    "label": "Sposta il foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 70,
+    "tag": "input",
+    "type": "color",
+    "label": "Colore tratto",
+    "href": null,
+    "value": "#263b8f",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 71,
+    "tag": "input",
+    "type": "range",
+    "label": "Dimensione tratto",
+    "href": null,
+    "value": "4",
+    "min": "2",
+    "max": "12",
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 72,
+    "tag": "button",
+    "type": "button",
+    "label": "Allarga area di scrittura",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 73,
+    "tag": "button",
+    "type": "button",
+    "label": "Aggiungi spazio al foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 74,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 75,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 76,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizio 4: foglio scorrevole",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 77,
+    "tag": "button",
+    "type": "button",
+    "label": "Soluzione guidata con i passaggi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 78,
+    "tag": "button",
+    "type": "button",
+    "label": "Vedi soluzione svolta",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 79,
+    "tag": "button",
+    "type": "button",
+    "label": "✏️ Foglio di lavoro digitale",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 80,
+    "tag": "button",
+    "type": "button",
+    "label": "Penna",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 81,
+    "tag": "button",
+    "type": "button",
+    "label": "Evidenziatore",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 82,
+    "tag": "button",
+    "type": "button",
+    "label": "Gomma",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 83,
+    "tag": "button",
+    "type": "button",
+    "label": "Sposta il foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 84,
+    "tag": "input",
+    "type": "color",
+    "label": "Colore tratto",
+    "href": null,
+    "value": "#263b8f",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 85,
+    "tag": "input",
+    "type": "range",
+    "label": "Dimensione tratto",
+    "href": null,
+    "value": "4",
+    "min": "2",
+    "max": "12",
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 86,
+    "tag": "button",
+    "type": "button",
+    "label": "Allarga area di scrittura",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 87,
+    "tag": "button",
+    "type": "button",
+    "label": "Aggiungi spazio al foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 88,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 89,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 90,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizio 5: foglio scorrevole",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 91,
+    "tag": "button",
+    "type": "button",
+    "label": "Soluzione guidata con i passaggi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 92,
+    "tag": "button",
+    "type": "button",
+    "label": "Vedi soluzione svolta",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 93,
+    "tag": "button",
+    "type": "button",
+    "label": "✏️ Foglio di lavoro digitale",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  },
+  {
+    "i": 94,
+    "tag": "button",
+    "type": "button",
+    "label": "Penna",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 95,
+    "tag": "button",
+    "type": "button",
+    "label": "Evidenziatore",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 96,
+    "tag": "button",
+    "type": "button",
+    "label": "Gomma",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 97,
+    "tag": "button",
+    "type": "button",
+    "label": "Sposta il foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 98,
+    "tag": "input",
+    "type": "color",
+    "label": "Colore tratto",
+    "href": null,
+    "value": "#263b8f",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 99,
+    "tag": "input",
+    "type": "range",
+    "label": "Dimensione tratto",
+    "href": null,
+    "value": "4",
+    "min": "2",
+    "max": "12",
+    "disabled": false,
+    "checked": false,
+    "expanded": null
+  },
+  {
+    "i": 100,
+    "tag": "button",
+    "type": "button",
+    "label": "Allarga area di scrittura",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 101,
+    "tag": "button",
+    "type": "button",
+    "label": "Aggiungi spazio al foglio",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 102,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 103,
+    "tag": "button",
+    "type": "button",
+    "label": "",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 104,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizio 6: foglio scorrevole",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 105,
+    "tag": "button",
+    "type": "button",
+    "label": "Soluzione guidata con i passaggi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": "false"
+  }
+]

@@ -1,0 +1,394 @@
+URL: https://math-lesson-derivates.vercel.app/class/applicazioni/exercise/app_002
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 16 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Retta tangente, stazionari e applicazioni
+ESERCIZIO 4 / 4
+ESERCIZIO
+Punti stazionari
+Avanzato
+stazionari
+massimo
+PROBLEMA
+Per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+⋅
+𝑒
+𝑥
+f(x)=x⋅e
+x
+, trova i punti stazionari (dove 
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0) e studia il segno di 
+𝑓
+′
+f
+′
+ per classificarli.
+Nascondi suggerimento
+Usa la regola del prodotto per trovare 
+𝑓
+′
+f
+′
+. Poi studia il segno di 
+𝑒
+𝑥
+(
+1
++
+𝑥
+)
+e
+x
+(1+x) ricordando che 
+𝑒
+𝑥
+>
+0
+e
+x
+>0 sempre.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑥
+2
+f
+′
+(x)=3x
+2
+B
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+f
+′
+(x)=20x
+3
+𝑥
+=
+−
+1
+ (minimo locale)
+,
+𝑓
+(
+−
+1
+)
+=
+−
+𝑒
+−
+1
+x=−1 (minimo locale),f(−1)=−e
+−1
+D
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+[
+(
+2
+𝑥
++
+𝑥
+2
+)
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+]
+f
+′
+(x)=e
+x
+[(2x+x
+2
+)sinx+x
+2
+cosx]
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+CALCOLA \(F'\) CON LA REGOLA DEL PRODOTTO
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
++
+𝑥
+𝑒
+𝑥
+=
+𝑒
+𝑥
+(
+1
++
+𝑥
+)
+f
+′
+(x)=e
+x
++xe
+x
+=e
+x
+(1+x)
+(
+𝑥
+𝑒
+𝑥
+)
+′
+=
+1
+⋅
+𝑒
+𝑥
++
+𝑥
+⋅
+𝑒
+𝑥
+(xe
+x
+)
+′
+=1⋅e
+x
++x⋅e
+x
+.
+2
+TROVA DOVE \(F'(X)=0\)
+𝑒
+𝑥
+(
+1
++
+𝑥
+)
+=
+0
+⇒
+1
++
+𝑥
+=
+0
+⇒
+𝑥
+=
+−
+1
+e
+x
+(1+x)=0⇒1+x=0⇒x=−1
+𝑒
+𝑥
+>
+0
+e
+x
+>0 sempre, quindi l'unica soluzione viene da 
+1
++
+𝑥
+=
+0
+1+x=0.
+3
+STUDIA IL SEGNO DI \(F'\)
+𝑥
+<
+−
+1
+⇒
+1
++
+𝑥
+<
+0
+⇒
+𝑓
+′
+<
+0
+;
+𝑥
+>
+−
+1
+⇒
+𝑓
+′
+>
+0
+x<−1⇒1+x<0⇒f
+′
+<0;x>−1⇒f
+′
+>0
+𝑓
+′
+f
+′
+ cambia segno da − a + in 
+𝑥
+=
+−
+1
+x=−1: minimo locale.
+4
+VALORE NEL MINIMO
+𝑓
+(
+−
+1
+)
+=
+(
+−
+1
+)
+⋅
+𝑒
+−
+1
+=
+−
+1
+𝑒
+f(−1)=(−1)⋅e
+−1
+=−
+e
+1
+	​
+
+Il valore minimo della funzione.
+Precedente
+4 DI 4
+Successivo

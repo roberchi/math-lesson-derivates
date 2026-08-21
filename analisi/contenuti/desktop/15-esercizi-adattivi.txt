@@ -1,0 +1,618 @@
+URL: https://math-lesson-derivates.vercel.app/esercizi
+TITLE: Derivate — Corso interattivo
+VIEWPORT: 1440x1000
+MAIN_WORDS_APPROX: 341
+
+=== TESTO VISIBILE ===
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+ALLENAMENTO ADATTIVO
+Dalla lezione
+alla padronanza.
+
+Esercizi organizzati per prerequisiti e difficoltà. Gli argomenti da consolidare tornano per primi, mentre nuove classi si sbloccano con i tuoi progressi.
+
+Inizia gli esercizi
+
+0/27
+
+esercizi completati
+
+0%
+
+corretti al primo colpo
+
+0
+
+dimostrazioni lette
+
+LE CLASSI DI PROBLEMI
+Il tuo percorso
+
+Completa una classe per sbloccare i concetti che dipendono da essa.
+
+∂
+01
+Rapporto incrementale e definizione
+
+Calcolo diretto dal limite del rapporto incrementale — la radice di tutto.
+
+Base
+Medio
+7 ESERCIZI · 21 PT
+0%
+INIZIA DA QUI →
+02
+Regola delle potenze 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+
+Derivazione di monomi, potenze intere, razionali e negative.
+
+Base
+Medio
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+03
+Derivate di sin, cos, eˣ, ln
+
+Le derivate delle funzioni trascendenti fondamentali, tutte ricavate dal limite usando i limiti notevoli.
+
+Medio
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+04
+Regola del prodotto 
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+(fg)
+′
+=f
+′
+g+fg
+′
+
+Derivazione di prodotti di funzioni — con la dimostrazione dal limite e il trucco di Leibniz.
+
+Medio
+Avanzato
+3 ESERCIZI · 9 PT
+0%
+🔒 BLOCCATA
+05
+Regola del quoziente 
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+𝑔
+2
+(
+g
+f
+	​
+
+)
+′
+=
+g
+2
+f
+′
+g−fg
+′
+	​
+
+
+Derivazione di frazioni di funzioni — e come ricavarla dalla regola del prodotto.
+
+Medio
+2 ESERCIZI · 6 PT
+0%
+🔒 BLOCCATA
+06
+Regola della catena 
+(
+𝑓
+∘
+𝑔
+)
+′
+=
+𝑓
+′
+(
+𝑔
+)
+⋅
+𝑔
+′
+(f∘g)
+′
+=f
+′
+(g)⋅g
+′
+
+Derivazione di funzioni composte — la regola più importante e più usata.
+
+Medio
+Avanzato
+5 ESERCIZI · 15 PT
+0%
+🔒 BLOCCATA
+07
+Retta tangente, stazionari e applicazioni
+
+Usare la derivata per studiare il comportamento di una funzione — massimi, minimi, tangenti.
+
+Medio
+Avanzato
+Sfida
+4 ESERCIZI · 12 PT
+0%
+🔒 BLOCCATA
+
+=== CONTROLLI INTERATTIVI ===
+[
+  {
+    "i": 0,
+    "tag": "a",
+    "type": null,
+    "label": "Vai al contenuto",
+    "href": "#main-content",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 1,
+    "tag": "a",
+    "type": null,
+    "label": "f′ Derivate dal limite alla padronanza",
+    "href": "/",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 2,
+    "tag": "a",
+    "type": null,
+    "label": "Impostazioni",
+    "href": "/settings",
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 3,
+    "tag": "div",
+    "type": null,
+    "label": "Panoramica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 4,
+    "tag": "div",
+    "type": null,
+    "label": "1 Velocità istantanea",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 5,
+    "tag": "div",
+    "type": null,
+    "label": "2 Geometria",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 6,
+    "tag": "div",
+    "type": null,
+    "label": "3 Definizione formale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 7,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivabilità",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 8,
+    "tag": "div",
+    "type": null,
+    "label": "5 Interpretazione fisica",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 9,
+    "tag": "div",
+    "type": null,
+    "label": "1 Warm-up",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 10,
+    "tag": "div",
+    "type": null,
+    "label": "2 Derivate fondamentali",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 11,
+    "tag": "div",
+    "type": null,
+    "label": "3 Regole di derivazione",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 12,
+    "tag": "div",
+    "type": null,
+    "label": "4 Derivata seconda",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 13,
+    "tag": "div",
+    "type": null,
+    "label": "5 Taylor · opzionale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 14,
+    "tag": "div",
+    "type": null,
+    "label": "6 Teoremi · appendice",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 15,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §1",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 16,
+    "tag": "div",
+    "type": null,
+    "label": "Scheda esercizi §2",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 17,
+    "tag": "div",
+    "type": null,
+    "label": "Verifica finale",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 18,
+    "tag": "div",
+    "type": null,
+    "label": "Esercizi adattivi",
+    "href": null,
+    "value": null,
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 19,
+    "tag": "button",
+    "type": "button",
+    "label": "Inizia gli esercizi",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 20,
+    "tag": "button",
+    "type": "button",
+    "label": "∂ 01 Rapporto incrementale e definizione Calcolo diretto dal limite del rapporto incrementale — la radice di tutto. Base Medio 7 ESERCIZI · 21 PT 0% INIZIA DA QUI →",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": false,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 21,
+    "tag": "button",
+    "type": "button",
+    "label": "02 Regola delle potenze ( 𝑥 𝑛 ) ′ = 𝑛 𝑥 𝑛 − 1 (x n ) ′ =nx n−1 Derivazione di monomi, potenze intere, razionali e negative. Base Medio 3 ESERCIZI · 9 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 22,
+    "tag": "button",
+    "type": "button",
+    "label": "03 Derivate di sin, cos, eˣ, ln Le derivate delle funzioni trascendenti fondamentali, tutte ricavate dal limite usando i limiti notevoli. Medio 3 ESERCIZI · 9 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 23,
+    "tag": "button",
+    "type": "button",
+    "label": "04 Regola del prodotto ( 𝑓 𝑔 ) ′ = 𝑓 ′ 𝑔 + 𝑓 𝑔 ′ (fg) ′ =f ′ g+fg ′ Derivazione di prodotti di funzioni — con la dimostrazione dal limite e il trucco di Leibniz. Medio Avanzato 3 ESERCIZI · 9 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 24,
+    "tag": "button",
+    "type": "button",
+    "label": "05 Regola del quoziente ( 𝑓 𝑔 ) ′ = 𝑓 ′ 𝑔 − 𝑓 𝑔 ′ 𝑔 2 ( g f ​ ) ′ = g 2 f ′ g−fg ′ ​ Derivazione di frazioni di funzioni — e come ricavarla dalla regola del prodotto. Medio 2 ESERCIZI · 6 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 25,
+    "tag": "button",
+    "type": "button",
+    "label": "06 Regola della catena ( 𝑓 ∘ 𝑔 ) ′ = 𝑓 ′ ( 𝑔 ) ⋅ 𝑔 ′ (f∘g) ′ =f ′ (g)⋅g ′ Derivazione di funzioni composte — la regola più importante e più usata. Medio Avanzato 5 ESERCIZI · 15 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  },
+  {
+    "i": 26,
+    "tag": "button",
+    "type": "button",
+    "label": "07 Retta tangente, stazionari e applicazioni Usare la derivata per studiare il comportamento di una funzione — massimi, minimi, tangenti. Medio Avanzato Sfida 4 ESERCIZI · 12 PT 0% 🔒 BLOCCATA",
+    "href": null,
+    "value": "",
+    "min": null,
+    "max": null,
+    "disabled": true,
+    "checked": null,
+    "expanded": null
+  }
+]

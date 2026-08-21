@@ -1,0 +1,626 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_prodotto/exercise/prod_001
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 13 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola del prodotto (fg)'=f'g+fg'
+ESERCIZIO 3 / 3
+ESERCIZIO
+Prodotto polinomio × sin
+Medio
+prodotto
+sin
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+sin
+⁡
+𝑥
+f(x)=x
+2
+sinx.
+Nascondi suggerimento
+Identifica 
+𝑓
+=
+𝑥
+2
+f=x
+2
+ e 
+𝑔
+=
+sin
+⁡
+𝑥
+g=sinx. Ricorda: 
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+(fg)
+′
+=f
+′
+g+fg
+′
+.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+B
+𝑓
+′
+(
+𝑥
+)
+=
+1
+f
+′
+(x)=1
+𝑓
+′
+(
+𝑥
+)
+=
+2
+𝑥
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+f
+′
+(x)=2xsinx+x
+2
+cosx
+D
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−
+x
+2
+1
+	​
+
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione della regola del prodotto dal limite
+1
+SCRIVI IL RAPPORTO INCREMENTALE DI \(F\CDOT G\)
+𝑓
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
+)
+ℎ
+h
+f(x+h)g(x+h)−f(x)g(x)
+	​
+
+Forma standard per il prodotto.
+2
+AGGIUNGI E SOTTRAI IL TERMINE \(F(X)G(X+H)\)
+𝑓
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
++
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
+)
+ℎ
+h
+f(x+h)g(x+h)−f(x)g(x+h)+f(x)g(x+h)−f(x)g(x)
+	​
+
+Il trucco: aggiungiamo zero nella forma 
++
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
++f(x)g(x+h)−f(x)g(x+h). Questo non cambia il valore ma permette di separare i contributi.
+3
+RAGGRUPPA E SEPARA
+𝑔
+(
+𝑥
++
+ℎ
+)
+⋅
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
++
+𝑓
+(
+𝑥
+)
+⋅
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+ℎ
+g(x+h)⋅
+h
+f(x+h)−f(x)
+	​
+
++f(x)⋅
+h
+g(x+h)−g(x)
+	​
+
+Raccogliamo 
+𝑔
+(
+𝑥
++
+ℎ
+)
+g(x+h) nel primo pezzo e 
+𝑓
+(
+𝑥
+)
+f(x) nel secondo.
+4
+PASSA AL LIMITE — USA LA CONTINUITÀ
+lim
+⁡
+ℎ
+→
+0
+𝑔
+(
+𝑥
++
+ℎ
+)
+⋅
+𝑓
+′
+(
+𝑥
+)
++
+𝑓
+(
+𝑥
+)
+⋅
+𝑔
+′
+(
+𝑥
+)
+=
+𝑔
+(
+𝑥
+)
+𝑓
+′
+(
+𝑥
+)
++
+𝑓
+(
+𝑥
+)
+𝑔
+′
+(
+𝑥
+)
+h→0
+lim
+	​
+
+g(x+h)⋅f
+′
+(x)+f(x)⋅g
+′
+(x)=g(x)f
+′
+(x)+f(x)g
+′
+(x)
+𝑔
+(
+𝑥
++
+ℎ
+)
+→
+𝑔
+(
+𝑥
+)
+g(x+h)→g(x) perché 
+𝑔
+g è derivabile, quindi continua. I due rapporti tendono a 
+𝑓
+′
+f
+′
+ e 
+𝑔
+′
+g
+′
+.
+CONCLUSIONE
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+(fg)
+′
+=f
+′
+g+fg
+′
+. Per il nostro esercizio: 
+𝑓
+=
+𝑥
+2
+,
+𝑔
+=
+sin
+⁡
+𝑥
+⇒
+𝑓
+′
+=
+2
+𝑥
+,
+𝑔
+′
+=
+cos
+⁡
+𝑥
+f=x
+2
+,g=sinx⇒f
+′
+=2x,g
+′
+=cosx.
+
+📖 Soluzione passo per passo
+
+1
+IDENTIFICA I FATTORI
+𝑓
+=
+𝑥
+2
+,
+ 
+𝑔
+=
+sin
+⁡
+𝑥
+⇒
+𝑓
+′
+=
+2
+𝑥
+,
+ 
+𝑔
+′
+=
+cos
+⁡
+𝑥
+f=x
+2
+, g=sinx⇒f
+′
+=2x, g
+′
+=cosx
+Denominare le parti aiuta a non confondersi.
+2
+APPLICA LA REGOLA
+(
+𝑥
+2
+sin
+⁡
+𝑥
+)
+′
+=
+2
+𝑥
+⋅
+sin
+⁡
+𝑥
++
+𝑥
+2
+⋅
+cos
+⁡
+𝑥
+(x
+2
+sinx)
+′
+=2x⋅sinx+x
+2
+⋅cosx
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+=
+2
+𝑥
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+f
+′
+g+fg
+′
+=2xsinx+x
+2
+cosx.
+Precedente
+3 DI 3
+Successivo
+📐 +1 punto per la dimostrazione

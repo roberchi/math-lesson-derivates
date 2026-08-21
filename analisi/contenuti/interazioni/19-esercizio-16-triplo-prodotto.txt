@@ -1,0 +1,359 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_prodotto/exercise/prod_003
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 13 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola del prodotto (fg)'=f'g+fg'
+ESERCIZIO 3 / 3
+ESERCIZIO
+Triplo prodotto
+Avanzato
+prodotto
+triplo
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+𝑒
+𝑥
+sin
+⁡
+𝑥
+f(x)=x
+2
+e
+x
+sinx.
+Nascondi suggerimento
+Considera prima 
+𝑢
+=
+𝑥
+2
+𝑒
+𝑥
+u=x
+2
+e
+x
+ (derivala con la regola del prodotto), poi applica ancora la regola del prodotto a 
+𝑢
+⋅
+sin
+⁡
+𝑥
+u⋅sinx.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−
+x
+2
+1
+	​
+
+B
+𝑓
+′
+(
+𝑥
+)
+=
+𝑥
+f
+′
+(x)=x
+C
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑥
+2
+f
+′
+(x)=3x
+2
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+[
+(
+2
+𝑥
++
+𝑥
+2
+)
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+]
+f
+′
+(x)=e
+x
+[(2x+x
+2
+)sinx+x
+2
+cosx]
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+CALCOLA \(U' = (X^2 E^X)'\) PRIMA
+𝑢
+=
+𝑥
+2
+𝑒
+𝑥
+⇒
+𝑢
+′
+=
+2
+𝑥
+𝑒
+𝑥
++
+𝑥
+2
+𝑒
+𝑥
+=
+𝑒
+𝑥
+(
+2
+𝑥
++
+𝑥
+2
+)
+u=x
+2
+e
+x
+⇒u
+′
+=2xe
+x
++x
+2
+e
+x
+=e
+x
+(2x+x
+2
+)
+Regola del prodotto su 
+𝑥
+2
+x
+2
+ e 
+𝑒
+𝑥
+e
+x
+.
+2
+ORA \(F = U \CDOT \SIN X\), QUINDI \(F'=U'\SIN X + U\COS X\)
+𝑓
+′
+=
+𝑒
+𝑥
+(
+2
+𝑥
++
+𝑥
+2
+)
+sin
+⁡
+𝑥
++
+𝑥
+2
+𝑒
+𝑥
+cos
+⁡
+𝑥
+f
+′
+=e
+x
+(2x+x
+2
+)sinx+x
+2
+e
+x
+cosx
+Seconda applicazione della regola del prodotto.
+3
+RACCOGLI \(E^X\)
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+[
+(
+2
+𝑥
++
+𝑥
+2
+)
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+]
+f
+′
+(x)=e
+x
+[(2x+x
+2
+)sinx+x
+2
+cosx]
+𝑒
+𝑥
+e
+x
+ è fattore comune in entrambi i termini.
+Precedente
+3 DI 3
+Successivo
+🔓 Nuova classe sbloccata: Regola della catena (f\circ g)'=f'(g)\cdot g'

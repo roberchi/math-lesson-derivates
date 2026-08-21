@@ -1,0 +1,393 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_002
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 2 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Rapporto incrementale e definizione
+ESERCIZIO 7 / 7
+ESERCIZIO
+Derivata di una funzione lineare
+Base
+lineare
+definizione
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+3
+𝑥
++
+5
+f(x)=3x+5 usando la definizione.
+Nascondi suggerimento
+Calcola 
+𝑓
+(
+𝑥
++
+ℎ
+)
+f(x+h) sostituendo 
+𝑥
++
+ℎ
+x+h al posto di 
+𝑥
+x.
+Scegli la risposta corretta
+0 TENTATIVI RIMASTI
+𝑓
+′
+(
+𝑥
+)
+=
+3
+f
+′
+(x)=3
+𝑓
+′
+(
+𝑥
+)
+=
+𝑥
+2
+−
+2
+𝑥
+−
+1
+(
+𝑥
+−
+1
+)
+2
+f
+′
+(x)=
+(x−1)
+2
+x
+2
+−2x−1
+	​
+
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+(
+cos
+⁡
+𝑥
+−
+sin
+⁡
+𝑥
+)
+f
+′
+(x)=e
+x
+(cosx−sinx)
+𝑦
+=
+−
+4
+𝑥
++
+18
+y=−4x+18
+Prosegui
+Riprova esercizio
+Tentativi terminati
+Osserva la risposta corretta e studia i passaggi della soluzione.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione dal limite del rapporto incrementale
+1
+CALCOLA \(F(X+H)\)
+𝑓
+(
+𝑥
++
+ℎ
+)
+=
+3
+(
+𝑥
++
+ℎ
+)
++
+5
+=
+3
+𝑥
++
+3
+ℎ
++
+5
+f(x+h)=3(x+h)+5=3x+3h+5
+Sostituiamo 
+𝑥
++
+ℎ
+x+h nella formula di 
+𝑓
+f.
+2
+CALCOLA LA DIFFERENZA \(F(X+H)-F(X)\)
+(
+3
+𝑥
++
+3
+ℎ
++
+5
+)
+−
+(
+3
+𝑥
++
+5
+)
+=
+3
+ℎ
+(3x+3h+5)−(3x+5)=3h
+I termini 
+3
+𝑥
+3x e 
+5
+5 si cancellano — rimane solo il contributo di 
+ℎ
+h.
+3
+FORMA IL RAPPORTO INCREMENTALE
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
+=
+3
+ℎ
+ℎ
+=
+3
+h
+f(x+h)−f(x)
+	​
+
+=
+h
+3h
+	​
+
+=3
+Il rapporto è esattamente 3 per ogni 
+ℎ
+≠
+0
+h
+
+=0.
+4
+PASSA AL LIMITE
+𝑓
+′
+(
+𝑥
+)
+=
+lim
+⁡
+ℎ
+→
+0
+3
+=
+3
+f
+′
+(x)=
+h→0
+lim
+	​
+
+3=3
+Siccome il rapporto non dipende da 
+ℎ
+h, il limite è semplicemente 3.
+CONCLUSIONE
+Per una retta 
+𝑦
+=
+𝑚
+𝑥
++
+𝑞
+y=mx+q, la derivata è sempre 
+𝑚
+m (il coefficiente angolare). Questo conferma che la derivata misura la pendenza.
+
+📖 Soluzione passo per passo
+
+1
+RICONOSCI LA STRUTTURA
+𝑓
+(
+𝑥
+)
+=
+3
+𝑥
++
+5
+(
+𝑚
+=
+3
+,
+ 
+𝑞
+=
+5
+)
+f(x)=3x+5(m=3, q=5)
+Funzione lineare 
+𝑦
+=
+𝑚
+𝑥
++
+𝑞
+y=mx+q.
+2
+DERIVA
+𝑓
+′
+(
+𝑥
+)
+=
+3
+f
+′
+(x)=3
+La derivata di 
+𝑚
+𝑥
++
+𝑞
+mx+q è 
+𝑚
+m. Il termine costante sparisce.
+Precedente
+7 DI 7
+Successivo
+📐 +1 punto per la dimostrazione

@@ -1,0 +1,994 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/teoremi
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+45 min
+APPENDICE · APPROFONDIMENTO FACOLTATIVO
+I teoremi che fanno lavorare la derivata
+
+Non è ancora uno studio di funzione: è una cassetta degli attrezzi. Ogni teorema parte da una figura, risponde a una domanda concreta e dichiara chiaramente quando può essere usato.
+
+Come usare questa appendice. Non serve memorizzare le dimostrazioni: per ogni teorema chiediti quali ipotesi controllare, quale figura immaginare e quale problema pratico risolve.
+ESISTENZA
+Tre teoremi per trovare punti speciali
+Teorema di Fermat
+
+Dove cercare massimi e minimi
+
+Apri scheda
+𝑥
+0
+ estremo interno e 
+𝑓
+ derivabile
+  
+⟹
+  
+𝑓
+′
+(
+𝑥
+0
+)
+=
+0
+x
+0
+	​
+
+ estremo interno e f derivabile⟹f
+′
+(x
+0
+	​
+
+)=0
+IPOTESI
+Il punto 
+𝑥
+0
+x
+0
+	​
+
+ è interno al dominio, la funzione è derivabile in 
+𝑥
+0
+x
+0
+	​
+
+ e lì ha un massimo o minimo locale.
+FIGURA MENTALE
+In un estremo regolare la curva non può continuare a salire o scendere: la tangente deve essere orizzontale.
+QUANDO USARLO
+Riduce la ricerca degli estremi ai punti stazionari e ai punti in cui la derivata non esiste.
+ATTENZIONE
+È una condizione necessaria, non sufficiente: 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+f(x)=x
+3
+ ha 
+𝑓
+′
+(
+0
+)
+=
+0
+f
+′
+(0)=0, ma zero non è un estremo.
+Teorema di Rolle
+
+Stessa quota, tangente orizzontale
+
+Apri scheda
+𝑓
+(
+𝑎
+)
+=
+𝑓
+(
+𝑏
+)
+  
+⟹
+  
+∃
+𝑐
+∈
+(
+𝑎
+,
+𝑏
+)
+:
+𝑓
+′
+(
+𝑐
+)
+=
+0
+f(a)=f(b)⟹∃c∈(a,b):f
+′
+(c)=0
+IPOTESI
+𝑓
+f è continua su 
+[
+𝑎
+,
+𝑏
+]
+[a,b], derivabile su 
+(
+𝑎
+,
+𝑏
+)
+(a,b) e assume lo stesso valore agli estremi.
+FIGURA MENTALE
+Se il percorso parte e arriva alla stessa altezza, in almeno un punto intermedio la tangente è orizzontale.
+QUANDO USARLO
+Permette di contare o separare gli zeri: tra due zeri distinti di 
+𝑓
+f esiste almeno uno zero di 
+𝑓
+′
+f
+′
+.
+ATTENZIONE
+Garantisce l’esistenza di almeno un punto, ma non dice dove sia né se sia unico.
+Teorema di Lagrange
+
+Una velocità istantanea uguaglia quella media
+
+Apri scheda
+∃
+𝑐
+∈
+(
+𝑎
+,
+𝑏
+)
+:
+𝑓
+′
+(
+𝑐
+)
+=
+𝑓
+(
+𝑏
+)
+−
+𝑓
+(
+𝑎
+)
+𝑏
+−
+𝑎
+∃c∈(a,b):f
+′
+(c)=
+b−a
+f(b)−f(a)
+	​
+
+IPOTESI
+𝑓
+f è continua sull’intervallo chiuso 
+[
+𝑎
+,
+𝑏
+]
+[a,b] e derivabile al suo interno.
+FIGURA MENTALE
+Esiste almeno una tangente parallela alla corda che congiunge i due estremi del grafico.
+QUANDO USARLO
+Collega variazione totale e tasso istantaneo; permette anche di stimare quanto può cambiare una funzione.
+ATTENZIONE
+Il teorema garantisce 
+𝑐
+c, ma in generale non fornisce una formula per calcolarlo.
+LABORATORIO
+La corda cerca una tangente parallela
+
+Muovi gli estremi sulla parabola. Lagrange garantisce un punto 
+𝑐
+c in cui la tangente è parallela alla corda; quando gli estremi hanno la stessa quota compare il caso particolare di Rolle.
+
+corda AB
+tangente in c
+Caso Lagrange
+Caso Rolle
+ESTREMO a = -2.70
+ESTREMO b = 1.50
+Pendenza corda
+-0.420
+Punto garantito c
+-0.600
+Pendenza tangente
+-0.420
+Lagrange: la tangente verde è parallela alla corda gialla; rappresentano la stessa variazione per unità di x.
+UNA STORIA DI IDEE
+
+Fermat cercava massimi, minimi e tangenti con il metodo dell’adeguaglianza.
+
+Approfondisci
+UNA STORIA DI IDEE
+
+Da un risultato sulle radici delle equazioni nacque il teorema del valor medio.
+
+Approfondisci
+LETTURA DEL GRAFICO
+Dal segno delle derivate al comportamento
+Criterio di monotonia
+
+Il segno della derivata orienta il grafico
+
+Apri scheda
+f′ > 0
+𝑓
+′
+>
+0
+⇒
+𝑓
+ crescente
+,
+𝑓
+′
+<
+0
+⇒
+𝑓
+ decrescente
+f
+′
+>0⇒f crescente,f
+′
+<0⇒f decrescente
+IPOTESI
+𝑓
+f è continua sull’intervallo e derivabile al suo interno; il segno di 
+𝑓
+′
+f
+′
+ è controllato su tutto l’intervallo.
+FIGURA MENTALE
+Tangenti con pendenza positiva accompagnano un grafico che sale; pendenze negative un grafico che scende.
+QUANDO USARLO
+Consente di confrontare valori della funzione senza calcolarli tutti e di leggere l’andamento locale.
+ATTENZIONE
+Uno zero isolato di 
+𝑓
+′
+f
+′
+ non interrompe necessariamente la crescita: 
+𝑥
+3
+x
+3
+ resta crescente attraversando zero.
+Test della derivata seconda
+
+Classificare un punto stazionario
+
+Apri scheda
+𝑓
+′
+(
+𝑥
+0
+)
+=
+0
+,
+𝑓
+′
+′
+(
+𝑥
+0
+)
+>
+0
+⇒
+min
+⁡
+,
+𝑓
+′
+′
+(
+𝑥
+0
+)
+<
+0
+⇒
+max
+⁡
+f
+′
+(x
+0
+	​
+
+)=0,f
+′′
+(x
+0
+	​
+
+)>0⇒min,f
+′′
+(x
+0
+	​
+
+)<0⇒max
+IPOTESI
+La funzione è derivabile due volte vicino a 
+𝑥
+0
+x
+0
+	​
+
+ e 
+𝑓
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′
+(x
+0
+	​
+
+)=0.
+FIGURA MENTALE
+Una tangente orizzontale dentro una coppa individua un minimo; dentro una cupola individua un massimo.
+QUANDO USARLO
+Classifica rapidamente molti punti stazionari senza costruire uno studio completo del segno di 
+𝑓
+′
+f
+′
+.
+ATTENZIONE
+Se 
+𝑓
+′
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′′
+(x
+0
+	​
+
+)=0, il test non decide: 
+𝑥
+4
+x
+4
+, 
+−
+𝑥
+4
+−x
+4
+ e 
+𝑥
+3
+x
+3
+ danno tre comportamenti diversi.
+Criterio di convessità
+
+Il segno di f″ descrive la curvatura
+
+Apri scheda
+𝑓
+′
+′
+>
+0
+⇒
+concava verso l’alto
+,
+𝑓
+′
+′
+<
+0
+⇒
+concava verso il basso
+f
+′′
+>0⇒concava verso l’alto,f
+′′
+<0⇒concava verso il basso
+IPOTESI
+La derivata seconda esiste nell’intervallo considerato e mantiene lo stesso segno.
+FIGURA MENTALE
+Con 
+𝑓
+′
+′
+>
+0
+f
+′′
+>0 le tangenti restano sotto il grafico; con 
+𝑓
+′
+′
+<
+0
+f
+′′
+<0 restano sopra.
+QUANDO USARLO
+Permette di capire verso dove piega la curva e di riconoscere possibili cambi di concavità.
+ATTENZIONE
+Il solo valore 
+𝑓
+′
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′′
+(x
+0
+	​
+
+)=0 non basta per affermare che 
+𝑥
+0
+x
+0
+	​
+
+ sia un flesso: serve un cambio di concavità.
+Un uso pratico senza fare uno studio di funzione
+
+Se conosci un intervallo in cui 
+2
+≤
+𝑓
+′
+(
+𝑥
+)
+≤
+3
+2≤f
+′
+(x)≤3, Lagrange ti permette già di concludere che, aumentando 
+𝑥
+x di 4, la funzione cresce tra 8 e 12. Non occorre disegnare tutto il grafico: basta controllare le pendenze possibili.
+
+STRUMENTI AVANZATI
+Cinque idee da consultare quando servono
+Teorema di Cauchy
+
+Due variazioni confrontate nello stesso punto
+
+Apri scheda
+curva parametrica (g(t), f(t))
+𝑓
+(
+𝑏
+)
+−
+𝑓
+(
+𝑎
+)
+𝑔
+(
+𝑏
+)
+−
+𝑔
+(
+𝑎
+)
+=
+𝑓
+′
+(
+𝑐
+)
+𝑔
+′
+(
+𝑐
+)
+g(b)−g(a)
+f(b)−f(a)
+	​
+
+=
+g
+′
+(c)
+f
+′
+(c)
+	​
+
+IPOTESI
+𝑓
+f e 
+𝑔
+g sono continue su 
+[
+𝑎
+,
+𝑏
+]
+[a,b], derivabili in 
+(
+𝑎
+,
+𝑏
+)
+(a,b) e 
+𝑔
+′
+≠
+0
+g
+′
+
+=0.
+FIGURA MENTALE
+La curva parametrica 
+(
+𝑔
+(
+𝑡
+)
+,
+𝑓
+(
+𝑡
+)
+)
+(g(t),f(t)) possiede una tangente parallela alla corda tra gli estremi.
+QUANDO USARLO
+Confronta due grandezze che cambiano insieme ed è la base teorica della regola di de l’Hôpital.
+ATTENZIONE
+Occorre controllare le ipotesi su entrambe le funzioni e che il denominatore del rapporto sia significativo.
+Teorema di Darboux
+
+Le pendenze non possono saltare
+
+Apri scheda
+tutte le inclinazioni intermedie
+𝑓
+′
+(
+𝑎
+)
+<
+𝑚
+<
+𝑓
+′
+(
+𝑏
+)
+  
+⟹
+  
+∃
+𝑐
+:
+𝑓
+′
+(
+𝑐
+)
+=
+𝑚
+f
+′
+(a)<m<f
+′
+(b)⟹∃c:f
+′
+(c)=m
+IPOTESI
+𝑓
+f è derivabile su un intervallo; non è necessario supporre continua la funzione derivata.
+FIGURA MENTALE
+Mentre la tangente ruota da una pendenza a un’altra, assume tutte le inclinazioni intermedie.
+QUANDO USARLO
+Permette di escludere che una funzione a gradino sia la derivata di qualche funzione.
+ATTENZIONE
+Avere tutti i valori intermedi non significa essere continua: una derivata può essere discontinua senza fare salti.
+Regola di de l’Hôpital
+
+Confrontare velocità di annullamento o crescita
+
+Apri scheda
+0/0
+lim
+⁡
+𝑓
+𝑔
+=0/0 o ∞/∞
+lim
+⁡
+𝑓
+′
+𝑔
+′
+lim
+g
+f
+	​
+
+=
+0/0 o ∞/∞
+lim
+g
+′
+f
+′
+	​
+
+IPOTESI
+Il rapporto presenta una forma 
+0
+/
+0
+0/0 o 
+∞
+/
+∞
+∞/∞, le funzioni sono derivabili vicino al punto e il limite del rapporto delle derivate esiste.
+FIGURA MENTALE
+Vicino al punto comune, il rapporto tra le altezze viene sostituito dal rapporto tra le pendenze.
+QUANDO USARLO
+Semplifica limiti come 
+lim
+⁡
+𝑥
+→
+0
+sin
+⁡
+𝑥
+/
+𝑥
+lim
+x→0
+	​
+
+sinx/x o confronti tra crescite esponenziali e polinomiali.
+ATTENZIONE
+Non si applica a qualunque frazione: prima va verificata la forma indeterminata e talvolta serve ripetere il procedimento.
+Derivata della funzione inversa
+
+Riflettere il grafico scambia le pendenze
+
+Apri scheda
+(
+𝑓
+−
+1
+)
+′
+(
+𝑦
+0
+)
+=
+1
+𝑓
+′
+(
+𝑥
+0
+)
+,
+𝑦
+0
+=
+𝑓
+(
+𝑥
+0
+)
+(f
+−1
+)
+′
+(y
+0
+	​
+
+)=
+f
+′
+(x
+0
+	​
+
+)
+1
+	​
+
+,y
+0
+	​
+
+=f(x
+0
+	​
+
+)
+IPOTESI
+𝑓
+f è invertibile vicino a 
+𝑥
+0
+x
+0
+	​
+
+, derivabile e 
+𝑓
+′
+(
+𝑥
+0
+)
+≠
+0
+f
+′
+(x
+0
+	​
+
+)
+
+=0.
+FIGURA MENTALE
+I grafici di 
+𝑓
+f e 
+𝑓
+−
+1
+f
+−1
+ sono simmetrici rispetto a 
+𝑦
+=
+𝑥
+y=x; le pendenze delle tangenti sono reciproche.
+QUANDO USARLO
+Ricava in modo naturale le derivate di logaritmo, radice e funzioni trigonometriche inverse.
+ATTENZIONE
+Se 
+𝑓
+′
+(
+𝑥
+0
+)
+=
+0
+f
+′
+(x
+0
+	​
+
+)=0, l’inversa può avere una tangente verticale e la formula non produce un valore finito.
+Taylor con resto di Lagrange
+
+Misurare l’errore dell’approssimazione
+
+Apri scheda
+resto = errore
+𝑓
+(
+𝑥
+)
+=
+𝑇
+𝑛
+(
+𝑥
+)
++
+𝑓
+(
+𝑛
++
+1
+)
+(
+𝜉
+)
+(
+𝑛
++
+1
+)
+!
+(
+𝑥
+−
+𝑎
+)
+𝑛
++
+1
+f(x)=T
+n
+	​
+
+(x)+
+(n+1)!
+f
+(n+1)
+(ξ)
+	​
+
+(x−a)
+n+1
+IPOTESI
+𝑓
+f possiede le derivate necessarie tra il centro 
+𝑎
+a e il punto 
+𝑥
+x.
+FIGURA MENTALE
+Il polinomio coincide localmente con valore e derivate; il resto misura la distanza verticale ancora visibile dalla curva.
+QUANDO USARLO
+Stabilisce quante cifre o quale precisione possiamo aspettarci da un’approssimazione di Taylor.
+ATTENZIONE
+L’errore dipende da una derivata di ordine superiore in un punto 
+𝜉
+ξ non noto: va stimata su tutto l’intervallo.
+UNA STORIA DI IDEE
+
+Nel 1875 Darboux dimostrò che una derivata assume sempre i valori intermedi.
+
+Approfondisci
+UNA STORIA DI IDEE
+
+La regola di de l’Hôpital apparve nel primo manuale di calcolo, ma proveniva dalle lezioni di Johann Bernoulli.
+
+Approfondisci
+UNA STORIA DI IDEE
+
+Il resto trasforma una buona approssimazione in una stima controllabile.
+
+Approfondisci
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Taylor · opzionale
+Vai alla scheda §2
+Rolle, Lagrange e Cauchy
+Michel Rolle pubblicò nel 1691 il risultato oggi associato al suo nome, inizialmente nel contesto delle equazioni algebriche. Lagrange lo inserì nella nuova analisi; nell’Ottocento Cauchy diede al teorema del valor medio una formulazione e una dimostrazione rigorose.
+Fonte esterna
+Chiudi

@@ -1,0 +1,1236 @@
+URL: https://math-lesson-derivates.vercel.app/verifica
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+Nascondi tutte le soluzioni
+Stampa verifica
+VERIFICA FINALE
+Derivate
+
+Svolgi prima la prova, poi apri le soluzioni guidate per correggerti.
+
+45 minuti
+30 punti
+
+Nome ____________________
+
+1. Definizione e calcolo dal limite
+6 pt
+Enuncia la definizione formale di derivata in un punto. Poi calcola, esclusivamente dal rapporto incrementale, la derivata di 
+𝑓
+(
+𝑥
+)
+=
+2
+𝑥
+2
+−
+𝑥
+f(x)=2x
+2
+−x.
+PROBLEMA 1 · PENCIL/STILO COMPATIBILE
+MODALITÀ DISEGNO · foglio bloccato e protezione palmo attiva
+Soluzione
+Cancella
+
+Soluzione guidata
+
+Confronta ogni passaggio con il tuo svolgimento, non soltanto il risultato finale.
+Definizione: 
+𝑓
+′
+(
+𝑎
+)
+=
+lim
+⁡
+ℎ
+→
+0
+𝑓
+(
+𝑎
++
+ℎ
+)
+−
+𝑓
+(
+𝑎
+)
+ℎ
+f
+′
+(a)=
+h→0
+lim
+	​
+
+h
+f(a+h)−f(a)
+	​
+
+, purché il limite esista e sia finito.
+Calcoliamo i due valori: 
+𝑓
+(
+𝑎
++
+ℎ
+)
+=
+2
+(
+𝑎
++
+ℎ
+)
+2
+−
+(
+𝑎
++
+ℎ
+)
+f(a+h)=2(a+h)
+2
+−(a+h) e 
+𝑓
+(
+𝑎
+)
+=
+2
+𝑎
+2
+−
+𝑎
+f(a)=2a
+2
+−a.
+Sostituiamo e sviluppiamo:
+𝑓
+(
+𝑎
++
+ℎ
+)
+−
+𝑓
+(
+𝑎
+)
+ℎ
+=
+2
+𝑎
+2
++
+4
+𝑎
+ℎ
++
+2
+ℎ
+2
+−
+𝑎
+−
+ℎ
+−
+2
+𝑎
+2
++
+𝑎
+ℎ
+.
+h
+f(a+h)−f(a)
+	​
+
+=
+h
+2a
+2
++4ah+2h
+2
+−a−h−2a
+2
++a
+	​
+
+.
+Raccogliamo 
+ℎ
+h al numeratore e semplifichiamo, con 
+ℎ
+≠
+0
+h
+
+=0:
+ℎ
+(
+4
+𝑎
++
+2
+ℎ
+−
+1
+)
+ℎ
+=
+4
+𝑎
++
+2
+ℎ
+−
+1.
+h
+h(4a+2h−1)
+	​
+
+=4a+2h−1.
+Passando al limite per 
+ℎ
+→
+0
+h→0 otteniamo 
+𝑓
+′
+(
+𝑎
+)
+=
+4
+𝑎
+−
+1
+f
+′
+(a)=4a−1, quindi 
+𝑓
+′
+(
+𝑥
+)
+=
+4
+𝑥
+−
+1
+f
+′
+(x)=4x−1.
+RISULTATO
+𝑓
+′
+(
+𝑥
+)
+=
+4
+𝑥
+−
+1
+f
+′
+(x)=4x−1
+	​
+
+2. Tangente e normale
+6 pt
+Data 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+3
+−
+3
+𝑥
+f(x)=x
+3
+−3x e il punto 
+𝑃
+=
+(
+2
+,
+2
+)
+P=(2,2), trova le equazioni della retta tangente e della retta normale al grafico in P.
+PROBLEMA 2 · PENCIL/STILO COMPATIBILE
+MODALITÀ DISEGNO · foglio bloccato e protezione palmo attiva
+Soluzione
+Cancella
+
+Soluzione guidata
+
+Confronta ogni passaggio con il tuo svolgimento, non soltanto il risultato finale.
+Deriviamo: 
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑥
+2
+−
+3
+f
+′
+(x)=3x
+2
+−3. Nel punto 
+𝑥
+=
+2
+x=2, il coefficiente angolare della tangente è 
+𝑚
+𝑡
+=
+𝑓
+′
+(
+2
+)
+=
+12
+−
+3
+=
+9
+m
+t
+	​
+
+=f
+′
+(2)=12−3=9.
+Usiamo la forma punto–pendenza: 
+𝑦
+−
+2
+=
+9
+(
+𝑥
+−
+2
+)
+y−2=9(x−2). Sviluppando si ottiene 
+𝑦
+=
+9
+𝑥
+−
+16
+y=9x−16.
+La normale è perpendicolare alla tangente, quindi il suo coefficiente angolare è il reciproco cambiato di segno: 
+𝑚
+𝑛
+=
+−
+1
+/
+9
+m
+n
+	​
+
+=−1/9.
+Ancora con la forma punto–pendenza: 
+𝑦
+−
+2
+=
+−
+1
+9
+(
+𝑥
+−
+2
+)
+y−2=−
+9
+1
+	​
+
+(x−2), cioè 
+𝑦
+=
+−
+1
+9
+𝑥
++
+20
+9
+y=−
+9
+1
+	​
+
+x+
+9
+20
+	​
+
+.
+RISULTATO
+𝑡
+:
+𝑦
+=
+9
+𝑥
+−
+16
+t:y=9x−16
+	​
+
+ e 
+𝑛
+:
+𝑦
+=
+−
+1
+9
+𝑥
++
+20
+9
+n:y=−
+9
+1
+	​
+
+x+
+9
+20
+	​
+
+	​
+
+3. Regole di derivazione
+10 pt
+Calcola le derivate mostrando la regola usata: a) 
+𝑥
+2
+𝑒
+𝑥
+x
+2
+e
+x
+; b) 
+(
+𝑥
+2
++
+1
+)
+/
+(
+𝑥
+−
+1
+)
+(x
+2
++1)/(x−1); c) 
+sin
+⁡
+(
+3
+𝑥
+2
+)
+sin(3x
+2
+); d) 
+ln
+⁡
+(
+1
++
+𝑥
+2
+)
+ln(1+x
+2
+).
+PROBLEMA 3 · PENCIL/STILO COMPATIBILE
+MODALITÀ DISEGNO · foglio bloccato e protezione palmo attiva
+Soluzione
+Cancella
+
+Soluzione guidata
+
+Confronta ogni passaggio con il tuo svolgimento, non soltanto il risultato finale.
+a) Regola del prodotto: 
+(
+𝑢
+𝑣
+)
+′
+=
+𝑢
+′
+𝑣
++
+𝑢
+𝑣
+′
+(uv)
+′
+=u
+′
+v+uv
+′
+. Quindi 
+(
+𝑥
+2
+𝑒
+𝑥
+)
+′
+=
+2
+𝑥
+𝑒
+𝑥
++
+𝑥
+2
+𝑒
+𝑥
+=
+𝑒
+𝑥
+(
+𝑥
+2
++
+2
+𝑥
+)
+(x
+2
+e
+x
+)
+′
+=2xe
+x
++x
+2
+e
+x
+=e
+x
+(x
+2
++2x).
+b) Regola del quoziente:
+(
+𝑥
+2
++
+1
+𝑥
+−
+1
+)
+′
+=
+2
+𝑥
+(
+𝑥
+−
+1
+)
+−
+(
+𝑥
+2
++
+1
+)
+(
+𝑥
+−
+1
+)
+2
+=
+𝑥
+2
+−
+2
+𝑥
+−
+1
+(
+𝑥
+−
+1
+)
+2
+.
+(
+x−1
+x
+2
++1
+	​
+
+)
+′
+=
+(x−1)
+2
+2x(x−1)−(x
+2
++1)
+	​
+
+=
+(x−1)
+2
+x
+2
+−2x−1
+	​
+
+.
+c) Regola della funzione composta: la derivata esterna è 
+cos
+⁡
+(
+3
+𝑥
+2
+)
+cos(3x
+2
+), quella interna è 
+6
+𝑥
+6x. Dunque 
+(
+sin
+⁡
+(
+3
+𝑥
+2
+)
+)
+′
+=
+6
+𝑥
+cos
+⁡
+(
+3
+𝑥
+2
+)
+(sin(3x
+2
+))
+′
+=6xcos(3x
+2
+).
+d) Ancora funzione composta: 
+(
+ln
+⁡
+𝑢
+)
+′
+=
+𝑢
+′
+/
+𝑢
+(lnu)
+′
+=u
+′
+/u, con 
+𝑢
+=
+1
++
+𝑥
+2
+u=1+x
+2
+. Quindi 
+(
+ln
+⁡
+(
+1
++
+𝑥
+2
+)
+)
+′
+=
+2
+𝑥
+1
++
+𝑥
+2
+(ln(1+x
+2
+))
+′
+=
+1+x
+2
+2x
+	​
+
+.
+RISULTATO
+𝑒
+𝑥
+(
+𝑥
+2
++
+2
+𝑥
+)
+e
+x
+(x
+2
++2x)
+	​
+
+; 
+𝑥
+2
+−
+2
+𝑥
+−
+1
+(
+𝑥
+−
+1
+)
+2
+(x−1)
+2
+x
+2
+−2x−1
+	​
+
+	​
+
+; 
+6
+𝑥
+cos
+⁡
+(
+3
+𝑥
+2
+)
+6xcos(3x
+2
+)
+	​
+
+; 
+2
+𝑥
+1
++
+𝑥
+2
+1+x
+2
+2x
+	​
+
+	​
+
+4. Sfida
+8 pt
+Per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+𝑒
+𝑥
+f(x)=xe
+x
+: a) calcola 
+𝑓
+′
+(
+𝑥
+)
+f′(x) e 
+𝑓
+′′
+(
+𝑥
+)
+f′′(x); b) trova e classifica i punti stazionari; c) costruisci il polinomio di Taylor di ordine 3 centrato in zero.
+PROBLEMA 4 · PENCIL/STILO COMPATIBILE
+MODALITÀ DISEGNO · foglio bloccato e protezione palmo attiva
+Soluzione
+Cancella
+
+Soluzione guidata
+
+Confronta ogni passaggio con il tuo svolgimento, non soltanto il risultato finale.
+Con la regola del prodotto: 
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
++
+𝑥
+𝑒
+𝑥
+=
+𝑒
+𝑥
+(
+𝑥
++
+1
+)
+f
+′
+(x)=e
+x
++xe
+x
+=e
+x
+(x+1). Derivando ancora: 
+𝑓
+′
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+(
+𝑥
++
+1
+)
++
+𝑒
+𝑥
+=
+𝑒
+𝑥
+(
+𝑥
++
+2
+)
+f
+′′
+(x)=e
+x
+(x+1)+e
+x
+=e
+x
+(x+2).
+I punti stazionari soddisfano 
+𝑒
+𝑥
+(
+𝑥
++
+1
+)
+=
+0
+e
+x
+(x+1)=0. Poiché 
+𝑒
+𝑥
+>
+0
+e
+x
+>0, deve essere 
+𝑥
+=
+−
+1
+x=−1; il punto è 
+(
+−
+1
+,
+−
+𝑒
+−
+1
+)
+(−1,−e
+−1
+).
+Classificazione: 
+𝑓
+′
+′
+(
+−
+1
+)
+=
+𝑒
+−
+1
+>
+0
+f
+′′
+(−1)=e
+−1
+>0, quindi il punto stazionario è un minimo locale.
+Per Taylor servono i valori in zero: 
+𝑓
+(
+0
+)
+=
+0
+f(0)=0, 
+𝑓
+′
+(
+0
+)
+=
+1
+f
+′
+(0)=1, 
+𝑓
+′
+′
+(
+0
+)
+=
+2
+f
+′′
+(0)=2. Inoltre 
+𝑓
+′
+′
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+(
+𝑥
++
+3
+)
+f
+′′′
+(x)=e
+x
+(x+3), quindi 
+𝑓
+′
+′
+′
+(
+0
+)
+=
+3
+f
+′′′
+(0)=3.
+Applichiamo la formula:
+𝑇
+3
+(
+𝑥
+)
+=
+𝑓
+(
+0
+)
++
+𝑓
+′
+(
+0
+)
+𝑥
++
+𝑓
+′
+′
+(
+0
+)
+2
+!
+𝑥
+2
++
+𝑓
+′
+′
+′
+(
+0
+)
+3
+!
+𝑥
+3
+=
+𝑥
++
+𝑥
+2
++
+𝑥
+3
+2
+.
+T
+3
+	​
+
+(x)=f(0)+f
+′
+(0)x+
+2!
+f
+′′
+(0)
+	​
+
+x
+2
++
+3!
+f
+′′′
+(0)
+	​
+
+x
+3
+=x+x
+2
++
+2
+x
+3
+	​
+
+.
+RISULTATO
+𝑓
+′
+=
+𝑒
+𝑥
+(
+𝑥
++
+1
+)
+,
+ 
+𝑓
+′
+′
+=
+𝑒
+𝑥
+(
+𝑥
++
+2
+)
+f
+′
+=e
+x
+(x+1), f
+′′
+=e
+x
+(x+2)
+	​
+
+, minimo in 
+(
+−
+1
+,
+−
+𝑒
+−
+1
+)
+(−1,−e
+−1
+), 
+𝑇
+3
+(
+𝑥
+)
+=
+𝑥
++
+𝑥
+2
++
+1
+2
+𝑥
+3
+T
+3
+	​
+
+(x)=x+x
+2
++
+2
+1
+	​
+
+x
+3
+	​
+

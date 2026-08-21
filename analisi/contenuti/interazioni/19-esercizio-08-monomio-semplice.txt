@@ -1,0 +1,465 @@
+URL: https://math-lesson-derivates.vercel.app/class/potenze/exercise/pot_001
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 8 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola delle potenze (x^n)' = nx^n-1
+ESERCIZIO 3 / 3
+ESERCIZIO
+Monomio semplice
+Base
+potenza
+monomio
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+5
+𝑥
+4
+f(x)=5x
+4
+.
+Nascondi suggerimento
+Prima moltiplica per la costante, poi applica 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+3
+𝑥
+2
+f
+′
+(x)=3x
+2
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+f
+′
+(x)=20x
+3
+C
+𝑓
+′
+(
+2
+)
+=
+1
+f
+′
+(2)=1
+D
+𝑓
+′
+(
+𝑥
+)
+=
+1
+f
+′
+(x)=1
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Perché \((cx^n)' = cnx^{n-1}\)?
+1
+RAPPORTO INCREMENTALE DI \(CF(X)\)
+𝑐
+⋅
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑐
+⋅
+𝑓
+(
+𝑥
+)
+ℎ
+=
+𝑐
+⋅
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
+h
+c⋅f(x+h)−c⋅f(x)
+	​
+
+=c⋅
+h
+f(x+h)−f(x)
+	​
+
+Una costante moltiplicativa 
+𝑐
+c può essere portata fuori dal rapporto incrementale (e quindi dal limite).
+2
+PER \(F(X)=X^4\): SVILUPPO CON IL BINOMIO DI NEWTON
+(
+𝑥
++
+ℎ
+)
+4
+=
+𝑥
+4
++
+4
+𝑥
+3
+ℎ
++
+6
+𝑥
+2
+ℎ
+2
++
+4
+𝑥
+ℎ
+3
++
+ℎ
+4
+(x+h)
+4
+=x
+4
++4x
+3
+h+6x
+2
+h
+2
++4xh
+3
++h
+4
+Solo il termine 
+4
+𝑥
+3
+ℎ
+4x
+3
+h contribuisce al limite dopo aver diviso per 
+ℎ
+h.
+3
+RAPPORTO INCREMENTALE
+(
+𝑥
++
+ℎ
+)
+4
+−
+𝑥
+4
+ℎ
+=
+4
+𝑥
+3
++
+6
+𝑥
+2
+ℎ
++
+4
+𝑥
+ℎ
+2
++
+ℎ
+3
+h
+(x+h)
+4
+−x
+4
+	​
+
+=4x
+3
++6x
+2
+h+4xh
+2
++h
+3
+Dividiamo tutti i termini per 
+ℎ
+h. Solo il primo sopravvive al limite.
+4
+LIMITE E COSTANTE
+5
+⋅
+lim
+⁡
+ℎ
+→
+0
+(
+4
+𝑥
+3
++
+6
+𝑥
+2
+ℎ
++
+…
+)
+=
+5
+⋅
+4
+𝑥
+3
+=
+20
+𝑥
+3
+5⋅
+h→0
+lim
+	​
+
+(4x
+3
++6x
+2
+h+…)=5⋅4x
+3
+=20x
+3
+La costante 5 moltiplica il risultato del limite.
+CONCLUSIONE
+Regola: 
+(
+𝑐
+𝑥
+𝑛
+)
+′
+=
+𝑐
+𝑛
+⋅
+𝑥
+𝑛
+−
+1
+(cx
+n
+)
+′
+=cn⋅x
+n−1
+. La costante moltiplicativa «viaggia» attraverso il limite.
+
+📖 Soluzione passo per passo
+
+1
+PORTA FUORI LA COSTANTE
+(
+5
+𝑥
+4
+)
+′
+=
+5
+⋅
+(
+𝑥
+4
+)
+′
+(5x
+4
+)
+′
+=5⋅(x
+4
+)
+′
+La derivata è un'operazione lineare: le costanti escono.
+2
+APPLICA LA REGOLA
+5
+⋅
+4
+𝑥
+3
+=
+20
+𝑥
+3
+5⋅4x
+3
+=20x
+3
+𝑛
+=
+4
+n=4, quindi 
+(
+𝑥
+4
+)
+′
+=
+4
+𝑥
+3
+(x
+4
+)
+′
+=4x
+3
+.
+Precedente
+3 DI 3
+Successivo
+📐 +1 punto per la dimostrazione

@@ -1,0 +1,822 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/regole
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+30 min
+LEZIONE 2 · 0:40–1:10
+Quattro regole, quattro idee
+
+Per ogni regola teniamo insieme formula operativa, dimostrazione dal limite e lettura verbale. La regola è pronta all’uso solo dopo aver capito da dove viene.
+
+VERSIONE DIMOSTRATIVA
+Linearità
+COME SI LEGGE E QUANDO SI USA
+Serve per somme e multipli: 
+𝑓
+f e 
+𝑔
+g sono funzioni, mentre 
+𝛼
+α e 
+𝛽
+β sono numeri costanti. Si deriva ogni funzione separatamente e si mantengono le costanti.
+FORMULA
+(
+𝛼
+𝑓
++
+𝛽
+𝑔
+)
+′
+=
+𝛼
+𝑓
+′
++
+𝛽
+𝑔
+′
+(αf+βg)
+′
+=αf
+′
++βg
+′
+1
+RAPPORTO INCREMENTALE
+𝛼
+[
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+]
++
+𝛽
+[
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+]
+ℎ
+h
+α[f(x+h)−f(x)]+β[g(x+h)−g(x)]
+	​
+
+Raggruppiamo separatamente le variazioni di f e g.
+2
+SEPARA E PASSA AL LIMITE
+𝛼
+lim
+⁡
+ℎ
+→
+0
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
++
+𝛽
+lim
+⁡
+ℎ
+→
+0
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+ℎ
+α
+h→0
+lim
+	​
+
+h
+f(x+h)−f(x)
+	​
+
++β
+h→0
+lim
+	​
+
+h
+g(x+h)−g(x)
+	​
+
+Il limite della somma è la somma dei limiti; le costanti escono.
+CONCLUSIONE
+Derivare è un’operazione lineare.
+VERSIONE DIMOSTRATIVA
+Regola del prodotto
+COME SI LEGGE E QUANDO SI USA
+Serve quando 
+𝑓
+(
+𝑥
+)
+f(x) e 
+𝑔
+(
+𝑥
+)
+g(x) sono moltiplicate. Si deriva prima 
+𝑓
+f lasciando ferma 
+𝑔
+g, poi si lascia ferma 
+𝑓
+f e si deriva 
+𝑔
+g; infine si sommano i due contributi.
+FORMULA
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
++
+𝑓
+𝑔
+′
+(fg)
+′
+=f
+′
+g+fg
+′
+1
+DEFINIZIONE
+𝑓
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
+)
+ℎ
+h
+f(x+h)g(x+h)−f(x)g(x)
+	​
+
+Il numeratore non si separa direttamente.
+2
+AGGIUNGI ZERO
+𝑓
+(
+𝑥
++
+ℎ
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
++
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
+)
+ℎ
+h
+f(x+h)g(x+h)−f(x)g(x+h)+f(x)g(x+h)−f(x)g(x)
+	​
+
+Aggiungiamo e sottraiamo 
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+f(x)g(x+h): è il trucco di Leibniz.
+3
+RACCOGLI
+𝑔
+(
+𝑥
++
+ℎ
+)
+𝑓
+(
+𝑥
++
+ℎ
+)
+−
+𝑓
+(
+𝑥
+)
+ℎ
++
+𝑓
+(
+𝑥
+)
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+ℎ
+g(x+h)
+h
+f(x+h)−f(x)
+	​
+
++f(x)
+h
+g(x+h)−g(x)
+	​
+
+Ora riconosciamo i due rapporti incrementali.
+4
+LIMITE
+𝑔
+(
+𝑥
+)
+𝑓
+′
+(
+𝑥
+)
++
+𝑓
+(
+𝑥
+)
+𝑔
+′
+(
+𝑥
+)
+g(x)f
+′
+(x)+f(x)g
+′
+(x)
+La derivabilità implica continuità, quindi 
+𝑔
+(
+𝑥
++
+ℎ
+)
+→
+𝑔
+(
+𝑥
+)
+g(x+h)→g(x).
+CONCLUSIONE
+Si deriva un fattore alla volta, lasciando fermo l’altro, e si sommano i contributi.
+VERSIONE DIMOSTRATIVA
+Regola del quoziente
+COME SI LEGGE E QUANDO SI USA
+Serve quando una funzione 
+𝑓
+f è divisa per una funzione 
+𝑔
+g, con 
+𝑔
+(
+𝑥
+)
+≠
+0
+g(x)
+
+=0. Al numeratore l’ordine è importante: derivata del sopra per sotto, meno sopra per derivata del sotto.
+FORMULA
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+𝑔
+2
+(
+g
+f
+	​
+
+)
+′
+=
+g
+2
+f
+′
+g−fg
+′
+	​
+
+1
+RISCRIVI COME PRODOTTO
+𝑓
+=
+𝑓
+𝑔
+⋅
+𝑔
+f=
+g
+f
+	​
+
+⋅g
+La ricaviamo dalla regola del prodotto, con 
+𝑔
+≠
+0
+g
+
+=0.
+2
+DERIVA
+𝑓
+′
+=
+(
+𝑓
+𝑔
+)
+′
+𝑔
++
+𝑓
+𝑔
+ 
+𝑔
+′
+f
+′
+=(
+g
+f
+	​
+
+)
+′
+g+
+g
+f
+	​
+
+g
+′
+Applichiamo la regola del prodotto al membro destro.
+3
+ISOLA LA DERIVATA
+(
+𝑓
+𝑔
+)
+′
+=
+𝑓
+′
+𝑔
+−
+𝑓
+𝑔
+′
+𝑔
+2
+(
+g
+f
+	​
+
+)
+′
+=
+g
+2
+f
+′
+g−fg
+′
+	​
+
+Portiamo il secondo termine a sinistra e dividiamo per g.
+CONCLUSIONE
+Nel numeratore l’ordine conta: derivata del sopra per sotto meno sopra per derivata del sotto.
+VERSIONE DIMOSTRATIVA
+Regola della catena
+COME SI LEGGE E QUANDO SI USA
+Serve quando una funzione è dentro un’altra: 
+𝑓
+∘
+𝑔
+f∘g significa 
+𝑓
+(
+𝑔
+(
+𝑥
+)
+)
+f(g(x)). Si deriva la funzione esterna, la si valuta nell’interno e si moltiplica per la derivata della funzione interna.
+FORMULA
+(
+𝑓
+∘
+𝑔
+)
+′
+=
+𝑓
+′
+(
+𝑔
+)
+ 
+𝑔
+′
+(f∘g)
+′
+=f
+′
+(g)g
+′
+1
+RAPPORTO DELLA COMPOSTA
+𝑓
+(
+𝑔
+(
+𝑥
++
+ℎ
+)
+)
+−
+𝑓
+(
+𝑔
+(
+𝑥
+)
+)
+ℎ
+h
+f(g(x+h))−f(g(x))
+	​
+
+La variazione esterna dipende dalla variazione della funzione interna.
+2
+INTRODUCI K
+𝑓
+(
+𝑔
+(
+𝑥
+)
++
+𝑘
+)
+−
+𝑓
+(
+𝑔
+(
+𝑥
+)
+)
+𝑘
+⋅
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+ℎ
+,
+𝑘
+=
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+k
+f(g(x)+k)−f(g(x))
+	​
+
+⋅
+h
+g(x+h)−g(x)
+	​
+
+,k=g(x+h)−g(x)
+Moltiplichiamo e dividiamo per la variazione interna k.
+3
+PASSA AL LIMITE
+𝑓
+′
+(
+𝑔
+(
+𝑥
+)
+)
+⋅
+𝑔
+′
+(
+𝑥
+)
+f
+′
+(g(x))⋅g
+′
+(x)
+Per continuità di g, 
+ℎ
+→
+0
+h→0 implica 
+𝑘
+→
+0
+k→0.
+CONCLUSIONE
+Deriva l’esterno valutato nell’interno, poi moltiplica per la derivata dell’interno.
+ESEMPIO CANONICO
+sin(x²): leggere gli strati
+INTERNO
+𝑔
+(
+𝑥
+)
+=
+𝑥
+2
+,
+𝑔
+′
+(
+𝑥
+)
+=
+2
+𝑥
+g(x)=x
+2
+,g
+′
+(x)=2x
+ESTERNO
+𝑓
+(
+𝑢
+)
+=
+sin
+⁡
+𝑢
+,
+𝑓
+′
+(
+𝑢
+)
+=
+cos
+⁡
+𝑢
+f(u)=sinu,f
+′
+(u)=cosu
+COMPOSIZIONE
+(
+sin
+⁡
+𝑥
+2
+)
+′
+=
+cos
+⁡
+(
+𝑥
+2
+)
+ 
+2
+𝑥
+(sinx
+2
+)
+′
+=cos(x
+2
+)2x
+UNA STORIA DI IDEE
+
+Aggiungere e sottrarre lo stesso termine trasforma un’espressione opaca in due rapporti incrementali.
+
+Approfondisci
+UNA STORIA DI IDEE
+
+dy/dx = dy/du · du/dx è un’intuizione eccellente, ma il limite spiega perché funziona.
+
+Approfondisci
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Derivate fondamentali
+Derivata seconda
+Chain rule: intuizione e rigore
+La notazione di Leibniz fa sembrare i differenziali frazioni che si semplificano. La dimostrazione rigorosa sostituisce questa cancellazione con due rapporti incrementali e usa la continuità della funzione interna.
+Fonte esterna
+Chiudi

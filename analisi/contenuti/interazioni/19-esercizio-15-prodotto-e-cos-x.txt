@@ -1,0 +1,285 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_prodotto/exercise/prod_002
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 13 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola del prodotto (fg)'=f'g+fg'
+ESERCIZIO 3 / 3
+ESERCIZIO
+Prodotto eˣ × cos x
+Medio
+prodotto
+exp
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑒
+𝑥
+cos
+⁡
+𝑥
+f(x)=e
+x
+cosx.
+Nascondi suggerimento
+(
+𝑒
+𝑥
+)
+′
+=
+𝑒
+𝑥
+(e
+x
+)
+′
+=e
+x
+ e 
+(
+cos
+⁡
+𝑥
+)
+′
+=
+−
+sin
+⁡
+𝑥
+(cosx)
+′
+=−sinx.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+(
+cos
+⁡
+𝑥
+−
+sin
+⁡
+𝑥
+)
+f
+′
+(x)=e
+x
+(cosx−sinx)
+B
+𝑥
+=
+−
+1
+ (minimo locale)
+,
+𝑓
+(
+−
+1
+)
+=
+−
+𝑒
+−
+1
+x=−1 (minimo locale),f(−1)=−e
+−1
+C
+𝑦
+=
+9
+𝑥
+−
+16
+y=9x−16
+D
+𝑦
+=
+−
+4
+𝑥
++
+18
+y=−4x+18
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+IDENTIFICA E DERIVA
+𝑓
+=
+𝑒
+𝑥
+,
+ 
+𝑔
+=
+cos
+⁡
+𝑥
+⇒
+𝑓
+′
+=
+𝑒
+𝑥
+,
+ 
+𝑔
+′
+=
+−
+sin
+⁡
+𝑥
+f=e
+x
+, g=cosx⇒f
+′
+=e
+x
+, g
+′
+=−sinx
+Derivate note.
+2
+APPLICA LA REGOLA DEL PRODOTTO
+𝑒
+𝑥
+cos
+⁡
+𝑥
++
+𝑒
+𝑥
+(
+−
+sin
+⁡
+𝑥
+)
+=
+𝑒
+𝑥
+(
+cos
+⁡
+𝑥
+−
+sin
+⁡
+𝑥
+)
+e
+x
+cosx+e
+x
+(−sinx)=e
+x
+(cosx−sinx)
+Raccogli 
+𝑒
+𝑥
+e
+x
+ comune.
+Precedente
+3 DI 3
+Successivo

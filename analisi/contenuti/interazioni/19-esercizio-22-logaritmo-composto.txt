@@ -1,0 +1,327 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_catena/exercise/cat_005
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 15 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola della catena (f g)'=f'(g) g'
+ESERCIZIO 5 / 5
+ESERCIZIO
+Logaritmo composto
+Medio
+catena
+ln
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+ln
+⁡
+(
+cos
+⁡
+𝑥
+)
+f(x)=ln(cosx) (con 
+cos
+⁡
+𝑥
+>
+0
+cosx>0).
+Nascondi suggerimento
+(
+ln
+⁡
+𝑢
+)
+′
+=
+1
+/
+𝑢
+(lnu)
+′
+=1/u. Poi catena con la derivata di 
+cos
+⁡
+𝑥
+cosx.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f
+′
+(x)=e
+x
+B
+𝑓
+′
+(
+𝑥
+)
+=
+1
+2
+𝑥
+−
+2
+𝑥
+3
+f
+′
+(x)=
+2
+x
+	​
+
+1
+	​
+
+−
+x
+3
+2
+	​
+
+C
+𝑓
+′
+(
+𝑥
+)
+=
+−
+𝑓
+(
+𝑥
+)
+f
+′
+(x)=−f(x)
+𝑓
+′
+(
+𝑥
+)
+=
+−
+tan
+⁡
+𝑥
+f
+′
+(x)=−tanx
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+IDENTIFICA
+𝑓
+(
+𝑢
+)
+=
+ln
+⁡
+𝑢
+,
+ 
+𝑔
+(
+𝑥
+)
+=
+cos
+⁡
+𝑥
+⇒
+𝑓
+′
+(
+𝑢
+)
+=
+1
+𝑢
+,
+ 
+𝑔
+′
+(
+𝑥
+)
+=
+−
+sin
+⁡
+𝑥
+f(u)=lnu, g(x)=cosx⇒f
+′
+(u)=
+u
+1
+	​
+
+, g
+′
+(x)=−sinx
+(
+ln
+⁡
+𝑢
+)
+′
+=
+1
+/
+𝑢
+(lnu)
+′
+=1/u è il risultato della derivata del logaritmo (dimostrabile dal limite).
+2
+CATENA
+1
+cos
+⁡
+𝑥
+⋅
+(
+−
+sin
+⁡
+𝑥
+)
+=
+−
+sin
+⁡
+𝑥
+cos
+⁡
+𝑥
+=
+−
+tan
+⁡
+𝑥
+cosx
+1
+	​
+
+⋅(−sinx)=−
+cosx
+sinx
+	​
+
+=−tanx
+−
+sin
+⁡
+𝑥
+/
+cos
+⁡
+𝑥
+=
+−
+tan
+⁡
+𝑥
+−sinx/cosx=−tanx.
+Precedente
+5 DI 5
+Successivo

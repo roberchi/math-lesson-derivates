@@ -1,0 +1,438 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_catena/exercise/cat_004
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 15 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola della catena (f g)'=f'(g) g'
+ESERCIZIO 5 / 5
+ESERCIZIO
+Catena doppia
+Avanzato
+catena
+sin
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+sin
+⁡
+2
+(
+3
+𝑥
+)
+f(x)=sin
+2
+(3x).
+Nascondi suggerimento
+Prima riscrivi: 
+sin
+⁡
+2
+(
+3
+𝑥
+)
+=
+[
+sin
+⁡
+(
+3
+𝑥
+)
+]
+2
+sin
+2
+(3x)=[sin(3x)]
+2
+. Poi applica la catena due volte.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+𝑓
+′
+(
+𝑥
+)
+=
+3
+sin
+⁡
+(
+6
+𝑥
+)
+f
+′
+(x)=3sin(6x)
+B
+𝑓
+′
+(
+𝑥
+)
+=
+12
+𝑥
+2
+(
+𝑥
+3
++
+5
+)
+3
+f
+′
+(x)=12x
+2
+(x
+3
++5)
+3
+C
+𝑓
+′
+(
+𝑥
+)
+=
+cos
+⁡
+𝑥
+f
+′
+(x)=cosx
+D
+𝑓
+′
+(
+𝑥
+)
+=
+𝑥
+f
+′
+(x)=x
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+RISCRIVI E IDENTIFICA I LIVELLI
+𝑓
+(
+𝑥
+)
+=
+[
+sin
+⁡
+(
+3
+𝑥
+)
+]
+2
+(esterno: 
+𝑢
+2
+, medio: 
+sin
+⁡
+𝑢
+, interno: 
+3
+𝑥
+)
+f(x)=[sin(3x)]
+2
+(esterno: u
+2
+, medio: sinu, interno: 3x)
+Tre livelli di composizione.
+2
+PRIMA CATENA: ESTERNA SU MEDIA
+2
+sin
+⁡
+(
+3
+𝑥
+)
+⋅
+(
+sin
+⁡
+(
+3
+𝑥
+)
+)
+′
+2sin(3x)⋅(sin(3x))
+′
+(
+𝑢
+2
+)
+′
+=
+2
+𝑢
+(u
+2
+)
+′
+=2u valutata in 
+𝑢
+=
+sin
+⁡
+(
+3
+𝑥
+)
+u=sin(3x).
+3
+SECONDA CATENA: MEDIA SU INTERNA
+(
+sin
+⁡
+(
+3
+𝑥
+)
+)
+′
+=
+cos
+⁡
+(
+3
+𝑥
+)
+⋅
+3
+(sin(3x))
+′
+=cos(3x)⋅3
+(
+sin
+⁡
+𝑢
+)
+′
+=
+cos
+⁡
+𝑢
+(sinu)
+′
+=cosu con 
+𝑢
+=
+3
+𝑥
+u=3x, quindi moltiplica per 
+(
+3
+𝑥
+)
+′
+=
+3
+(3x)
+′
+=3.
+4
+COMPONI IL RISULTATO
+2
+sin
+⁡
+(
+3
+𝑥
+)
+⋅
+cos
+⁡
+(
+3
+𝑥
+)
+⋅
+3
+=
+6
+sin
+⁡
+(
+3
+𝑥
+)
+cos
+⁡
+(
+3
+𝑥
+)
+2sin(3x)⋅cos(3x)⋅3=6sin(3x)cos(3x)
+Moltiplica tutti i fattori.
+5
+USA L'IDENTITÀ \(\SIN(2\ALPHA)=2\SIN\ALPHA\COS\ALPHA\)
+6
+sin
+⁡
+(
+3
+𝑥
+)
+cos
+⁡
+(
+3
+𝑥
+)
+=
+3
+⋅
+2
+sin
+⁡
+(
+3
+𝑥
+)
+cos
+⁡
+(
+3
+𝑥
+)
+=
+3
+sin
+⁡
+(
+6
+𝑥
+)
+6sin(3x)cos(3x)=3⋅2sin(3x)cos(3x)=3sin(6x)
+Con 
+𝛼
+=
+3
+𝑥
+α=3x: 
+2
+sin
+⁡
+(
+3
+𝑥
+)
+cos
+⁡
+(
+3
+𝑥
+)
+=
+sin
+⁡
+(
+6
+𝑥
+)
+2sin(3x)cos(3x)=sin(6x).
+Precedente
+5 DI 5
+Successivo
+🔓 Nuova classe sbloccata: Retta tangente, stazionari e applicazioni

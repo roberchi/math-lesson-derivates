@@ -1,0 +1,606 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_catena/exercise/cat_001
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 15 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola della catena (f g)'=f'(g) g'
+ESERCIZIO 5 / 5
+ESERCIZIO
+Funzione di funzione semplice
+Medio
+catena
+sin
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+sin
+⁡
+(
+𝑥
+2
+)
+f(x)=sin(x
+2
+).
+Nascondi suggerimento
+Identifica la funzione esterna 
+𝑢
+↦
+sin
+⁡
+𝑢
+u↦sinu e la funzione interna 
+𝑔
+(
+𝑥
+)
+=
+𝑥
+2
+g(x)=x
+2
+.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+20
+𝑥
+3
+−
+6
+𝑥
+f
+′
+(x)=20x
+3
+−6x
+B
+𝑦
+=
+9
+𝑥
+−
+16
+y=9x−16
+𝑓
+′
+(
+𝑥
+)
+=
+cos
+⁡
+(
+𝑥
+2
+)
+⋅
+2
+𝑥
+f
+′
+(x)=cos(x
+2
+)⋅2x
+D
+𝑓
+′
+(
+𝑥
+)
+=
+2
+𝑥
+f
+′
+(x)=2x
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione della regola della catena dal limite
+1
+SCRIVI IL RAPPORTO INCREMENTALE DI \(F\CIRC G\)
+𝑓
+(
+𝑔
+(
+𝑥
++
+ℎ
+)
+)
+−
+𝑓
+(
+𝑔
+(
+𝑥
+)
+)
+ℎ
+h
+f(g(x+h))−f(g(x))
+	​
+
+Forma standard.
+2
+MOLTIPLICA E DIVIDI PER \(K = G(X+H)-G(X)\)
+𝑓
+(
+𝑔
+(
+𝑥
+)
++
+𝑘
+)
+−
+𝑓
+(
+𝑔
+(
+𝑥
+)
+)
+𝑘
+⋅
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+ℎ
+(
+𝑘
+≠
+0
+)
+k
+f(g(x)+k)−f(g(x))
+	​
+
+⋅
+h
+g(x+h)−g(x)
+	​
+
+(k
+
+=0)
+Se 
+𝑔
+(
+𝑥
++
+ℎ
+)
+≠
+𝑔
+(
+𝑥
+)
+g(x+h)
+
+=g(x), cioè 
+𝑘
+≠
+0
+k
+
+=0, possiamo moltiplicare e dividere per 
+𝑘
+k. Il secondo fattore è il rapporto incrementale di 
+𝑔
+g.
+3
+PASSA AL LIMITE: \(H\TO 0\) IMPLICA \(K\TO 0\)
+lim
+⁡
+𝑘
+→
+0
+𝑓
+(
+𝑔
+(
+𝑥
+)
++
+𝑘
+)
+−
+𝑓
+(
+𝑔
+(
+𝑥
+)
+)
+𝑘
+⋅
+lim
+⁡
+ℎ
+→
+0
+𝑔
+(
+𝑥
++
+ℎ
+)
+−
+𝑔
+(
+𝑥
+)
+ℎ
+=
+𝑓
+′
+(
+𝑔
+(
+𝑥
+)
+)
+⋅
+𝑔
+′
+(
+𝑥
+)
+k→0
+lim
+	​
+
+k
+f(g(x)+k)−f(g(x))
+	​
+
+⋅
+h→0
+lim
+	​
+
+h
+g(x+h)−g(x)
+	​
+
+=f
+′
+(g(x))⋅g
+′
+(x)
+Poiché 
+𝑔
+g è continua, 
+ℎ
+→
+0
+⇒
+𝑘
+→
+0
+h→0⇒k→0. Il primo limite è 
+𝑓
+′
+f
+′
+ valutata in 
+𝑔
+(
+𝑥
+)
+g(x), il secondo è 
+𝑔
+′
+(
+𝑥
+)
+g
+′
+(x).
+CONCLUSIONE
+(
+𝑓
+∘
+𝑔
+)
+′
+(
+𝑥
+)
+=
+𝑓
+′
+(
+𝑔
+(
+𝑥
+)
+)
+⋅
+𝑔
+′
+(
+𝑥
+)
+(f∘g)
+′
+(x)=f
+′
+(g(x))⋅g
+′
+(x). Per 
+sin
+⁡
+(
+𝑥
+2
+)
+sin(x
+2
+): esterno 
+𝑓
+(
+𝑢
+)
+=
+sin
+⁡
+𝑢
+⇒
+𝑓
+′
+(
+𝑢
+)
+=
+cos
+⁡
+𝑢
+f(u)=sinu⇒f
+′
+(u)=cosu, interno 
+𝑔
+(
+𝑥
+)
+=
+𝑥
+2
+⇒
+𝑔
+′
+=
+2
+𝑥
+g(x)=x
+2
+⇒g
+′
+=2x. Risultato: 
+cos
+⁡
+(
+𝑥
+2
+)
+⋅
+2
+𝑥
+cos(x
+2
+)⋅2x.
+
+📖 Soluzione passo per passo
+
+1
+IDENTIFICA ESTERNO E INTERNO
+𝑓
+(
+𝑢
+)
+=
+sin
+⁡
+𝑢
+,
+𝑔
+(
+𝑥
+)
+=
+𝑥
+2
+⇒
+𝑓
+′
+(
+𝑢
+)
+=
+cos
+⁡
+𝑢
+,
+𝑔
+′
+(
+𝑥
+)
+=
+2
+𝑥
+f(u)=sinu,g(x)=x
+2
+⇒f
+′
+(u)=cosu,g
+′
+(x)=2x
+La struttura è 'seno di qualcosa'.
+2
+APPLICA LA CATENA
+(
+sin
+⁡
+(
+𝑥
+2
+)
+)
+′
+=
+cos
+⁡
+(
+𝑥
+2
+)
+⋅
+2
+𝑥
+(sin(x
+2
+))
+′
+=cos(x
+2
+)⋅2x
+𝑓
+′
+(
+𝑔
+(
+𝑥
+)
+)
+⋅
+𝑔
+′
+(
+𝑥
+)
+=
+cos
+⁡
+(
+𝑥
+2
+)
+⋅
+2
+𝑥
+f
+′
+(g(x))⋅g
+′
+(x)=cos(x
+2
+)⋅2x.
+Precedente
+5 DI 5
+Successivo
+📐 +1 punto per la dimostrazione

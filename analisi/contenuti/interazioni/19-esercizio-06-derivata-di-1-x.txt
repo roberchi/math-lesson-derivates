@@ -1,0 +1,558 @@
+URL: https://math-lesson-derivates.vercel.app/class/rapporto_incrementale/exercise/ri_005
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 6 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Rapporto incrementale e definizione
+ESERCIZIO 7 / 7
+ESERCIZIO
+Derivata di 1/x
+Medio
+potenza negativa
+definizione
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+1
+𝑥
+f(x)=
+x
+1
+	​
+
+ (con 
+𝑥
+≠
+0
+x
+
+=0) usando la definizione.
+Nascondi suggerimento
+Scrivi 
+1
+𝑥
++
+ℎ
+−
+1
+𝑥
+x+h
+1
+	​
+
+−
+x
+1
+	​
+
+ come unica frazione. Ricorda: per sommare frazioni devi trovare il denominatore comune.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f
+′
+(x)=e
+x
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−
+x
+2
+1
+	​
+
+C
+𝑓
+′
+(
+𝑥
+)
+=
+0
+f
+′
+(x)=0
+D
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+[
+(
+2
+𝑥
++
+𝑥
+2
+)
+sin
+⁡
+𝑥
++
+𝑥
+2
+cos
+⁡
+𝑥
+]
+f
+′
+(x)=e
+x
+[(2x+x
+2
+)sinx+x
+2
+cosx]
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📐 Dimostrazione dal limite
+
+bonus ottenuto ✓
+Dimostrazione dal limite del rapporto incrementale
+1
+SCRIVI \(F(X+H) - F(X)\) COME UNICA FRAZIONE
+1
+𝑥
++
+ℎ
+−
+1
+𝑥
+=
+𝑥
+−
+(
+𝑥
++
+ℎ
+)
+𝑥
+(
+𝑥
++
+ℎ
+)
+=
+−
+ℎ
+𝑥
+(
+𝑥
++
+ℎ
+)
+x+h
+1
+	​
+
+−
+x
+1
+	​
+
+=
+x(x+h)
+x−(x+h)
+	​
+
+=
+x(x+h)
+−h
+	​
+
+Denominatore comune 
+𝑥
+(
+𝑥
++
+ℎ
+)
+x(x+h). Al numeratore: 
+𝑥
+−
+(
+𝑥
++
+ℎ
+)
+=
+−
+ℎ
+x−(x+h)=−h.
+2
+DIVIDI PER \(H\)
+1
+ℎ
+⋅
+−
+ℎ
+𝑥
+(
+𝑥
++
+ℎ
+)
+=
+−
+1
+𝑥
+(
+𝑥
++
+ℎ
+)
+h
+1
+	​
+
+⋅
+x(x+h)
+−h
+	​
+
+=
+x(x+h)
+−1
+	​
+
+Il fattore 
+ℎ
+h al numeratore e il divisore 
+ℎ
+h si cancellano (con 
+ℎ
+≠
+0
+h
+
+=0).
+3
+PASSA AL LIMITE
+lim
+⁡
+ℎ
+→
+0
+−
+1
+𝑥
+(
+𝑥
++
+ℎ
+)
+=
+−
+1
+𝑥
+⋅
+𝑥
+=
+−
+1
+𝑥
+2
+h→0
+lim
+	​
+
+x(x+h)
+−1
+	​
+
+=
+x⋅x
+−1
+	​
+
+=−
+x
+2
+1
+	​
+
+Per 
+ℎ
+→
+0
+h→0, 
+𝑥
++
+ℎ
+→
+𝑥
+x+h→x, quindi il denominatore diventa 
+𝑥
+2
+x
+2
+.
+CONCLUSIONE
+(
+1
+/
+𝑥
+)
+′
+=
+−
+1
+/
+𝑥
+2
+(1/x)
+′
+=−1/x
+2
+. Equivalente a scrivere 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+−
+1
+f(x)=x
+−1
+ e applicare 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+ con 
+𝑛
+=
+−
+1
+n=−1: 
+−
+1
+⋅
+𝑥
+−
+2
+=
+−
+1
+/
+𝑥
+2
+−1⋅x
+−2
+=−1/x
+2
+. ✓
+
+📖 Soluzione passo per passo
+
+1
+RISCRIVI COME POTENZA NEGATIVA
+𝑓
+(
+𝑥
+)
+=
+𝑥
+−
+1
+f(x)=x
+−1
+1
+/
+𝑥
+=
+𝑥
+−
+1
+1/x=x
+−1
+.
+2
+APPLICA LA REGOLA DELLE POTENZE
+𝑓
+′
+(
+𝑥
+)
+=
+−
+1
+⋅
+𝑥
+−
+1
+−
+1
+=
+−
+𝑥
+−
+2
+=
+−
+1
+𝑥
+2
+f
+′
+(x)=−1⋅x
+−1−1
+=−x
+−2
+=−
+x
+2
+1
+	​
+
+Formula 
+(
+𝑥
+𝑛
+)
+′
+=
+𝑛
+𝑥
+𝑛
+−
+1
+(x
+n
+)
+′
+=nx
+n−1
+ con 
+𝑛
+=
+−
+1
+n=−1.
+Precedente
+7 DI 7
+Successivo
+📐 +1 punto per la dimostrazione

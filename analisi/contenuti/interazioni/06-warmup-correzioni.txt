@@ -1,0 +1,110 @@
+URL: https://math-lesson-derivates.vercel.app/lezione-2/warmup
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 0 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Panoramica
+10 min
+LEZIONE 2 · 0:00–0:10
+Tre domande per ripartire
+
+Prima di costruire le regole operative, recuperiamo le idee della prima lezione. Rispondi a voce o su carta, poi apri la correzione.
+
+01
+
+Quali sono le tre letture della derivata?
+
+Geometrica: pendenza della tangente. Analitica: limite del rapporto incrementale. Fisica: tasso di variazione istantaneo.
+02
+
+Che differenza c’è tra f′(x₀) e f′(x)?
+
+f′(x₀) è un numero riferito a un punto; f′(x) è la funzione che associa a ogni x la pendenza in quel punto.
+03
+
+Continuità implica derivabilità?
+
+No. |x| è continua in zero ma ha derivate laterali −1 e +1, quindi non è derivabile in zero.
+OBIETTIVO DELL’ORA
+Costruire, non ricevere, la tabella.
+
+Ogni formula fondamentale e ogni regola verrà ricavata da ciò che già sappiamo sui limiti.
+
+Hai concluso questa sezione?
+
+Il progresso viene salvato automaticamente in questo browser.
+
+Segna come completata
+Interpretazione fisica
+Derivate fondamentali

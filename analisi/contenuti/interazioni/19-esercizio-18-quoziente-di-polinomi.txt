@@ -1,0 +1,331 @@
+URL: https://math-lesson-derivates.vercel.app/class/regola_quoziente/exercise/quot_002
+
+Vai al contenuto
+f′
+
+Derivate
+
+dal limite alla padronanza
+LEZIONI
+0%
+★ 14 pt
+IL TUO PERCORSO
+
+0
+
+di 11 sezioni
+
+Panoramica
+
+LEZIONE 1
+1
+
+Velocità istantanea
+
+2
+
+Geometria
+
+3
+
+Definizione formale
+
+4
+
+Derivabilità
+
+5
+
+Interpretazione fisica
+
+LEZIONE 2
+1
+
+Warm-up
+
+2
+
+Derivate fondamentali
+
+3
+
+Regole di derivazione
+
+4
+
+Derivata seconda
+
+5
+
+Taylor · opzionale
+
+6
+
+Teoremi · appendice
+
+MATERIALI
+
+Scheda esercizi §1
+
+Scheda esercizi §2
+
+Verifica finale
+
+Esercizi adattivi
+
+2 LEZIONI · 4 ORE + APPENDICE · 0%
+Regola del quoziente (fg)'=f'g-fg'g^2
+ESERCIZIO 2 / 2
+ESERCIZIO
+Quoziente di polinomi
+Medio
+quoziente
+polinomio
+PROBLEMA
+Calcola 
+𝑓
+′
+(
+𝑥
+)
+f
+′
+(x) per 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
++
+1
+𝑥
+−
+1
+f(x)=
+x−1
+x
+2
++1
+	​
+
+ (con 
+𝑥
+≠
+1
+x
+
+=1).
+Nascondi suggerimento
+𝑓
+=
+𝑥
+2
++
+1
+,
+ 
+𝑔
+=
+𝑥
+−
+1
+f=x
+2
++1, g=x−1. Non semplificare prima: applica subito la regola.
+Scegli la risposta corretta
+3 TENTATIVI RIMASTI
+A
+𝑓
+′
+(
+𝑥
+)
+=
+−
+𝑓
+(
+𝑥
+)
+f
+′
+(x)=−f(x)
+𝑓
+′
+(
+𝑥
+)
+=
+𝑥
+2
+−
+2
+𝑥
+−
+1
+(
+𝑥
+−
+1
+)
+2
+f
+′
+(x)=
+(x−1)
+2
+x
+2
+−2x−1
+	​
+
+C
+𝑓
+′
+(
+𝑥
+)
+=
+𝑒
+𝑥
+f
+′
+(x)=e
+x
+D
+𝑓
+′
+(
+𝑥
+)
+=
+3
+f
+′
+(x)=3
+Prosegui
+Riprova esercizio
+Soluzione mostrata
+Studia i passaggi: potrai ripetere l’esercizio quando vuoi.
+
+📖 Soluzione passo per passo
+
+1
+IDENTIFICA E DERIVA
+𝑓
+=
+𝑥
+2
++
+1
+⇒
+𝑓
+′
+=
+2
+𝑥
+;
+𝑔
+=
+𝑥
+−
+1
+⇒
+𝑔
+′
+=
+1
+f=x
+2
++1⇒f
+′
+=2x;g=x−1⇒g
+′
+=1
+Derivate semplici.
+2
+APPLICA LA REGOLA
+2
+𝑥
+(
+𝑥
+−
+1
+)
+−
+(
+𝑥
+2
++
+1
+)
+⋅
+1
+(
+𝑥
+−
+1
+)
+2
+=
+2
+𝑥
+2
+−
+2
+𝑥
+−
+𝑥
+2
+−
+1
+(
+𝑥
+−
+1
+)
+2
+=
+𝑥
+2
+−
+2
+𝑥
+−
+1
+(
+𝑥
+−
+1
+)
+2
+(x−1)
+2
+2x(x−1)−(x
+2
++1)⋅1
+	​
+
+=
+(x−1)
+2
+2x
+2
+−2x−x
+2
+−1
+	​
+
+=
+(x−1)
+2
+x
+2
+−2x−1
+	​
+
+Sviluppa il numeratore e raccogli i termini simili.
+Precedente
+2 DI 2
+Successivo
