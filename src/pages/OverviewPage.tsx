@@ -20,10 +20,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { coreSections, enrichmentSections, lessonOneSections, lessonSections, lessonTwoSections } from '@/data/course';
 import { useLessonStore } from '@/store/lessonStore';
 import { PerspectiveCard } from '@/components/lesson/LessonScaffold';
+import { useProgressStore } from '@/store/progressStore';
+import { useDBStore } from '@/store/dbStore';
 
 export function OverviewPage() {
   const completed = useLessonStore((state) => state.readSections);
   const lastSectionId = useLessonStore((state) => state.lastSectionId);
+  const verifiedConcepts = useLessonStore((state) => state.verifiedConcepts);
+  const progress = useProgressStore((state) => state.progress);
+  const db = useDBStore((state) => state.db);
   const navigate = useNavigate();
   const lastSection = lessonSections.find((section) => section.id === lastSectionId);
   const nextSection = (lastSection && !completed.includes(lastSection.id) ? lastSection : undefined)
@@ -32,6 +37,8 @@ export function OverviewPage() {
   const coreRead = coreSections.filter((section) => completed.includes(section.id)).length;
   const optionalRead = enrichmentSections.filter((section) => completed.includes(section.id)).length;
   const percent = Math.round(coreRead / coreSections.length * 100);
+  const adaptiveVerified = Object.values(progress.classes).flatMap((cls) => Object.values(cls.attempts)).filter((attempt) => attempt.proofCheckpointPassed).length;
+  const masteredClasses = Object.values(progress.classes).filter((cls) => cls.mastered).length;
 
   return (
     <>
@@ -53,15 +60,28 @@ export function OverviewPage() {
       <Box mb={5}>
         <Stack direction="row" justifyContent="space-between" mb={1}><Typography variant="caption" color="text.secondary">PROGRESSO DEL CORSO</Typography><Typography variant="caption">{percent}%</Typography></Stack>
         <LinearProgress variant="determinate" value={percent} />
+        <Grid container spacing={1.5} mt={1}>
+          {[
+            [`${coreRead}/${coreSections.length}`, 'sezioni fondamentali lette'],
+            [`${verifiedConcepts.length + adaptiveVerified}`, 'concetti verificati'],
+            [`${masteredClasses}/${db?.classes.length ?? 7}`, 'classi padroneggiate'],
+            [`${optionalRead}/${enrichmentSections.length}`, 'approfondimenti visitati'],
+          ].map(([value, label]) => <Grid item xs={6} md={3} key={label}><Paper elevation={0} sx={{ p: 1.75, border: '1px solid', borderColor: 'divider', height: '100%' }}><Typography variant="h3" color="primary.main">{value}</Typography><Typography variant="caption" color="text.secondary">{label}</Typography></Paper></Grid>)}
+        </Grid>
       </Box>
 
       <Box mb={6}>
         <Typography variant="h4" color="primary.main" mb={1}>Una domanda, tre risposte</Typography>
         <Typography variant="h2" mb={2.5}>Cos’è la derivata?</Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4}><PerspectiveCard icon="?" label="DOMANDA 1" title="Come trovi una pendenza su una curva?">La risposta geometrica si costruisce nella sezione sulle secanti.</PerspectiveCard></Grid>
-          <Grid item xs={12} md={4}><PerspectiveCard icon="?" label="DOMANDA 2" title="Perché compare un limite?">La definizione chiarisce perché l’incremento si avvicina a zero senza diventarlo.</PerspectiveCard></Grid>
-          <Grid item xs={12} md={4}><PerspectiveCard icon="?" label="DOMANDA 3" title="Che cosa misura davvero?">Le applicazioni collegano segno, unità e significato del tasso istantaneo.</PerspectiveCard></Grid>
+          {[
+            { section: 'geometria', question: 'Come trovi una pendenza su una curva?', icon: '◢', label: 'GEOMETRICA', title: 'Una pendenza', answer: 'È la pendenza della retta tangente, ottenuta come limite delle rette secanti.' },
+            { section: 'definizione', question: 'Perché compare un limite?', icon: 'lim', label: 'ANALITICA', title: 'Un limite', answer: 'È il limite del rapporto incrementale quando l’incremento tende a zero senza diventarlo.' },
+            { section: 'interpretazioni', question: 'Che cosa misura davvero?', icon: '↗', label: 'APPLICATIVA', title: 'Un tasso istantaneo', answer: 'Misura quanto rapidamente cambia una grandezza, con un segno e una precisa unità di misura.' },
+          ].map((item, index) => {
+            const revealed = completed.includes(item.section);
+            return <Grid item xs={12} md={4} key={item.section}><PerspectiveCard icon={revealed ? item.icon : '?'} label={revealed ? item.label : `DOMANDA ${index + 1}`} title={revealed ? item.title : item.question}>{revealed ? item.answer : `La risposta si rivela dopo aver letto la sezione “${lessonSections.find((section) => section.id === item.section)?.shortTitle}”.`}</PerspectiveCard></Grid>;
+          })}
         </Grid>
       </Box>
 

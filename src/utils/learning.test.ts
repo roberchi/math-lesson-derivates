@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildAdaptiveOrder, calculateScore, getClassMetrics } from './learning';
+import { arePrerequisitesMastered, buildAdaptiveOrder, calculateScore, getClassMetrics } from './learning';
 import type { Exercise, ExerciseClass } from '@/types/exercise';
 import type { UserProgress } from '@/types/progress';
 
@@ -36,6 +36,15 @@ describe('mastery', () => {
     expect(getClassMetrics(cls, progress([3, 3, 0])).mastered).toBe(false);
     expect(getClassMetrics(cls, progress([3, 0, 0])).mastered).toBe(false);
     expect(getClassMetrics(cls, progress([3, 3, 1])).bonus).toBe(0);
+  });
+});
+
+describe('guided unlock', () => {
+  it('non usa una classe padroneggiata soltanto in consultazione per sbloccare il seguito', () => {
+    const progress: UserProgress = { version: 4, totalPoints: 0, lastVisitedClassId: null, lastVisitedExerciseId: null, classes: { prereq: { unlocked: false, seen: true, completed: true, mastered: true, consultation: true, attempts: {} } } };
+    expect(arePrerequisitesMastered(['prereq'], progress)).toBe(false);
+    progress.classes.prereq.unlocked = true;
+    expect(arePrerequisitesMastered(['prereq'], progress)).toBe(true);
   });
 });
 

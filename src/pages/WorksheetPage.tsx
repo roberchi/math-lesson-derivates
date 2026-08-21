@@ -17,6 +17,7 @@ import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { WritingCanvas } from '@/components/labs/WritingCanvas';
 import { MathText } from '@/components/math/MathText';
+import { ProgressiveSolution } from '@/components/lesson/ProgressiveSolution';
 
 interface WorksheetExercise {
   number: number;
@@ -232,10 +233,7 @@ export function WorksheetPage() {
                   <Stack direction="row" gap={1} alignItems="center"><VisibilityRoundedIcon color="warning" /><Typography fontWeight={700}>Soluzione guidata con i passaggi</Typography></Stack>
                 </AccordionSummary>
                 <AccordionDetails sx={{ px: { xs: 2, sm: 3 }, pb: 3 }}>
-                  <Stack component="ol" spacing={1.5} sx={{ pl: 2.5, my: 0 }}>
-                    {solution.steps.map((step, index) => <Typography component="li" key={index} color="text.secondary" sx={{ pl: 0.5 }}><MathText text={step} /></Typography>)}
-                  </Stack>
-                  <Box sx={{ mt: 2.5, p: 2, borderRadius: 1.5, bgcolor: 'custom.ink', color: 'white' }}><Typography variant="overline" fontWeight={800}>Risultato</Typography><Typography component="div"><MathText text={solution.result} /></Typography></Box>
+                  <ProgressiveSolution steps={solution.steps} result={solution.result} />
                 </AccordionDetails>
               </Accordion>
 

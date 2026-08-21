@@ -28,6 +28,7 @@ import { TaylorLab } from '@/components/labs/TaylorLab';
 import { ConcavityExamples, SecondDerivativeLab } from '@/components/labs/SecondDerivativeLab';
 import { MathText } from '@/components/math/MathText';
 import { lessonTwoSections } from '@/data/course';
+import { GlossaryTerm } from '@/components/lesson/GlossaryTerm';
 
 export function LessonTwoPage() {
   const { sectionId = '' } = useParams();
@@ -89,9 +90,9 @@ function FundamentalsSection() {
             { label: 'Dividi per h', formula: "nx^{n-1}+\\binom n2x^{n-2}h+\\cdots+h^{n-1}", explanation: 'Dopo la semplificazione solo il primo termine non conserva un fattore h.' },
             { label: 'Limite', formula: "\\lim_{h\\to0}(nx^{n-1}+h\\cdot\\ldots)=nx^{n-1}", explanation: 'I termini che contengono h tendono a zero.' },
           ]} conclusion="La regola della potenza non è un trucco: è il primo coefficiente del binomio di Newton che sopravvive al limite." />
-          <Derivation title="Seno · dimostrazione guidata" formula="(\sin x)'=\cos x" meaning="Il coseno misura la pendenza del seno nello stesso punto." defaultExpanded steps={[
+          <Derivation title="Seno · dimostrazione guidata" formula="(\sin x)'=\cos x" meaning="Il coseno misura la pendenza del seno nello stesso punto." defaultExpanded conceptId="proof-sine" checkpoint={{ question: 'Quale prerequisito rende possibile l’ultimo passaggio?', choices: ['Il limite di sin(t)/t vale 1', 'sin(0) vale 1', 'Il coseno è sempre costante'], correctIndex: 0, explanation: 'Esatto: compare il limite notevole richiamato nel warm-up.' }} steps={[
             { label: 'Rapporto incrementale', formula: "\\frac{\\sin(x+h)-\\sin x}{h}", explanation: 'Partiamo dalla definizione.' },
-            { label: 'Formula di prostaferesi', formula: "\\sin(x+h)-\\sin x=2\\cos(x+h/2)\\sin(h/2)", explanation: 'Trasformiamo la differenza in un prodotto.' },
+            { label: 'Formula di prostaferesi', formula: "\\sin(x+h)-\\sin x=2\\cos(x+h/2)\\sin(h/2)", explanation: 'La prostaferesi trasforma la differenza in un prodotto; trovi il termine nel glossario.' },
             { label: 'Limite notevole', formula: "\\cos(x+h/2)\\frac{\\sin(h/2)}{h/2}\\to\\cos x", explanation: 'Il secondo fattore tende a 1, come richiamato nel warm-up.' },
           ]} conclusion="Quindi \((\sin x)'=\cos x\)." />
           <Derivation title="Coseno" formula="(\cos x)'=-\sin x" meaning="Dice che la pendenza del coseno nel punto \(x\) è l’opposto del valore del seno nello stesso punto. Il segno meno indica che il coseno inizialmente scende." steps={[
@@ -121,7 +122,7 @@ function RulesSection() {
           { label: 'Rapporto incrementale', formula: "\\frac{\\alpha[f(x+h)-f(x)]+\\beta[g(x+h)-g(x)]}{h}", explanation: 'Raggruppiamo separatamente le variazioni di f e g.' },
           { label: 'Separa e passa al limite', formula: "\\alpha\\lim_{h\\to0}\\frac{f(x+h)-f(x)}h+\\beta\\lim_{h\\to0}\\frac{g(x+h)-g(x)}h", explanation: 'Il limite della somma è la somma dei limiti; le costanti escono.' },
         ]} conclusion="Derivare è un’operazione lineare." />
-        <Derivation title="Regola del prodotto" formula="(fg)'=f'g+fg'" meaning="Serve quando \(f(x)\) e \(g(x)\) sono moltiplicate. Si deriva prima \(f\) lasciando ferma \(g\), poi si lascia ferma \(f\) e si deriva \(g\); infine si sommano i due contributi." steps={[
+        <Derivation title="Regola del prodotto" formula="(fg)'=f'g+fg'" meaning="Serve quando \(f(x)\) e \(g(x)\) sono moltiplicate. Si deriva prima \(f\) lasciando ferma \(g\), poi si lascia ferma \(f\) e si deriva \(g\); infine si sommano i due contributi." conceptId="proof-product" checkpoint={{ question: 'Perché nella formula compaiono due addendi?', choices: ['Ogni addendo misura la variazione di un fattore mentre l’altro resta fermo', 'Perché si moltiplicano semplicemente le due derivate', 'Perché il prodotto diventa sempre una somma'], correctIndex: 0, explanation: 'Esatto: i due addendi separano i contributi dei due fattori.' }} steps={[
           { label: 'Definizione', formula: "\\frac{f(x+h)g(x+h)-f(x)g(x)}h", explanation: 'Il numeratore non si separa direttamente.' },
           { label: 'Aggiungi zero', formula: "\\frac{f(x+h)g(x+h)-f(x)g(x+h)+f(x)g(x+h)-f(x)g(x)}h", explanation: 'Aggiungiamo e sottraiamo \\(f(x)g(x+h)\\): è il trucco di Leibniz.' },
           { label: 'Raccogli', formula: "g(x+h)\\frac{f(x+h)-f(x)}h+f(x)\\frac{g(x+h)-g(x)}h", explanation: 'Ora riconosciamo i due rapporti incrementali.' },
@@ -180,7 +181,7 @@ function SecondDerivativeSection() {
       </SectionBlock>
       <SectionBlock eyebrow="Laboratorio interattivo" title="Muovi il punto e osserva cambiare la curvatura">
         <Typography paragraph>
-          Sposta il punto lungo la funzione e confronta tangente, segno di <InlineMath math="f''" /> e cerchio osculatore. Il cerchio non sostituisce la tangente: aggiunge l’informazione su quanto e verso dove la curva sta piegando.
+          Sposta il punto lungo la funzione e confronta tangente e segno di <InlineMath math="f''" />. Se apri l’approfondimento, il <GlossaryTerm term="Cerchio osculatore" /> aggiunge l’informazione su quanto e verso dove la curva sta piegando.
         </Typography>
         <SecondDerivativeLab />
       </SectionBlock>

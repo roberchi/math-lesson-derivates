@@ -7,6 +7,7 @@ import { LessonScaffold, PerspectiveCard, SectionBlock } from '@/components/less
 import { GeometryLab } from '@/components/labs/GeometryLab';
 import { MathText } from '@/components/math/MathText';
 import { VelocityInquiry } from '@/components/lesson/VelocityInquiry';
+import { GlossaryTerm } from '@/components/lesson/GlossaryTerm';
 import { lessonOneSections } from '@/data/course';
 
 export function LessonOnePage() {
@@ -54,7 +55,7 @@ function GeometrySection() {
   return (
     <LessonScaffold sectionId="geometria" eyebrow="Lezione 1 · 0:10–0:30" title="La secante diventa tangente" lead="La derivata nasce geometricamente facendo avvicinare due punti del grafico. Muovi h e guarda la pendenza della secante convergere verso quella della tangente.">
       <GeometryLab />
-      <SectionBlock eyebrow="Lettura guidata" title="Dal rapporto incrementale alla pendenza">
+      <SectionBlock eyebrow="Lettura guidata" title={<>Dal <GlossaryTerm term="Rapporto incrementale" /> alla pendenza</>}>
         <Typography paragraph>Fissiamo il punto <InlineMath math="P=(x_0,f(x_0))" /> e scegliamo un secondo punto <InlineMath math="Q=(x_0+h,f(x_0+h))" />. La retta che li attraversa è una secante.</Typography>
         <Paper elevation={0} sx={{ p: 2, bgcolor: 'rgba(65,88,208,.07)', borderLeft: '3px solid', borderColor: 'primary.main', overflowX: 'auto' }}><BlockMath math="m_{\mathrm{sec}}=\frac{\Delta y}{\Delta x}=\frac{f(x_0+h)-f(x_0)}{h}" /></Paper>
         <Typography paragraph mt={2}>Quando <InlineMath math="h\to0" />, il punto Q si avvicina a P e le rette secanti tendono a una posizione limite: la retta tangente. La sua pendenza è <InlineMath math="f'(x_0)" />.</Typography>
@@ -98,7 +99,7 @@ function DefinitionSection() {
 
       <SectionBlock eyebrow="Dimostrazione guidata obbligatoria" title="La formula nasce dal limite">
         <Stack spacing={2}>
-          <Derivation title="Derivata di x²" formula="(x^2)'=2x" meaning="Dice che la pendenza della parabola \(y=x^2\), in ogni punto \(x\), vale \(2x\). A destra dell’origine è positiva, a sinistra è negativa e in zero vale zero." defaultExpanded steps={[
+          <Derivation title="Derivata di x²" formula="(x^2)'=2x" meaning="Dice che la pendenza della parabola \(y=x^2\), in ogni punto \(x\), vale \(2x\). A destra dell’origine è positiva, a sinistra è negativa e in zero vale zero." defaultExpanded conceptId="proof-square" checkpoint={{ question: 'Perché possiamo semplificare il fattore h?', choices: ['Perché nel rapporto h è diverso da zero; il limite viene dopo', 'Perché poniamo subito h=0', 'Perché h vale sempre 1'], correctIndex: 0, explanation: 'Esatto: si semplifica per h≠0 e soltanto dopo si studia il limite.' }} steps={[
             { label: 'Rapporto incrementale', formula: "\\frac{(x+h)^2-x^2}{h}", explanation: 'Partiamo dalla definizione con \\(f(x)=x^2\\).' },
             { label: 'Sviluppa il quadrato', formula: "\\frac{x^2+2xh+h^2-x^2}{h}", explanation: 'Usiamo \\((x+h)^2=x^2+2xh+h^2\\) e cancelliamo \\(x^2\\).' },
             { label: 'Semplifica h', formula: "\\frac{h(2x+h)}{h}=2x+h", explanation: 'Per \\(h\\neq0\\) possiamo semplificare il fattore h.' },

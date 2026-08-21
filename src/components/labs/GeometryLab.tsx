@@ -30,6 +30,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
   const [h, setH] = useState(1.5);
   const [prediction, setPrediction] = useState<'same' | 'different' | null>(null);
   const [revealed, setRevealed] = useState(false);
+  const [showNormal, setShowNormal] = useState(false);
   const [animating, setAnimating] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const model = useMemo(() => functions.find((item) => item.id === functionId) ?? functions[0], [functionId]);
@@ -114,6 +115,13 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
     drawLine(rightSlope, '#F4C84A', true);
     drawLine(leftSlope, '#FF8A65', true);
     drawLine(tangentSlope, '#4DD4A4', false);
+    if (showNormal) {
+      if (!Number.isFinite(tangentSlope)) drawLine(0, '#E6A8FF', false);
+      else if (Math.abs(tangentSlope) < 0.0001) {
+        context.strokeStyle = '#E6A8FF'; context.lineWidth = 2.5;
+        context.beginPath(); context.moveTo(px(x0), 0); context.lineTo(px(x0), height); context.stroke();
+      } else drawLine(-1 / tangentSlope, '#E6A8FF', false);
+    }
 
     const point = (x: number, y: number, color: string) => {
       context.fillStyle = color;
@@ -134,7 +142,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
       context.fillText('Δx = h', (px(x0) + px(x0 + h)) / 2 - 22, py(y0) + 24);
       context.fillText('Δy', px(x0 + h) + 9, (py(y0) + py(y1)) / 2);
     }
-  }, [model, x0, h, rightSlope, leftSlope, tangentSlope]);
+  }, [model, x0, h, rightSlope, leftSlope, tangentSlope, showNormal]);
 
   const format = (value: number) => Number.isFinite(value) ? value.toFixed(4) : 'non finita';
 
@@ -155,6 +163,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
           <Chip size="small" label="secante destra" sx={{ bgcolor: '#F4C84A', color: '#17243F' }} />
           <Chip size="small" label="secante sinistra" sx={{ bgcolor: '#FF8A65', color: '#17243F' }} />
           <Chip size="small" label="tangente" sx={{ bgcolor: '#4DD4A4', color: '#17243F' }} />
+          {showNormal && <Chip size="small" label="normale" sx={{ bgcolor: '#E6A8FF', color: '#17243F' }} />}
         </Stack>
       </Box>
       <Box sx={{ p: { xs: 2, sm: 3 } }}>
@@ -171,6 +180,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
           <Button variant="contained" startIcon={animating ? <StopRoundedIcon /> : <PlayArrowRoundedIcon />} onClick={() => { if (!animating && h <= .06) setH(2.5); setAnimating((value) => !value); }}>
             {animating ? 'Ferma' : 'Anima h → 0'}
           </Button>
+          <Button variant={showNormal ? 'contained' : 'outlined'} color="secondary" onClick={() => setShowNormal((value) => !value)}>{showNormal ? 'Nascondi normale' : 'Mostra normale'}</Button>
         </Stack>
         <Paper elevation={0} sx={{ mt: 2, p: 2, bgcolor: 'action.hover' }}>
           <Typography fontWeight={700} mb={1}>Prima di rivelare: avvicinandosi da sinistra e da destra, le pendenze tenderanno allo stesso valore?</Typography>

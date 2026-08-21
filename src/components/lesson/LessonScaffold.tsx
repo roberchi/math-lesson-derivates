@@ -94,7 +94,7 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
   );
 }
 
-export function SectionBlock({ eyebrow, title, children }: { eyebrow?: string; title: string; children: ReactNode }) {
+export function SectionBlock({ eyebrow, title, children }: { eyebrow?: string; title: ReactNode; children: ReactNode }) {
   return (
     <Box component="section">
       {eyebrow && <Typography variant="h4" color="primary.main" mb={1}>{eyebrow}</Typography>}

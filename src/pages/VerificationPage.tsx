@@ -7,6 +7,7 @@ import PrintRoundedIcon from '@mui/icons-material/PrintRounded';
 import { Link } from 'react-router-dom';
 import { WritingCanvas } from '@/components/labs/WritingCanvas';
 import { MathText } from '@/components/math/MathText';
+import { ProgressiveSolution } from '@/components/lesson/ProgressiveSolution';
 
 const problems = [
   {
@@ -149,18 +150,7 @@ export function VerificationPage() {
                   </Stack>
                 </AccordionSummary>
                 <AccordionDetails sx={{ px: { xs: 2.5, sm: 3 }, pb: 3 }}>
-                  <Alert severity="info" sx={{ mb: 2 }}>Confronta ogni passaggio con il tuo svolgimento, non soltanto il risultato finale.</Alert>
-                  <Stack component="ol" spacing={1.5} sx={{ pl: 2.5, my: 0 }}>
-                    {problem.steps.map((step, index) => (
-                      <Typography component="li" key={index} color="text.secondary" sx={{ pl: 0.5 }}>
-                        <MathText text={step} />
-                      </Typography>
-                    ))}
-                  </Stack>
-                  <Box sx={{ mt: 2.5, p: 2, borderRadius: 1.5, bgcolor: 'success.main', color: 'success.contrastText' }}>
-                    <Typography variant="overline" fontWeight={800}>Risultato</Typography>
-                    <Typography component="div"><MathText text={problem.result} /></Typography>
-                  </Box>
+                  <ProgressiveSolution steps={problem.steps} result={problem.result} />
                 </AccordionDetails>
               </Accordion>
             </Paper>

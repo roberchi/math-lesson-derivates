@@ -10,7 +10,6 @@ import {
   Button,
   ButtonBase,
   Chip,
-  Collapse,
   Divider,
   Paper,
   Stack,
@@ -23,7 +22,6 @@ import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
-import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
@@ -34,7 +32,7 @@ import { useDBStore } from '@/store/dbStore';
 import { useProgressStore } from '@/store/progressStore';
 import { useUIStore } from '@/store/uiStore';
 import type { SolutionStep } from '@/types/exercise';
-import { buildAdaptiveOrder, calculateScore, createSeededChoices, stripLatex } from '@/utils/learning';
+import { arePrerequisitesMastered, buildAdaptiveOrder, calculateScore, createSeededChoices, stripLatex } from '@/utils/learning';
 import { getClassMetrics } from '@/utils/learning';
 
 const shake = keyframes`
@@ -67,7 +65,6 @@ export function ExercisePage() {
   const attempt = progress.classes[classId]?.attempts[exId];
   const [selected, setSelected] = useState<number | null>(null);
   const [wrongChoices, setWrongChoices] = useState<number[]>([]);
-  const [hintOpen, setHintOpen] = useState(false);
   const [proofOpen, setProofOpen] = useState(false);
   const [solutionOpen, setSolutionOpen] = useState(false);
   const [helpLevel, setHelpLevel] = useState(0);
@@ -82,7 +79,6 @@ export function ExercisePage() {
   useEffect(() => {
     setSelected(null);
     setWrongChoices([]);
-    setHintOpen(false);
     setProofOpen(false);
     setSolutionOpen(false);
     setHelpLevel(0);
@@ -96,8 +92,7 @@ export function ExercisePage() {
   );
 
   if (!db || !cls || !exercise) return db ? <Navigate to="/" replace /> : null;
-  const effectivelyUnlocked = progress.classes[classId]?.unlocked || progress.classes[classId]?.consultation ||
-    cls.prerequisite_classes.every((id) => progress.classes[id]?.mastered && progress.classes[id]?.unlocked);
+  const effectivelyUnlocked = progress.classes[classId]?.unlocked || progress.classes[classId]?.consultation || arePrerequisitesMastered(cls.prerequisite_classes, progress);
   if (!effectivelyUnlocked) return <Navigate to="/" replace />;
 
   const ordered = buildAdaptiveOrder(cls.exercises, classId, progress);
@@ -210,16 +205,7 @@ export function ExercisePage() {
       <Paper elevation={0} sx={{ bgcolor: 'custom.ink', color: '#F2F5FA', borderRadius: 2, p: { xs: 2.5, sm: 4 }, mb: 3, overflow: 'hidden' }}>
         <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>Problema</Typography>
         <Typography id="problem-title" component="div" sx={{ fontSize: '1.15rem', lineHeight: 1.85 }}><MathText text={exercise.problem.text} /></Typography>
-        {exercise.problem.hint && (
-          <Box mt={3} pt={2.5} sx={{ borderTop: '1px solid rgba(255,255,255,.13)' }}>
-            <Button color="inherit" startIcon={<LightbulbOutlinedIcon sx={{ color: '#F0C95A' }} />} onClick={() => setHintOpen((value) => !value)} aria-expanded={hintOpen}>
-              {hintOpen ? 'Nascondi suggerimento' : 'Mostra suggerimento'}
-            </Button>
-            <Collapse in={hintOpen}>
-              <Box sx={{ mt: 1.5, pl: 2, borderLeft: '2px solid #F0C95A', color: '#CCD4E1' }}><MathText text={exercise.problem.hint} /></Box>
-            </Collapse>
-          </Box>
-        )}
+        <Typography variant="caption" sx={{ display: 'block', mt: 3, pt: 2, borderTop: '1px solid rgba(255,255,255,.13)', color: '#CCD4E1' }}>Gli aiuti progressivi sono disponibili sotto le risposte.</Typography>
       </Paper>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={1} mb={2}>
@@ -285,9 +271,9 @@ export function ExercisePage() {
             </Stack>
           </AccordionSummary>
           <AccordionDetails sx={{ bgcolor: 'background.paper', p: { xs: 2, sm: 3 } }}>
-            <Typography variant="h3" mb={2}>{exercise.proof_from_limit.title}</Typography>
-            <StepList steps={exercise.proof_from_limit.steps} color="gold" />
-            <Box sx={{ mt: 2, p: 2, bgcolor: 'custom.goldLight', borderLeft: '3px solid', borderColor: 'custom.gold' }}><Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>Conclusione</Typography><MathText text={exercise.proof_from_limit.conclusion} /></Box>
+            <Typography variant="h3" mb={2}>{isRepresentativeProof ? exercise.proof_from_limit.title : 'Idea della prova, senza ripetere tutti i passaggi'}</Typography>
+            <StepList steps={isRepresentativeProof ? exercise.proof_from_limit.steps : exercise.proof_from_limit.steps.slice(0, 2)} color="gold" />
+            <Box sx={{ mt: 2, p: 2, bgcolor: 'custom.goldLight', borderLeft: '3px solid', borderColor: 'custom.gold' }}><Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>{isRepresentativeProof ? 'Conclusione' : 'Che cosa devi riconoscere'}</Typography><MathText text={exercise.proof_from_limit.conclusion} /></Box>
             {isRepresentativeProof && <Paper elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'warning.light' }}>
               <Typography fontWeight={800} mb={1}>Checkpoint di comprensione</Typography>
               <Typography variant="body2" mb={1.5}>{checkpoint.prompt}</Typography>
