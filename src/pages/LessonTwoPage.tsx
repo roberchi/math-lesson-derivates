@@ -179,24 +179,62 @@ function TaylorSection() {
     ['\\cos x', '1-\\frac{x^2}{2!}+\\frac{x^4}{4!}-\\cdots'],
   ];
   return (
-    <LessonScaffold sectionId="taylor" eyebrow="Lezione 2 · 1:40–1:55 · Opzionale" title="Il DNA locale di una funzione" lead="Le derivate non servono soltanto a calcolare pendenze: raccolte tutte nello stesso punto, possono costruire polinomi che imitano una funzione.">
+    <LessonScaffold sectionId="taylor" eyebrow="Lezione 2 · 1:40–1:55 · Opzionale" title="Il DNA locale di una funzione" lead="Taylor risponde a una domanda concreta: possiamo sostituire, vicino a un punto scelto, una funzione difficile con un polinomio più semplice che le assomigli molto?">
       <Alert severity="warning" icon="★"><strong>Approfondimento avanzato.</strong> Questa sezione non fa parte della verifica di base.</Alert>
+      <SectionBlock eyebrow="Prima della formula" title="Che cosa stiamo cercando di ottenere?">
+        <Typography paragraph>
+          Funzioni come <InlineMath math="e^x" />, <InlineMath math="\sin x" /> o <InlineMath math="\cos x" /> non sono polinomi. Taylor costruisce però un <strong>sostituto locale</strong>, chiamato polinomio approssimante: una formula fatta soltanto di somme, prodotti e potenze, quindi facile da calcolare e da disegnare.
+        </Typography>
+        <Typography paragraph>
+          “Approssimare” non significa trovare una copia esatta. Significa scegliere un punto <InlineMath math="x_0" /> e costruire un polinomio che lì abbia lo stesso valore e, aggiungendo termini, la stessa pendenza, la stessa curvatura e così via. Vicino a <InlineMath math="x_0" /> le due curve quasi si sovrappongono; allontanandosi possono separarsi.
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4}>
+            <Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}>
+              <Typography variant="overline" color="primary.main">L’obiettivo</Typography>
+              <Typography variant="h3" mb={1}>Una funzione più maneggevole</Typography>
+              <Typography variant="body2" color="text.secondary">Usare un polinomio semplice al posto della funzione originale, ma soltanto nella zona in cui la somiglianza è abbastanza buona.</Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}>
+              <Typography variant="overline" color="primary.main">Il centro x₀</Typography>
+              <Typography variant="h3" mb={1}>Il punto di massima fedeltà</Typography>
+              <Typography variant="body2" color="text.secondary">È il punto attorno al quale costruiamo l’approssimazione. Cambiare centro significa chiedere al polinomio di essere preciso in un’altra zona.</Typography>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}>
+              <Typography variant="overline" color="primary.main">L’errore</Typography>
+              <Typography variant="h3" mb={1}>Quanto siamo lontani</Typography>
+              <Typography variant="body2" color="text.secondary">In un punto x è la distanza verticale tra i due grafici: <InlineMath math="|f(x)-P_n(x)|" />. Errore piccolo significa approssimazione buona.</Typography>
+            </Paper>
+          </Grid>
+        </Grid>
+        <Paper elevation={0} sx={{ mt: 2, p: 3, bgcolor: 'custom.goldLight', borderLeft: '4px solid', borderColor: 'custom.gold' }}>
+          <Typography variant="h3" mb={1}>Un esempio senza tecnicismi</Typography>
+          <Typography>
+            Vicino a zero, <InlineMath math="e^x" /> assomiglia alla retta <InlineMath math="1+x" />. Per <InlineMath math="x=0{,}1" /> otteniamo <InlineMath math="1+0{,}1=1{,}1" />, mentre il valore reale è circa <InlineMath math="1{,}10517" />. L’errore è circa <InlineMath math="0{,}00517" />: non è zero, ma sappiamo esattamente che cosa stiamo perdendo usando la formula più semplice.
+          </Typography>
+        </Paper>
+      </SectionBlock>
       <SectionBlock eyebrow="Costruzione in tre passi" title="Quante informazioni vogliamo conservare?">
         <Stack spacing={1.5}>
-          <TaylorStep number="0" title="Stesso valore" formula="P_0(x)=f(0)" text="Il miglior polinomio costante conosce soltanto il punto di partenza." />
-          <TaylorStep number="1" title="Stesso valore e stessa pendenza" formula="P_1(x)=f(0)+f'(0)x" text="Aggiungiamo la retta tangente: vicino a zero la funzione e il polinomio si muovono nello stesso modo." />
-          <TaylorStep number="2" title="Aggiungiamo la curvatura" formula="P_2(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2" text="La derivata seconda fa coincidere anche la concavità locale." />
+          <TaylorStep number="0" title="Stesso valore" formula="P_0(x)=f(x_0)" text="Il polinomio costante sa soltanto a quale altezza si trova la funzione nel centro scelto." />
+          <TaylorStep number="1" title="Stesso valore e stessa pendenza" formula="P_1(x)=f(x_0)+f'(x_0)(x-x_0)" text="Aggiungiamo la retta tangente: nel centro le due curve hanno anche la stessa direzione." />
+          <TaylorStep number="2" title="Aggiungiamo la curvatura" formula="P_2(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2" text="La derivata seconda fa coincidere anche il modo in cui la curva si piega." />
         </Stack>
-        <Paper elevation={0} sx={{ mt: 2, p: 3, bgcolor: 'custom.ink', color: '#F2F5FA', overflowX: 'auto' }}><BlockMath math="P_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(0)}{k!}x^k" /></Paper>
+        <Paper elevation={0} sx={{ mt: 2, p: 3, bgcolor: 'custom.ink', color: '#F2F5FA', overflowX: 'auto' }}><BlockMath math="P_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k" /></Paper>
+        <Typography variant="body2" color="text.secondary" mt={1.5}>Non devi memorizzare subito la sommatoria: dice soltanto “prendi le informazioni della funzione in <InlineMath math="x_0" /> e aggiungile una alla volta, dalla posizione fino alle variazioni più fini”.</Typography>
       </SectionBlock>
-      <SectionBlock eyebrow="Laboratorio" title="Aggiungi una derivata alla volta">
+      <SectionBlock eyebrow="Laboratorio" title="Sposta il centro e osserva dove il polinomio funziona">
         <TaylorLab />
       </SectionBlock>
-      <SectionBlock title="Tre sviluppi fondamentali">
+      <SectionBlock title="Tre sviluppi fondamentali centrati in zero">
         <Stack spacing={1}>{developments.map(([fn, series]) => <Paper key={fn} elevation={0} sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '120px 1fr' }, gap: 2, p: 2, border: '1px solid', borderColor: 'divider', overflowX: 'auto' }}><Box color="primary.main"><InlineMath math={fn} /></Box><InlineMath math={series} /></Paper>)}</Stack>
-        <Typography variant="body2" color="text.secondary" mt={2}>Per queste tre funzioni la serie converge su tutto ℝ, ma a ordine fissato l’approssimazione è generalmente migliore vicino all’origine.</Typography>
+        <Typography variant="body2" color="text.secondary" mt={2}>Quando il centro è zero si parla anche di sviluppo di MacLaurin. Per queste tre funzioni la serie completa converge su tutto ℝ, ma con un numero finito di termini l’approssimazione è generalmente migliore vicino al centro.</Typography>
       </SectionBlock>
-      <Paper elevation={0} sx={{ p: 3, bgcolor: 'custom.goldLight', borderLeft: '4px solid', borderColor: 'custom.gold' }}><Typography variant="h3" mb={1}>Insight centrale</Typography><Typography>Ogni termine usa una derivata di ordine k in zero. La derivata è il DNA locale della funzione: contiene l’informazione su valore, direzione, curvatura e variazioni di ordine superiore.</Typography></Paper>
+      <Paper elevation={0} sx={{ p: 3, bgcolor: 'custom.goldLight', borderLeft: '4px solid', borderColor: 'custom.gold' }}><Typography variant="h3" mb={1}>Insight centrale</Typography><Typography>Ogni termine usa una derivata di ordine k nel centro scelto. La derivata è il DNA locale della funzione: contiene l’informazione su valore, direzione, curvatura e variazioni di ordine superiore. L’errore ci ricorda però che informazione locale non significa uguaglianza ovunque.</Typography></Paper>
       <HistoryNote title="Taylor, MacLaurin e Cauchy" summary="La formula nasce nel Settecento; capire quando rappresenta davvero la funzione richiederà un altro secolo." href="https://mathshistory.st-andrews.ac.uk/Biographies/Taylor/">
         Brook Taylor pubblicò la formula nel 1715. Colin MacLaurin studiò sistematicamente il caso centrato in zero. Nell’Ottocento Cauchy chiarì che possedere derivate di ogni ordine non garantisce automaticamente che la serie converga alla funzione.
       </HistoryNote>
