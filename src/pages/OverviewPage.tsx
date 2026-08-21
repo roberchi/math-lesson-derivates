@@ -75,10 +75,10 @@ export function OverviewPage() {
       />
       <CourseLesson
         number="02"
-        title="Regole operative e Taylor"
+        title="Regole, Taylor e teoremi"
         subtitle="Dalle dimostrazioni alla padronanza del calcolo"
-        duration="2 ore"
-        objective="Ricavare le regole dai limiti, applicarle e scoprire come le derivate ricostruiscono una funzione."
+        duration="2 ore + appendice"
+        objective="Ricavare le regole dai limiti, applicarle e consultare i principali teoremi attraverso figure e casi pratici."
         sections={lessonTwoSections}
         completed={completed}
         onOpen={(path) => navigate(path)}

@@ -18,6 +18,7 @@ export const lessonSections: CourseSection[] = [
   { id: 'regole', title: 'Regole di derivazione', shortTitle: 'Regole di derivazione', path: '/lezione-2/regole', lesson: 2, duration: '30 min' },
   { id: 'derivata-seconda', title: 'Derivata seconda', shortTitle: 'Derivata seconda', path: '/lezione-2/derivata-seconda', lesson: 2, duration: '30 min' },
   { id: 'taylor', title: 'Serie di Taylor', shortTitle: 'Taylor · opzionale', path: '/lezione-2/taylor', lesson: 2, duration: '15 min' },
+  { id: 'teoremi', title: 'Appendice: teoremi della derivata', shortTitle: 'Teoremi · appendice', path: '/lezione-2/teoremi', lesson: 2, duration: '45 min' },
 ];
 
 export const lessonOneSections = lessonSections.filter((section) => section.lesson === 1);

@@ -62,7 +62,7 @@ function SidebarContent({ close }: { close?: () => void }) {
         <NavItem title="Verifica finale" icon={<QuizOutlinedIcon />} active={location.pathname === '/verifica'} onClick={() => go('/verifica')} />
         <NavItem title="Esercizi adattivi" icon={<RouteRoundedIcon />} active={location.pathname === '/esercizi' || location.pathname.startsWith('/class/')} onClick={() => go('/esercizi')} />
       </List>
-      <Box sx={{ p: 2.5, borderTop: '1px solid rgba(255,255,255,.1)' }}><Typography variant="caption" sx={{ color: '#9EABC0' }}>2 LEZIONI · 4 ORE · {Math.round(percent)}%</Typography></Box>
+      <Box sx={{ p: 2.5, borderTop: '1px solid rgba(255,255,255,.1)' }}><Typography variant="caption" sx={{ color: '#9EABC0' }}>2 LEZIONI · 4 ORE + APPENDICE · {Math.round(percent)}%</Typography></Box>
     </Box>
   );
 }
