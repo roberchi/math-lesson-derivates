@@ -3,6 +3,7 @@ import { Box, Button, Chip, Paper, Slider, Stack, Typography } from '@mui/materi
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import StopRoundedIcon from '@mui/icons-material/StopRounded';
 import { InlineMath } from 'react-katex';
+import { equalScaleYRange } from '@/utils/plot';
 
 interface FunctionModel {
   id: string;
@@ -61,8 +62,8 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
     const height = canvas.height;
     const xMin = -4;
     const xMax = 4;
-    const yMin = model.id === 'cube' ? -8 : model.id === 'exp' ? -1 : -4;
-    const yMax = model.id === 'cube' ? 8 : model.id === 'exp' ? 9 : 7;
+    const yCenter = singularMode ? 0 : model.fn(x0);
+    const { yMin, yMax } = equalScaleYRange(width, height, xMin, xMax, yCenter);
     const px = (x: number) => ((x - xMin) / (xMax - xMin)) * width;
     const py = (y: number) => height - ((y - yMin) / (yMax - yMin)) * height;
 
@@ -142,7 +143,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
       context.fillText('Δx = h', (px(x0) + px(x0 + h)) / 2 - 22, py(y0) + 24);
       context.fillText('Δy', px(x0 + h) + 9, (py(y0) + py(y1)) / 2);
     }
-  }, [model, x0, h, rightSlope, leftSlope, tangentSlope, showNormal]);
+  }, [model, x0, h, rightSlope, leftSlope, tangentSlope, showNormal, singularMode]);
 
   const format = (value: number) => Number.isFinite(value) ? value.toFixed(4) : 'non finita';
 
@@ -158,7 +159,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
         </Stack>
       </Box>
       <Box sx={{ bgcolor: '#101A30', position: 'relative' }}>
-        <canvas ref={canvasRef} width={900} height={440} aria-label="Grafico interattivo con retta secante e tangente" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <canvas ref={canvasRef} width={900} height={600} aria-label="Grafico cartesiano in scala uniforme con rette secanti, tangente e normale" style={{ width: '100%', height: 'auto', display: 'block' }} />
         <Stack direction="row" gap={1} sx={{ position: 'absolute', left: 14, top: 14 }}>
           <Chip size="small" label="secante destra" sx={{ bgcolor: '#F4C84A', color: '#17243F' }} />
           <Chip size="small" label="secante sinistra" sx={{ bgcolor: '#FF8A65', color: '#17243F' }} />
