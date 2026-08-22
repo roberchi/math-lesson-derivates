@@ -200,7 +200,7 @@ export function WorksheetPage() {
                   >
                     Vedi soluzione svolta
                   </Button>
-                  <Box className="digital-workspace" sx={{ mt: 2 }}><DigitalWorkspace workspaceKey={`worksheet-${key}`} label={`Scheda ${sheetId} · Esercizio ${exercise.number}`} onShowSolution={() => revealSolution(key)} /></Box>
+                  <Box className="digital-workspace" sx={{ mt: 2 }}><DigitalWorkspace workspaceKey={`worksheet-${key}`} label={`Scheda ${sheetId} · Esercizio ${exercise.number}`} problemTitle={exercise.title} problemText={exercise.prompt} onShowSolution={() => revealSolution(key)} /></Box>
                 </Box>
               </Box>
 
