@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useDBStore } from '@/store/dbStore';
 import { useProgressStore } from '@/store/progressStore';
 import { useUIStore } from '@/store/uiStore';
+import { arePrerequisitesMastered } from '@/utils/learning';
 
 export function useClassUnlocker() {
   const db = useDBStore((state) => state.db);
@@ -21,7 +22,7 @@ export function useClassUnlocker() {
     const unlockable = db.classes.filter(
       (cls) =>
         !progress.classes[cls.id]?.unlocked &&
-        cls.prerequisite_classes.every((id) => progress.classes[id]?.completed),
+        arePrerequisitesMastered(cls.prerequisite_classes, progress),
     );
     unlockable.forEach((cls) => unlock(cls.id));
     if (initialized.current && unlockable.length) {

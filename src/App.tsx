@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
 import { useClassUnlocker } from '@/hooks/useLearningProgress';
 import { useDBStore } from '@/store/dbStore';
+import { useUIStore } from '@/store/uiStore';
 
 const DashboardPage = lazy(() => import('@/pages/DashboardPage').then((module) => ({ default: module.DashboardPage })));
 const OverviewPage = lazy(() => import('@/pages/OverviewPage').then((module) => ({ default: module.OverviewPage })));
@@ -15,11 +16,21 @@ const ClassPage = lazy(() => import('@/pages/ClassPage').then((module) => ({ def
 const ExercisePage = lazy(() => import('@/pages/ExercisePage').then((module) => ({ default: module.ExercisePage })));
 const ResultsPage = lazy(() => import('@/pages/ResultsPage').then((module) => ({ default: module.ResultsPage })));
 const SettingsPage = lazy(() => import('@/pages/SettingsPage').then((module) => ({ default: module.SettingsPage })));
+const ConclusionPage = lazy(() => import('@/pages/ConclusionPage').then((module) => ({ default: module.ConclusionPage })));
+const GlossaryPage = lazy(() => import('@/pages/GlossaryPage').then((module) => ({ default: module.GlossaryPage })));
 
 export default function App() {
   const loadDB = useDBStore((state) => state.loadDB);
+  const notify = useUIStore((state) => state.showSnackbar);
   useClassUnlocker();
   useEffect(() => { void loadDB(); }, [loadDB]);
+  useEffect(() => {
+    const key = 'derivate_progress_v4_notice';
+    if (!localStorage.getItem(key)) {
+      localStorage.setItem(key, 'shown');
+      notify('Nuovo modello di padronanza: il progresso degli esercizi riparte da zero.', 'info');
+    }
+  }, [notify]);
 
   return (
     <AppShell>
@@ -36,6 +47,8 @@ export default function App() {
           <Route path="/class/:classId/exercise/:exId" element={<ExercisePage />} />
           <Route path="/class/:classId/results" element={<ResultsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/conclusione" element={<ConclusionPage />} />
+          <Route path="/glossario" element={<GlossaryPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

@@ -149,6 +149,9 @@ export function SecondDerivativeLab() {
   const [modelId, setModelId] = useState('cubic');
   const [x0, setX0] = useState(-1.8);
   const [animating, setAnimating] = useState(false);
+  const [prediction, setPrediction] = useState<'positive' | 'negative' | 'zero' | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const model = useMemo(() => models.find((item) => item.id === modelId) ?? models[0], [modelId]);
   const y0 = model.fn(x0);
@@ -226,7 +229,7 @@ export function SecondDerivativeLab() {
     context.stroke();
     context.setLineDash([]);
 
-    if (Math.abs(second) > 0.035 && radius < 18) {
+    if (showAdvanced && Math.abs(second) > 0.035 && radius < 18) {
       const factor = (1 + first ** 2) / second;
       const centerX = x0 - first * factor;
       const centerY = y0 + factor;
@@ -258,12 +261,14 @@ export function SecondDerivativeLab() {
     context.fillStyle = '#FFFFFF';
     context.font = '600 15px Inter, sans-serif';
     context.fillText(`P (${x0.toFixed(2)}, ${y0.toFixed(2)})`, Math.min(width - 150, px(x0) + 12), Math.max(24, py(y0) - 14));
-  }, [model, x0, y0, first, second, radius, sign]);
+  }, [model, x0, y0, first, second, radius, sign, showAdvanced]);
 
   const chooseModel = (next: CurvatureModel) => {
     setAnimating(false);
     setModelId(next.id);
     setX0(next.start);
+    setPrediction(null);
+    setRevealed(false);
   };
 
   const format = (value: number) => Number.isFinite(value) ? value.toFixed(3) : '∞';
@@ -290,7 +295,7 @@ export function SecondDerivativeLab() {
         <Stack direction="row" gap={0.75} flexWrap="wrap" useFlexGap sx={{ position: 'absolute', left: 12, top: 12, right: 12 }}>
           <Chip size="small" label="funzione" sx={{ bgcolor: COLORS.curve, color: '#17243F' }} />
           <Chip size="small" label="tangente" sx={{ bgcolor: COLORS.tangent, color: '#17243F' }} />
-          <Chip size="small" label="cerchio osculatore" sx={{ bgcolor: COLORS.circle, color: '#17243F' }} />
+          {showAdvanced && <Chip size="small" label="cerchio osculatore" sx={{ bgcolor: COLORS.circle, color: '#17243F' }} />}
         </Stack>
       </Box>
 
@@ -298,31 +303,40 @@ export function SecondDerivativeLab() {
         <Stack direction={{ xs: 'column', md: 'row' }} gap={2.5} alignItems={{ md: 'center' }}>
           <Box sx={{ flex: 1, width: '100%' }}>
             <Typography variant="caption">SPOSTA IL PUNTO · x₀ = {x0.toFixed(2)}</Typography>
-            <Slider value={x0} min={model.min} max={model.max} step={0.02} onChange={(_event, value) => { setAnimating(false); setX0(value as number); }} aria-label="Posizione del punto sulla funzione" />
+            <Slider value={x0} min={model.min} max={model.max} step={0.02} onChange={(_event, value) => { setAnimating(false); setPrediction(null); setRevealed(false); setX0(value as number); }} aria-label="Posizione del punto sulla funzione" />
           </Box>
           <Button variant="contained" startIcon={animating ? <StopRoundedIcon /> : <PlayArrowRoundedIcon />} onClick={() => setAnimating((value) => !value)}>
             {animating ? 'Ferma punto' : 'Anima il punto'}
           </Button>
         </Stack>
 
+        <Paper elevation={0} sx={{ p: 2, mt: 1, bgcolor: 'action.hover' }}>
+          <Typography fontWeight={700} mb={1}>Prima di leggere il valore: qui f″ sarà positivo, negativo oppure circa zero?</Typography>
+          <Stack direction="row" gap={1} flexWrap="wrap" useFlexGap>
+            {(['positive', 'negative', 'zero'] as const).map((value) => <Button key={value} size="small" variant={prediction === value ? 'contained' : 'outlined'} onClick={() => setPrediction(value)}>{value === 'positive' ? 'f″ > 0' : value === 'negative' ? 'f″ < 0' : 'f″ ≈ 0'}</Button>)}
+            <Button size="small" color="warning" disabled={!prediction} onClick={() => setRevealed(true)}>Rivela</Button>
+          </Stack>
+          {revealed && <Typography variant="body2" mt={1.5}>{prediction === sign ? 'Previsione corretta. ' : 'Confronta la tua previsione con il grafico. '}In questo punto <InlineMath math={`f''(x_0)=${format(second)}`} />.</Typography>}
+        </Paper>
+
         <Grid container spacing={1.5} mt={0.5}>
           <Grid item xs={6} sm={3}><Metric label="Pendenza" formula="f'(x_0)" value={format(first)} color={COLORS.tangent} /></Grid>
-          <Grid item xs={6} sm={3}><Metric label="Variazione pendenza" formula="f''(x_0)" value={format(second)} color={sign === 'positive' ? '#13795B' : sign === 'negative' ? '#B42318' : '#B88A1D'} /></Grid>
-          <Grid item xs={6} sm={3}><Metric label="Curvatura" formula="\\kappa" value={format(curvature)} color="#7448C8" /></Grid>
-          <Grid item xs={6} sm={3}><Metric label="Raggio del cerchio" formula="R" value={format(radius)} color="#7448C8" /></Grid>
+          <Grid item xs={6} sm={3}><Metric label="Variazione pendenza" formula="f''(x_0)" value={revealed ? format(second) : '?'} color={sign === 'positive' ? '#13795B' : sign === 'negative' ? '#B42318' : '#B88A1D'} /></Grid>
+          {showAdvanced && <><Grid item xs={6} sm={3}><Metric label="Curvatura" formula="\\kappa" value={format(curvature)} color="#7448C8" /></Grid><Grid item xs={6} sm={3}><Metric label="Raggio del cerchio" formula="R" value={format(radius)} color="#7448C8" /></Grid></>}
         </Grid>
 
-        <Alert severity={status.severity} sx={{ mt: 2.5 }}>
+        {revealed && <Alert severity={status.severity} sx={{ mt: 2.5 }}>
           <Typography fontWeight={800}>{status.title}</Typography>
           <Typography variant="body2">{status.body}</Typography>
-        </Alert>
+        </Alert>}
 
-        <Paper elevation={0} sx={{ mt: 2, p: 2, bgcolor: 'custom.purpleLight', borderLeft: '4px solid', borderColor: 'custom.purple' }}>
+        <Button sx={{ mt: 2 }} variant="outlined" color="secondary" onClick={() => setShowAdvanced((value) => !value)}>{showAdvanced ? 'Nascondi curvatura avanzata' : 'Approfondisci: curvatura e cerchio osculatore'}</Button>
+        {showAdvanced && <Paper elevation={0} sx={{ mt: 2, p: 2, bgcolor: 'custom.purpleLight', borderLeft: '4px solid', borderColor: 'custom.purple' }}>
           <Typography variant="body2">
             <strong>Perché un cerchio?</strong> La tangente riproduce valore e pendenza; il <em>cerchio osculatore</em> riproduce anche la curvatura locale. Il suo raggio soddisfa{' '}
             <InlineMath math="R=1/|\\kappa|" />, con <InlineMath math="\\kappa=f''/(1+(f')^2)^{3/2}" />. Più il raggio è piccolo, più la curva piega.
           </Typography>
-        </Paper>
+        </Paper>}
       </Box>
     </Paper>
   );

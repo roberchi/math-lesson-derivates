@@ -29,9 +29,9 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
   const section = lessonSections.find((item) => item.id === sectionId);
   const previous = adjacentSection(sectionId, -1);
   const next = adjacentSection(sectionId, 1);
-  const completed = useLessonStore((state) => state.completedSections.includes(sectionId));
-  const markComplete = useLessonStore((state) => state.markComplete);
-  const markIncomplete = useLessonStore((state) => state.markIncomplete);
+  const completed = useLessonStore((state) => state.readSections.includes(sectionId));
+  const markComplete = useLessonStore((state) => state.markRead);
+  const markIncomplete = useLessonStore((state) => state.markUnread);
   const setLastSection = useLessonStore((state) => state.setLastSection);
   const navigate = useNavigate();
 
@@ -68,8 +68,8 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
       <Paper elevation={0} sx={{ mt: 6, p: { xs: 2.5, sm: 3.5 }, border: '1px solid', borderColor: completed ? 'success.main' : 'divider', bgcolor: completed ? 'success.light' : 'background.paper' }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ sm: 'center' }} justifyContent="space-between" gap={2}>
           <Box>
-            <Typography variant="h3" sx={{ fontSize: '1.45rem' }}>{completed ? 'Sezione completata' : 'Hai concluso questa sezione?'}</Typography>
-            <Typography variant="body2" color="text.secondary">Il progresso viene salvato automaticamente in questo browser.</Typography>
+            <Typography variant="h3" sx={{ fontSize: '1.45rem' }}>{completed ? 'Sezione letta' : 'Hai letto questa sezione?'}</Typography>
+            <Typography variant="body2" color="text.secondary">La lettura viene salvata, ma non equivale alla padronanza verificata negli esercizi.</Typography>
           </Box>
           <Button
             variant={completed ? 'outlined' : 'contained'}
@@ -77,12 +77,15 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
             startIcon={completed ? <CheckCircleRoundedIcon /> : <RadioButtonUncheckedRoundedIcon />}
             onClick={() => completed ? markIncomplete(sectionId) : markComplete(sectionId)}
           >
-            {completed ? 'Completata' : 'Segna come completata'}
+            {completed ? 'Letta' : 'Segna come letta'}
           </Button>
         </Stack>
       </Paper>
 
       <Divider sx={{ my: 3 }} />
+      <Typography variant="caption" color="text.secondary" display="block" textAlign="center" mb={1.5}>
+        {section?.shortTitle}{next ? ` · poi ${next.shortTitle}` : ''}
+      </Typography>
       <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
         <Button disabled={!previous} startIcon={<ArrowBackRoundedIcon />} onClick={() => previous && navigate(previous.path)}>{previous?.shortTitle ?? 'Panoramica'}</Button>
         <Button variant="contained" endIcon={<ArrowForwardRoundedIcon />} onClick={continueCourse}>{forwardLabel}</Button>
@@ -91,7 +94,7 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
   );
 }
 
-export function SectionBlock({ eyebrow, title, children }: { eyebrow?: string; title: string; children: ReactNode }) {
+export function SectionBlock({ eyebrow, title, children }: { eyebrow?: string; title: ReactNode; children: ReactNode }) {
   return (
     <Box component="section">
       {eyebrow && <Typography variant="h4" color="primary.main" mb={1}>{eyebrow}</Typography>}

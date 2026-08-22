@@ -3,6 +3,7 @@ import { Box, Button, Chip, Paper, Slider, Stack, Typography } from '@mui/materi
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import StopRoundedIcon from '@mui/icons-material/StopRounded';
 import { InlineMath } from 'react-katex';
+import { equalScaleYRange } from '@/utils/plot';
 
 interface FunctionModel {
   id: string;
@@ -28,10 +29,14 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
   const [functionId, setFunctionId] = useState(singularMode ? 'abs' : 'square');
   const [x0, setX0] = useState(singularMode ? 0 : 1);
   const [h, setH] = useState(1.5);
+  const [prediction, setPrediction] = useState<'same' | 'different' | null>(null);
+  const [revealed, setRevealed] = useState(false);
+  const [showNormal, setShowNormal] = useState(false);
   const [animating, setAnimating] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const model = useMemo(() => functions.find((item) => item.id === functionId) ?? functions[0], [functionId]);
-  const secantSlope = h === 0 ? model.derivative(x0) : (model.fn(x0 + h) - model.fn(x0)) / h;
+  const rightSlope = (model.fn(x0 + h) - model.fn(x0)) / h;
+  const leftSlope = (model.fn(x0 - h) - model.fn(x0)) / -h;
   const tangentSlope = model.derivative(x0);
 
   useEffect(() => {
@@ -57,8 +62,8 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
     const height = canvas.height;
     const xMin = -4;
     const xMax = 4;
-    const yMin = model.id === 'cube' ? -8 : model.id === 'exp' ? -1 : -4;
-    const yMax = model.id === 'cube' ? 8 : model.id === 'exp' ? 9 : 7;
+    const yCenter = singularMode ? 0 : model.fn(x0);
+    const { yMin, yMax } = equalScaleYRange(width, height, xMin, xMax, yCenter);
     const px = (x: number) => ((x - xMin) / (xMax - xMin)) * width;
     const py = (y: number) => height - ((y - yMin) / (yMax - yMin)) * height;
 
@@ -95,6 +100,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
 
     const y0 = model.fn(x0);
     const y1 = model.fn(x0 + h);
+    const yLeft = model.fn(x0 - h);
     const drawLine = (slope: number, color: string, dashed: boolean) => {
       if (!Number.isFinite(slope)) return;
       context.save();
@@ -107,8 +113,16 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
       context.stroke();
       context.restore();
     };
-    drawLine(secantSlope, '#F4C84A', true);
+    drawLine(rightSlope, '#F4C84A', true);
+    drawLine(leftSlope, '#FF8A65', true);
     drawLine(tangentSlope, '#4DD4A4', false);
+    if (showNormal) {
+      if (!Number.isFinite(tangentSlope)) drawLine(0, '#E6A8FF', false);
+      else if (Math.abs(tangentSlope) < 0.0001) {
+        context.strokeStyle = '#E6A8FF'; context.lineWidth = 2.5;
+        context.beginPath(); context.moveTo(px(x0), 0); context.lineTo(px(x0), height); context.stroke();
+      } else drawLine(-1 / tangentSlope, '#E6A8FF', false);
+    }
 
     const point = (x: number, y: number, color: string) => {
       context.fillStyle = color;
@@ -117,6 +131,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
     };
     point(x0, y0, '#4DD4A4');
     if (Number.isFinite(y1)) point(x0 + h, y1, '#F4C84A');
+    if (Number.isFinite(yLeft)) point(x0 - h, yLeft, '#FF8A65');
 
     if (Number.isFinite(y1)) {
       context.strokeStyle = 'rgba(244,200,74,.65)';
@@ -128,7 +143,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
       context.fillText('Δx = h', (px(x0) + px(x0 + h)) / 2 - 22, py(y0) + 24);
       context.fillText('Δy', px(x0 + h) + 9, (py(y0) + py(y1)) / 2);
     }
-  }, [model, x0, h, secantSlope, tangentSlope]);
+  }, [model, x0, h, rightSlope, leftSlope, tangentSlope, showNormal, singularMode]);
 
   const format = (value: number) => Number.isFinite(value) ? value.toFixed(4) : 'non finita';
 
@@ -144,26 +159,39 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
         </Stack>
       </Box>
       <Box sx={{ bgcolor: '#101A30', position: 'relative' }}>
-        <canvas ref={canvasRef} width={900} height={440} aria-label="Grafico interattivo con retta secante e tangente" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <canvas ref={canvasRef} width={900} height={600} aria-label="Grafico cartesiano in scala uniforme con rette secanti, tangente e normale" style={{ width: '100%', height: 'auto', display: 'block' }} />
         <Stack direction="row" gap={1} sx={{ position: 'absolute', left: 14, top: 14 }}>
-          <Chip size="small" label="secante" sx={{ bgcolor: '#F4C84A', color: '#17243F' }} />
+          <Chip size="small" label="secante destra" sx={{ bgcolor: '#F4C84A', color: '#17243F' }} />
+          <Chip size="small" label="secante sinistra" sx={{ bgcolor: '#FF8A65', color: '#17243F' }} />
           <Chip size="small" label="tangente" sx={{ bgcolor: '#4DD4A4', color: '#17243F' }} />
+          {showNormal && <Chip size="small" label="normale" sx={{ bgcolor: '#E6A8FF', color: '#17243F' }} />}
         </Stack>
       </Box>
       <Box sx={{ p: { xs: 2, sm: 3 } }}>
         <Stack direction={{ xs: 'column', md: 'row' }} gap={3}>
           <Box sx={{ flex: 1 }}><Typography variant="caption">PUNTO BASE · x₀ = {x0.toFixed(2)}</Typography><Slider value={x0} min={-2.5} max={2.5} step={0.05} onChange={(_event, value) => setX0(value as number)} aria-label="Punto base x zero" /></Box>
-          <Box sx={{ flex: 1 }}><Typography variant="caption">INCREMENTO · h = {h.toFixed(2)}</Typography><Slider value={h} min={0.05} max={3} step={0.05} onChange={(_event, value) => { setAnimating(false); setH(value as number); }} aria-label="Incremento h" /></Box>
+          <Box sx={{ flex: 1 }}><Typography variant="caption">DISTANZA · |h| = {h.toFixed(2)}</Typography><Slider value={h} min={0.05} max={3} step={0.05} onChange={(_event, value) => { setAnimating(false); setRevealed(false); setH(value as number); }} aria-label="Valore assoluto dell'incremento h" /></Box>
         </Stack>
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} alignItems={{ sm: 'center' }} justifyContent="space-between" mt={1}>
           <Stack direction="row" gap={3}>
-            <Box><Typography variant="caption" color="text.secondary">Δy / Δx</Typography><Typography variant="h3" sx={{ color: '#B88A1D' }}>{format(secantSlope)}</Typography></Box>
+            <Box><Typography variant="caption" color="text.secondary">da sinistra</Typography><Typography variant="h3" sx={{ color: '#D45B5B' }}>{revealed ? format(leftSlope) : '?'}</Typography></Box>
+            <Box><Typography variant="caption" color="text.secondary">da destra</Typography><Typography variant="h3" sx={{ color: '#B88A1D' }}>{revealed ? format(rightSlope) : '?'}</Typography></Box>
             <Box><Typography variant="caption" color="text.secondary">f′(x₀)</Typography><Typography variant="h3" color="success.main">{format(tangentSlope)}</Typography></Box>
           </Stack>
           <Button variant="contained" startIcon={animating ? <StopRoundedIcon /> : <PlayArrowRoundedIcon />} onClick={() => { if (!animating && h <= .06) setH(2.5); setAnimating((value) => !value); }}>
             {animating ? 'Ferma' : 'Anima h → 0'}
           </Button>
+          <Button variant={showNormal ? 'contained' : 'outlined'} color="secondary" onClick={() => setShowNormal((value) => !value)}>{showNormal ? 'Nascondi normale' : 'Mostra normale'}</Button>
         </Stack>
+        <Paper elevation={0} sx={{ mt: 2, p: 2, bgcolor: 'action.hover' }}>
+          <Typography fontWeight={700} mb={1}>Prima di rivelare: avvicinandosi da sinistra e da destra, le pendenze tenderanno allo stesso valore?</Typography>
+          <Stack direction={{ xs: 'column', sm: 'row' }} gap={1}>
+            <Button variant={prediction === 'same' ? 'contained' : 'outlined'} onClick={() => setPrediction('same')}>Sì, coincidono</Button>
+            <Button variant={prediction === 'different' ? 'contained' : 'outlined'} onClick={() => setPrediction('different')}>No, restano diverse</Button>
+            <Button color="warning" disabled={!prediction} onClick={() => setRevealed(true)}>Rivela e confronta</Button>
+          </Stack>
+          {revealed && <Typography variant="body2" color="text.secondary" mt={1.5}>{Math.abs(leftSlope - rightSlope) < .12 ? 'Le due pendenze sono ormai molto vicine: il limite bilaterale è compatibile con una derivata.' : 'Le pendenze laterali non coincidono ancora. Riduci |h|; se restano diverse, la derivata non esiste.'} h non diventa mai zero: il rapporto sarebbe indefinito.</Typography>}
+        </Paper>
       </Box>
     </Paper>
   );

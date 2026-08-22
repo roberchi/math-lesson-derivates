@@ -22,7 +22,7 @@ import { DifficultyChip } from '@/components/common/DifficultyChip';
 import { MathText } from '@/components/math/MathText';
 import { useDBStore } from '@/store/dbStore';
 import { useProgressStore } from '@/store/progressStore';
-import { buildAdaptiveOrder, getClassMetrics, stripLatex } from '@/utils/learning';
+import { arePrerequisitesMastered, buildAdaptiveOrder, getClassMetrics, stripLatex } from '@/utils/learning';
 
 export function ClassPage() {
   const { classId = '' } = useParams();
@@ -32,8 +32,7 @@ export function ClassPage() {
   if (!db) return null;
   const cls = db.classes.find((item) => item.id === classId);
   if (!cls) return <Navigate to="/" replace />;
-  const effectivelyUnlocked = progress.classes[classId]?.unlocked ||
-    cls.prerequisite_classes.every((id) => progress.classes[id]?.completed);
+  const effectivelyUnlocked = progress.classes[classId]?.unlocked || progress.classes[classId]?.consultation || arePrerequisitesMastered(cls.prerequisite_classes, progress);
   if (!effectivelyUnlocked) return <Navigate to="/" replace />;
   const ordered = buildAdaptiveOrder(cls.exercises, cls.id, progress);
   const metrics = getClassMetrics(cls, progress);
@@ -90,8 +89,8 @@ export function ClassPage() {
       </List>
 
       {metrics.completed === metrics.total && (
-        <Stack mt={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} sx={{ bgcolor: 'success.light', color: 'success.dark', p: 2.5, borderRadius: 2 }}>
-          <Typography fontWeight={700}>Classe completata: guarda il riepilogo dei risultati.</Typography>
+        <Stack mt={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} sx={{ bgcolor: metrics.mastered ? 'success.light' : 'warning.light', color: metrics.mastered ? 'success.dark' : 'warning.dark', p: 2.5, borderRadius: 2 }}>
+          <Typography fontWeight={700}>{metrics.mastered ? 'Classe padroneggiata: il seguito può sbloccarsi.' : 'Classe completata ma da recuperare: serve almeno il 70% e due risposte corrette.'}</Typography>
           <Button endIcon={<ArrowForwardRoundedIcon />} onClick={() => navigate(`/class/${classId}/results`)}>Vedi risultati</Button>
         </Stack>
       )}

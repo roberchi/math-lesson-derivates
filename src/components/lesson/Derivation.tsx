@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import {
+  Alert,
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Avatar,
   Box,
+  Button,
   Paper,
   Stack,
   Typography,
@@ -11,6 +14,7 @@ import {
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import { BlockMath } from 'react-katex';
 import { MathText } from '@/components/math/MathText';
+import { useLessonStore } from '@/store/lessonStore';
 
 export interface DerivationStep {
   label: string;
@@ -25,9 +29,13 @@ interface DerivationProps {
   steps: DerivationStep[];
   conclusion: string;
   defaultExpanded?: boolean;
+  conceptId?: string;
+  checkpoint?: { question: string; choices: string[]; correctIndex: number; explanation: string };
 }
 
-export function Derivation({ title, formula, meaning, steps, conclusion, defaultExpanded = false }: DerivationProps) {
+export function Derivation({ title, formula, meaning, steps, conclusion, defaultExpanded = false, conceptId, checkpoint }: DerivationProps) {
+  const [selected, setSelected] = useState<number | null>(null);
+  const verify = useLessonStore((state) => state.verifyConcept);
   return (
     <Accordion defaultExpanded={defaultExpanded} sx={{ border: '1px solid', borderColor: 'rgba(65,88,208,.28)', borderRadius: '10px !important', overflow: 'hidden' }}>
       <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} sx={{ px: { xs: 2, sm: 2.5 }, py: 1.25, '& .MuiAccordionSummary-content': { minWidth: 0 } }}>
@@ -80,6 +88,12 @@ export function Derivation({ title, formula, meaning, steps, conclusion, default
           <Typography variant="caption" color="primary.main" fontWeight={800}>CONCLUSIONE</Typography>
           <Typography component="div" sx={{ mt: .5 }}><MathText text={conclusion} /></Typography>
         </Box>
+        {checkpoint && conceptId && <Paper elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'warning.light' }}>
+          <Typography variant="caption" color="warning.main" fontWeight={800}>CHECKPOINT OBBLIGATORIO</Typography>
+          <Typography fontWeight={700} my={1}>{checkpoint.question}</Typography>
+          <Stack gap={1}>{checkpoint.choices.map((choice, index) => <Button key={choice} variant={selected === index ? 'contained' : 'outlined'} color={selected !== null && index === checkpoint.correctIndex ? 'success' : 'warning'} onClick={() => { setSelected(index); if (index === checkpoint.correctIndex) verify(conceptId); }}>{choice}</Button>)}</Stack>
+          {selected !== null && <Alert severity={selected === checkpoint.correctIndex ? 'success' : 'warning'} sx={{ mt: 1.5 }}>{selected === checkpoint.correctIndex ? checkpoint.explanation : 'Rileggi i passaggi e riprova.'}</Alert>}
+        </Paper>}
       </AccordionDetails>
     </Accordion>
   );

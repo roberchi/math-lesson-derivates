@@ -68,11 +68,14 @@ export function TaylorLab() {
   const [x0, setX0] = useState(0);
   const [view, setView] = useState<View>(() => defaultView('exp'));
   const [isPanning, setIsPanning] = useState(false);
+  const [challengeChecked, setChallengeChecked] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const lastPointerRef = useRef<{ x: number; y: number } | null>(null);
   const model = useMemo(() => models[functionId], [functionId]);
   const errorX = x0 + 0.75;
   const error = Math.abs(model.fn(errorX) - polynomial(functionId, order, errorX, x0));
+  const challengeThreshold = 0.005;
+  const minimumOrder = Array.from({ length: 8 }, (_item, index) => index).find((candidate) => Math.abs(model.fn(errorX) - polynomial(functionId, candidate, errorX, x0)) < challengeThreshold);
 
   const resetView = (id = functionId) => setView(defaultView(id));
 
@@ -164,6 +167,7 @@ export function TaylorLab() {
   const selectFunction = (id: TaylorId) => {
     setFunctionId(id);
     resetView(id);
+    setChallengeChecked(false);
   };
 
   const handleWheel = (event: React.WheelEvent<HTMLCanvasElement>) => {
@@ -236,11 +240,11 @@ export function TaylorLab() {
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2.5, md: 4 }}>
           <Box sx={{ flex: 1 }}>
             <Typography variant="caption">PUNTO CENTRALE · x₀ = {rounded(x0, 2)}</Typography>
-            <Slider min={-1.5} max={1.5} step={0.25} marks value={x0} onChange={(_event, value) => setX0(value as number)} aria-label="Punto centrale x zero" />
+            <Slider min={-1.5} max={1.5} step={0.25} marks value={x0} onChange={(_event, value) => { setChallengeChecked(false); setX0(value as number); }} aria-label="Punto centrale x zero" />
           </Box>
           <Box sx={{ flex: 1 }}>
             <Typography variant="caption">ORDINE DEL POLINOMIO · {order}</Typography>
-            <Slider min={0} max={7} step={1} marks value={order} onChange={(_event, value) => setOrder(value as number)} aria-label="Ordine del polinomio di Taylor" />
+            <Slider min={0} max={7} step={1} marks value={order} onChange={(_event, value) => { setChallengeChecked(false); setOrder(value as number); }} aria-label="Ordine del polinomio di Taylor" />
           </Box>
         </Stack>
 
@@ -260,6 +264,12 @@ export function TaylorLab() {
             <Typography variant="h3" color="primary.main">{error.toExponential(2)}</Typography>
           </Box>
         </Stack>
+        <Paper elevation={0} sx={{ mt: 2.5, p: 2.5, border: '1px solid', borderColor: 'divider' }}>
+          <Typography variant="h3" sx={{ fontSize: '1.25rem' }} mb={1}>Sfida: il grado minimo</Typography>
+          <Typography variant="body2" color="text.secondary" mb={1.5}>Sposta il cursore dell’ordine e trova il primo grado per cui l’errore nel punto verde è minore di {challengeThreshold}.</Typography>
+          <Button variant="contained" onClick={() => setChallengeChecked(true)}>Controlla la mia scelta</Button>
+          {challengeChecked && <Typography mt={1.5} color={order === minimumOrder ? 'success.main' : 'warning.main'} fontWeight={700}>{minimumOrder === undefined ? 'Con gli ordini disponibili la soglia non viene raggiunta: avvicina il punto al centro.' : order === minimumOrder ? `Esatto: P${order} è il primo polinomio che rispetta la soglia.` : error >= challengeThreshold ? `L’errore è ancora troppo grande. Prova ad aumentare l’ordine.` : `La soglia è rispettata, ma anche P${minimumOrder} bastava: cerca il grado minimo.`}</Typography>}
+        </Paper>
       </Box>
     </Paper>
   );

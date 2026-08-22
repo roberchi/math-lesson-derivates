@@ -17,19 +17,28 @@ import DrawOutlinedIcon from '@mui/icons-material/DrawOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import RouteRoundedIcon from '@mui/icons-material/RouteRounded';
 import { Link, useNavigate } from 'react-router-dom';
-import { lessonOneSections, lessonSections, lessonTwoSections } from '@/data/course';
+import { coreSections, enrichmentSections, lessonOneSections, lessonSections, lessonTwoSections } from '@/data/course';
 import { useLessonStore } from '@/store/lessonStore';
 import { PerspectiveCard } from '@/components/lesson/LessonScaffold';
+import { useProgressStore } from '@/store/progressStore';
+import { useDBStore } from '@/store/dbStore';
 
 export function OverviewPage() {
-  const completed = useLessonStore((state) => state.completedSections);
+  const completed = useLessonStore((state) => state.readSections);
   const lastSectionId = useLessonStore((state) => state.lastSectionId);
+  const verifiedConcepts = useLessonStore((state) => state.verifiedConcepts);
+  const progress = useProgressStore((state) => state.progress);
+  const db = useDBStore((state) => state.db);
   const navigate = useNavigate();
   const lastSection = lessonSections.find((section) => section.id === lastSectionId);
   const nextSection = (lastSection && !completed.includes(lastSection.id) ? lastSection : undefined)
-    ?? lessonSections.find((section) => !completed.includes(section.id))
+    ?? coreSections.find((section) => !completed.includes(section.id))
     ?? lessonSections[0];
-  const percent = Math.round(completed.length / lessonSections.length * 100);
+  const coreRead = coreSections.filter((section) => completed.includes(section.id)).length;
+  const optionalRead = enrichmentSections.filter((section) => completed.includes(section.id)).length;
+  const percent = Math.round(coreRead / coreSections.length * 100);
+  const adaptiveVerified = Object.values(progress.classes).flatMap((cls) => Object.values(cls.attempts)).filter((attempt) => attempt.proofCheckpointPassed).length;
+  const masteredClasses = Object.values(progress.classes).filter((cls) => cls.mastered).length;
 
   return (
     <>
@@ -40,10 +49,10 @@ export function OverviewPage() {
           Partiamo da una domanda concreta — come si misura una velocità in un singolo istante? — e costruiamo geometria, definizione e regole senza saltare i passaggi.
         </Typography>
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={1.5} alignItems={{ sm: 'center' }}>
-          <Button component={Link} to={nextSection.path} variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} sx={{ position: 'relative', zIndex: 1, bgcolor: '#F2C94C', color: '#17243F', '&:hover': { bgcolor: '#FFD968' } }}>
-            {completed.length ? 'Riprendi la lezione' : 'Comincia dal problema'}
+          <Button component={Link} to={percent === 100 ? '/conclusione' : nextSection.path} variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} sx={{ position: 'relative', zIndex: 1, bgcolor: '#F2C94C', color: '#17243F', '&:hover': { bgcolor: '#FFD968' } }}>
+            {percent === 100 ? 'Apri la sintesi' : completed.length ? 'Riprendi la lezione' : 'Comincia dal problema'}
           </Button>
-          <Typography variant="caption" sx={{ color: '#9EABC0' }}>{completed.length}/{lessonSections.length} SEZIONI COMPLETATE</Typography>
+          <Typography variant="caption" sx={{ color: '#9EABC0' }}>{coreRead}/{coreSections.length} FONDAMENTALI LETTE · {optionalRead}/{enrichmentSections.length} APPROFONDIMENTI</Typography>
         </Stack>
         <Box aria-hidden sx={{ pointerEvents: 'none', position: 'absolute', right: { xs: -90, md: 45 }, bottom: -115, width: 330, height: 330, border: '1px solid rgba(255,255,255,.12)', borderRadius: '50%', '&:before': { content: '"dy/dx"', position: 'absolute', left: 55, top: 80, fontFamily: 'Crimson Pro', fontStyle: 'italic', fontSize: '4.3rem', color: 'rgba(255,255,255,.08)' } }} />
       </Box>
@@ -51,15 +60,28 @@ export function OverviewPage() {
       <Box mb={5}>
         <Stack direction="row" justifyContent="space-between" mb={1}><Typography variant="caption" color="text.secondary">PROGRESSO DEL CORSO</Typography><Typography variant="caption">{percent}%</Typography></Stack>
         <LinearProgress variant="determinate" value={percent} />
+        <Grid container spacing={1.5} mt={1}>
+          {[
+            [`${coreRead}/${coreSections.length}`, 'sezioni fondamentali lette'],
+            [`${verifiedConcepts.length + adaptiveVerified}`, 'concetti verificati'],
+            [`${masteredClasses}/${db?.classes.length ?? 7}`, 'classi padroneggiate'],
+            [`${optionalRead}/${enrichmentSections.length}`, 'approfondimenti visitati'],
+          ].map(([value, label]) => <Grid item xs={6} md={3} key={label}><Paper elevation={0} sx={{ p: 1.75, border: '1px solid', borderColor: 'divider', height: '100%' }}><Typography variant="h3" color="primary.main">{value}</Typography><Typography variant="caption" color="text.secondary">{label}</Typography></Paper></Grid>)}
+        </Grid>
       </Box>
 
       <Box mb={6}>
         <Typography variant="h4" color="primary.main" mb={1}>Una domanda, tre risposte</Typography>
         <Typography variant="h2" mb={2.5}>Cos’è la derivata?</Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={4}><PerspectiveCard icon="◢" label="GEOMETRICA" title="Una pendenza">È la pendenza della retta tangente, ottenuta come limite delle rette secanti.</PerspectiveCard></Grid>
-          <Grid item xs={12} md={4}><PerspectiveCard icon="lim" label="ANALITICA" title="Un limite">È il limite del rapporto incrementale quando l’incremento tende a zero.</PerspectiveCard></Grid>
-          <Grid item xs={12} md={4}><PerspectiveCard icon="↗" label="FISICA" title="Un tasso istantaneo">È quanto rapidamente una grandezza cambia in un preciso istante.</PerspectiveCard></Grid>
+          {[
+            { section: 'geometria', question: 'Come trovi una pendenza su una curva?', icon: '◢', label: 'GEOMETRICA', title: 'Una pendenza', answer: 'È la pendenza della retta tangente, ottenuta come limite delle rette secanti.' },
+            { section: 'definizione', question: 'Perché compare un limite?', icon: 'lim', label: 'ANALITICA', title: 'Un limite', answer: 'È il limite del rapporto incrementale quando l’incremento tende a zero senza diventarlo.' },
+            { section: 'interpretazioni', question: 'Che cosa misura davvero?', icon: '↗', label: 'APPLICATIVA', title: 'Un tasso istantaneo', answer: 'Misura quanto rapidamente cambia una grandezza, con un segno e una precisa unità di misura.' },
+          ].map((item, index) => {
+            const revealed = completed.includes(item.section);
+            return <Grid item xs={12} md={4} key={item.section}><PerspectiveCard icon={revealed ? item.icon : '?'} label={revealed ? item.label : `DOMANDA ${index + 1}`} title={revealed ? item.title : item.question}>{revealed ? item.answer : `La risposta si rivela dopo aver letto la sezione “${lessonSections.find((section) => section.id === item.section)?.shortTitle}”.`}</PerspectiveCard></Grid>;
+          })}
         </Grid>
       </Box>
 
@@ -129,7 +151,7 @@ function CourseLesson({ number, title, subtitle, duration, objective, sections, 
               </Box>
             );
           })}
-          <Typography variant="caption" color="text.secondary" display="block" mt={2}>{done}/{sections.length} SEZIONI COMPLETATE</Typography>
+          <Typography variant="caption" color="text.secondary" display="block" mt={2}>{done}/{sections.length} SEZIONI LETTE</Typography>
         </Grid>
       </Grid>
     </Paper>

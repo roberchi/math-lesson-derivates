@@ -13,11 +13,11 @@ import {
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import PrintRoundedIcon from '@mui/icons-material/PrintRounded';
-import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { WritingCanvas } from '@/components/labs/WritingCanvas';
+import { DigitalWorkspace } from '@/components/labs/DigitalWorkspace';
 import { MathText } from '@/components/math/MathText';
+import { ProgressiveSolution } from '@/components/lesson/ProgressiveSolution';
 
 interface WorksheetExercise {
   number: number;
@@ -143,19 +143,15 @@ const solutions: Record<string, GuidedSolution> = {
 
 export function WorksheetPage() {
   const { sheetId = '' } = useParams();
-  const [openWorkspaces, setOpenWorkspaces] = useState<string[]>([]);
   const [openSolutions, setOpenSolutions] = useState<string[]>([]);
   if (sheetId !== '1' && sheetId !== '2') return <Navigate to="/" replace />;
   const first = sheetId === '1';
   const exercises = first ? sheetOne : sheetTwo;
   const title = first ? 'Definizione e significato geometrico' : 'Regole di derivazione';
   const time = first ? '25 minuti' : '30 minuti';
-  const exerciseKeys = exercises.map((exercise) => `${sheetId}-${exercise.number}`);
-  const allSolutionsOpen = exerciseKeys.every((key) => openSolutions.includes(key));
 
   const revealSolution = (key: string) => {
     setOpenSolutions((current) => current.includes(key) ? current : [...current, key]);
-    setOpenWorkspaces((current) => current.filter((item) => item !== key));
     window.requestAnimationFrame(() => {
       document.getElementById(`solution-${key}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -166,17 +162,7 @@ export function WorksheetPage() {
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={1.5} mb={4} className="no-print">
         <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit">Panoramica</Button>
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={1}>
-          <Button
-            variant={allSolutionsOpen ? 'outlined' : 'contained'}
-            color="warning"
-            startIcon={allSolutionsOpen ? <VisibilityOffRoundedIcon /> : <VisibilityRoundedIcon />}
-            onClick={() => {
-              setOpenSolutions(allSolutionsOpen ? [] : exerciseKeys);
-              if (!allSolutionsOpen) setOpenWorkspaces([]);
-            }}
-          >
-            {allSolutionsOpen ? 'Nascondi soluzioni' : 'Mostra tutte le soluzioni'}
-          </Button>
+          <Chip label="Correzione guidata · una soluzione alla volta" color="warning" variant="outlined" />
           <Button variant="outlined" startIcon={<PrintRoundedIcon />} onClick={() => window.print()}>Stampa scheda</Button>
         </Stack>
       </Stack>
@@ -191,7 +177,6 @@ export function WorksheetPage() {
       <Stack spacing={2}>
         {exercises.map((exercise) => {
           const key = `${sheetId}-${exercise.number}`;
-          const workspaceOpen = openWorkspaces.includes(key);
           const solutionOpen = openSolutions.includes(key);
           const solution = solutions[key];
 
@@ -205,32 +190,9 @@ export function WorksheetPage() {
                     <Stack direction="row" gap={1} flexWrap="wrap"><Chip size="small" label={exercise.type} variant="outlined" /><Chip size="small" label={exercise.difficulty} color={exercise.difficulty === 'Base' ? 'success' : exercise.difficulty === '★★★' ? 'warning' : 'primary'} variant="outlined" /></Stack>
                   </Stack>
                   <Typography component="div" sx={{ mt: 1.5 }}><MathText text={exercise.prompt} /></Typography>
-                  <Button
-                    color="warning"
-                    variant="outlined"
-                    size="small"
-                    startIcon={<VisibilityRoundedIcon />}
-                    onClick={() => revealSolution(key)}
-                    sx={{ display: { xs: 'inline-flex', sm: 'none' }, mt: 2 }}
-                  >
-                    Vedi soluzione svolta
-                  </Button>
+                  <Box className="digital-workspace" sx={{ mt: 2 }}><DigitalWorkspace workspaceKey={`worksheet-${key}`} label={`Scheda ${sheetId} · Esercizio ${exercise.number}`} problemTitle={exercise.title} problemText={exercise.prompt} onShowSolution={() => revealSolution(key)} /></Box>
                 </Box>
               </Box>
-
-              <Accordion
-                className="digital-workspace"
-                expanded={workspaceOpen}
-                onChange={() => setOpenWorkspaces((current) => current.includes(key) ? current.filter((item) => item !== key) : [...current, key])}
-                disableGutters
-                elevation={0}
-                sx={{ borderTop: '1px solid', borderColor: 'divider', borderRadius: '0 !important', '&::before': { display: 'none' } }}
-              >
-                <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}><Typography fontWeight={700}>✏️ Foglio di lavoro digitale</Typography></AccordionSummary>
-                <AccordionDetails sx={{ p: 0 }}>
-                  <WritingCanvas label={`Esercizio ${exercise.number}`} onShowSolution={() => revealSolution(key)} />
-                </AccordionDetails>
-              </Accordion>
 
               <Accordion
                 id={`solution-${key}`}
@@ -245,10 +207,7 @@ export function WorksheetPage() {
                   <Stack direction="row" gap={1} alignItems="center"><VisibilityRoundedIcon color="warning" /><Typography fontWeight={700}>Soluzione guidata con i passaggi</Typography></Stack>
                 </AccordionSummary>
                 <AccordionDetails sx={{ px: { xs: 2, sm: 3 }, pb: 3 }}>
-                  <Stack component="ol" spacing={1.5} sx={{ pl: 2.5, my: 0 }}>
-                    {solution.steps.map((step, index) => <Typography component="li" key={index} color="text.secondary" sx={{ pl: 0.5 }}><MathText text={step} /></Typography>)}
-                  </Stack>
-                  <Box sx={{ mt: 2.5, p: 2, borderRadius: 1.5, bgcolor: 'custom.ink', color: 'white' }}><Typography variant="overline" fontWeight={800}>Risultato</Typography><Typography component="div"><MathText text={solution.result} /></Typography></Box>
+                  <ProgressiveSolution storageKey={`worksheet-${key}`} steps={solution.steps} result={solution.result} />
                 </AccordionDetails>
               </Accordion>
 
