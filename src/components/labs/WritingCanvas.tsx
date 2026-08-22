@@ -21,7 +21,9 @@ const GUTTER_WIDTH = 52;
 export function WritingCanvas({ storageKey, label = 'Spazio di lavoro', onShowSolution }: { storageKey: string; label?: string; onShowSolution?: () => void }) {
   const initialSheet = useRef(useWritingStore.getState().sheets[storageKey]);
   const saveSheet = useWritingStore((state) => state.saveSheet);
-  const clearStoredSheet = useWritingStore((state) => state.clearSheet);
+  const clearDrawing = useWritingStore((state) => state.clearDrawing);
+  const checklist = useWritingStore((state) => state.sheets[storageKey]?.checklist);
+  const setChecklistAnswer = useWritingStore((state) => state.setChecklistAnswer);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const drawing = useRef(false);
@@ -151,7 +153,7 @@ export function WritingCanvas({ storageKey, label = 'Spazio di lavoro', onShowSo
     const canvas = canvasRef.current;
     if (!canvas) return;
     canvas.getContext('2d')?.clearRect(0, 0, canvas.width, canvas.height);
-    clearStoredSheet(storageKey);
+    clearDrawing(storageKey);
   };
 
   const extendSurface = () => {
@@ -170,9 +172,7 @@ export function WritingCanvas({ storageKey, label = 'Spazio di lavoro', onShowSo
   const lineCount = Math.ceil(surfaceHeight / LINE_HEIGHT);
 
   return <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden', bgcolor: '#FFFEFA' }}>
-    <Stack direction={{ xs: 'column', md: 'row' }} alignItems={{ md: 'center' }} gap={1} px={1.5} py={1} sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
-      <Box sx={{ mr: 'auto' }}><Typography variant="caption" color="text.secondary" display="block">{label.toUpperCase()} · PENCIL/STILO COMPATIBILE</Typography><Typography variant="caption" color="text.secondary">{tool === 'pan' ? 'MODALITÀ SPOSTA · trascina con un dito' : 'MODALITÀ DISEGNO · protezione palmo attiva'} · si allunga scorrendo verso il fondo</Typography></Box>
-      <Stack direction="row" alignItems="center" gap={.5} flexWrap="wrap">
+    <Stack direction="row" alignItems="center" gap={.5} flexWrap="wrap" px={1.5} py={.75} sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
         <Tooltip title="Penna"><IconButton size="small" color={tool === 'pen' ? 'primary' : 'default'} onClick={() => setTool('pen')} aria-label="Penna"><BorderColorRoundedIcon fontSize="small" /></IconButton></Tooltip>
         <Tooltip title="Evidenziatore"><IconButton size="small" color={tool === 'highlight' ? 'primary' : 'default'} onClick={() => setTool('highlight')} aria-label="Evidenziatore"><HighlightRoundedIcon fontSize="small" /></IconButton></Tooltip>
         <Tooltip title="Gomma"><IconButton size="small" color={tool === 'eraser' ? 'primary' : 'default'} onClick={() => setTool('eraser')} aria-label="Gomma"><CleaningServicesRoundedIcon fontSize="small" /></IconButton></Tooltip>
@@ -181,7 +181,6 @@ export function WritingCanvas({ storageKey, label = 'Spazio di lavoro', onShowSo
         <Box sx={{ width: 70, px: 1 }}><Slider size="small" min={2} max={12} value={size} onChange={(_event, value) => setSize(value as number)} aria-label="Dimensione tratto" /></Box>
         {onShowSolution && <Button size="small" color="warning" startIcon={<VisibilityRoundedIcon />} onClick={onShowSolution}>Soluzione</Button>}
         <Button size="small" color="error" startIcon={<DeleteSweepRoundedIcon />} onClick={clear}>Cancella</Button>
-      </Stack>
     </Stack>
     <Box ref={scrollRef} tabIndex={0} role="region" aria-label={`${label}: foglio scorrevole con righe numerate`} onScroll={handleScroll} sx={{ flex: 1, minHeight: 0, overflow: 'auto', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', bgcolor: '#FFFEFA' }}>
       <Box sx={{ width: GUTTER_WIDTH + SURFACE_WIDTH, height: surfaceHeight, display: 'flex', backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #C9D5E8 32px)' }}>
@@ -189,6 +188,13 @@ export function WritingCanvas({ storageKey, label = 'Spazio di lavoro', onShowSo
         <canvas ref={canvasRef} width={SURFACE_WIDTH} height={surfaceHeight} aria-label={`${label}: area di scrittura libera`} onPointerDown={start} onPointerMove={move} onPointerUp={stop} onPointerCancel={stop} style={{ width: SURFACE_WIDTH, height: surfaceHeight, display: 'block', cursor: tool === 'pan' ? 'grab' : tool === 'eraser' ? 'cell' : 'crosshair', touchAction: tool === 'pan' ? 'pan-x pan-y' : 'none', userSelect: 'none', WebkitUserSelect: 'none' }} />
       </Box>
     </Box>
-    <Box sx={{ px: 1.5, py: 1, borderTop: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}><Typography variant="caption" color="success.main" display="block">● Disegno e lunghezza salvati automaticamente</Typography><Stack direction={{ xs: 'column', sm: 'row' }} gap={{ sm: 2 }}><FormControlLabel control={<Checkbox size="small" />} label="Ho scritto la regola usata" /><FormControlLabel control={<Checkbox size="small" />} label="Ho mostrato i passaggi" /><FormControlLabel control={<Checkbox size="small" />} label="Ho controllato segni e dominio" /></Stack></Box>
+    <Box sx={{ px: 1.5, py: .5, borderTop: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
+      <Typography variant="caption" color="success.main" display="block">● Salvataggio automatico attivo</Typography>
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', sm: 'repeat(3, minmax(0, 1fr))' }, columnGap: 1 }}>
+        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.rule ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'rule', checked)} />} label={<Typography variant="caption">Regola scritta</Typography>} />
+        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.steps ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'steps', checked)} />} label={<Typography variant="caption">Passaggi mostrati</Typography>} />
+        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.domain ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'domain', checked)} />} label={<Typography variant="caption">Segni e dominio controllati</Typography>} />
+      </Box>
+    </Box>
   </Box>;
 }
