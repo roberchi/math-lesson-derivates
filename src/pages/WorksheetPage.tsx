@@ -15,7 +15,7 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import PrintRoundedIcon from '@mui/icons-material/PrintRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { WritingCanvas } from '@/components/labs/WritingCanvas';
+import { DigitalWorkspace } from '@/components/labs/DigitalWorkspace';
 import { MathText } from '@/components/math/MathText';
 import { ProgressiveSolution } from '@/components/lesson/ProgressiveSolution';
 
@@ -143,7 +143,6 @@ const solutions: Record<string, GuidedSolution> = {
 
 export function WorksheetPage() {
   const { sheetId = '' } = useParams();
-  const [openWorkspaces, setOpenWorkspaces] = useState<string[]>([]);
   const [openSolutions, setOpenSolutions] = useState<string[]>([]);
   if (sheetId !== '1' && sheetId !== '2') return <Navigate to="/" replace />;
   const first = sheetId === '1';
@@ -153,7 +152,6 @@ export function WorksheetPage() {
 
   const revealSolution = (key: string) => {
     setOpenSolutions((current) => current.includes(key) ? current : [...current, key]);
-    setOpenWorkspaces((current) => current.filter((item) => item !== key));
     window.requestAnimationFrame(() => {
       document.getElementById(`solution-${key}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
@@ -179,7 +177,6 @@ export function WorksheetPage() {
       <Stack spacing={2}>
         {exercises.map((exercise) => {
           const key = `${sheetId}-${exercise.number}`;
-          const workspaceOpen = openWorkspaces.includes(key);
           const solutionOpen = openSolutions.includes(key);
           const solution = solutions[key];
 
@@ -203,22 +200,9 @@ export function WorksheetPage() {
                   >
                     Vedi soluzione svolta
                   </Button>
+                  <Box className="digital-workspace" sx={{ mt: 2 }}><DigitalWorkspace workspaceKey={`worksheet-${key}`} label={`Scheda ${sheetId} · Esercizio ${exercise.number}`} onShowSolution={() => revealSolution(key)} /></Box>
                 </Box>
               </Box>
-
-              <Accordion
-                className="digital-workspace"
-                expanded={workspaceOpen}
-                onChange={() => setOpenWorkspaces((current) => current.includes(key) ? current.filter((item) => item !== key) : [...current, key])}
-                disableGutters
-                elevation={0}
-                sx={{ borderTop: '1px solid', borderColor: 'divider', borderRadius: '0 !important', '&::before': { display: 'none' } }}
-              >
-                <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}><Typography fontWeight={700}>✏️ Foglio di lavoro digitale</Typography></AccordionSummary>
-                <AccordionDetails sx={{ p: 0 }}>
-                  <WritingCanvas label={`Esercizio ${exercise.number}`} onShowSolution={() => revealSolution(key)} />
-                </AccordionDetails>
-              </Accordion>
 
               <Accordion
                 id={`solution-${key}`}

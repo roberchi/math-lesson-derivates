@@ -25,6 +25,7 @@ import { useColorMode } from '@/theme/ThemeContext';
 import { useProgressStore } from '@/store/progressStore';
 import { useUIStore } from '@/store/uiStore';
 import { useLessonStore } from '@/store/lessonStore';
+import { useWritingStore } from '@/store/writingStore';
 
 export function SettingsPage() {
   const { mode, toggleMode } = useColorMode();
@@ -36,6 +37,7 @@ export function SettingsPage() {
   const verifiedConcepts = useLessonStore((state) => state.verifiedConcepts);
   const lastSectionId = useLessonStore((state) => state.lastSectionId);
   const resetLessons = useLessonStore((state) => state.resetLessons);
+  const resetWritingSheets = useWritingStore((state) => state.resetWritingSheets);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [importError, setImportError] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -115,7 +117,7 @@ export function SettingsPage() {
 
       <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'error.light', borderRadius: 2, p: 3, mb: 4 }}>
         <Typography variant="h3" sx={{ fontSize: '1.35rem', mb: .5 }}>Ricomincia il percorso</Typography>
-        <Typography variant="body2" color="text.secondary" mb={2}>Cancella sezioni lette, punti, tentativi e classi completate da questo browser.</Typography>
+        <Typography variant="body2" color="text.secondary" mb={2}>Cancella sezioni lette, punti, tentativi, classi completate e fogli digitali salvati in questo browser.</Typography>
         <Button color="error" variant="outlined" startIcon={<RestartAltRoundedIcon />} onClick={() => setConfirmOpen(true)}>Resetta progresso</Button>
       </Paper>
 
@@ -123,8 +125,8 @@ export function SettingsPage() {
 
       <Dialog open={confirmOpen} onClose={() => setConfirmOpen(false)}>
         <DialogTitle>Azzerare tutto il progresso?</DialogTitle>
-        <DialogContent><DialogContentText>L’operazione rimuoverà definitivamente sezioni lette, punti, risposte e classi completate. Puoi esportare prima una copia di sicurezza.</DialogContentText></DialogContent>
-        <DialogActions><Button onClick={() => setConfirmOpen(false)}>Annulla</Button><Button color="error" variant="contained" onClick={() => { resetProgress(); resetLessons(); localStorage.removeItem('deriv_progress_v3'); localStorage.removeItem('deriv_progress_v4'); localStorage.removeItem('derivate_lesson_progress_v1'); localStorage.removeItem('derivate_lesson_progress_v2'); localStorage.removeItem('derivate_conclusione_v1'); setConfirmOpen(false); notify('Progresso azzerato', 'info'); }}>Azzera tutto</Button></DialogActions>
+        <DialogContent><DialogContentText>L’operazione rimuoverà definitivamente sezioni lette, punti, risposte, classi completate e contenuto dei fogli digitali. Puoi esportare prima una copia di sicurezza del progresso.</DialogContentText></DialogContent>
+        <DialogActions><Button onClick={() => setConfirmOpen(false)}>Annulla</Button><Button color="error" variant="contained" onClick={() => { resetProgress(); resetLessons(); resetWritingSheets(); localStorage.removeItem('deriv_progress_v3'); localStorage.removeItem('deriv_progress_v4'); localStorage.removeItem('derivate_lesson_progress_v1'); localStorage.removeItem('derivate_lesson_progress_v2'); localStorage.removeItem('derivate_writing_sheets_v1'); localStorage.removeItem('derivate_conclusione_v1'); setConfirmOpen(false); notify('Progresso e fogli digitali azzerati', 'info'); }}>Azzera tutto</Button></DialogActions>
       </Dialog>
     </Box>
   );

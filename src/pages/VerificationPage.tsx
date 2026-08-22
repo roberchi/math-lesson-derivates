@@ -5,7 +5,7 @@ import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlin
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import PrintRoundedIcon from '@mui/icons-material/PrintRounded';
 import { Link } from 'react-router-dom';
-import { WritingCanvas } from '@/components/labs/WritingCanvas';
+import { DigitalWorkspace } from '@/components/labs/DigitalWorkspace';
 import { MathText } from '@/components/math/MathText';
 import { ProgressiveSolution } from '@/components/lesson/ProgressiveSolution';
 
@@ -124,7 +124,7 @@ export function VerificationPage() {
                 </Stack>
                 <Typography component="div" mb={2.5}><MathText text={problem.prompt} /></Typography>
                 <Alert severity="info" icon={false} sx={{ mb: 2 }}><strong>Rubrica:</strong> {problem.rubric}</Alert>
-                <Box className="digital-workspace"><WritingCanvas label={`Problema ${problem.number}`} onShowSolution={() => revealSolution(problem.number)} /></Box>
+                <Box className="digital-workspace"><DigitalWorkspace workspaceKey={`verification-${problem.number}`} label={`Verifica · Problema ${problem.number}`} onShowSolution={() => revealSolution(problem.number)} /></Box>
                 <Box className="print-writing-space" sx={{ display: 'none', height: 250, backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #C9D5E8 32px)' }} />
               </Box>
 
