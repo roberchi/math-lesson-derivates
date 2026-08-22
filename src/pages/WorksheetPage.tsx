@@ -190,16 +190,6 @@ export function WorksheetPage() {
                     <Stack direction="row" gap={1} flexWrap="wrap"><Chip size="small" label={exercise.type} variant="outlined" /><Chip size="small" label={exercise.difficulty} color={exercise.difficulty === 'Base' ? 'success' : exercise.difficulty === '★★★' ? 'warning' : 'primary'} variant="outlined" /></Stack>
                   </Stack>
                   <Typography component="div" sx={{ mt: 1.5 }}><MathText text={exercise.prompt} /></Typography>
-                  <Button
-                    color="warning"
-                    variant="outlined"
-                    size="small"
-                    startIcon={<VisibilityRoundedIcon />}
-                    onClick={() => revealSolution(key)}
-                    sx={{ display: { xs: 'inline-flex', sm: 'none' }, mt: 2 }}
-                  >
-                    Vedi soluzione svolta
-                  </Button>
                   <Box className="digital-workspace" sx={{ mt: 2 }}><DigitalWorkspace workspaceKey={`worksheet-${key}`} label={`Scheda ${sheetId} · Esercizio ${exercise.number}`} problemTitle={exercise.title} problemText={exercise.prompt} onShowSolution={() => revealSolution(key)} /></Box>
                 </Box>
               </Box>
