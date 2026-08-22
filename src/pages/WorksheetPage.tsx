@@ -217,7 +217,7 @@ export function WorksheetPage() {
                   <Stack direction="row" gap={1} alignItems="center"><VisibilityRoundedIcon color="warning" /><Typography fontWeight={700}>Soluzione guidata con i passaggi</Typography></Stack>
                 </AccordionSummary>
                 <AccordionDetails sx={{ px: { xs: 2, sm: 3 }, pb: 3 }}>
-                  <ProgressiveSolution steps={solution.steps} result={solution.result} />
+                  <ProgressiveSolution storageKey={`worksheet-${key}`} steps={solution.steps} result={solution.result} />
                 </AccordionDetails>
               </Accordion>
 

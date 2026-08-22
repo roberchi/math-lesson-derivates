@@ -150,7 +150,7 @@ export function VerificationPage() {
                   </Stack>
                 </AccordionSummary>
                 <AccordionDetails sx={{ px: { xs: 2.5, sm: 3 }, pb: 3 }}>
-                  <ProgressiveSolution steps={problem.steps} result={problem.result} />
+                  <ProgressiveSolution storageKey={`verification-${problem.number}`} steps={problem.steps} result={problem.result} />
                 </AccordionDetails>
               </Accordion>
             </Paper>
