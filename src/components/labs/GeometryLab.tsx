@@ -145,7 +145,7 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
     }
   }, [model, x0, h, rightSlope, leftSlope, tangentSlope, showNormal, singularMode]);
 
-  const format = (value: number) => Number.isFinite(value) ? value.toFixed(4) : 'non finita';
+  const format = (value: number) => Number.isFinite(value) ? value.toFixed(4) : 'non definita';
 
   return (
     <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
