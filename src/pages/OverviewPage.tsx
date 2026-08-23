@@ -14,6 +14,7 @@ import {
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import DrawOutlinedIcon from '@mui/icons-material/DrawOutlined';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import RouteRoundedIcon from '@mui/icons-material/RouteRounded';
 import { Link, useNavigate } from 'react-router-dom';
@@ -122,6 +123,26 @@ export function OverviewPage() {
           ))}
         </Grid>
       </Box>
+
+      <Paper elevation={0} sx={{ mt: 5, p: { xs: 2.5, sm: 3 }, border: '1px solid', borderColor: 'divider' }}>
+        <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ sm: 'center' }} justifyContent="space-between" gap={2}>
+          <Box>
+            <Typography variant="h3" sx={{ fontSize: '1.35rem', mb: .5 }}>Codice sorgente</Typography>
+            <Typography variant="body2" color="text.secondary">Consulta il progetto, la documentazione e lo storico delle modifiche su GitHub.</Typography>
+          </Box>
+          <Button
+            component="a"
+            href="https://github.com/roberchi/math-lesson-derivates"
+            target="_blank"
+            rel="noreferrer"
+            variant="outlined"
+            startIcon={<GitHubIcon />}
+            sx={{ flexShrink: 0 }}
+          >
+            Apri il repository
+          </Button>
+        </Stack>
+      </Paper>
     </>
   );
 }
