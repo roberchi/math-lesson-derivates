@@ -22,7 +22,7 @@ export function LessonOnePage() {
 
 function VelocitySection() {
   return (
-    <LessonScaffold sectionId="velocita" eyebrow="Lezione 1 · 0:00–0:10" title="Una velocità in un solo istante" lead="Prima della formula viene il problema: la velocità media descrive un intervallo, ma come possiamo misurare il movimento in un istante che non ha durata?">
+    <LessonScaffold sectionId="velocita" eyebrow="Lezione 1 · 0:00–0:10" title="Una velocità in un solo istante" lead="Prima della formula viene il problema: la velocità media è la velocità associata a un intervallo temporale, ma come possiamo esprimere la velocità da associare a un istante che non ha durata?">
       <SectionBlock eyebrow="La situazione concreta" title="Un oggetto sta cadendo">
         <Typography paragraph>Immagina di osservare un oggetto che cade. Il suo spazio percorso non cresce sempre allo stesso ritmo: ogni secondo va più veloce. Conoscendo due posizioni possiamo calcolare la velocità media, ma il tachimetro mostra qualcosa di diverso: una velocità in quell’istante.</Typography>
         <Grid container spacing={2} mt={1}>
