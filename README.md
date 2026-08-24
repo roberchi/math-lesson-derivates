@@ -1,87 +1,93 @@
-# Derivate — dal limite alla padronanza
+# Derivatives — from limits to mastery
 
-Applicazione didattica interattiva per accompagnare lo studente dalla definizione di derivata fino al suo uso consapevole.
+An interactive educational application that guides students from the definition of the derivative through to its conscious use.
 
-## Versione online
+## Live version
 
-La piattaforma è disponibile qui:
+The platform is available here:
 
-**[Apri gli esercizi online](https://math-lesson-derivates.vercel.app/esercizi)**
+**[Open the exercises online](https://math-lesson-derivates.vercel.app/esercizi)**
 
-## Obiettivo del progetto
+## Project goal
 
-Il progetto presenta la derivata come un concetto geometrico e operativo, evitando di ridurla a un semplice elenco di formule. Il percorso aiuta lo studente a:
+The project presents the derivative as a geometric and operational concept, avoiding the reduction of it to a simple list of formulas. The learning path helps students to:
 
-- comprendere il passaggio dalla secante alla tangente e il significato del rapporto incrementale;
-- interpretare graficamente derivata prima, derivata seconda e concavità;
-- imparare le derivate fondamentali e le regole di derivazione;
-- riconoscere gli strati di una funzione composta;
-- esplorare Taylor e i principali teoremi legati alle derivate;
-- esercitarsi con suggerimenti progressivi, verifiche e soluzioni svolte passo per passo.
+- understand the transition from secant to tangent and the meaning of the difference quotient;
+- interpret the first derivative, second derivative and concavity graphically;
+- learn the fundamental derivatives and differentiation rules;
+- recognise the layers of a composite function;
+- explore Taylor series and the main theorems related to derivatives;
+- practise with progressive hints, assessments and step-by-step worked solutions.
 
-L’app include simulatori interattivi, grafici, glossario, schede di lavoro e un foglio digitale compatibile con mouse e stilo. Disegni, autovalutazioni e avanzamento vengono salvati localmente nel browser.
+The app includes interactive simulators, graphs, a glossary, worksheets and a digital notepad compatible with mouse and stylus. Drawings, self-assessments and progress are saved locally in the browser.
 
-## Come usare l’app
+## How to use the app
 
-1. Parti dalla panoramica per seguire le lezioni nell’ordine consigliato.
-2. Interagisci con grafici e simulatori per collegare formule e significato geometrico.
-3. Completa gli esercizi proposti al termine delle sezioni.
-4. Usa le schede e il foglio digitale a tutto schermo per scrivere i passaggi.
-5. Confronta il procedimento con le soluzioni guidate.
-6. Consulta la sezione **Esercizi** per allenarti per classe di difficoltà e monitorare la padronanza.
+1. Start from the overview and follow the lessons in the recommended order.
+2. Interact with graphs and simulators to connect formulas to their geometric meaning.
+3. Complete the exercises proposed at the end of each section.
+4. Use the worksheets and the full-screen digital notepad to write out your working.
+5. Compare your working with the guided solutions.
+6. Visit the **Exercises** section to practise by difficulty class and monitor your mastery.
 
-Il progresso è memorizzato nel browser utilizzato. Dalle impostazioni è possibile esportarlo, importarlo oppure azzerarlo.
+Progress is stored in the browser being used. From the settings page it can be exported, imported or reset.
 
-## Avvio in locale
+## Running locally
 
-### Requisiti
+### Requirements
 
-- Node.js 20 consigliato;
+- Node.js 20 recommended;
 - npm.
 
-Se utilizzi NVM:
+If you use NVM:
 
 ```bash
 nvm use 20
 ```
 
-Installa le dipendenze e avvia il server di sviluppo:
+Install dependencies and start the development server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Vite mostrerà nel terminale l’indirizzo locale da aprire nel browser, normalmente `http://localhost:5173`.
+Vite will show the local address to open in the browser, normally `http://localhost:5173`.
 
-## Comandi disponibili
+## Available commands
 
 ```bash
-npm run dev        # avvia il server di sviluppo
-npm run build      # crea la build di produzione
-npm run preview    # mostra localmente la build
-npm run typecheck  # controlla i tipi TypeScript
-npm run lint       # esegue ESLint
-npm test           # esegue i test automatici
+npm run dev        # start the development server
+npm run build      # create the production build
+npm run preview    # preview the production build locally
+npm run typecheck  # check TypeScript types
+npm run lint       # run ESLint
+npm test           # run automated tests
 ```
 
-## Tecnologie principali
+## Main technologies
 
-- Vite e TypeScript;
+- Vite and TypeScript;
 - React;
 - Material UI;
-- KaTeX per le formule matematiche;
-- Zustand per stato, progresso e salvataggio locale;
-- Vitest per i test automatici.
+- KaTeX for mathematical formulas;
+- Zustand for state, progress and local persistence;
+- Vitest for automated tests.
 
-## Struttura essenziale
+## Essential structure
 
 ```text
 src/
-├── components/  componenti didattici, grafici e layout
-├── data/        contenuti del corso ed esercizi
-├── pages/       lezioni, schede, verifica e risultati
-├── store/       stato e persistenza locale
-├── types/       tipi TypeScript
-└── utils/       funzioni di supporto e calcolo
+├── components/  educational components, graphs and layout
+├── data/        course content and exercises
+├── pages/       lessons, worksheets, test and results
+├── store/       state and local persistence
+├── types/       TypeScript types
+└── utils/       helper and calculation functions
 ```
+
+## Translations
+
+The app is available in five languages: Italian (original), English, French, German and Spanish.
+
+> **Note:** translations from Italian into English, French, German and Spanish were generated automatically using a local [Argos Translate](https://github.com/argosopentech/argos-translate) model and subsequently reviewed and corrected manually. Despite the review, some phrasing may still sound unnatural or contain minor inaccuracies. Contributions and corrections are welcome via pull request.
