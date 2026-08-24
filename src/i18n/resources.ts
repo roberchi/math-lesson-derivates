@@ -262,7 +262,7 @@ export const resources = {
         curvature: { term: 'Krümmung', definition: 'Ein geometrisches Maß dafür, wie schnell eine Kurve ihre Richtung ändert. Sie ergänzt das bloße Vorzeichen von f″.' },
         osculatingCircle: { term: 'Krümmungskreis', definition: 'Ein Kreis, der Position, Richtung und Krümmung einer Kurve lokal annähert.' },
         maclaurin: { term: 'Maclaurin', definition: 'Der Spezialfall des Taylorpolynoms mit Zentrum x₀=0, benannt nach Colin Maclaurin.' },
-        adequality: { term: 'Adequality', definition: 'Eine historische Methode zum Finden von Tangenten und Extrema, die Fermat vor der Infinitesimalrechnung entwickelte.' },
+        adequality: { term: 'Adäqualität', definition: 'Eine historische Methode zum Finden von Tangenten und Extrema, die Fermat vor der Infinitesimalrechnung entwickelte.' },
         darboux: { term: 'Darboux', definition: 'Der Satz, dass eine Ableitung auch bei Unstetigkeit alle Zwischenwerte annimmt.' },
         cauchy: { term: 'Cauchy', definition: 'Der Mathematiker, der Grenzwerte, Stetigkeit und den verallgemeinerten Mittelwertsatz streng begründete.' },
       } },

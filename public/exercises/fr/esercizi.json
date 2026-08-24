@@ -1,10 +1,10 @@
 {
   "meta": {
     "version": "2.0",
-    "subject": "Produits dérivéeeeees",
+    "subject": "Dérivées",
     "level": "Lycée scientifique — Quatrième fin",
     "author": "Corso Interattivo Derivate",
-    "description": "Exercice de livres sur les dérivéeeeees organisés par classe et difficulté. Chaque exercice comprend le problème, la solution, les étapes avec explication et, le cas échéant, la démonstration complète à partir de la limite de taux d'accroissement."
+    "description": "Exercices sur les dérivées organisés par classe et difficulté. Chaque exercice comprend le problème, la solution, les étapes avec explication et, le cas échéant, la démonstration complète à partir de la limite de taux d'accroissement."
   },
   "difficulty_levels": {
     "1": {
@@ -46,12 +46,12 @@
             "base"
           ],
           "problem": {
-            "text": "Calculer la dérivéeeeee de \\(f(x) = 7\\) en utilisant la définition par limite de taux d'accroissement.",
+            "text": "Calculer la dérivée de \\(f(x) = 7\\) en utilisant la définition par limite de taux d'accroissement.",
             "hint": "Ce qui arrive à \\(f(x+h) - f(x)\\) lorsque \\(f\\) C'est constant ?"
           },
           "answer": {
             "latex": "f'(x) = 0",
-            "text": "La dérivéeeeee d'une constante est zéro."
+            "text": "La dérivée d'une constante est zéro."
           },
           "proof_from_limit": {
             "title": "Démonstration à partir de la limite de taux d'accroissement",
@@ -83,7 +83,7 @@
             {
               "label": "Appliquer la règle",
               "latex": "f'(x) = (7)' = 0",
-              "explanation": "La dérivéeeeee de toute constante est 0."
+              "explanation": "La dérivée de toute constante est 0."
             }
           ],
           "distractors": [
@@ -119,7 +119,7 @@
           },
           "answer": {
             "latex": "f'(x) = 3",
-            "text": "La dérivéeeeee C'est la pente de la droite, c'est-à-dire la pente."
+            "text": "La dérivée C'est la pente de la droite, c'est-à-dire la pente."
           },
           "proof_from_limit": {
             "title": "Démonstration à partir de la limite de taux d'accroissement",
@@ -145,7 +145,7 @@
                 "explanation": "Comme le rapport ne dépend pas de \\(h\\), la limite est simplement 3."
               }
             ],
-            "conclusion": "Pour une droite \\(y = mx + q\\), dérivé toujours \\(m\\) ii) pente). Cela confirme que la pente de mesure dérivéeeeee."
+            "conclusion": "Pour une droite \\(y = mx + q\\), dérivé toujours \\(m\\) ii) pente). Cela confirme que la pente de mesure dérivée."
           },
           "solution_steps": [
             {
@@ -156,7 +156,7 @@
             {
               "label": "Différentiel",
               "latex": "f'(x) = 3",
-              "explanation": "La dérivéeeeee de \\(mx+q\\) C'est \\(m\\). Le terme constant disparaît."
+              "explanation": "La dérivée de \\(mx+q\\) C'est \\(m\\). Le terme constant disparaît."
             }
           ],
           "distractors": [
@@ -192,7 +192,7 @@
           },
           "answer": {
             "latex": "f'(x) = 2x",
-            "text": "La dérivéeeeee de x2 est 2x."
+            "text": "La dérivée de x2 est 2x."
           },
           "proof_from_limit": {
             "title": "Démonstration à partir de la limite de taux d'accroissement",
@@ -200,7 +200,7 @@
               {
                 "label": "Calculer \\(f(x+h)\\) développement du carré",
                 "latex": "f(x+h) = (x+h)^2 = x^2 + 2xh + h^2",
-                "explanation": "Nous utilisons le carré d'une binomy: \\((a+b)^2 = a^2+2ab+b^2\\)."
+                "explanation": "Nous utilisons le carré d'un binôme : \\((a+b)^2 = a^2+2ab+b^2\\)."
               },
               {
                 "label": "Calculer \\(f(x+h)-f(x)\\)",
@@ -268,7 +268,7 @@
               {
                 "label": "Développement \\((x+h)^3\\)",
                 "latex": "(x+h)^3 = x^3 + 3x^2h + 3xh^2 + h^3",
-                "explanation": "Utilisation d'un cube binomy (ou formule Newton avec \\(n=3\\))."
+                "explanation": "Utilisation du cube d'un binôme (ou formule de Newton avec \\(n=3\\))."
               },
               {
                 "label": "Calculer la différence",
@@ -566,7 +566,7 @@
             },
             {
               "latex": "f'(2)=f(2)\\text{ pour chaque fonction}",
-              "feedback": "La valeur de la fonction et la valeur des dérivéeeeees mesurent différentes tailles.",
+              "feedback": "La valeur de la fonction et la valeur des dérivées mesurent différentes tailles.",
               "misconceptionId": "value-vs-derivative"
             }
           ],
@@ -585,7 +585,7 @@
           "difficulty": 2,
           "tags": [
             "concept",
-            "dérivéeeeees unilatérales"
+            "dérivées unilatérales"
           ],
           "problem": {
             "text": "Pourquoi \\(f(x)=|x|\\) Ce n'est pas différent en zéro ?"
@@ -697,7 +697,7 @@
                 "explanation": "Une multiplication constante \\(c\\) peut être sorti de taux d'accroissement e) donc à partir de la limite)."
               },
               {
-                "label": "Pour \\(f(x)=x^4\\): développement avec la binomy de Newton",
+                "label": "Pour \\(f(x)=x^4\\): développement avec le binôme de Newton",
                 "latex": "(x+h)^4 = x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4",
                 "explanation": "Seul le terme \\(4x^3 h\\) contribue à la limite après scission par \\(h\\)."
               },
@@ -718,7 +718,7 @@
             {
               "label": "Sortez la constante",
               "latex": "(5x^4)' = 5 \\cdot (x^4)'",
-              "explanation": "La dérivéeeeee est une opération linéaire : les constantes sortent."
+              "explanation": "La dérivée est une opération linéaire : les constantes sortent."
             },
             {
               "label": "Appliquer la règle",
@@ -958,7 +958,7 @@
           "distractors": [
             {
               "latex": "-f'(x) = \\cos x",
-              "feedback": "Vérifiez le cycle des dérivéeeeees et le point où le signe moins apparaît.",
+              "feedback": "Vérifiez le cycle des dérivées et le point où le signe moins apparaît.",
               "misconceptionId": "elementary-sign"
             },
             {
@@ -1011,7 +1011,7 @@
               {
                 "label": "Conclusion",
                 "latex": "f'(x) = e^x \\cdot 1 = e^x",
-                "explanation": "Le résultat surprenant: \\(e^x\\) est sa propre dérivéeeeee."
+                "explanation": "Le résultat surprenant: \\(e^x\\) est sa propre dérivée."
               }
             ],
             "conclusion": "\\((e^x)'=e^x\\). C'est la seule fonction (moins que la multiplication constante) avec cette propriété, et décrit tout phénomène dans lequel le taux de croissance est proportionnel à la magnitude elle-même (croissance bactérienne, désintégration radioactive, intérêts composés)."
@@ -1026,7 +1026,7 @@
           "distractors": [
             {
               "latex": "-f'(x) = e^x",
-              "feedback": "Vérifiez le cycle des dérivéeeeees et le point où le signe moins apparaît.",
+              "feedback": "Vérifiez le cycle des dérivées et le point où le signe moins apparaît.",
               "misconceptionId": "elementary-sign"
             },
             {
@@ -1085,7 +1085,7 @@
           "distractors": [
             {
               "latex": "-f'(x) = 3\\cos x - 2e^x",
-              "feedback": "Vérifiez le cycle des dérivéeeeees et le point où le signe moins apparaît.",
+              "feedback": "Vérifiez le cycle des dérivées et le point où le signe moins apparaît.",
               "misconceptionId": "elementary-sign"
             },
             {
@@ -1207,7 +1207,7 @@
             {
               "label": "Identifier et différencier",
               "latex": "f=e^x,\\ g=\\cos x \\Rightarrow f'=e^x,\\ g'=-\\sin x",
-              "explanation": "Des notes dérivéeeeees."
+              "explanation": "Des notes dérivées."
             },
             {
               "label": "Appliquer règle du produit",
@@ -1348,7 +1348,7 @@
               "explanation": "Identification des pièces."
             },
             {
-              "label": "Calcule, je te le donne. dérivéeeeees",
+              "label": "Calcule, je te le donne. dérivées",
               "latex": "f'=\\cos x, \\quad g'=-\\sin x",
               "explanation": "Dérivée notes élémentaires."
             },
@@ -1366,7 +1366,7 @@
           "distractors": [
             {
               "latex": "f'(x)=\\frac{f'(x)}{g'(x)}",
-              "feedback": "La dérivéeeeee du quotient n'est pas celle du quotient.",
+              "feedback": "La dérivée du quotient n'est pas celle du quotient.",
               "misconceptionId": "quotient-derivatives"
             },
             {
@@ -1403,7 +1403,7 @@
             {
               "label": "Identifier et différencier",
               "latex": "f=x^2+1 \\Rightarrow f'=2x; \\quad g=x-1 \\Rightarrow g'=1",
-              "explanation": "Des dérivéeeeees simples."
+              "explanation": "Des dérivées simples."
             },
             {
               "label": "Appliquer la règle",
@@ -1414,7 +1414,7 @@
           "distractors": [
             {
               "latex": "f'(x)=\\frac{f'(x)}{g'(x)}",
-              "feedback": "La dérivéeeeee du quotient n'est pas celle du quotient.",
+              "feedback": "La dérivée du quotient n'est pas celle du quotient.",
               "misconceptionId": "quotient-derivatives"
             },
             {
@@ -1523,7 +1523,7 @@
           },
           "answer": {
             "latex": "f'(x) = 3e^{3x-1}",
-            "text": "La dérivéeeeee de l'exponent est elle-même multipliée par la dérivéeeeee de l'exposant."
+            "text": "La dérivée de l'exponent est elle-même multipliée par la dérivée de l'exposant."
           },
           "proof_from_limit": null,
           "solution_steps": [
@@ -1690,7 +1690,7 @@
             {
               "label": "Identification",
               "latex": "f(u)=\\ln u,\\ g(x)=\\cos x \\Rightarrow f'(u)=\\tfrac{1}{u},\\ g'(x)=-\\sin x",
-              "explanation": "\\((\\ln u)'=1/u\\) est le résultat de la dérivéeeeee du logarithme (montrable à partir de la limite)."
+              "explanation": "\\((\\ln u)'=1/u\\) est le résultat de la dérivée du logarithme (montrable à partir de la limite)."
             },
             {
               "label": "Chaîne",
@@ -1739,7 +1739,7 @@
             },
             {
               "latex": "\\text{Nous devons remplacer }x^2\\text{ avec }x",
-              "feedback": "L'intérieur reste à l'intérieur de la dérivéeeeee extérieure.",
+              "feedback": "L'intérieur reste à l'intérieur de la dérivée extérieure.",
               "misconceptionId": "chain-remove-inner"
             },
             {
@@ -1797,10 +1797,10 @@
               {
                 "label": "Pour \\(x\\to x_0\\), le secret devient la tangente",
                 "latex": "m_{\\text{bronzage}} = \\lim_{x\\to x_0}\\frac{f(x)-f(x_0)}{x-x_0} = f'(x_0)",
-                "explanation": "Remplacement \\(x=x_0+h\\), cette limite est exactement la définition de \\(f'(x_0)\\). La dérivéeeeee C'est la pente de la tangente."
+                "explanation": "Remplacement \\(x=x_0+h\\), cette limite est exactement la définition de \\(f'(x_0)\\). La dérivée C'est la pente de la tangente."
               }
             ],
-            "conclusion": "La dérivéeeeee n'est pas seulement une formule abstraite : elle est littéralement la pente du graphe touchant droit à un moment donné."
+            "conclusion": "La dérivée n'est pas seulement une formule abstraite : elle est littéralement la pente du graphe touchant droit à un moment donné."
           },
           "solution_steps": [
             {
