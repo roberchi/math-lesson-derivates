@@ -11,8 +11,8 @@
           "solution": {
             "steps": [
               "Calculamos \\(f(2)=0\\) y \\(f(2+h)=(2+h)^2-3(2+h)+2=h+h^2\\).",
-              "El cociente incremental Es $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
-              "Pasando al límite \\(h\\to0\\) tenemos el derivada en el punto."
+              "El cociente incremental es $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
+              "Pasando al límite \\(h\\to0\\) obtenemos la derivada en el punto."
             ],
             "result": "\\(\\boxed{f^{\\prime}(2)=1}\\)"
           }
@@ -27,7 +27,7 @@
             "steps": [
               "a) Para \\(f(x)=3x+5\\): \\(\\frac{f(x+h)-f(x)}h=\\frac{3h}{h}=3\\), por consiguiente \\(f^{\\prime}(x)=3\\).",
               "b) Para \\(f(x)=x^3\\): $$\\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2\\longrightarrow3x^2.$$",
-              "c) Para \\(f(x)=1/x\\)Con \\(x\\ne0\\): $$\\frac{1/(x+h)-1/x}{h}=-\\frac{1}{x(x+h)}\\longrightarrow-\\frac1{x^2}.$$",
+              "c) Para \\(f(x)=1/x\\), con \\(x\\ne0\\): $$\\frac{1/(x+h)-1/x}{h}=-\\frac{1}{x(x+h)}\\longrightarrow-\\frac1{x^2}.$$",
               "La función \\(1/x\\) y su derivada tienen dominio \\(\\mathbb R\\setminus\\{0\\}\\)."
             ],
             "result": "\\(\\boxed{3}\\), \\(\\boxed{3x^2}\\), \\(\\boxed{-1/x^2}\\)"
@@ -41,9 +41,9 @@
           "prompt": "Para \\(f(x)=x^2\\): a) halla la tangente en \\(x_0=3\\); b) busca los puntos donde la tangente es paralela al eje x; c) busca los puntos donde la tangente forma un ángulo de 45° con el eje x.",
           "solution": {
             "steps": [
-              "Para \\(f(x)=x^2\\), sí \\(f^{\\prime}(x)=2x\\). In \\(x_0=3\\): \\(m=6\\) y \\(P=(3,9)\\), por consiguiente \\(y-9=6(x-3)\\).",
-              "Un paralelo tangente a la pendiente cero del eje x: \\(2x=0\\), por lo tanto el punto es \\((0,0)\\).",
-              "Un rincón de \\(45^\\circ\\) la pendiente \\(\\tan45^\\circ=1\\): \\(2x=1\\), por consiguiente \\(x=1/2\\) y \\(P=(1/2,1/4)\\)."
+              "Como \\(f(x)=x^2\\), se tiene \\(f^{\\prime}(x)=2x\\). En \\(x_0=3\\): \\(m=6\\) y \\(P=(3,9)\\), por consiguiente \\(y-9=6(x-3)\\).",
+              "Una tangente paralela al eje x tiene pendiente cero: \\(2x=0\\), por lo tanto el punto es \\((0,0)\\).",
+              "Un ángulo de \\(45^\\circ\\) da pendiente \\(\\tan45^\\circ=1\\): \\(2x=1\\), por consiguiente \\(x=1/2\\) y \\(P=(1/2,1/4)\\)."
             ],
             "result": "\\(\\boxed{y=6x-9}\\); \\((0,0)\\); \\(\\boxed{y=x-1/4}\\)"
           }
@@ -56,9 +56,9 @@
           "prompt": "Estudia la derivabilidad de \\(f(x)=|x-2|\\) en \\(x_0=2\\), calculando por separado las derivadas lateral derecha e izquierda. Dibuja la gráfica.",
           "solution": {
             "steps": [
-              "Escribamos. función de la pieza: \\(f(x)=2-x\\) Si tú \\(x<2\\)Mientras tanto \\(f(x)=x-2\\) Si tú \\(x\\ge2\\).",
-              "La izquierda derivada \\(f_-^{\\prime}(2)=-1\\); derecho derivada \\(f_+^{\\prime}(2)=1\\).",
-              "Los dos límites son finitos pero diferentes: en gráfica aparece un punto ángulo."
+              "Escribimos la función a trozos: \\(f(x)=2-x\\) si \\(x<2\\), mientras que \\(f(x)=x-2\\) si \\(x\\ge2\\).",
+              "La derivada lateral izquierda vale \\(f_-^{\\prime}(2)=-1\\); la derivada lateral derecha vale \\(f_+^{\\prime}(2)=1\\).",
+              "Los dos límites son finitos pero diferentes: en la gráfica aparece un punto angular."
             ],
             "result": "\\(\\boxed{f\\text{ no es derivable en }x=2}\\)"
           }
@@ -71,11 +71,11 @@
           "prompt": "Estudia la derivabilidad de \\(f(x)=x|x|\\) en \\(x_0=0\\). Escribe la función a trozos y esboza su gráfica antes de calcular.",
           "solution": {
             "steps": [
-              "La forma en sentido parcial es \\(x|x|=-x^2\\) para \\(x<0\\) y \\(x|x|=x^2\\) para \\(x\\ge0\\).",
-              "Desde cociente incremental en cero: \\(\\frac{f(h)-f(0)}h=|h|\\).",
-              "Tanto de izquierda como de derecha \\(|h|\\to0\\), por lo tanto los dos límites coinciden."
+              "La forma a trozos es \\(x|x|=-x^2\\) para \\(x<0\\) y \\(x|x|=x^2\\) para \\(x\\ge0\\).",
+              "Del cociente incremental en cero: \\(\\frac{f(h)-f(0)}h=|h|\\).",
+              "Tanto desde la izquierda como desde la derecha \\(|h|\\to0\\), por lo tanto los dos límites coinciden."
             ],
-            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): la función es diferencial en cero."
+            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): la función es derivable en cero."
           }
         }
       ]
@@ -90,9 +90,9 @@
           "prompt": "Deriva: a) \\(5x^4-3x^2+7\\); b) \\(\\sqrt{x}+1/x^2\\); c) \\(2e^x-4\\ln x\\); d) \\(3\\sin x-\\cos x\\).",
           "solution": {
             "steps": [
-              "a) Aplicamos el término regla de potencia por término: \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
-              "b) Escribimos \\(\\sqrt x=x^{1/2}\\) y \\(1/x^2=x^{-2}\\): derivada Es \\(1/(2\\sqrt x)-2/x^3\\)Para \\(x>0\\).",
-              "c) \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\)Con \\(x>0\\).",
+              "a) Aplicamos la regla de la potencia término a término: \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
+              "b) Escribimos \\(\\sqrt x=x^{1/2}\\) y \\(1/x^2=x^{-2}\\): la derivada es \\(1/(2\\sqrt x)-2/x^3\\), para \\(x>0\\).",
+              "c) \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\), con \\(x>0\\).",
               "d) \\((3\\sin x-\\cos x)^{\\prime}=3\\cos x+\\sin x\\)."
             ],
             "result": "\\(\\boxed{20x^3-6x}\\); \\(\\boxed{\\frac1{2\\sqrt x}-\\frac2{x^3}}\\); \\(\\boxed{2e^x-\\frac4x}\\); \\(\\boxed{3\\cos x+\\sin x}\\)"
@@ -120,7 +120,7 @@
           "solution": {
             "steps": [
               "a) Regla del cociente: $$\\left(\\frac{x^2+1}{x-1}\\right)^{\\prime}=\\frac{2x(x-1)-(x^2+1)}{(x-1)^2}=\\frac{x^2-2x-1}{(x-1)^2}.$$",
-              "b) Escritura \\(\\tan x=\\sin x/\\cos x\\): $$\\frac{\\cos^2x+\\sin^2x}{\\cos^2x}=\\frac1{\\cos^2x}.$$"
+              "b) Escribiendo \\(\\tan x=\\sin x/\\cos x\\): $$\\frac{\\cos^2x+\\sin^2x}{\\cos^2x}=\\frac1{\\cos^2x}.$$"
             ],
             "result": "\\(\\boxed{\\frac{x^2-2x-1}{(x-1)^2}}\\); \\(\\boxed{\\sec^2x}\\), donde \\(\\cos x\\ne0\\)"
           },
@@ -135,7 +135,7 @@
           "solution": {
             "steps": [
               "a) Seno externo, interno \\(x^2\\): \\(2x\\cos(x^2)\\).",
-              "b) Extensión externa, interna \\(3x-1\\): \\(3e^{3x-1}\\).",
+              "b) Exponencial externa, interna \\(3x-1\\): \\(3e^{3x-1}\\).",
               "c) Cuarta potencia externa, interna \\(x^3+5\\): \\(4(x^3+5)^3\\cdot3x^2=12x^2(x^3+5)^3\\).",
               "d) Logaritmo externo, interior \\(\\cos x\\): \\(-\\sin x/\\cos x=-\\tan x\\), en el dominio \\(\\cos x>0\\)."
             ],
@@ -150,11 +150,11 @@
           "prompt": "Dada \\(f(x)=x^4-6x^2+1\\), calcula \\(f′′(x)\\) y determina los posibles puntos de inflexión.",
           "solution": {
             "steps": [
-              "Vamos dos veces: \\(f^{\\prime}(x)=4x^3-12x\\) y \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
-              "Ponendo \\(f^{\\prime\\prime}(x)=0\\) Nos encontramos \\(x=-1\\) y \\(x=1\\). El signo de segunda derivada cambios en ambos.",
-              "Calculando el pedido: \\(f(-1)=f(1)=-4\\)."
+              "Derivamos dos veces: \\(f^{\\prime}(x)=4x^3-12x\\) y \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
+              "Poniendo \\(f^{\\prime\\prime}(x)=0\\) encontramos \\(x=-1\\) y \\(x=1\\). El signo de la segunda derivada cambia en ambos.",
+              "Calculando las ordenadas: \\(f(-1)=f(1)=-4\\)."
             ],
-            "result": "\\(\\boxed{(-1,-4)\\text{ e }(1,-4)}\\) Soy yo. puntos de inflexión."
+            "result": "\\(\\boxed{(-1,-4)\\text{ y }(1,-4)}\\) son puntos de inflexión."
           }
         },
         {
@@ -165,9 +165,9 @@
           "prompt": "Para \\(f(x)=e^x\\sin(2x)\\), calcula \\(f′(x)\\) y determina los puntos estacionarios en \\([0,\\pi]\\).",
           "solution": {
             "steps": [
-              "El producto y regla de la cadenaS dar \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
-              "Para \\(e^x>0\\), imponemos \\(\\sin(2x)+2\\cos(2x)=0\\)Quiero decir, \\(\\tan(2x)=-2\\).",
-              "Lugar \\(\\alpha=\\arctan2\\)en el rango \\([0,\\pi]\\) # \\(x=(\\pi-\\alpha)/2\\) y \\(x=\\pi-\\alpha/2\\)."
+              "El producto y la regla de la cadena dan \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
+              "Como \\(e^x>0\\), imponemos \\(\\sin(2x)+2\\cos(2x)=0\\), es decir, \\(\\tan(2x)=-2\\).",
+              "Tomando \\(\\alpha=\\arctan2\\), en el intervalo \\([0,\\pi]\\) se obtienen \\(x=(\\pi-\\alpha)/2\\) y \\(x=\\pi-\\alpha/2\\)."
             ],
             "result": "\\(\\boxed{x=\\frac{\\pi-\\arctan2}{2},\\quad x=\\pi-\\frac{\\arctan2}{2}}\\)"
           }
