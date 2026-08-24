@@ -31,10 +31,13 @@ import { useLessonStore } from '@/store/lessonStore';
 import { useProgressStore } from '@/store/progressStore';
 import { useUIStore } from '@/store/uiStore';
 import { GlobalSnackbar } from '@/components/common/GlobalSnackbar';
+import { LanguageSelector } from '@/components/layout/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const drawerWidth = 306;
 
 function SidebarContent({ close }: { close?: () => void }) {
+  const { t } = useTranslation();
   const completed = useLessonStore((state) => state.readSections);
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,31 +49,32 @@ function SidebarContent({ close }: { close?: () => void }) {
   return (
     <Box sx={{ height: '100%', bgcolor: 'custom.ink', color: '#E7ECF5', display: 'flex', flexDirection: 'column' }}>
       <Box sx={{ p: 3, pb: 2.5 }}>
-        <Typography variant="caption" sx={{ color: '#9EABC0', textTransform: 'uppercase', letterSpacing: '.13em' }}>Il tuo percorso</Typography>
+        <Typography variant="caption" sx={{ color: '#9EABC0', textTransform: 'uppercase', letterSpacing: '.13em' }}>{t('nav.yourPath')}</Typography>
         <Stack direction="row" alignItems="baseline" gap={1} mt={1}>
           <Typography sx={{ fontFamily: 'Crimson Pro', fontSize: '2rem', fontWeight: 700 }}>{coreRead}</Typography>
-          <Typography variant="body2" sx={{ color: '#9EABC0' }}>di {coreSections.length} sezioni fondamentali</Typography>
+          <Typography variant="body2" sx={{ color: '#9EABC0' }}>{t('nav.coreCount', { count: coreSections.length })}</Typography>
         </Stack>
         <LinearProgress variant="determinate" value={percent} sx={{ mt: 1, bgcolor: '#2A3854', '& .MuiLinearProgress-bar': { bgcolor: '#7F94F4' } }} />
       </Box>
 
       <List sx={{ px: 1.25, py: 0, flex: 1, overflowY: 'auto' }}>
-        <NavItem title="Panoramica" icon={<HomeRoundedIcon />} active={location.pathname === '/'} onClick={() => go('/')} />
-        <NavGroup label="Lezione 1" sections={lessonOneSections} completed={completed} pathname={location.pathname} onOpen={go} />
-        <NavGroup label="Lezione 2" sections={lessonTwoSections} completed={completed} pathname={location.pathname} onOpen={go} />
-        <Typography variant="caption" sx={{ px: 1.5, pt: 2, pb: .75, display: 'block', color: '#7F8BA1', textTransform: 'uppercase', letterSpacing: '.12em' }}>Materiali</Typography>
-        <NavItem title="Scheda esercizi §1" icon={<AssignmentOutlinedIcon />} active={location.pathname === '/scheda/1'} onClick={() => go('/scheda/1')} />
-        <NavItem title="Scheda esercizi §2" icon={<AssignmentOutlinedIcon />} active={location.pathname === '/scheda/2'} onClick={() => go('/scheda/2')} />
-        <NavItem title="Verifica finale" icon={<QuizOutlinedIcon />} active={location.pathname === '/verifica'} onClick={() => go('/verifica')} />
-        <NavItem title="Esercizi adattivi" icon={<RouteRoundedIcon />} active={location.pathname === '/esercizi' || location.pathname.startsWith('/class/')} onClick={() => go('/esercizi')} />
-        <NavItem title="Glossario" icon={<RouteRoundedIcon />} active={location.pathname === '/glossario'} onClick={() => go('/glossario')} />
+        <NavItem title={t('common.overview')} icon={<HomeRoundedIcon />} active={location.pathname === '/'} onClick={() => go('/')} />
+        <NavGroup label={t('nav.lesson1')} sections={lessonOneSections} completed={completed} pathname={location.pathname} onOpen={go} />
+        <NavGroup label={t('nav.lesson2')} sections={lessonTwoSections} completed={completed} pathname={location.pathname} onOpen={go} />
+        <Typography variant="caption" sx={{ px: 1.5, pt: 2, pb: .75, display: 'block', color: '#7F8BA1', textTransform: 'uppercase', letterSpacing: '.12em' }}>{t('nav.materials')}</Typography>
+        <NavItem title={t('nav.worksheet1')} icon={<AssignmentOutlinedIcon />} active={location.pathname === '/scheda/1'} onClick={() => go('/scheda/1')} />
+        <NavItem title={t('nav.worksheet2')} icon={<AssignmentOutlinedIcon />} active={location.pathname === '/scheda/2'} onClick={() => go('/scheda/2')} />
+        <NavItem title={t('nav.finalTest')} icon={<QuizOutlinedIcon />} active={location.pathname === '/verifica'} onClick={() => go('/verifica')} />
+        <NavItem title={t('nav.adaptive')} icon={<RouteRoundedIcon />} active={location.pathname === '/esercizi' || location.pathname.startsWith('/class/')} onClick={() => go('/esercizi')} />
+        <NavItem title={t('common.glossary')} icon={<RouteRoundedIcon />} active={location.pathname === '/glossario'} onClick={() => go('/glossario')} />
       </List>
-      <Box sx={{ p: 2.5, borderTop: '1px solid rgba(255,255,255,.1)' }}><Typography variant="caption" sx={{ color: '#9EABC0' }}>NUCLEO {Math.round(percent)}% · APPROFONDIMENTI {enrichmentRead}/{enrichmentSections.length}</Typography></Box>
+      <Box sx={{ p: 2.5, borderTop: '1px solid rgba(255,255,255,.1)' }}><Typography variant="caption" sx={{ color: '#9EABC0' }}>{t('nav.core')} {Math.round(percent)}% · {t('nav.enrichment')} {enrichmentRead}/{enrichmentSections.length}</Typography></Box>
     </Box>
   );
 }
 
 function NavGroup({ label, sections, completed, pathname, onOpen }: { label: string; sections: CourseSection[]; completed: string[]; pathname: string; onOpen: (path: string) => void }) {
+  const { t } = useTranslation();
   return (
     <Box>
       <Typography variant="caption" sx={{ px: 1.5, pt: 2, pb: .75, display: 'block', color: '#7F8BA1', textTransform: 'uppercase', letterSpacing: '.12em' }}>{label}</Typography>
@@ -80,7 +84,7 @@ function NavGroup({ label, sections, completed, pathname, onOpen }: { label: str
         return (
           <ListItemButton key={section.id} selected={active} onClick={() => onOpen(section.path)} sx={{ mb: .25, borderRadius: 1.25, minHeight: 42, color: 'inherit', '&.Mui-selected': { bgcolor: 'rgba(127,148,244,.17)', '&:hover': { bgcolor: 'rgba(127,148,244,.22)' } }, '&:hover': { bgcolor: 'rgba(255,255,255,.06)' } }}>
             <ListItemIcon sx={{ minWidth: 34, color: done ? '#55C59A' : '#9EABC0' }}>{done ? <CheckCircleRoundedIcon sx={{ fontSize: 17 }} /> : <Box sx={{ width: 20, height: 20, border: '1px solid rgba(255,255,255,.2)', borderRadius: '50%', display: 'grid', placeItems: 'center', fontSize: '.62rem' }}>{index + 1}</Box>}</ListItemIcon>
-            <ListItemText primary={<Typography sx={{ fontSize: '.78rem', lineHeight: 1.25, fontWeight: active ? 700 : 500, whiteSpace: 'normal' }}>{section.shortTitle}</Typography>} />
+            <ListItemText primary={<Typography sx={{ fontSize: '.78rem', lineHeight: 1.25, fontWeight: active ? 700 : 500, whiteSpace: 'normal' }}>{t(`course.${section.id}.short`)}</Typography>} />
           </ListItemButton>
         );
       })}
@@ -98,6 +102,7 @@ function NavItem({ title, icon, active, onClick }: { title: string; icon: ReactN
 }
 
 export function AppShell({ children }: { children: ReactNode }) {
+  const { t } = useTranslation();
   const theme = useTheme();
   const desktop = useMediaQuery(theme.breakpoints.up('lg'));
   const completed = useLessonStore((state) => state.readSections);
@@ -109,18 +114,19 @@ export function AppShell({ children }: { children: ReactNode }) {
   return (
     <Box sx={{ minHeight: '100vh' }}>
       <CssBaseline />
-      <Box component="a" href="#main-content" sx={{ position: 'fixed', left: 12, top: -80, zIndex: 2000, bgcolor: 'background.paper', p: 1, '&:focus': { top: 8 } }}>Vai al contenuto</Box>
+      <Box component="a" href="#main-content" sx={{ position: 'fixed', left: 12, top: -80, zIndex: 2000, bgcolor: 'background.paper', p: 1, '&:focus': { top: 8 } }}>{t('header.skip')}</Box>
       <AppBar className="app-chrome" position="fixed" elevation={0} color="inherit" sx={{ zIndex: theme.zIndex.drawer + 1, borderBottom: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
         <Toolbar sx={{ minHeight: '64px !important', px: { xs: 1.5, sm: 3 } }}>
-          {!desktop && <IconButton aria-label="Apri il percorso" onClick={() => setDrawerOpen(true)} sx={{ mr: 1 }}><MenuRoundedIcon /></IconButton>}
+          {!desktop && <IconButton aria-label={t('header.openPath')} onClick={() => setDrawerOpen(true)} sx={{ mr: 1 }}><MenuRoundedIcon /></IconButton>}
           <Stack component={Link} to="/" direction="row" alignItems="center" spacing={1.2} sx={{ textDecoration: 'none', color: 'inherit', minWidth: { sm: 240 } }}>
             <Box sx={{ width: 35, height: 35, bgcolor: 'custom.ink', color: 'white', borderRadius: 1, display: 'grid', placeItems: 'center', fontFamily: 'Crimson Pro', fontSize: '1.35rem', fontStyle: 'italic' }}>f′</Box>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '1.15rem', lineHeight: 1 }}>Derivate</Typography><Typography variant="caption" color="text.secondary">dal limite alla padronanza</Typography></Box>
+            <Box sx={{ display: { xs: 'none', sm: 'block' } }}><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '1.15rem', lineHeight: 1 }}>Derivate</Typography><Typography variant="caption" color="text.secondary">{t('header.subtitle')}</Typography></Box>
           </Stack>
           <Stack direction="row" alignItems="center" spacing={1.5} sx={{ ml: 'auto' }}>
-            <Box sx={{ display: { xs: 'none', md: 'block' }, width: 180 }}><Stack direction="row" justifyContent="space-between" mb={.5}><Typography variant="caption" color="text.secondary">LEZIONI</Typography><Typography variant="caption">{Math.round(globalProgress)}%</Typography></Stack><LinearProgress aria-label="Progresso lezioni" variant="determinate" value={globalProgress} /></Box>
-            <Chip label={`★ ${points} pt`} variant="outlined" sx={{ borderColor: 'custom.gold', color: 'custom.gold', bgcolor: 'custom.goldLight' }} />
-            <Tooltip title="Impostazioni"><IconButton component={Link} to="/settings" aria-label="Impostazioni"><SettingsOutlinedIcon /></IconButton></Tooltip>
+            <Box sx={{ display: { xs: 'none', md: 'block' }, width: 180 }}><Stack direction="row" justifyContent="space-between" mb={.5}><Typography variant="caption" color="text.secondary">{t('header.lessons')}</Typography><Typography variant="caption">{Math.round(globalProgress)}%</Typography></Stack><LinearProgress aria-label={t('header.lessonProgress')} variant="determinate" value={globalProgress} /></Box>
+            <Chip label={t('header.points', { points })} variant="outlined" sx={{ display: { xs: 'none', sm: 'inline-flex' }, borderColor: 'custom.gold', color: 'custom.gold', bgcolor: 'custom.goldLight' }} />
+            <LanguageSelector />
+            <Tooltip title={t('header.settings')}><IconButton component={Link} to="/settings" aria-label={t('header.settings')} sx={{ display: { xs: 'none', sm: 'inline-flex' } }}><SettingsOutlinedIcon /></IconButton></Tooltip>
           </Stack>
         </Toolbar>
       </AppBar>

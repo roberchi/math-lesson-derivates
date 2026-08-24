@@ -5,6 +5,8 @@ import { AppShell } from '@/components/layout/AppShell';
 import { useClassUnlocker } from '@/hooks/useLearningProgress';
 import { useDBStore } from '@/store/dbStore';
 import { useUIStore } from '@/store/uiStore';
+import { useTranslation } from 'react-i18next';
+import { resolveSupportedLanguage } from '@/i18n';
 
 const DashboardPage = lazy(() => import('@/pages/DashboardPage').then((module) => ({ default: module.DashboardPage })));
 const OverviewPage = lazy(() => import('@/pages/OverviewPage').then((module) => ({ default: module.OverviewPage })));
@@ -20,22 +22,30 @@ const ConclusionPage = lazy(() => import('@/pages/ConclusionPage').then((module)
 const GlossaryPage = lazy(() => import('@/pages/GlossaryPage').then((module) => ({ default: module.GlossaryPage })));
 
 export default function App() {
+  const { t, i18n } = useTranslation();
   const loadDB = useDBStore((state) => state.loadDB);
   const notify = useUIStore((state) => state.showSnackbar);
   useClassUnlocker();
-  useEffect(() => { void loadDB(); }, [loadDB]);
+  const language = resolveSupportedLanguage(i18n.resolvedLanguage);
+  useEffect(() => { void loadDB(language); }, [language, loadDB]);
   useEffect(() => {
     const key = 'derivate_progress_v4_notice';
     if (!localStorage.getItem(key)) {
       localStorage.setItem(key, 'shown');
-      notify('Nuovo modello di padronanza: il progresso degli esercizi riparte da zero.', 'info');
+      notify(t('adaptive.masteryNotice', { defaultValue: 'Nuovo modello di padronanza: il progresso degli esercizi riparte da zero.' }), 'info');
     }
-  }, [notify]);
+  }, [notify, t]);
+  useEffect(() => {
+    document.title = t('meta.title');
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t('meta.description'));
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t('meta.title'));
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', t('meta.ogDescription'));
+  }, [i18n.resolvedLanguage, t]);
 
   return (
     <AppShell>
       <ScrollToTop />
-      <Suspense fallback={<Box sx={{ minHeight: 360, display: 'grid', placeItems: 'center' }}><CircularProgress aria-label="Caricamento pagina" /></Box>}>
+      <Suspense fallback={<Box sx={{ minHeight: 360, display: 'grid', placeItems: 'center' }}><CircularProgress aria-label={t('common.loadingPage')} /></Box>}>
         <Routes>
           <Route path="/" element={<OverviewPage />} />
           <Route path="/lezione-1/:sectionId" element={<LessonOnePage />} />

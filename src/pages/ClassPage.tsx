@@ -23,8 +23,10 @@ import { MathText } from '@/components/math/MathText';
 import { useDBStore } from '@/store/dbStore';
 import { useProgressStore } from '@/store/progressStore';
 import { arePrerequisitesMastered, buildAdaptiveOrder, getClassMetrics, stripLatex } from '@/utils/learning';
+import { useTranslation } from 'react-i18next';
 
 export function ClassPage() {
+  const { t } = useTranslation();
   const { classId = '' } = useParams();
   const db = useDBStore((state) => state.db);
   const progress = useProgressStore((state) => state.progress);
@@ -40,24 +42,24 @@ export function ClassPage() {
 
   return (
     <Box sx={{ maxWidth: 900, mx: 'auto' }}>
-      <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit" sx={{ mb: 3 }}>Torna al percorso</Button>
+      <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit" sx={{ mb: 3 }}>{t('classPage.back')}</Button>
       <Box sx={{ borderBottom: '1px solid', borderColor: 'divider', pb: 4, mb: 3 }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3} alignItems={{ sm: 'flex-start' }}>
           <Box sx={{ width: 70, height: 70, flexShrink: 0, bgcolor: 'primary.main', color: 'white', borderRadius: 2, display: 'grid', placeItems: 'center', fontFamily: 'Crimson Pro', fontSize: '2rem', fontWeight: 700 }}>{cls.icon}</Box>
           <Box sx={{ flex: 1 }}>
-            <Typography variant="h4" color="primary.main" mb={1}>Classe {db.classes.findIndex((item) => item.id === cls.id) + 1} di {db.classes.length}</Typography>
+            <Typography variant="h4" color="primary.main" mb={1}>{t('classPage.classOf', { current: db.classes.findIndex((item) => item.id === cls.id) + 1, total: db.classes.length })}</Typography>
             <Typography variant="h2" mb={1} component="div"><MathText text={cls.title} /></Typography>
             <Typography color="text.secondary" sx={{ maxWidth: 700 }}>{cls.description}</Typography>
-            {!!cls.prerequisite_classes.length && <Stack direction="row" spacing={1} mt={2} alignItems="center"><Typography variant="caption" color="text.secondary">PREREQUISITI</Typography>{cls.prerequisite_classes.map((id) => <Chip key={id} size="small" icon={<CheckRoundedIcon />} color="success" variant="outlined" label={stripLatex(db.classes.find((item) => item.id === id)?.title ?? id)} />)}</Stack>}
+            {!!cls.prerequisite_classes.length && <Stack direction="row" spacing={1} mt={2} alignItems="center"><Typography variant="caption" color="text.secondary">{t('classPage.prerequisites')}</Typography>{cls.prerequisite_classes.map((id) => <Chip key={id} size="small" icon={<CheckRoundedIcon />} color="success" variant="outlined" label={stripLatex(db.classes.find((item) => item.id === id)?.title ?? id)} />)}</Stack>}
           </Box>
-          <Box sx={{ minWidth: 115, textAlign: { sm: 'right' } }}><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '2rem' }}>{metrics.completed}/{metrics.total}</Typography><Typography variant="caption" color="text.secondary">COMPLETATI</Typography></Box>
+          <Box sx={{ minWidth: 115, textAlign: { sm: 'right' } }}><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '2rem' }}>{metrics.completed}/{metrics.total}</Typography><Typography variant="caption" color="text.secondary">{t('classPage.completed')}</Typography></Box>
         </Stack>
       </Box>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={2} mb={2}>
-        <Box><Typography variant="h3">Esercizi</Typography><Typography variant="body2" color="text.secondary">L’ordine si adatta ai tuoi risultati: prima ciò che serve consolidare.</Typography></Box>
+        <Box><Typography variant="h3">{t('common.exercises')}</Typography><Typography variant="body2" color="text.secondary">{t('classPage.intro')}</Typography></Box>
         <Button variant="contained" endIcon={<ArrowForwardRoundedIcon />} onClick={() => navigate(`/class/${classId}/exercise/${next.id}`)}>
-          {metrics.completed ? metrics.completed === metrics.total ? 'Ripassa' : 'Continua' : 'Inizia la classe'}
+          {metrics.completed ? metrics.completed === metrics.total ? t('classPage.review') : t('classPage.continue') : t('classPage.start')}
         </Button>
       </Stack>
       <LinearProgress variant="determinate" value={metrics.progressPercent} sx={{ mb: 2.5 }} />
@@ -79,7 +81,7 @@ export function ClassPage() {
                 />
                 <Stack direction="row" alignItems="center" spacing={1} sx={{ display: { xs: 'none', sm: 'flex' } }}>
                   <DifficultyChip level={exercise.difficulty} />
-                  {exercise.proof_from_limit && <Chip size="small" label="📐" title="Dimostrazione disponibile" sx={{ bgcolor: 'custom.goldLight', color: 'custom.gold' }} />}
+                  {exercise.proof_from_limit && <Chip size="small" label="📐" title={t('classPage.proofAvailable')} sx={{ bgcolor: 'custom.goldLight', color: 'custom.gold' }} />}
                   <Typography variant="caption" sx={{ minWidth: 35, textAlign: 'right' }}>{attempt?.done ? `${attempt.score ?? 0} pt` : '—'}</Typography>
                 </Stack>
               </ListItemButton>
@@ -90,8 +92,8 @@ export function ClassPage() {
 
       {metrics.completed === metrics.total && (
         <Stack mt={3} direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} sx={{ bgcolor: metrics.mastered ? 'success.light' : 'warning.light', color: metrics.mastered ? 'success.dark' : 'warning.dark', p: 2.5, borderRadius: 2 }}>
-          <Typography fontWeight={700}>{metrics.mastered ? 'Classe padroneggiata: il seguito può sbloccarsi.' : 'Classe completata ma da recuperare: serve almeno il 70% e due risposte corrette.'}</Typography>
-          <Button endIcon={<ArrowForwardRoundedIcon />} onClick={() => navigate(`/class/${classId}/results`)}>Vedi risultati</Button>
+          <Typography fontWeight={700}>{metrics.mastered ? t('classPage.mastered') : t('classPage.recovery')}</Typography>
+          <Button endIcon={<ArrowForwardRoundedIcon />} onClick={() => navigate(`/class/${classId}/results`)}>{t('classPage.results')}</Button>
         </Stack>
       )}
     </Box>

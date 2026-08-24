@@ -1,0 +1,2095 @@
+{
+  "meta": {
+    "version": "2.0",
+    "subject": "Derivate",
+    "level": "Wissenschaftliches Lycée - End Fourth",
+    "author": "Corso Interattivo Derivate",
+    "description": "Übungsbücher über Derivate nach Klasse und Schwierigkeit organisiert. Jede Übung beinhaltet das Problem, die Lösung, die Schritte mit Erklärung und - falls zutreffend - die vollständige Demonstration ab dem Limit von Differenzenquotient."
+  },
+  "difficulty_levels": {
+    "1": {
+      "label": "Basis",
+      "color": "#1B7A5E",
+      "description": "Direkte Anwendung der Definition oder einer einzelnen Regel"
+    },
+    "2": {
+      "label": "Mittel",
+      "color": "#3B4CB8",
+      "description": "Verknüpfung zweier Regeln mit Aufmerksamkeit für Details"
+    },
+    "3": {
+      "label": "Fortgeschritten",
+      "color": "#B85C1A",
+      "description": "Mehrfache Verkettungen, Grenzfälle und selbstständiges Denken"
+    },
+    "4": {
+      "label": "Herausforderung",
+      "color": "#6B3FB8",
+      "description": "Offene Aufgaben, Beweise und Verbindungen zwischen Konzepten"
+    }
+  },
+  "classes": [
+    {
+      "id": "rapporto_incrementale",
+      "title": "Differenzenquotient und Definition",
+      "description": "Direkte Berechnung über den Grenzwert des Differenzenquotienten — die Grundlage von allem.",
+      "icon": "∂",
+      "prerequisite_classes": [],
+      "exercises": [
+        {
+          "id": "ri_001",
+          "title": "Ableitung einer Konstanten",
+          "difficulty": 1,
+          "tags": [
+            "konstant",
+            "Definition",
+            "Basis"
+          ],
+          "problem": {
+            "text": "Berechnung der Ableitung von \\(f(x) = 7\\) Verwendung der Definition durch Limit von Differenzenquotient.",
+            "hint": "Was passiert mit \\(f(x+h) - f(x)\\) wann \\(f\\) Ist es konstant?"
+          },
+          "answer": {
+            "latex": "f'(x) = 0",
+            "text": "Die Ableitung einer Konstanten ist Null."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration von der Grenzwert des Differenzenquotient",
+            "steps": [
+              {
+                "label": "Schreiben Sie die Differenzenquotient",
+                "latex": "\\frac{f(x+h)-f(x)}{h}",
+                "explanation": "Per Definition ist das Ableitung das Limit dieses Berichts für \\(h \\to 0\\)."
+              },
+              {
+                "label": "Ersetzen \\(f(x)=7\\)",
+                "latex": "\\frac{7 - 7}{h} = \\frac{0}{h} = 0",
+                "explanation": "für \\(f\\) ist nicht abhängig von \\(x\\), auch \\(f(x+h)=7\\). Die Differenz ist immer Null."
+              },
+              {
+                "label": "Pass bis zum Limit",
+                "latex": "f'(x) = \\lim_{h \\to 0} 0 = 0",
+                "explanation": "Die Grenzwert einer Funktion konstant gleich 0 ist 0, was auch immer es ist \\(h\\)."
+              }
+            ],
+            "conclusion": "Im Allgemeinen für jede Konstante \\(c\\): \\((c)' = 0\\). Intuitiv: Eine konstante Funktion ändert sich nie, daher ist ihre Variationsrate Null."
+          },
+          "solution_steps": [
+            {
+              "label": "Identifikationsfunktion",
+              "latex": "f(x) = 7",
+              "explanation": "Konstante Funktion: Sein Wert ist immer 7 unabhängig von \\(x\\)."
+            },
+            {
+              "label": "Anwendbar",
+              "latex": "f'(x) = (7)' = 0",
+              "explanation": "Die Ableitung einer beliebigen Konstante ist 0."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}",
+              "feedback": "Es ersetzt nicht h=0: es vereinfacht für h≠0 und dann berechnen Sie den Grenzwert.",
+              "misconceptionId": "h-equals-zero"
+            },
+            {
+              "latex": "f'(x)=f(x+h)-f(x)",
+              "feedback": "Es gibt keine Division für horizontale Variation h.",
+              "misconceptionId": "missing-denominator"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Der Wert der Funktion und ihre Variationsrate stimmen im Allgemeinen nicht überein.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ]
+        },
+        {
+          "id": "ri_002",
+          "title": "Ableitung einer linearen Funktion",
+          "difficulty": 1,
+          "tags": [
+            "linear",
+            "Definition",
+            "Basis"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = 3x + 5\\) unter Verwendung der Definition.",
+            "hint": "Berechnen \\(f(x+h)\\) Ersatz \\(x+h\\) statt \\(x\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = 3",
+            "text": "Die Ableitung Es ist Steigung von rechts, das heißt Steigung."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration von der Grenzwert des Differenzenquotient",
+            "steps": [
+              {
+                "label": "Berechnen \\(f(x+h)\\)",
+                "latex": "f(x+h) = 3(x+h)+5 = 3x+3h+5",
+                "explanation": "Wir ersetzen \\(x+h\\) in der Formel \\(f\\)."
+              },
+              {
+                "label": "Berechnung der Differenz \\(f(x+h)-f(x)\\)",
+                "latex": "(3x+3h+5)-(3x+5) = 3h",
+                "explanation": "Die Bedingungen \\(3x\\) und \\(5\\) Sie kündigen — bleibt nur der Beitrag von \\(h\\)."
+              },
+              {
+                "label": "Formblatt Differenzenquotient",
+                "latex": "\\frac{f(x+h)-f(x)}{h} = \\frac{3h}{h} = 3",
+                "explanation": "Der Bericht ist genau 3 für jeden \\(h \\neq 0\\)."
+              },
+              {
+                "label": "Pass bis zum Limit",
+                "latex": "f'(x) = \\lim_{h \\to 0} 3 = 3",
+                "explanation": "Da der Bericht nicht von \\(h\\)Das Limit ist einfach 3."
+              }
+            ],
+            "conclusion": "Für eine Gerade \\(y = mx + q\\), Ableitung immer \\(m\\) (ii) Steigung. Dies bestätigt, dass die Derivatgröße ansteigt."
+          },
+          "solution_steps": [
+            {
+              "label": "Erkenne die Struktur",
+              "latex": "f(x) = 3x + 5 \\quad (m=3,\\ q=5)",
+              "explanation": "Linearfunktion \\(y = mx + q\\)."
+            },
+            {
+              "label": "Differenzieren",
+              "latex": "f'(x) = 3",
+              "explanation": "Das Ableitung von \\(mx+q\\) Es ist \\(m\\). Der konstante Begriff verschwindet."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}",
+              "feedback": "Es ersetzt nicht h=0: es vereinfacht für h≠0 und dann berechnen Sie den Grenzwert.",
+              "misconceptionId": "h-equals-zero"
+            },
+            {
+              "latex": "f'(x)=f(x+h)-f(x)",
+              "feedback": "Es gibt keine Division für horizontale Variation h.",
+              "misconceptionId": "missing-denominator"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Der Wert der Funktion und ihre Variationsrate stimmen im Allgemeinen nicht überein.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ]
+        },
+        {
+          "id": "ri_003",
+          "title": "Ableitung von x²",
+          "difficulty": 1,
+          "tags": [
+            "Leistungskraft",
+            "Definition",
+            "Klassiker"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = x^2\\) unter Verwendung der Definition.",
+            "hint": "Denken Sie daran: \\((x+h)^2 = x^2 + 2xh + h^2\\)"
+          },
+          "answer": {
+            "latex": "f'(x) = 2x",
+            "text": "Die Ableitung von x2 ist 2x."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration von der Grenzwert des Differenzenquotient",
+            "steps": [
+              {
+                "label": "Berechnen \\(f(x+h)\\) Entwicklung des Quadrats",
+                "latex": "f(x+h) = (x+h)^2 = x^2 + 2xh + h^2",
+                "explanation": "Wir verwenden das Quadrat einer Binomie: \\((a+b)^2 = a^2+2ab+b^2\\)."
+              },
+              {
+                "label": "Berechnen \\(f(x+h)-f(x)\\)",
+                "latex": "(x^2+2xh+h^2) - x^2 = 2xh + h^2",
+                "explanation": "Der Begriff \\(x^2\\) Sie löschen damit \\(f(x)\\)."
+              },
+              {
+                "label": "Dividenden \\(h\\)",
+                "latex": "\\frac{2xh+h^2}{h} = 2x + h",
+                "explanation": "Wir sammeln \\(h\\) an den Nummerierer: \\(h(2x+h)/h = 2x+h\\). Gültig für \\(h \\neq 0\\)."
+              },
+              {
+                "label": "Pass bis zum Limit",
+                "latex": "f'(x) = \\lim_{h \\to 0}(2x+h) = 2x",
+                "explanation": "Der Begriff \\(h\\) 0 Vorhänge, bleibt nur \\(2x\\)."
+              }
+            ],
+            "conclusion": "Ergebnisse: \\((x^2)' = 2x\\). Dies ist der Fall \\(n=2\\) der allgemeinen Regel \\((x^n)' = nx^{n-1}\\)."
+          },
+          "solution_steps": [
+            {
+              "label": "Anwendung des Rechtsstaats",
+              "latex": "f'(x) = 2 \\cdot x^{2-1} = 2x",
+              "explanation": "Formel \\((x^n)' = n x^{n-1}\\) mit \\(n=2\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}",
+              "feedback": "Es ersetzt nicht h=0: es vereinfacht für h≠0 und dann berechnen Sie den Grenzwert.",
+              "misconceptionId": "h-equals-zero"
+            },
+            {
+              "latex": "f'(x)=f(x+h)-f(x)",
+              "feedback": "Es gibt keine Division für horizontale Variation h.",
+              "misconceptionId": "missing-denominator"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Der Wert der Funktion und ihre Variationsrate stimmen im Allgemeinen nicht überein.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ]
+        },
+        {
+          "id": "ri_004",
+          "title": "Ableitung von x³",
+          "difficulty": 1,
+          "tags": [
+            "Leistungskraft",
+            "Definition",
+            "Binomie"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = x^3\\) unter Verwendung der Definition.",
+            "hint": "Entwicklung \\((x+h)^3\\) mit der Kombination von Newton oder nach Produkt."
+          },
+          "answer": {
+            "latex": "f'(x) = 3x^2",
+            "text": "Die Ableitung von x3 ist 3x2."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration von der Grenzwert des Differenzenquotient",
+            "steps": [
+              {
+                "label": "Entwicklung \\((x+h)^3\\)",
+                "latex": "(x+h)^3 = x^3 + 3x^2h + 3xh^2 + h^3",
+                "explanation": "Verwendung eines Binomy-Würfels (oder Newton-Formel mit) \\(n=3\\))."
+              },
+              {
+                "label": "Berechnung der Differenz",
+                "latex": "(x^3+3x^2h+3xh^2+h^3) - x^3 = 3x^2h + 3xh^2 + h^3",
+                "explanation": "Der Begriff \\(x^3\\) annullieren."
+              },
+              {
+                "label": "Dividenden \\(h\\) Sammeln",
+                "latex": "\\frac{h(3x^2+3xh+h^2)}{h} = 3x^2+3xh+h^2",
+                "explanation": "Alle Begriffe des Numberers haben \\(h\\) als Faktor, daher ist die Division einfach."
+              },
+              {
+                "label": "Pass bis zum Limit",
+                "latex": "\\lim_{h \\to 0}(3x^2+3xh+h^2) = 3x^2",
+                "explanation": "für \\(h\\to 0\\), Begriffe mit \\(h\\) und \\(h^2\\) Sie stornieren."
+              }
+            ],
+            "conclusion": "\\((x^3)' = 3x^2\\). Fall \\(n=3\\) der Regel \\((x^n)'=nx^{n-1}\\). Das Schema ist immer das gleiche: Newtons Binom produziert einen dominanten Begriff \\(nxh^{n-1}\\) Das überlebt die Grenzwert."
+          },
+          "solution_steps": [
+            {
+              "label": "Rechtsstaatlichkeit",
+              "latex": "f'(x) = 3 \\cdot x^{3-1} = 3x^2",
+              "explanation": "Formel \\((x^n)'=nx^{n-1}\\) mit \\(n=3\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}",
+              "feedback": "Es ersetzt nicht h=0: es vereinfacht für h≠0 und dann berechnen Sie den Grenzwert.",
+              "misconceptionId": "h-equals-zero"
+            },
+            {
+              "latex": "f'(x)=f(x+h)-f(x)",
+              "feedback": "Es gibt keine Division für horizontale Variation h.",
+              "misconceptionId": "missing-denominator"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Der Wert der Funktion und ihre Variationsrate stimmen im Allgemeinen nicht überein.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ]
+        },
+        {
+          "id": "ri_005",
+          "title": "Ableitung von 1/x",
+          "difficulty": 2,
+          "tags": [
+            "negative Leistung",
+            "Definition",
+            "Fraktion"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = \\dfrac{1}{x}\\) (mit) \\(x \\neq 0\\)) mit der Definition.",
+            "hint": "Schreiben \\(\\frac{1}{x+h} - \\frac{1}{x}\\) als einzige Fraktion. Denken Sie daran: Um Brüche zu addieren, müssen Sie den gemeinsamen Nenner finden."
+          },
+          "answer": {
+            "latex": "f'(x) = -\\dfrac{1}{x^2}",
+            "text": "Die Ableitung von 1/x ist -1/x2."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration von der Grenzwert des Differenzenquotient",
+            "steps": [
+              {
+                "label": "Schreiben \\(f(x+h) - f(x)\\) als einzige Fraktion",
+                "latex": "\\frac{1}{x+h} - \\frac{1}{x} = \\frac{x - (x+h)}{x(x+h)} = \\frac{-h}{x(x+h)}",
+                "explanation": "Gemeinsamer Nenner \\(x(x+h)\\). Zum Nummerer: \\(x-(x+h) = -h\\)."
+              },
+              {
+                "label": "Dividenden \\(h\\)",
+                "latex": "\\frac{1}{h} \\cdot \\frac{-h}{x(x+h)} = \\frac{-1}{x(x+h)}",
+                "explanation": "Der Faktor \\(h\\) zum Nummerierer und zum Teiler \\(h\\) löschen (mit) \\(h \\neq 0\\))."
+              },
+              {
+                "label": "Pass bis zum Limit",
+                "latex": "\\lim_{h \\to 0} \\frac{-1}{x(x+h)} = \\frac{-1}{x \\cdot x} = -\\frac{1}{x^2}",
+                "explanation": "für \\(h \\to 0\\), \\(x+h \\to x\\)Der Nenner wird \\(x^2\\)."
+              }
+            ],
+            "conclusion": "\\((1/x)' = -1/x^2\\). Entspricht der Schrift \\(f(x)=x^{-1}\\) und gelten \\((x^n)'=nx^{n-1}\\) mit \\(n=-1\\): \\(-1 \\cdot x^{-2} = -1/x^2\\). ✓"
+          },
+          "solution_steps": [
+            {
+              "label": "Rewrite als negative Macht",
+              "latex": "f(x) = x^{-1}",
+              "explanation": "\\(1/x = x^{-1}\\)."
+            },
+            {
+              "label": "Anwendung des Rechtsstaats",
+              "latex": "f'(x) = -1 \\cdot x^{-1-1} = -x^{-2} = -\\frac{1}{x^2}",
+              "explanation": "Formel \\((x^n)'=nx^{n-1}\\) mit \\(n=-1\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}",
+              "feedback": "Es ersetzt nicht h=0: es vereinfacht für h≠0 und dann berechnen Sie den Grenzwert.",
+              "misconceptionId": "h-equals-zero"
+            },
+            {
+              "latex": "f'(x)=f(x+h)-f(x)",
+              "feedback": "Es gibt keine Division für horizontale Variation h.",
+              "misconceptionId": "missing-denominator"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Der Wert der Funktion und ihre Variationsrate stimmen im Allgemeinen nicht überein.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ]
+        },
+        {
+          "id": "ri_006",
+          "title": "Ableitung von √x",
+          "difficulty": 2,
+          "tags": [
+            "Wurzelwurzel",
+            "rationale Macht",
+            "Rationalisierung"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = \\sqrt{x}\\) (mit) \\(x > 0\\)) mit der Definition.",
+            "hint": "Multiplizieren und teilen für das Konjugat \\(\\sqrt{x+h}+\\sqrt{x}\\) Um die Wurzel zum Nummerer zu entfernen."
+          },
+          "answer": {
+            "latex": "f'(x) = \\dfrac{1}{2\\sqrt{x}}",
+            "text": "Die Ableitung √x ist 1/(2√x)."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration von der Grenzwert des Differenzenquotient",
+            "steps": [
+              {
+                "label": "Schreiben Sie die Differenzenquotient",
+                "latex": "\\frac{\\sqrt{x+h}-\\sqrt{x}}{h}",
+                "explanation": "Erste Form des Berichts. Das Problem ist, dass für \\(h\\to 0\\) Wir haben eine Form \\(0/0\\)."
+              },
+              {
+                "label": "Multiplizieren für die konjugierten",
+                "latex": "\\frac{\\sqrt{x+h}-\\sqrt{x}}{h} \\cdot \\frac{\\sqrt{x+h}+\\sqrt{x}}{\\sqrt{x+h}+\\sqrt{x}}",
+                "explanation": "Multiplizieren Sie für 1 in Form des Konjugats ändert den Wert nicht, sondern verwandelt den Numerierer in eine Differenz von Quadraten."
+              },
+              {
+                "label": "Vereinfachen Sie Numberer",
+                "latex": "\\frac{(x+h)-x}{h(\\sqrt{x+h}+\\sqrt{x})} = \\frac{h}{h(\\sqrt{x+h}+\\sqrt{x})}",
+                "explanation": "\\((\\sqrt{A}-\\sqrt{B})(\\sqrt{A}+\\sqrt{B}) = A-B\\). Hier. \\(A=x+h\\) und \\(B=x\\)."
+              },
+              {
+                "label": "Löschung \\(h\\)",
+                "latex": "\\frac{1}{\\sqrt{x+h}+\\sqrt{x}}",
+                "explanation": "Die\\(h\\) Sie löschen (gültig für) \\(h\\neq 0\\))."
+              },
+              {
+                "label": "Pass bis zum Limit",
+                "latex": "\\lim_{h \\to 0} \\frac{1}{\\sqrt{x+h}+\\sqrt{x}} = \\frac{1}{2\\sqrt{x}}",
+                "explanation": "für \\(h\\to 0\\): \\(\\sqrt{x+h}\\to\\sqrt{x}\\), daher der Nenner \\(\\to 2\\sqrt{x}\\)."
+              }
+            ],
+            "conclusion": "\\((\\sqrt{x})' = 1/(2\\sqrt{x})\\). Gleichwertig mit \\(x^{1/2}\\): mit der Regel \\((x^n)'=nx^{n-1}\\) Wir bekommen \\(\\frac{1}{2}x^{-1/2} = 1/(2\\sqrt{x})\\). ✓"
+          },
+          "solution_steps": [
+            {
+              "label": "Umschreiben als rationale Macht",
+              "latex": "f(x) = x^{1/2}",
+              "explanation": "\\(\\sqrt{x} = x^{1/2}\\)."
+            },
+            {
+              "label": "Anwendbar",
+              "latex": "f'(x) = \\frac{1}{2}x^{1/2-1} = \\frac{1}{2}x^{-1/2} = \\frac{1}{2\\sqrt{x}}",
+              "explanation": "Formel \\((x^n)'=nx^{n-1}\\) mit \\(n=1/2\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}",
+              "feedback": "Es ersetzt nicht h=0: es vereinfacht für h≠0 und dann berechnen Sie den Grenzwert.",
+              "misconceptionId": "h-equals-zero"
+            },
+            {
+              "latex": "f'(x)=f(x+h)-f(x)",
+              "feedback": "Es gibt keine Division für horizontale Variation h.",
+              "misconceptionId": "missing-denominator"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Der Wert der Funktion und ihre Variationsrate stimmen im Allgemeinen nicht überein.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ]
+        },
+        {
+          "id": "ri_007",
+          "title": "Differenzenquotient — numerische Berechnung",
+          "difficulty": 1,
+          "tags": [
+            "Zahl",
+            "Antrag",
+            "geometrisch"
+          ],
+          "problem": {
+            "text": "für \\(f(x) = x^2 - 3x + 2\\), berechnet die Differenzenquotient in \\(x_0 = 2\\) mit \\(h = 1\\), dann mit \\(h = 0.1\\), dann mit \\(h = 0.01\\). Was bemerken Sie? Was ist der genaue Wert von \\(f'(2)\\)?",
+            "hint": "Berechnen \\(f(2+h)\\) Für jeden Wert von \\(h\\)Dann machen Sie einen Unterschied mit \\(f(2)\\) und teilt \\(h\\)."
+          },
+          "answer": {
+            "latex": "f'(2) = 1",
+            "text": "Die inkrementellen Verhältnisse konvergieren zu 1 mit abnehmendem h."
+          },
+          "proof_from_limit": {
+            "title": "Exakte Berechnung durch das Limit",
+            "steps": [
+              {
+                "label": "Berechnen \\(f(2)\\)",
+                "latex": "f(2) = 4 - 6 + 2 = 0",
+                "explanation": "Ersetzen \\(x=2\\)."
+              },
+              {
+                "label": "Berechnen \\(f(2+h)\\)",
+                "latex": "f(2+h) = (2+h)^2 - 3(2+h) + 2 = 4+4h+h^2-6-3h+2 = h^2+h",
+                "explanation": "Erweitern Sie das Quadrat und vereinfachen Sie es, indem Sie ähnliche Begriffe sammeln."
+              },
+              {
+                "label": "Differenzenquotient",
+                "latex": "\\frac{f(2+h)-f(2)}{h} = \\frac{h^2+h-0}{h} = h+1",
+                "explanation": "Der Bericht vereinfacht die \\(h+1\\)."
+              },
+              {
+                "label": "Numerische Überprüfung und Grenzwert",
+                "latex": "h=1:\\; 2 \\quad h=0.1:\\; 1.1 \\quad h=0.01:\\; 1.01 \\quad \\lim_{h\\to 0}(h+1)=1",
+                "explanation": "Die Zahlenwerte konvergieren zu 1 von rechts. Das Limit bestätigt \\(f'(2)=1\\)."
+              }
+            ],
+            "conclusion": "Die numerische Konvergenz veranschaulicht visuell, was der Grenzwert bedeutet: Differenzenquotient immer näher an der Ableitung Das ist richtig."
+          },
+          "solution_steps": [
+            {
+              "label": "Numerisches Diagramm",
+              "latex": "\\Delta_h = \\frac{f(2+h)-f(2)}{h} = h+1",
+              "explanation": "Geschlossene Formel Differenzenquotient für diese Funktion."
+            },
+            {
+              "label": "Drei Werte",
+              "latex": "h=1 \\Rightarrow 2; \\quad h=0.1 \\Rightarrow 1.1; \\quad h=0.01 \\Rightarrow 1.01",
+              "explanation": "Eintonige Konvergenz zu 1."
+            },
+            {
+              "label": "Genaues Ergebnis",
+              "latex": "f'(2) = \\lim_{h\\to 0}(h+1) = 1",
+              "explanation": "Das Ableitung in \\(x_0=2\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}",
+              "feedback": "Es ersetzt nicht h=0: es vereinfacht für h≠0 und dann berechnen Sie den Grenzwert.",
+              "misconceptionId": "h-equals-zero"
+            },
+            {
+              "latex": "f'(x)=f(x+h)-f(x)",
+              "feedback": "Es gibt keine Division für horizontale Variation h.",
+              "misconceptionId": "missing-denominator"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Der Wert der Funktion und ihre Variationsrate stimmen im Allgemeinen nicht überein.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ]
+        },
+        {
+          "id": "concept_point_function",
+          "title": "Zahl oder Funktion?",
+          "difficulty": 1,
+          "tags": [
+            "Konzept",
+            "Notation"
+          ],
+          "problem": {
+            "text": "Welche Aussage richtig unterscheidet \\(f'(2)\\) von \\(f'(x)\\)?",
+            "hint": "Denken Sie darüber nach, was im Ausdruck frei bleibt."
+          },
+          "answer": {
+            "latex": "f'(2)\\text{ ist eine Zahl; }f'(x)\\text{ ist eine Funktion}",
+            "text": "Im ersten Fall ist der Punkt festgelegt; im zweiten Fall kann x variieren."
+          },
+          "distractors": [
+            {
+              "latex": "f'(2)\\text{ und }f'(x)\\text{ immer Zahlen sind}",
+              "feedback": "In f'(x) bleibt x variabel: das Ergebnis ist eine Funktion.",
+              "misconceptionId": "point-vs-function"
+            },
+            {
+              "latex": "f'(2)\\text{ ist eine Funktion; }f'(x)\\text{ ist eine Zahl}",
+              "feedback": "Sie haben die Rollen umgekehrt: Ersetzen Sie x=2 erzeugt eine Zahl.",
+              "misconceptionId": "point-vs-function-reversed"
+            },
+            {
+              "latex": "f'(2)=f(2)\\text{ für jede Funktion}",
+              "feedback": "Der Wert der Funktion und der Wert des Derivats messen unterschiedliche Größen.",
+              "misconceptionId": "value-vs-derivative"
+            }
+          ],
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Siehe Variable",
+              "latex": "f'(2)\\in\\mathbb R,\\quad f':x\\mapsto f'(x)",
+              "explanation": "Beheben des Punktes gibt einen Wert zurück; x frei zu lassen definiert eine neue Funktion."
+            }
+          ]
+        },
+        {
+          "id": "concept_abs_lateral",
+          "title": "Die beiden Seiten von |x|",
+          "difficulty": 2,
+          "tags": [
+            "Konzept",
+            "einseitige Ableitungen"
+          ],
+          "problem": {
+            "text": "Warum \\(f(x)=|x|\\) Ist es nicht differenzierenbile in Null?"
+          },
+          "answer": {
+            "latex": "f'_-(0)=-1\\neq 1=f'_+(0)",
+            "text": "Seitenhänge passen nicht zusammen."
+          },
+          "distractors": [
+            {
+              "latex": "f(0)\\text{ Es gibt keine}",
+              "feedback": "|x| ist definiert und setzt sich in Null fort.",
+              "misconceptionId": "continuity-confusion"
+            },
+            {
+              "latex": "f'_-(0)=f'_+(0)=0",
+              "feedback": "Der Graph kommt mit Steigung -1 und beginnt mit Steigung +1.",
+              "misconceptionId": "corner-flat"
+            },
+            {
+              "latex": "|x|\\text{ diskontinuierlich in }0",
+              "feedback": "Kontinuierlich zu sein, reicht nicht aus, um differenzierbar zu sein.",
+              "misconceptionId": "continuity-implies-derivative"
+            }
+          ],
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Seiten vergleichen",
+              "latex": "\\lim_{h\\to0^-}\\frac{|h|}{h}=-1,\\quad\\lim_{h\\to0^+}\\frac{|h|}{h}=1",
+              "explanation": "Die bilaterale Grenzwert des Differenzenquotient Auf keinen Fall."
+            }
+          ]
+        },
+        {
+          "id": "concept_tangent_cross",
+          "title": "Kann die Tangente den Graphen erneut schneiden?",
+          "difficulty": 2,
+          "tags": [
+            "Konzept",
+            "Tangente"
+          ],
+          "problem": {
+            "text": "1 Tangente Kann man den Graphen weit vom Tangenzpunkt wieder treffen?"
+          },
+          "answer": {
+            "latex": "\\text{Ja: Tangenz ist eine lokale Immobilie}",
+            "text": "Die Tangente beschreibt die Richtung an dem Punkt, nicht alle Graphen."
+          },
+          "distractors": [
+            {
+              "latex": "\\text{Nein, niemals.}",
+              "feedback": "Diese Idee verwechselt eine lokale Immobilie mit einer globalen Trennung.",
+              "misconceptionId": "tangent-never-crosses"
+            },
+            {
+              "latex": "\\text{Nur wenn }f'(x_0)=0",
+              "feedback": "Die Möglichkeit hängt nicht davon ab, horizontal zu sein.",
+              "misconceptionId": "horizontal-only"
+            },
+            {
+              "latex": "\\text{Nur für die Gerade}",
+              "feedback": "Für eine Gerade stimmt die Tangente mit dem Graphen überein; Kurven wie Würfel können sie wieder vereinen.",
+              "misconceptionId": "line-only"
+            }
+          ],
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Lokale und globale Unterschiede",
+              "latex": "f(x)=x^3-x,\\quad t_0:y=-x",
+              "explanation": "Die Nulltangente kann andere Schnittpunkte mit der Kurve haben."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "potenze",
+      "title": "Potenzregel \\((x^n)' = nx^{n-1}\\)",
+      "description": "Ableiten von Monomen sowie ganzzahligen, rationalen und negativen Potenzen.",
+      "icon": "xⁿ",
+      "prerequisite_classes": [
+        "rapporto_incrementale"
+      ],
+      "exercises": [
+        {
+          "id": "pot_001",
+          "title": "Einfaches Monom",
+          "difficulty": 1,
+          "tags": [
+            "Leistungskraft",
+            "Monomy"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = 5x^4\\).",
+            "hint": "Erst durch Konstante multipliziert, dann gilt \\((x^n)'=nx^{n-1}\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = 20x^3",
+            "text": "Nehmen Sie die Konstante heraus und senken Sie den Exponenten."
+          },
+          "proof_from_limit": {
+            "title": "Warum \\((cx^n)' = cnx^{n-1}\\)?",
+            "steps": [
+              {
+                "label": "Differenzenquotient von \\(cf(x)\\)",
+                "latex": "\\frac{c\\cdot f(x+h) - c\\cdot f(x)}{h} = c \\cdot \\frac{f(x+h)-f(x)}{h}",
+                "explanation": "Eine konstante Multiplikation \\(c\\) kann aus dem Differenzenquotient (e) daher von der Grenzwert."
+              },
+              {
+                "label": "für \\(f(x)=x^4\\): Entwicklung mit Newtons Binomy",
+                "latex": "(x+h)^4 = x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4",
+                "explanation": "Nur der Begriff \\(4x^3 h\\) trägt zum Limit nach der Aufspaltung bei \\(h\\)."
+              },
+              {
+                "label": "Differenzenquotient",
+                "latex": "\\frac{(x+h)^4 - x^4}{h} = 4x^3 + 6x^2h + 4xh^2 + h^3",
+                "explanation": "Wir teilen alle Begriffe für \\(h\\). Nur der Erste überlebt die Grenzwert."
+              },
+              {
+                "label": "Limit und Konstante",
+                "latex": "5 \\cdot \\lim_{h\\to 0}(4x^3+6x^2h+\\ldots) = 5 \\cdot 4x^3 = 20x^3",
+                "explanation": "Die Konstante 5 multipliziert das Ergebnis des Limits."
+              }
+            ],
+            "conclusion": "Regel: \\((cx^n)' = cn\\cdot x^{n-1}\\). Die konstante Multiplikation \"reitet\" durch die Grenzwert."
+          },
+          "solution_steps": [
+            {
+              "label": "Bringen Sie die Konstante heraus",
+              "latex": "(5x^4)' = 5 \\cdot (x^4)'",
+              "explanation": "Die Ableitung ist eine lineare Operation: die Konstanten kommen heraus."
+            },
+            {
+              "label": "Anwendbar",
+              "latex": "5 \\cdot 4x^3 = 20x^3",
+              "explanation": "\\(n=4\\), daher \\((x^4)'=4x^3\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=x^{n-1}",
+              "feedback": "Sie haben den Exponenten reduziert, aber es fehlt der Koeffizient Nr.",
+              "misconceptionId": "power-coefficient"
+            },
+            {
+              "latex": "f'(x)=nx^n",
+              "feedback": "Der Koeffizient ist gefallen, aber der Exponent muss um eins abnehmen.",
+              "misconceptionId": "power-exponent"
+            },
+            {
+              "latex": "f'(x)=(n-1)x^n",
+              "feedback": "Sie haben den Koeffizienten anstelle des Exponenten geändert.",
+              "misconceptionId": "power-rule-swapped"
+            }
+          ]
+        },
+        {
+          "id": "pot_002",
+          "title": "Polynom — Linearität",
+          "difficulty": 1,
+          "tags": [
+            "Polynom",
+            "Linearität",
+            "Summe"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = 5x^4 - 3x^2 + 7\\).",
+            "hint": "Begriff für Begriff differenzieren: \\((f+g)'=f'+g'\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = 20x^3 - 6x",
+            "text": "Differenzieren Sie jeden Begriff und jede Summe."
+          },
+          "proof_from_limit": {
+            "title": "Weil Ableitung linear ist? \\((f+g)'=f'+g'\\)",
+            "steps": [
+              {
+                "label": "Differenzenquotient die Summe",
+                "latex": "\\frac{[f(x+h)+g(x+h)]-[f(x)+g(x)]}{h}",
+                "explanation": "Wir schreiben den Bericht für die Funktion \\(f+g\\)."
+              },
+              {
+                "label": "Gesonderte Beiträge",
+                "latex": "= \\frac{f(x+h)-f(x)}{h} + \\frac{g(x+h)-g(x)}{h}",
+                "explanation": "Der Numberer ist eine Summe, kann daher in zwei Brüche gebrochen werden."
+              },
+              {
+                "label": "Pass zum Limit (für Limit Ownership)",
+                "latex": "\\lim_{h\\to 0}\\left[\\frac{f(x+h)-f(x)}{h}\\right] + \\lim_{h\\to 0}\\left[\\frac{g(x+h)-g(x)}{h}\\right] = f'(x)+g'(x)",
+                "explanation": "Die Summengrenze ist die Summe der Grenzen (wenn beide existieren)."
+              }
+            ],
+            "conclusion": "Die Ableitung ist eine lineare Operation: Sie wird auf die Summe verteilt und bringt die Konstanten heraus. Für das angegebene Polynom: \\((5x^4)'=20x^3\\), \\((-3x^2)'=-6x\\), \\((7)'=0\\)."
+          },
+          "solution_steps": [
+            {
+              "label": "Jeden Begriff differenzieren",
+              "latex": "(5x^4)' = 20x^3, \\quad (-3x^2)' = -6x, \\quad (7)' = 0",
+              "explanation": "Linearität: Term für Term unterscheiden."
+            },
+            {
+              "label": "Zusammenfassung der Ergebnisse",
+              "latex": "f'(x) = 20x^3 - 6x",
+              "explanation": "Der konstante Term verschwindet, weil seine Ableitung Es ist 0."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=x^{n-1}",
+              "feedback": "Sie haben den Exponenten reduziert, aber es fehlt der Koeffizient Nr.",
+              "misconceptionId": "power-coefficient"
+            },
+            {
+              "latex": "f'(x)=nx^n",
+              "feedback": "Der Koeffizient ist gefallen, aber der Exponent muss um eins abnehmen.",
+              "misconceptionId": "power-exponent"
+            },
+            {
+              "latex": "f'(x)=(n-1)x^n",
+              "feedback": "Sie haben den Koeffizienten anstelle des Exponenten geändert.",
+              "misconceptionId": "power-rule-swapped"
+            }
+          ]
+        },
+        {
+          "id": "pot_003",
+          "title": "Potenz mit rationalem Exponenten",
+          "difficulty": 2,
+          "tags": [
+            "Wurzelwurzel",
+            "Rationaler Exponent"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = \\sqrt{x} + \\dfrac{1}{x^2}\\).",
+            "hint": "Schreibe alles als Befugnisse um: \\(\\sqrt{x}=x^{1/2}\\) und \\(1/x^2=x^{-2}\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = \\dfrac{1}{2\\sqrt{x}} - \\dfrac{2}{x^3}",
+            "text": "Umwandlung in Befugnisse dann Regel \\(nx^{n-1}\\)."
+          },
+          "proof_from_limit": {
+            "title": "Wie funktioniert die Regel für \\(n\\) rational?",
+            "steps": [
+              {
+                "label": "für \\(\\sqrt{x}=x^{1/2}\\): vom Limit (siehe im Detail in der vorherigen Klasse)",
+                "latex": "\\frac{\\sqrt{x+h}-\\sqrt{x}}{h} \\xrightarrow{h\\to 0} \\frac{1}{2\\sqrt{x}} = \\frac{1}{2}x^{-1/2}",
+                "explanation": "Der Trick des Konjugats gibt genau das Ergebnis, von dem wir erwarten \\((x^{1/2})'=\\frac{1}{2}x^{-1/2}\\)."
+              },
+              {
+                "label": "für \\(x^{-2}=1/x^2\\): vom Limit",
+                "latex": "\\frac{\\frac{1}{(x+h)^2}-\\frac{1}{x^2}}{h} = \\frac{x^2-(x+h)^2}{h\\cdot x^2(x+h)^2} = \\frac{-2xh-h^2}{h\\cdot x^2(x+h)^2}",
+                "explanation": "Differenz der Brüche, dann Vereinfachung."
+              },
+              {
+                "label": "Vereinfachen und nehmen Sie das Limit",
+                "latex": "\\frac{-2x-h}{x^2(x+h)^2} \\xrightarrow{h\\to 0} \\frac{-2x}{x^4} = -\\frac{2}{x^3}",
+                "explanation": "Löschung \\(h\\), dann strecken Sie es \\(h\\to 0\\)."
+              }
+            ],
+            "conclusion": "Die Regel \\((x^n)'=nx^{n-1}\\) gilt für alle \\(n\\in\\mathbb{Q}\\). Die Grenzwert von Differenzenquotient gibt immer das gleiche Muster."
+          },
+          "solution_steps": [
+            {
+              "label": "Umschreiben als Befugnisse",
+              "latex": "f(x) = x^{1/2} + x^{-2}",
+              "explanation": "Grundlegende Konvertierung zur Anwendung der Regel."
+            },
+            {
+              "label": "Differenzieren \\(x^{1/2}\\)",
+              "latex": "(x^{1/2})' = \\tfrac{1}{2}x^{-1/2} = \\dfrac{1}{2\\sqrt{x}}",
+              "explanation": "\\(n=1/2\\), daher \\(n-1 = -1/2\\)."
+            },
+            {
+              "label": "Differenzieren \\(x^{-2}\\)",
+              "latex": "(x^{-2})' = -2x^{-3} = -\\dfrac{2}{x^3}",
+              "explanation": "\\(n=-2\\), daher \\(n-1=-3\\)."
+            },
+            {
+              "label": "♪",
+              "latex": "f'(x) = \\dfrac{1}{2\\sqrt{x}} - \\dfrac{2}{x^3}",
+              "explanation": "Linearität der Ableitung."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=x^{n-1}",
+              "feedback": "Sie haben den Exponenten reduziert, aber es fehlt der Koeffizient Nr.",
+              "misconceptionId": "power-coefficient"
+            },
+            {
+              "latex": "f'(x)=nx^n",
+              "feedback": "Der Koeffizient ist gefallen, aber der Exponent muss um eins abnehmen.",
+              "misconceptionId": "power-exponent"
+            },
+            {
+              "latex": "f'(x)=(n-1)x^n",
+              "feedback": "Sie haben den Koeffizienten anstelle des Exponenten geändert.",
+              "misconceptionId": "power-rule-swapped"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "funzioni_elementari",
+      "title": "Ableitungen von sin, cos, eˣ und ln",
+      "description": "Ableitungen der grundlegenden transzendenten Funktionen, alle aus Standardgrenzwerten hergeleitet.",
+      "icon": "sin",
+      "prerequisite_classes": [
+        "rapporto_incrementale"
+      ],
+      "exercises": [
+        {
+          "id": "fel_001",
+          "title": "Ableitung von sin x",
+          "difficulty": 2,
+          "tags": [
+            "Trigonometrie",
+            "Bemerkenswerte Grenzwert",
+            "Sinus"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = \\sin x\\), erhalten Sie das Ergebnis aus dem Limit von Differenzenquotient.",
+            "hint": "Verwenden Sie die Formel von Prostaferesi: \\(\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = \\cos x",
+            "text": "Die Ableitung von sin x ist cos x."
+          },
+          "proof_from_limit": {
+            "title": "Vollständige Entfernung vom Grenzwert",
+            "steps": [
+              {
+                "label": "Schreiben Sie die Differenzenquotient",
+                "latex": "\\frac{\\sin(x+h)-\\sin x}{h}",
+                "explanation": "Standardform."
+              },
+              {
+                "label": "Anwendung Prostaferesi Formel",
+                "latex": "\\sin(x+h)-\\sin x = 2\\cos\\!\\left(x+\\tfrac{h}{2}\\right)\\sin\\!\\left(\\tfrac{h}{2}\\right)",
+                "explanation": "mit \\(A=x+h\\) und \\(B=x\\): \\(\\sin A - \\sin B = 2\\cos\\frac{A+B}{2}\\sin\\frac{A-B}{2}\\)."
+              },
+              {
+                "label": "Neufassung des Berichts",
+                "latex": "\\frac{2\\cos(x+h/2)\\sin(h/2)}{h} = \\cos\\!\\left(x+\\tfrac{h}{2}\\right)\\cdot\\frac{\\sin(h/2)}{h/2}",
+                "explanation": "Wir haben uns getrennt \\(h\\)Dann schreiben wir um \\(\\sin(h/2)/(h/2)\\) Multiplikation und Division durch \\(1/2\\)."
+              },
+              {
+                "label": "Verwenden Sie das bemerkenswerte Limit \\(\\lim_{t\\to 0}\\frac{\\sin t}{t}=1\\)",
+                "latex": "\\lim_{h\\to 0}\\frac{\\sin(h/2)}{h/2} = 1",
+                "explanation": "Hier. \\(t=h/2\\to 0\\) wann \\(h\\to 0\\). Es gilt die bemerkenswerte Grenzwert."
+              },
+              {
+                "label": "Vollständige Berechnung",
+                "latex": "\\lim_{h\\to 0}\\cos\\!\\left(x+\\tfrac{h}{2}\\right)\\cdot 1 = \\cos(x+0) = \\cos x",
+                "explanation": "Die Sache ist kontinuierlich, daher ist das Limit einfach \\(\\cos x\\)."
+              }
+            ],
+            "conclusion": "\\((\\sin x)'=\\cos x\\). Die Kette sin→cos→(-sin)→(-cos)→sin wiederholt sich zyklisch differenziert."
+          },
+          "solution_steps": [
+            {
+              "label": "Direktes Ergebnis",
+              "latex": "(\\sin x)' = \\cos x",
+              "explanation": "Grundformel, erhalten unter Verwendung der bemerkenswerten Grenzwert \\(\\lim_{t\\to 0}\\frac{\\sin t}{t}=1\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "-f'(x) = \\cos x",
+              "feedback": "Überprüfen Sie den Ablauf der Ableitungen und den Punkt, an dem das Minuszeichen erscheint.",
+              "misconceptionId": "elementary-sign"
+            },
+            {
+              "latex": "f'(x)=1",
+              "feedback": "Eine ist nicht die Ableitung universal von elementaren Funktionen.",
+              "misconceptionId": "always-one"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Nur das Exponentielle fällt mit seiner eigenen Ableitung zusammen.",
+              "misconceptionId": "elementary-copy"
+            }
+          ]
+        },
+        {
+          "id": "fel_002",
+          "title": "Ableitung von eˣ",
+          "difficulty": 2,
+          "tags": [
+            "exponentiell",
+            "Bemerkenswerte Grenzwert",
+            "ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = e^x\\) unter Verwendung der Definition.",
+            "hint": "Sammeln \\(e^x\\) Out und verwenden Sie das bemerkenswerte Limit \\(\\lim_{h\\to 0}\\frac{e^h-1}{h}=1\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = e^x",
+            "text": "Die Exponentialfunktion ist gleich ihrer Ableitung - Single Property."
+          },
+          "proof_from_limit": {
+            "title": "Nachweis vom Limit — Eigenableitung von ex",
+            "steps": [
+              {
+                "label": "Schreiben Sie die Differenzenquotient",
+                "latex": "\\frac{e^{x+h}-e^x}{h}",
+                "explanation": "Standardform."
+              },
+              {
+                "label": "Sammeln \\(e^x\\) Verwendung \\(e^{a+b}=e^a e^b\\)",
+                "latex": "\\frac{e^x \\cdot e^h - e^x}{h} = e^x \\cdot \\frac{e^h-1}{h}",
+                "explanation": "\\(e^{x+h}=e^x \\cdot e^h\\). Der Faktor \\(e^x\\) ist nicht abhängig von \\(h\\)Also raus aus der Linie."
+              },
+              {
+                "label": "Verwenden Sie das bemerkenswerte Limit",
+                "latex": "\\lim_{h\\to 0}\\frac{e^h-1}{h} = 1",
+                "explanation": "Dieser Grenzwert entspricht der Definition von \\(e\\) — ist ein grundlegendes Ergebnis. Es wird anhand der Definition von \\(e=\\lim_{n\\to\\infty}(1+1/n)^n\\)."
+              },
+              {
+                "label": "Abschließend",
+                "latex": "f'(x) = e^x \\cdot 1 = e^x",
+                "explanation": "Das überraschende Ergebnis: \\(e^x\\) ist ihr eigenes Ableitung."
+              }
+            ],
+            "conclusion": "\\((e^x)'=e^x\\). Es ist die einzige Funktion (weniger als konstante Multiplikation) mit dieser Eigenschaft und beschreibt jedes Phänomen, bei dem die Wachstumsrate proportional zur Größe selbst ist (bakterielles Wachstum, radioaktiver Zerfall, zusammengesetzte Interessen)."
+          },
+          "solution_steps": [
+            {
+              "label": "Ergebnis",
+              "latex": "(e^x)' = e^x",
+              "explanation": "Einzigartige Eigenschaft: Die Exponentialfunktion ist für die Differenzierung unverändert."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "-f'(x) = e^x",
+              "feedback": "Überprüfen Sie den Ablauf der Ableitungen und den Punkt, an dem das Minuszeichen erscheint.",
+              "misconceptionId": "elementary-sign"
+            },
+            {
+              "latex": "f'(x)=1",
+              "feedback": "Eine ist nicht die Ableitung universal von elementaren Funktionen.",
+              "misconceptionId": "always-one"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Nur das Exponentielle fällt mit seiner eigenen Ableitung zusammen.",
+              "misconceptionId": "elementary-copy"
+            }
+          ]
+        },
+        {
+          "id": "fel_003",
+          "title": "Linearkombination elementarer Funktionen",
+          "difficulty": 2,
+          "tags": [
+            "Linearität",
+            "Sinus",
+            "ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex",
+            "Summe"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = 3\\sin x - 2e^x + 4\\).",
+            "hint": "Linearität verwenden: \\((\\alpha f + \\beta g)' = \\alpha f' + \\beta g'\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = 3\\cos x - 2e^x",
+            "text": "Unterscheiden Sie Begriff für Begriff mit elementaren Formeln."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Differenzieren \\(3\\sin x\\)",
+              "latex": "(3\\sin x)' = 3\\cos x",
+              "explanation": "konstant draußen, dann \\((\\sin x)'=\\cos x\\)."
+            },
+            {
+              "label": "Differenzieren \\(-2e^x\\)",
+              "latex": "(-2e^x)' = -2e^x",
+              "explanation": "\\((e^x)'=e^x\\), kommt die Konstante -2 heraus."
+            },
+            {
+              "label": "Differenzieren Sie die Konstante",
+              "latex": "(4)' = 0",
+              "explanation": "Ableitung von konstant = 0."
+            },
+            {
+              "label": "♪",
+              "latex": "f'(x) = 3\\cos x - 2e^x",
+              "explanation": "Die konstante Laufzeit \\(4\\) Er ist weg."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "-f'(x) = 3\\cos x - 2e^x",
+              "feedback": "Überprüfen Sie den Ablauf der Ableitungen und den Punkt, an dem das Minuszeichen erscheint.",
+              "misconceptionId": "elementary-sign"
+            },
+            {
+              "latex": "f'(x)=1",
+              "feedback": "Eine ist nicht die Ableitung universal von elementaren Funktionen.",
+              "misconceptionId": "always-one"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Nur das Exponentielle fällt mit seiner eigenen Ableitung zusammen.",
+              "misconceptionId": "elementary-copy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regola_prodotto",
+      "title": "Produktregel \\((fg)'=f'g+fg'\\)",
+      "description": "Ableiten von Funktionsprodukten, mit Grenzwertbeweis und Leibniz-Trick.",
+      "icon": "·",
+      "prerequisite_classes": [
+        "potenze",
+        "funzioni_elementari"
+      ],
+      "exercises": [
+        {
+          "id": "prod_001",
+          "title": "Produkt aus Polynom und Sinus",
+          "difficulty": 2,
+          "tags": [
+            "Produkt",
+            "Sinus",
+            "Polynom"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = x^2 \\sin x\\).",
+            "hint": "Identifizierung \\(f=x^2\\) und \\(g=\\sin x\\). Denken Sie daran: \\((fg)'=f'g+fg'\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = 2x\\sin x + x^2\\cos x",
+            "text": "Zwei Begriffe: die Ableitung die erste für die zweite, die erste für die Ableitung der zweiten."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration Produktregel ab dem Grenzwert",
+            "steps": [
+              {
+                "label": "Schreiben Sie die Differenzenquotient von \\(f\\cdot g\\)",
+                "latex": "\\frac{f(x+h)g(x+h)-f(x)g(x)}{h}",
+                "explanation": "Standardform für das Produkt."
+              },
+              {
+                "label": "Addieren und Subtrahieren des Begriffs \\(f(x)g(x+h)\\)",
+                "latex": "\\frac{f(x+h)g(x+h) - f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h}",
+                "explanation": "Make-up: Wir fügen Null in Form hinzu \\(+f(x)g(x+h)-f(x)g(x+h)\\). Dies ändert nicht den Wert, sondern ermöglicht es, die Beiträge zu trennen."
+              },
+              {
+                "label": "Gruppe und getrennt",
+                "latex": "g(x+h)\\cdot\\frac{f(x+h)-f(x)}{h} + f(x)\\cdot\\frac{g(x+h)-g(x)}{h}",
+                "explanation": "Wir sammeln \\(g(x+h)\\) im ersten Teil und \\(f(x)\\) In der zweiten."
+              },
+              {
+                "label": "Überfahrt bis zum Limit — Verwendung von Kontinuität",
+                "latex": "\\lim_{h\\to 0}g(x+h)\\cdot f'(x) + f(x)\\cdot g'(x) = g(x)f'(x)+f(x)g'(x)",
+                "explanation": "\\(g(x+h)\\to g(x)\\) weil \\(g\\) Es ist differenzierbar, also mach weiter. Die beiden Beziehungen neigen dazu, \\(f'\\) und \\(g'\\)."
+              }
+            ],
+            "conclusion": "\\((fg)' = f'g+fg'\\). Für unsere Übung: \\(f=x^2, g=\\sin x \\Rightarrow f'=2x, g'=\\cos x\\)."
+          },
+          "solution_steps": [
+            {
+              "label": "Identifikationsfaktoren",
+              "latex": "f=x^2,\\ g=\\sin x \\Rightarrow f'=2x,\\ g'=\\cos x",
+              "explanation": "Die Nennung der Teile hilft, nicht verwirrt zu werden."
+            },
+            {
+              "label": "Anwendbar",
+              "latex": "(x^2\\sin x)' = 2x\\cdot\\sin x + x^2\\cdot\\cos x",
+              "explanation": "\\(f'g + fg' = 2x\\sin x + x^2\\cos x\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=f'(x)g'(x)",
+              "feedback": "Das Ableitung eines Produkts ist nicht das Produktderivat.",
+              "misconceptionId": "product-derivatives"
+            },
+            {
+              "latex": "f'(x)=f'(x)g(x)",
+              "feedback": "Sie haben es verstanden. nur den ersten Faktor unterscheiden: den zweiten Beitrag verpassen.",
+              "misconceptionId": "product-first-only"
+            },
+            {
+              "latex": "f'(x)=f(x)g'(x)",
+              "feedback": "Sie haben es verstanden. nur den zweiten Faktor unterscheiden: den ersten Beitrag verpassen.",
+              "misconceptionId": "product-second-only"
+            }
+          ]
+        },
+        {
+          "id": "prod_002",
+          "title": "Produkt aus eˣ und Kosinus",
+          "difficulty": 2,
+          "tags": [
+            "Produkt",
+            "ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex",
+            "Was?"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = e^x \\cos x\\).",
+            "hint": "\\((e^x)'=e^x\\) und \\((\\cos x)'=-\\sin x\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = e^x(\\cos x - \\sin x)",
+            "text": "Sammle ex, das den beiden begriffen gemeinsam ist."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Identifikation und Differenzierung",
+              "latex": "f=e^x,\\ g=\\cos x \\Rightarrow f'=e^x,\\ g'=-\\sin x",
+              "explanation": "Derivateanleihen."
+            },
+            {
+              "label": "Anwendung der Produktregel",
+              "latex": "e^x\\cos x + e^x(-\\sin x) = e^x(\\cos x-\\sin x)",
+              "explanation": "Sammeln \\(e^x\\) gemeinsam."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=f'(x)g'(x)",
+              "feedback": "Das Ableitung eines Produkts ist nicht das Produktderivat.",
+              "misconceptionId": "product-derivatives"
+            },
+            {
+              "latex": "f'(x)=f'(x)g(x)",
+              "feedback": "Sie haben es verstanden. nur den ersten Faktor unterscheiden: den zweiten Beitrag verpassen.",
+              "misconceptionId": "product-first-only"
+            },
+            {
+              "latex": "f'(x)=f(x)g'(x)",
+              "feedback": "Sie haben es verstanden. nur den zweiten Faktor unterscheiden: den ersten Beitrag verpassen.",
+              "misconceptionId": "product-second-only"
+            }
+          ]
+        },
+        {
+          "id": "prod_003",
+          "title": "Dreifaches Produkt",
+          "difficulty": 3,
+          "tags": [
+            "Produkt",
+            "dreifach",
+            "Fortgeschritten"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = x^2 e^x \\sin x\\).",
+            "hint": "Betrachten Sie zuerst \\(u=x^2 e^x\\) (Unterscheidung mit dem Produktregel), dann wieder anwenden Produktregel a \\(u \\cdot \\sin x\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = e^x[(2x+x^2)\\sin x + x^2\\cos x]",
+            "text": "Anwendung der Produktregel Zweimal im Wasserfall."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Berechnen \\(u' = (x^2 e^x)'\\) Erster",
+              "latex": "u = x^2 e^x \\Rightarrow u' = 2xe^x + x^2 e^x = e^x(2x+x^2)",
+              "explanation": "Produktregel bis \\(x^2\\) und \\(e^x\\)."
+            },
+            {
+              "label": "Uhrzeit \\(f = u \\cdot \\sin x\\), daher \\(f'=u'\\sin x + u\\cos x\\)",
+              "latex": "f' = e^x(2x+x^2)\\sin x + x^2 e^x \\cos x",
+              "explanation": "Zweite Anwendung Produktregel."
+            },
+            {
+              "label": "Sammeln \\(e^x\\)",
+              "latex": "f'(x) = e^x[(2x+x^2)\\sin x + x^2\\cos x]",
+              "explanation": "\\(e^x\\) ist ein gemeinsamer Faktor in beiden Begriffen."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=f'(x)g'(x)",
+              "feedback": "Das Ableitung eines Produkts ist nicht das Produktderivat.",
+              "misconceptionId": "product-derivatives"
+            },
+            {
+              "latex": "f'(x)=f'(x)g(x)",
+              "feedback": "Sie haben es verstanden. nur den ersten Faktor unterscheiden: den zweiten Beitrag verpassen.",
+              "misconceptionId": "product-first-only"
+            },
+            {
+              "latex": "f'(x)=f(x)g'(x)",
+              "feedback": "Sie haben es verstanden. nur den zweiten Faktor unterscheiden: den ersten Beitrag verpassen.",
+              "misconceptionId": "product-second-only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regola_quoziente",
+      "title": "Quotientenregel \\(\\left(\\frac{f}{g}\\right)'=\\frac{f'g-fg'}{g^2}\\)",
+      "description": "Ableiten von Funktionsquotienten und Herleitung aus der Produktregel.",
+      "icon": "÷",
+      "prerequisite_classes": [
+        "regola_prodotto"
+      ],
+      "exercises": [
+        {
+          "id": "quot_001",
+          "title": "Ableitung von tan x",
+          "difficulty": 2,
+          "tags": [
+            "Quotient",
+            "tan",
+            "Sinus",
+            "Was?"
+          ],
+          "problem": {
+            "text": "Differenzieren \\(f(x)=\\tan x\\) Verwendung Quotientenregel angewandt auf \\(\\sin x / \\cos x\\).",
+            "hint": "\\(f=\\sin x, g=\\cos x\\). Dann verwenden \\(\\sin^2 x + \\cos^2 x = 1\\)."
+          },
+          "answer": {
+            "latex": "(\\tan x)' = \\dfrac{1}{\\cos^2 x}",
+            "text": "Auch geschrieben als sec2x."
+          },
+          "proof_from_limit": {
+            "title": "Differenzierung der Quotientenregel ab dem Grenzwert",
+            "steps": [
+              {
+                "label": "Schreiben \\(f/g\\) und seine Differenzenquotient",
+                "latex": "\\frac{\\frac{f(x+h)}{g(x+h)}-\\frac{f(x)}{g(x)}}{h}",
+                "explanation": "Differenzenquotient Standard für die Quotientenfunktion."
+              },
+              {
+                "label": "Setzen Sie den gleichen Nenner",
+                "latex": "\\frac{f(x+h)g(x)-f(x)g(x+h)}{h\\cdot g(x+h)g(x)}",
+                "explanation": "Gemeinsamer Nenner \\(g(x+h)g(x)\\)."
+              },
+              {
+                "label": "Addieren und Subtrahieren \\(f(x)g(x)\\) zum Nummerierer",
+                "latex": "\\frac{[f(x+h)-f(x)]g(x) - f(x)[g(x+h)-g(x)]}{h\\cdot g(x+h)g(x)}",
+                "explanation": "Der gleiche Trick wie der Produktregel: Wir addieren Null zu separaten Beiträgen."
+              },
+              {
+                "label": "Dividenden \\(h\\) und geht bis zum Limit",
+                "latex": "\\frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}",
+                "explanation": "für \\(h\\to 0\\): \\(g(x+h)\\to g(x)\\)Die beiden Beziehungen neigen dazu, \\(f'\\) und \\(g'\\)."
+              }
+            ],
+            "conclusion": "\\((f/g)'=(f'g-fg')/g^2\\). Für tan x: \\(f=\\sin x, g=\\cos x \\Rightarrow (\\cos^2 x+\\sin^2 x)/\\cos^2 x = 1/\\cos^2 x\\)."
+          },
+          "solution_steps": [
+            {
+              "label": "Legt den Quotienten fest",
+              "latex": "\\tan x = \\frac{\\sin x}{\\cos x}, \\quad f=\\sin x,\\ g=\\cos x",
+              "explanation": "Kennzeichnung von Teilen."
+            },
+            {
+              "label": "Berechne, ich gebe es dir. Derivate",
+              "latex": "f'=\\cos x, \\quad g'=-\\sin x",
+              "explanation": "Derivate-Elementaranleihen."
+            },
+            {
+              "label": "Anwendbar",
+              "latex": "\\frac{\\cos x \\cdot \\cos x - \\sin x \\cdot(-\\sin x)}{\\cos^2 x} = \\frac{\\cos^2 x+\\sin^2 x}{\\cos^2 x}",
+              "explanation": "Nummer: \\(f'g - fg'\\)."
+            },
+            {
+              "label": "Grundlegende Identität verwenden",
+              "latex": "\\frac{1}{\\cos^2 x}",
+              "explanation": "\\(\\sin^2 x + \\cos^2 x = 1\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f'(x)}{g'(x)}",
+              "feedback": "Die Ableitung des Quotienten ist nicht die Quotientenableitungen.",
+              "misconceptionId": "quotient-derivatives"
+            },
+            {
+              "latex": "f'(x)=\\frac{f'g-fg'}{g}",
+              "feedback": "Der Nenner muss das Quadrat der Funktion unten erscheinen.",
+              "misconceptionId": "quotient-square"
+            },
+            {
+              "latex": "f'(x)=\\frac{fg'-f'g}{g^2}",
+              "feedback": "Die Begriffe des Numerierers sind umgekehrt: Das Vorzeichen ändert sich.",
+              "misconceptionId": "quotient-order"
+            }
+          ]
+        },
+        {
+          "id": "quot_002",
+          "title": "Quotient von Polynomen",
+          "difficulty": 2,
+          "tags": [
+            "Quotient",
+            "Polynom",
+            "♪"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x)=\\dfrac{x^2+1}{x-1}\\) (mit) \\(x\\neq 1\\)).",
+            "hint": "\\(f=x^2+1,\\ g=x-1\\). Vereinfachen Sie nicht vorher: wenden Sie die Regel sofort an."
+          },
+          "answer": {
+            "latex": "f'(x) = \\dfrac{x^2-2x-1}{(x-1)^2}",
+            "text": "Nummer: f'g - fg."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Identifikation und Differenzierung",
+              "latex": "f=x^2+1 \\Rightarrow f'=2x; \\quad g=x-1 \\Rightarrow g'=1",
+              "explanation": "Derivate einfach."
+            },
+            {
+              "label": "Anwendbar",
+              "latex": "\\frac{2x(x-1)-(x^2+1)\\cdot 1}{(x-1)^2} = \\frac{2x^2-2x-x^2-1}{(x-1)^2} = \\frac{x^2-2x-1}{(x-1)^2}",
+              "explanation": "Entwickeln Sie den Numberer und sammeln Sie ähnliche Begriffe."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x)=\\frac{f'(x)}{g'(x)}",
+              "feedback": "Die Ableitung des Quotienten ist nicht die Quotientenableitungen.",
+              "misconceptionId": "quotient-derivatives"
+            },
+            {
+              "latex": "f'(x)=\\frac{f'g-fg'}{g}",
+              "feedback": "Der Nenner muss das Quadrat der Funktion unten erscheinen.",
+              "misconceptionId": "quotient-square"
+            },
+            {
+              "latex": "f'(x)=\\frac{fg'-f'g}{g^2}",
+              "feedback": "Die Begriffe des Numerierers sind umgekehrt: Das Vorzeichen ändert sich.",
+              "misconceptionId": "quotient-order"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "regola_catena",
+      "title": "Kettenregel \\((f\\circ g)'=f'(g)\\cdot g'\\)",
+      "description": "Ableiten verketteter Funktionen — die wichtigste und am häufigsten verwendete Regel.",
+      "icon": "∘",
+      "prerequisite_classes": [
+        "regola_prodotto",
+        "funzioni_elementari"
+      ],
+      "exercises": [
+        {
+          "id": "cat_001",
+          "title": "Einfache Funktionsverkettung",
+          "difficulty": 2,
+          "tags": [
+            "Kettenkette",
+            "Sinus",
+            "Polynom"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = \\sin(x^2)\\).",
+            "hint": "Identifizieren Sie die externe Funktion \\(u\\mapsto \\sin u\\) und interne Funktion \\(g(x)=x^2\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = \\cos(x^2)\\cdot 2x",
+            "text": "Differenzieren Sie die Außenseite, die im Inneren bewertet wird, und multiplizieren Sie dann mit der Ableitung im Inneren."
+          },
+          "proof_from_limit": {
+            "title": "Demonstration Kettenregel ab dem Grenzwert",
+            "steps": [
+              {
+                "label": "Schreiben Sie die Differenzenquotient von \\(f\\circ g\\)",
+                "latex": "\\frac{f(g(x+h))-f(g(x))}{h}",
+                "explanation": "Standardform."
+              },
+              {
+                "label": "Multiplizieren und teilen durch \\(k = g(x+h)-g(x)\\)",
+                "latex": "\\frac{f(g(x)+k)-f(g(x))}{k} \\cdot \\frac{g(x+h)-g(x)}{h} \\quad (k\\neq 0)",
+                "explanation": "♪ \\(g(x+h)\\neq g(x)\\)Ich meine, \\(k\\neq 0\\)Wir können multiplizieren und teilen durch \\(k\\). Der zweite Faktor ist die Differenzenquotient von \\(g\\)."
+              },
+              {
+                "label": "Gehen Sie zum Limit: \\(h\\to 0\\) Mittel \\(k\\to 0\\)",
+                "latex": "\\lim_{k\\to 0}\\frac{f(g(x)+k)-f(g(x))}{k}\\cdot\\lim_{h\\to 0}\\frac{g(x+h)-g(x)}{h} = f'(g(x))\\cdot g'(x)",
+                "explanation": "für \\(g\\) Es ist kontinuierlich, \\(h\\to 0 \\Rightarrow k\\to 0\\). Die erste Grenzwert ist \\(f'\\) bewertet in \\(g(x)\\)Der zweite ist \\(g'(x)\\)."
+              }
+            ],
+            "conclusion": "\\((f\\circ g)'(x) = f'(g(x))\\cdot g'(x)\\). für \\(\\sin(x^2)\\): außen \\(f(u)=\\sin u \\Rightarrow f'(u)=\\cos u\\), Innenraum \\(g(x)=x^2 \\Rightarrow g'=2x\\). Ergebnisse: \\(\\cos(x^2)\\cdot 2x\\)."
+          },
+          "solution_steps": [
+            {
+              "label": "Externe und interne Kennzeichnung",
+              "latex": "f(u)=\\sin u,\\quad g(x)=x^2 \\Rightarrow f'(u)=\\cos u,\\quad g'(x)=2x",
+              "explanation": "Die Struktur ist \"heilig von etwas\"."
+            },
+            {
+              "label": "Anwenden der Kette",
+              "latex": "(\\sin(x^2))' = \\cos(x^2)\\cdot 2x",
+              "explanation": "\\(f'(g(x))\\cdot g'(x) = \\cos(x^2)\\cdot 2x\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x) = \\cos(x^2)\\cdot 2x\\,\\text{ ohne den internen Faktor}",
+              "feedback": "Sie haben es verstanden. die äußere Schicht unterscheidet, aber keine Ableitung der inneren Schicht aufweist.",
+              "misconceptionId": "chain-inner-missing"
+            },
+            {
+              "latex": "f'(x)=g'(x)",
+              "feedback": "Sie haben es verstanden. differenzierennur die interne Funktion: Sie müssen die externe differenzieren.",
+              "misconceptionId": "chain-outer-missing"
+            },
+            {
+              "latex": "f'(x)=f'(g(x))+g'(x)",
+              "feedback": "In der Kette multiplizieren sich die Beiträge, summieren sich nicht.",
+              "misconceptionId": "chain-added"
+            }
+          ]
+        },
+        {
+          "id": "cat_002",
+          "title": "Verkettete Exponentialfunktion",
+          "difficulty": 2,
+          "tags": [
+            "Kettenkette",
+            "ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex ex"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = e^{3x-1}\\).",
+            "hint": "Draußen: \\(e^u\\), innen: \\(3x-1\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = 3e^{3x-1}",
+            "text": "Die Ableitung des Exponenten ist selbst, multipliziert mit der Ableitung des Exponenten."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Identifizierung",
+              "latex": "f(u)=e^u,\\ g(x)=3x-1 \\Rightarrow f'(u)=e^u,\\ g'(x)=3",
+              "explanation": "Der Exponentiale hat selbst eine Ableitung."
+            },
+            {
+              "label": "Kette",
+              "latex": "(e^{3x-1})' = e^{3x-1}\\cdot 3 = 3e^{3x-1}",
+              "explanation": "\\(f'(g(x))\\cdot g'(x)\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x) = 3e^{3x-1}\\,\\text{ ohne den internen Faktor}",
+              "feedback": "Sie haben es verstanden. die äußere Schicht unterscheidet, aber keine Ableitung der inneren Schicht aufweist.",
+              "misconceptionId": "chain-inner-missing"
+            },
+            {
+              "latex": "f'(x)=g'(x)",
+              "feedback": "Sie haben es verstanden. differenzierennur die interne Funktion: Sie müssen die externe differenzieren.",
+              "misconceptionId": "chain-outer-missing"
+            },
+            {
+              "latex": "f'(x)=f'(g(x))+g'(x)",
+              "feedback": "In der Kette multiplizieren sich die Beiträge, summieren sich nicht.",
+              "misconceptionId": "chain-added"
+            }
+          ]
+        },
+        {
+          "id": "cat_003",
+          "title": "Potenz einer Funktion",
+          "difficulty": 2,
+          "tags": [
+            "Kettenkette",
+            "Leistungskraft",
+            "Zusammensetzung"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = (x^3+5)^4\\).",
+            "hint": "Draußen: \\(u^4\\), innen: \\(x^3+5\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = 12x^2(x^3+5)^3",
+            "text": "Composed Power Rule: Senkt den Exponenten und multipliziert mit der inneren Ableitung."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Identifizierung",
+              "latex": "f(u)=u^4,\\ g(x)=x^3+5 \\Rightarrow f'(u)=4u^3,\\ g'(x)=3x^2",
+              "explanation": "Die Struktur ist \"etwas hoch auf die vierte\"."
+            },
+            {
+              "label": "Anwenden der Kette",
+              "latex": "4(x^3+5)^3 \\cdot 3x^2 = 12x^2(x^3+5)^3",
+              "explanation": "\\(f'(g(x))\\cdot g'(x)\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x) = 12x^2(x^3+5)^3\\,\\text{ ohne den internen Faktor}",
+              "feedback": "Sie haben es verstanden. die äußere Schicht unterscheidet, aber keine Ableitung der inneren Schicht aufweist.",
+              "misconceptionId": "chain-inner-missing"
+            },
+            {
+              "latex": "f'(x)=g'(x)",
+              "feedback": "Sie haben es verstanden. differenzierennur die interne Funktion: Sie müssen die externe differenzieren.",
+              "misconceptionId": "chain-outer-missing"
+            },
+            {
+              "latex": "f'(x)=f'(g(x))+g'(x)",
+              "feedback": "In der Kette multiplizieren sich die Beiträge, summieren sich nicht.",
+              "misconceptionId": "chain-added"
+            }
+          ]
+        },
+        {
+          "id": "cat_004",
+          "title": "Doppelte Verkettung",
+          "difficulty": 3,
+          "tags": [
+            "Kettenkette",
+            "Sinus",
+            "Zusammensetzung",
+            "Fortgeschritten"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x)=\\sin^2(3x)\\).",
+            "hint": "Erste Umschreibung: \\(\\sin^2(3x) = [\\sin(3x)]^2\\). Wenden Sie dann die Kette zweimal an."
+          },
+          "answer": {
+            "latex": "f'(x) = 3\\sin(6x)",
+            "text": "Doppelkette + doppelter Winkel Brustidentität."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Umschreiben und Identifizieren von Ebenen",
+              "latex": "f(x) = [\\sin(3x)]^2 \\quad \\text{(außen): }u^2\\text{Medium: }\\sin u\\text{, innen: }3x\\text{)}",
+              "explanation": "Drei Ebenen der Komposition."
+            },
+            {
+              "label": "Erste Kette: durchschnittlich extern",
+              "latex": "2\\sin(3x)\\cdot(\\sin(3x))'",
+              "explanation": "\\((u^2)'=2u\\) bewertet in \\(u=\\sin(3x)\\)."
+            },
+            {
+              "label": "Zweite Kette: Medium auf intern",
+              "latex": "(\\sin(3x))' = \\cos(3x)\\cdot 3",
+              "explanation": "\\((\\sin u)'=\\cos u\\) mit \\(u=3x\\), also multipliziert \\((3x)'=3\\)."
+            },
+            {
+              "label": "Verfassen Sie das Ergebnis",
+              "latex": "2\\sin(3x)\\cdot\\cos(3x)\\cdot 3 = 6\\sin(3x)\\cos(3x)",
+              "explanation": "Multiplizieren Sie alle Faktoren."
+            },
+            {
+              "label": "Verwendungsidentität \\(\\sin(2\\alpha)=2\\sin\\alpha\\cos\\alpha\\)",
+              "latex": "6\\sin(3x)\\cos(3x) = 3\\cdot 2\\sin(3x)\\cos(3x) = 3\\sin(6x)",
+              "explanation": "mit \\(\\alpha=3x\\): \\(2\\sin(3x)\\cos(3x)=\\sin(6x)\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x) = 3\\sin(6x)\\,\\text{ ohne den internen Faktor}",
+              "feedback": "Sie haben es verstanden. die äußere Schicht unterscheidet, aber keine Ableitung der inneren Schicht aufweist.",
+              "misconceptionId": "chain-inner-missing"
+            },
+            {
+              "latex": "f'(x)=g'(x)",
+              "feedback": "Sie haben es verstanden. differenzierennur die interne Funktion: Sie müssen die externe differenzieren.",
+              "misconceptionId": "chain-outer-missing"
+            },
+            {
+              "latex": "f'(x)=f'(g(x))+g'(x)",
+              "feedback": "In der Kette multiplizieren sich die Beiträge, summieren sich nicht.",
+              "misconceptionId": "chain-added"
+            }
+          ]
+        },
+        {
+          "id": "cat_005",
+          "title": "Verketteter Logarithmus",
+          "difficulty": 2,
+          "tags": [
+            "Kettenkette",
+            "I",
+            "Logaritam"
+          ],
+          "problem": {
+            "text": "Berechnen \\(f'(x)\\) für \\(f(x) = \\ln(\\cos x)\\) (mit) \\(\\cos x > 0\\)).",
+            "hint": "\\((\\ln u)' = 1/u\\). Dann Kette mit Ableitung von \\(\\cos x\\)."
+          },
+          "answer": {
+            "latex": "f'(x) = -\\tan x",
+            "text": "Die Ableitung durch ln(cos x) ist -tan x."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Identifizierung",
+              "latex": "f(u)=\\ln u,\\ g(x)=\\cos x \\Rightarrow f'(u)=\\tfrac{1}{u},\\ g'(x)=-\\sin x",
+              "explanation": "\\((\\ln u)'=1/u\\) ist das Ergebnis der Ableitung des Logarithmus (nachweisbar vom Grenzwert)."
+            },
+            {
+              "label": "Kette",
+              "latex": "\\frac{1}{\\cos x}\\cdot(-\\sin x) = -\\frac{\\sin x}{\\cos x} = -\\tan x",
+              "explanation": "\\(-\\sin x/\\cos x = -\\tan x\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "f'(x) = -\\tan x\\,\\text{ ohne den internen Faktor}",
+              "feedback": "Sie haben es verstanden. die äußere Schicht unterscheidet, aber keine Ableitung der inneren Schicht aufweist.",
+              "misconceptionId": "chain-inner-missing"
+            },
+            {
+              "latex": "f'(x)=g'(x)",
+              "feedback": "Sie haben es verstanden. differenzierennur die interne Funktion: Sie müssen die externe differenzieren.",
+              "misconceptionId": "chain-outer-missing"
+            },
+            {
+              "latex": "f'(x)=f'(g(x))+g'(x)",
+              "feedback": "In der Kette multiplizieren sich die Beiträge, summieren sich nicht.",
+              "misconceptionId": "chain-added"
+            }
+          ]
+        },
+        {
+          "id": "concept_chain_factor",
+          "title": "Der versteckte Faktor",
+          "difficulty": 2,
+          "tags": [
+            "Kettenkette",
+            "Konzept"
+          ],
+          "problem": {
+            "text": "Was ist der Fehler in \\((\\sin(x^2))'=\\cos(x^2)\\)?"
+          },
+          "answer": {
+            "latex": "\\text{Miss }(x^2)'=2x",
+            "text": "Wir müssen mit der Ableitung der inneren Schicht multiplizieren."
+          },
+          "distractors": [
+            {
+              "latex": "\\text{Es gibt kein Zeichen}",
+              "feedback": "Brust differenzieren in etwas ohne ein Zeichen weniger.",
+              "misconceptionId": "trig-sign"
+            },
+            {
+              "latex": "\\text{Wir müssen ersetzen }x^2\\text{ mit }x",
+              "feedback": "Das Innere bleibt innerhalb des Derivats außen.",
+              "misconceptionId": "chain-remove-inner"
+            },
+            {
+              "latex": "\\text{Die Formel ist korrekt}",
+              "feedback": "Überprüfen Sie die innere Schicht: Auch x2 variiert.",
+              "misconceptionId": "chain-inner-missing"
+            }
+          ],
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Extern, dann intern",
+              "latex": "(\\sin(x^2))'=\\cos(x^2)\\cdot2x",
+              "explanation": "Differenzieren Sie die Brust, hält x2, dann multipliziert mit 2x."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "applicazioni",
+      "title": "Tangenten, stationäre Punkte und Anwendungen",
+      "description": "Mit Ableitungen das Verhalten einer Funktion untersuchen — Maxima, Minima und Tangenten.",
+      "icon": "📈",
+      "prerequisite_classes": [
+        "regola_catena",
+        "regola_quoziente"
+      ],
+      "exercises": [
+        {
+          "id": "app_001",
+          "title": "Tangente",
+          "difficulty": 2,
+          "tags": [
+            "Tangente",
+            "geometrisch",
+            "Antrag"
+          ],
+          "problem": {
+            "text": "Finden Sie die Gleichung von Tangente zum Graphen von \\(f(x)=x^3-3x\\) an der Stelle \\(P=(2,2)\\).",
+            "hint": "Die Tangente in \\((x_0, f(x_0))\\) hat Gleichung \\(y - f(x_0) = f'(x_0)(x-x_0)\\)."
+          },
+          "answer": {
+            "latex": "y = 9x - 16",
+            "text": "Steigung 9, vorbeifahren (2,2)."
+          },
+          "proof_from_limit": {
+            "title": "Verbindung mit der Definition: Warum ist die Steigung f'(x0)?",
+            "steps": [
+              {
+                "label": "Das Geheimnis zwischen \\((x_0,f(x_0))\\) und \\((x,f(x))\\)",
+                "latex": "m_{\\text{Abs.}} = \\frac{f(x)-f(x_0)}{x-x_0}",
+                "explanation": "Dies ist die Steigung der Linie, die zwei Punkte des Graphen vereint."
+              },
+              {
+                "label": "für \\(x\\to x_0\\)Das Geheimnis wird zur Tangente",
+                "latex": "m_{\\text{tan}} = \\lim_{x\\to x_0}\\frac{f(x)-f(x_0)}{x-x_0} = f'(x_0)",
+                "explanation": "Ersatz \\(x=x_0+h\\)Diese Grenzwert ist genau die Definition von \\(f'(x_0)\\). Die Ableitung Es ist Steigung der Tangente."
+              }
+            ],
+            "conclusion": "Die Ableitung ist nicht nur eine abstrakte Formel: Es ist buchstäblich die Steigung des rechts berührenden Graphen An einem Punkt."
+          },
+          "solution_steps": [
+            {
+              "label": "Berechnung des Derivats",
+              "latex": "f'(x) = 3x^2-3",
+              "explanation": "Herrschaftsregel + Linearität."
+            },
+            {
+              "label": "Währung \\(x_0=2\\)",
+              "latex": "f'(2) = 3\\cdot 4-3 = 9",
+              "explanation": "Die Steigung der Tangente in \\(P\\) Es ist 9."
+            },
+            {
+              "label": "Rechtsgleichung",
+              "latex": "y-2 = 9(x-2) \\Rightarrow y=9x-16",
+              "explanation": "Formel \\(y-y_0=m(x-x_0)\\) mit \\(m=9\\), \\((x_0,y_0)=(2,2)\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "-y = 9x - 16",
+              "feedback": "Das Zeichen wurde ohne mathematischen Grund umgekehrt.",
+              "misconceptionId": "application-sign"
+            },
+            {
+              "latex": "\\frac{1}{y = 9x - 16}",
+              "feedback": "Du hast das Gegenseitige genommen und auch die Bedeutung der Einheit verändert.",
+              "misconceptionId": "application-reciprocal"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Du hast den Wert der Größe mit ihrer Änderungsrate verwechselt.",
+              "misconceptionId": "value-vs-rate"
+            }
+          ]
+        },
+        {
+          "id": "app_002",
+          "title": "Stationäre Punkte",
+          "difficulty": 3,
+          "tags": [
+            "stationär",
+            "maximal",
+            "mindestens",
+            "Zeichen"
+          ],
+          "problem": {
+            "text": "für \\(f(x) = x\\cdot e^x\\)Finde die stationäre Punkte (wobei) \\(f'(x)=0\\)) und das Zeichen der \\(f'\\) um sie zu klassifizieren.",
+            "hint": "Verwenden Sie die Produktregel zu finden \\(f'\\). Dann studieren Sie das Zeichen von \\(e^x(1+x)\\) Erinnern Sie sich: \\(e^x > 0\\) Immer."
+          },
+          "answer": {
+            "latex": "x=-1 \\text{ (lokales Minimum)}, \\quad f(-1)=-e^{-1}",
+            "text": "1 stationärer Punkt in x = -1, Minimum."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Berechnen \\(f'\\) mit dem Produktregel",
+              "latex": "f'(x) = e^x + xe^x = e^x(1+x)",
+              "explanation": "\\((xe^x)'=1\\cdot e^x + x\\cdot e^x\\)."
+            },
+            {
+              "label": "Finden Sie, wo \\(f'(x)=0\\)",
+              "latex": "e^x(1+x)=0 \\Rightarrow 1+x=0 \\Rightarrow x=-1",
+              "explanation": "\\(e^x>0\\) immer, daher kommt die einzige Lösung von \\(1+x=0\\)."
+            },
+            {
+              "label": "Studieren Sie das Zeichen von \\(f'\\)",
+              "latex": "x<-1 \\Rightarrow 1+x<0 \\Rightarrow f'<0; \\quad x>-1 \\Rightarrow f'>0",
+              "explanation": "\\(f'\\) Wechselzeichen von - nach + in \\(x=-1\\): minimal lokal."
+            },
+            {
+              "label": "Mindestwert",
+              "latex": "f(-1) = (-1)\\cdot e^{-1} = -\\frac{1}{e}",
+              "explanation": "Der Mindestwert der Funktion."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "-x=-1 \\text{ (lokales Minimum)}, \\quad f(-1)=-e^{-1}",
+              "feedback": "Das Zeichen wurde ohne mathematischen Grund umgekehrt.",
+              "misconceptionId": "application-sign"
+            },
+            {
+              "latex": "\\frac{1}{x=-1 \\text{ (lokales Minimum)}, \\quad f(-1)=-e^{-1}}",
+              "feedback": "Du hast das Gegenseitige genommen und auch die Bedeutung der Einheit verändert.",
+              "misconceptionId": "application-reciprocal"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Du hast den Wert der Größe mit ihrer Änderungsrate verwechselt.",
+              "misconceptionId": "value-vs-rate"
+            }
+          ]
+        },
+        {
+          "id": "app_003",
+          "title": "Gleichung der Normalen",
+          "difficulty": 3,
+          "tags": [
+            "normal",
+            "Tangente",
+            "geometrisch"
+          ],
+          "problem": {
+            "text": "Finden Sie die Gleichung von Normale (senkrecht zur Tangente) Graph von \\(f(x)=\\sqrt{x}\\) an der Stelle \\(P=(4,2)\\).",
+            "hint": "Die Normale hat eine Steigung \\(-1/f'(x_0)\\). Zwei Geraden stehen senkrecht, wenn das Pendenzprodukt -1 ist."
+          },
+          "answer": {
+            "latex": "y = -4x + 18",
+            "text": "Steigung -4, vorbeifahren (4.2)."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Berechnen \\(f'(x)\\)",
+              "latex": "f'(x) = \\frac{1}{2\\sqrt{x}}",
+              "explanation": "Derivate von \\(\\sqrt{x}\\)."
+            },
+            {
+              "label": "Währung \\(x_0=4\\)",
+              "latex": "f'(4) = \\frac{1}{2\\sqrt{4}} = \\frac{1}{4}",
+              "explanation": "Steigung der Tangente."
+            },
+            {
+              "label": "Steigung des Normalen",
+              "latex": "m_{\\perp} = -\\frac{1}{1/4} = -4",
+              "explanation": "senkrechter Kontakt: \\(m_1 \\cdot m_2 = -1\\)."
+            },
+            {
+              "label": "Normale Gleichung",
+              "latex": "y-2=-4(x-4) \\Rightarrow y=-4x+18",
+              "explanation": "Point-to-Point Formelslope mit \\((x_0,y_0)=(4,2)\\) und \\(m=-4\\)."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "-y = -4x + 18",
+              "feedback": "Das Zeichen wurde ohne mathematischen Grund umgekehrt.",
+              "misconceptionId": "application-sign"
+            },
+            {
+              "latex": "\\frac{1}{y = -4x + 18}",
+              "feedback": "Du hast das Gegenseitige genommen und auch die Bedeutung der Einheit verändert.",
+              "misconceptionId": "application-reciprocal"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Du hast den Wert der Größe mit ihrer Änderungsrate verwechselt.",
+              "misconceptionId": "value-vs-rate"
+            }
+          ]
+        },
+        {
+          "id": "app_004",
+          "title": "Herausforderung — Punkte mit paralleler Tangente",
+          "difficulty": 4,
+          "tags": [
+            "Tangente",
+            "parallel",
+            "Herausforderung",
+            "Sinus"
+          ],
+          "problem": {
+            "text": "Finden Sie alle Punkte von \\(f(x) = e^x \\sin x\\) in \\([0,\\pi]\\) wo Tangente parallel zur Achse \\(x\\) (Steigung Null). Klassifizieren Sie jeden Punkt als maximal oder minimal lokal.",
+            "hint": "Parallel zur x-Achse Mittel \\(f'(x)=0\\). Nach Berechnung ♪ \\(f'\\)Studieren Sie die Markierung um die gefundenen Punkte."
+          },
+          "answer": {
+            "latex": "x \\approx 2.356 \\left(=\\frac{3\\pi}{4}\\right)",
+            "text": "A stationärer Punkt 3π/4, maximal lokal."
+          },
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Berechnen \\(f'\\) mit dem Produktregel",
+              "latex": "f'(x) = e^x\\sin x + e^x\\cos x = e^x(\\sin x+\\cos x)",
+              "explanation": "\\((e^x\\sin x)' = e^x\\sin x + e^x\\cos x\\)."
+            },
+            {
+              "label": "Kartoffeln \\(f'(x)=0\\)",
+              "latex": "e^x(\\sin x+\\cos x)=0 \\Rightarrow \\sin x + \\cos x = 0",
+              "explanation": "\\(e^x>0\\) immer, also nur \\(\\sin x+\\cos x=0\\)."
+            },
+            {
+              "label": "Lösung in \\([0,\\pi]\\)",
+              "latex": "\\tan x = -1 \\Rightarrow x = \\frac{3\\pi}{4}",
+              "explanation": "\\(\\sin x = -\\cos x \\Rightarrow \\tan x=-1\\). In \\([0,\\pi]\\) Die Lösung ist \\(x=3\\pi/4\\)."
+            },
+            {
+              "label": "Klassifizierung: Zeichen von \\(f'\\)",
+              "latex": "x<\\tfrac{3\\pi}{4}: \\sin x+\\cos x>0 \\Rightarrow f'>0; \\quad x>\\tfrac{3\\pi}{4}: f'<0",
+              "explanation": "Das Zeichen wechselt von + zu −: es ist ein lokales Maximum."
+            }
+          ],
+          "distractors": [
+            {
+              "latex": "-x \\approx 2.356 \\left(=\\frac{3\\pi}{4}\\right)",
+              "feedback": "Das Zeichen wurde ohne mathematischen Grund umgekehrt.",
+              "misconceptionId": "application-sign"
+            },
+            {
+              "latex": "\\frac{1}{x \\approx 2.356 \\left(=\\frac{3\\pi}{4}\\right)}",
+              "feedback": "Du hast das Gegenseitige genommen und auch die Bedeutung der Einheit verändert.",
+              "misconceptionId": "application-reciprocal"
+            },
+            {
+              "latex": "f'(x)=f(x)",
+              "feedback": "Du hast den Wert der Größe mit ihrer Änderungsrate verwechselt.",
+              "misconceptionId": "value-vs-rate"
+            }
+          ]
+        },
+        {
+          "id": "concept_units_sign",
+          "title": "Vorzeichen und Einheit der Grenzkosten",
+          "difficulty": 2,
+          "tags": [
+            "Anträge",
+            "Konzept"
+          ],
+          "problem": {
+            "text": "♪ \\(C'(100)=12\\) und C wird in Euro gemessen, während q in Stücken, was bedeutet es?"
+          },
+          "answer": {
+            "latex": "\\text{Die Kosten steigen um ca. 12 Euro pro zusätzlichem Stück}",
+            "text": "Das Zeichen zeigt Erhöhung und die Einheit ist Euro / Pezzo."
+          },
+          "distractors": [
+            {
+              "latex": "\\text{Gesamtkosten sind 12 Euro}",
+              "feedback": "Sie haben den Kostenwert mit seiner Grenzrate verwechselt.",
+              "misconceptionId": "value-vs-rate"
+            },
+            {
+              "latex": "\\text{Die Kosten sinken um 12 Euro / Pezzo}",
+              "feedback": "Der Wert der Ableitung ist positiv, daher zeigt Anstieg.",
+              "misconceptionId": "derivative-sign"
+            },
+            {
+              "latex": "\\text{12 Stück werden produziert}",
+              "feedback": "12 Euro Größe pro Stück, keine produzierte Menge.",
+              "misconceptionId": "derivative-units"
+            }
+          ],
+          "proof_from_limit": null,
+          "solution_steps": [
+            {
+              "label": "Lesen Sie die Beziehung zwischen Einheit",
+              "latex": "[C']=[C]/[q]=\\text{Euro/Pe}",
+              "explanation": "Das Ableitung erbt eine zusammengesetzte Einheit und das Zeichen zeigt seine Richtung an."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "progression_rules": {
+    "description": "Regeln für adaptive Progression. Die Engine bewertet die Leistung jedes Schülers und schlägt das nächste Level vor.",
+    "thresholds": {
+      "advance_difficulty": {
+        "description": "Fortgeschritten auf die nächste Schwierigkeitsstufe, wenn sie diese Bedingung erfüllt",
+        "min_correct_in_class": 2,
+        "min_score_pct": 70
+      },
+      "remediation": {
+        "description": "Schlagen Sie vor, ich wiederhole, wenn die Leistungen niedrig sind",
+        "max_correct_in_class": 1,
+        "trigger_review": true
+      },
+      "unlock_optional": {
+        "description": "Entsperren Sie Taylor, wenn Sie die Hauptklassen mit guten Stimmen abgeschlossen haben",
+        "required_classes_done": [
+          "inkrementelle Meldung",
+          "Befugnisse",
+          "elementare Funktionen",
+          "Regelprodukt",
+          "Regelungsquote",
+          "Regelkette"
+        ],
+        "min_overall_score_pct": 65
+      }
+    },
+    "scoring": {
+      "first_attempt_correct": 3,
+      "second_attempt_correct": 2,
+      "third_attempt_correct": 1,
+      "wrong_all": 0,
+      "viewed_solution_penalty": -1,
+      "viewed_proof_bonus": 1
+    }
+  }
+}

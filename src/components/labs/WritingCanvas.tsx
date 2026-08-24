@@ -8,6 +8,7 @@ import PanToolAltRoundedIcon from '@mui/icons-material/PanToolAltRounded';
 import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { useWritingStore } from '@/store/writingStore';
 import { shouldExtendWritingSheet } from '@/utils/writingSheet';
+import { useTranslation } from 'react-i18next';
 
 type Tool = 'pen' | 'highlight' | 'eraser' | 'pan';
 
@@ -18,7 +19,9 @@ const HEIGHT_INCREMENT = 384;
 const LINE_HEIGHT = 32;
 const GUTTER_WIDTH = 52;
 
-export function WritingCanvas({ storageKey, label = 'Spazio di lavoro', onShowSolution }: { storageKey: string; label?: string; onShowSolution?: () => void }) {
+export function WritingCanvas({ storageKey, label, onShowSolution }: { storageKey: string; label?: string; onShowSolution?: () => void }) {
+  const { t } = useTranslation();
+  const workspaceLabel = label ?? t('workspace.problem');
   const initialSheet = useRef(useWritingStore.getState().sheets[storageKey]);
   const saveSheet = useWritingStore((state) => state.saveSheet);
   const clearDrawing = useWritingStore((state) => state.clearDrawing);
@@ -173,27 +176,27 @@ export function WritingCanvas({ storageKey, label = 'Spazio di lavoro', onShowSo
 
   return <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden', bgcolor: '#FFFEFA' }}>
     <Stack direction="row" alignItems="center" gap={.5} flexWrap="wrap" px={1.5} py={.75} sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
-        <Tooltip title="Penna"><IconButton size="small" color={tool === 'pen' ? 'primary' : 'default'} onClick={() => setTool('pen')} aria-label="Penna"><BorderColorRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <Tooltip title="Evidenziatore"><IconButton size="small" color={tool === 'highlight' ? 'primary' : 'default'} onClick={() => setTool('highlight')} aria-label="Evidenziatore"><HighlightRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <Tooltip title="Gomma"><IconButton size="small" color={tool === 'eraser' ? 'primary' : 'default'} onClick={() => setTool('eraser')} aria-label="Gomma"><CleaningServicesRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <Tooltip title="Sposta il foglio"><IconButton size="small" color={tool === 'pan' ? 'primary' : 'default'} onClick={() => setTool('pan')} aria-label="Sposta il foglio" aria-pressed={tool === 'pan'}><PanToolAltRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <input type="color" value={color} onChange={(event) => setColor(event.target.value)} aria-label="Colore tratto" style={{ width: 28, height: 28, border: 0, padding: 0, background: 'transparent' }} />
-        <Box sx={{ width: 70, px: 1 }}><Slider size="small" min={2} max={12} value={size} onChange={(_event, value) => setSize(value as number)} aria-label="Dimensione tratto" /></Box>
-        {onShowSolution && <Button size="small" color="warning" startIcon={<VisibilityRoundedIcon />} onClick={onShowSolution}>Soluzione</Button>}
-        <Button size="small" color="error" startIcon={<DeleteSweepRoundedIcon />} onClick={clear}>Cancella</Button>
+        <Tooltip title={t('workspace.pen')}><IconButton size="small" color={tool === 'pen' ? 'primary' : 'default'} onClick={() => setTool('pen')} aria-label={t('workspace.pen')}><BorderColorRoundedIcon fontSize="small" /></IconButton></Tooltip>
+        <Tooltip title={t('workspace.highlighter')}><IconButton size="small" color={tool === 'highlight' ? 'primary' : 'default'} onClick={() => setTool('highlight')} aria-label={t('workspace.highlighter')}><HighlightRoundedIcon fontSize="small" /></IconButton></Tooltip>
+        <Tooltip title={t('workspace.eraser')}><IconButton size="small" color={tool === 'eraser' ? 'primary' : 'default'} onClick={() => setTool('eraser')} aria-label={t('workspace.eraser')}><CleaningServicesRoundedIcon fontSize="small" /></IconButton></Tooltip>
+        <Tooltip title={t('workspace.pan')}><IconButton size="small" color={tool === 'pan' ? 'primary' : 'default'} onClick={() => setTool('pan')} aria-label={t('workspace.pan')} aria-pressed={tool === 'pan'}><PanToolAltRoundedIcon fontSize="small" /></IconButton></Tooltip>
+        <input type="color" value={color} onChange={(event) => setColor(event.target.value)} aria-label={t('workspace.strokeColor')} style={{ width: 28, height: 28, border: 0, padding: 0, background: 'transparent' }} />
+        <Box sx={{ width: 70, px: 1 }}><Slider size="small" min={2} max={12} value={size} onChange={(_event, value) => setSize(value as number)} aria-label={t('workspace.strokeSize')} /></Box>
+        {onShowSolution && <Button size="small" color="warning" startIcon={<VisibilityRoundedIcon />} onClick={onShowSolution}>{t('workspace.solution')}</Button>}
+        <Button size="small" color="error" startIcon={<DeleteSweepRoundedIcon />} onClick={clear}>{t('workspace.clear')}</Button>
     </Stack>
-    <Box ref={scrollRef} tabIndex={0} role="region" aria-label={`${label}: foglio scorrevole con righe numerate`} onScroll={handleScroll} sx={{ flex: 1, minHeight: 0, overflow: 'auto', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', bgcolor: '#FFFEFA' }}>
+    <Box ref={scrollRef} tabIndex={0} role="region" aria-label={t('workspace.scrollableSheet', { label: workspaceLabel })} onScroll={handleScroll} sx={{ flex: 1, minHeight: 0, overflow: 'auto', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', bgcolor: '#FFFEFA' }}>
       <Box sx={{ width: GUTTER_WIDTH + SURFACE_WIDTH, height: surfaceHeight, display: 'flex', backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #C9D5E8 32px)' }}>
         <Box aria-hidden sx={{ width: GUTTER_WIDTH, height: surfaceHeight, flexShrink: 0, position: 'sticky', left: 0, zIndex: 1, bgcolor: '#F5F1E8', borderRight: '1px solid #D7CFC0' }}>{Array.from({ length: lineCount }, (_item, index) => <Typography key={index} variant="caption" sx={{ position: 'absolute', top: index * LINE_HEIGHT + LINE_HEIGHT / 2, right: 8, transform: 'translateY(-50%)', color: '#8A8173', fontVariantNumeric: 'tabular-nums' }}>{index + 1}</Typography>)}</Box>
-        <canvas ref={canvasRef} width={SURFACE_WIDTH} height={surfaceHeight} aria-label={`${label}: area di scrittura libera`} onPointerDown={start} onPointerMove={move} onPointerUp={stop} onPointerCancel={stop} style={{ width: SURFACE_WIDTH, height: surfaceHeight, display: 'block', cursor: tool === 'pan' ? 'grab' : tool === 'eraser' ? 'cell' : 'crosshair', touchAction: tool === 'pan' ? 'pan-x pan-y' : 'none', userSelect: 'none', WebkitUserSelect: 'none' }} />
+        <canvas ref={canvasRef} width={SURFACE_WIDTH} height={surfaceHeight} aria-label={t('workspace.writingArea', { label: workspaceLabel })} onPointerDown={start} onPointerMove={move} onPointerUp={stop} onPointerCancel={stop} style={{ width: SURFACE_WIDTH, height: surfaceHeight, display: 'block', cursor: tool === 'pan' ? 'grab' : tool === 'eraser' ? 'cell' : 'crosshair', touchAction: tool === 'pan' ? 'pan-x pan-y' : 'none', userSelect: 'none', WebkitUserSelect: 'none' }} />
       </Box>
     </Box>
     <Box sx={{ px: 1.5, py: .5, borderTop: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
-      <Typography variant="caption" color="success.main" display="block">● Salvataggio automatico attivo</Typography>
+      <Typography variant="caption" color="success.main" display="block">● {t('workspace.autosave')}</Typography>
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, minmax(0, 1fr))', sm: 'repeat(3, minmax(0, 1fr))' }, columnGap: 1 }}>
-        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.rule ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'rule', checked)} />} label={<Typography variant="caption">Regola scritta</Typography>} />
-        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.steps ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'steps', checked)} />} label={<Typography variant="caption">Passaggi mostrati</Typography>} />
-        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.domain ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'domain', checked)} />} label={<Typography variant="caption">Segni e dominio controllati</Typography>} />
+        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.rule ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'rule', checked)} />} label={<Typography variant="caption">{t('workspace.ruleWritten')}</Typography>} />
+        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.steps ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'steps', checked)} />} label={<Typography variant="caption">{t('workspace.stepsShown')}</Typography>} />
+        <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={checklist?.domain ?? false} onChange={(_event, checked) => setChecklistAnswer(storageKey, 'domain', checked)} />} label={<Typography variant="caption">{t('workspace.domainChecked')}</Typography>} />
       </Box>
     </Box>
   </Box>;

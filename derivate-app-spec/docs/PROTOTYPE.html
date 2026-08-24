@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Derivate App — Prototipo UI (Annotato per Codex)</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+<style>
+:root{
+  --paper:#F9F7F2;--paper2:#F1EEE6;--ink:#1C1C2E;--ink2:#3A3A52;
+  --muted:#8A8A9A;--rule:#DDD9CE;--white:#FFFFFF;
+  --blue:#3B4CB8;--blue-lt:#EEF0FB;
+  --green:#1B7A5E;--green-lt:#E6F5F0;
+  --amber:#B85C1A;--amber-lt:#FBF0E8;
+  --red:#B81C1C;--red-lt:#FBECEC;
+  --purple:#6B3FB8;--purple-lt:#F2EEFB;
+  --gold:#C49A2A;--gold-lt:#FBF7E8;
+  --r:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#E8E6E0;color:var(--ink);font-size:14px;line-height:1.5;}
+
+/* ── Layout Chrome ── */
+.chrome{width:1280px;margin:40px auto;background:var(--paper);border-radius:12px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,0.18);display:flex;flex-direction:column;}
+.chrome-bar{background:#1e1e1e;padding:10px 16px;display:flex;align-items:center;gap:8px;}
+.dot{width:12px;height:12px;border-radius:50%;}
+.dot.r{background:#ff5f57;}.dot.y{background:#febc2e;}.dot.g{background:#28c840;}
+.url-bar{flex:1;background:#333;border-radius:4px;padding:4px 12px;color:#aaa;font-size:11px;font-family:monospace;margin:0 8px;}
+
+/* Annotation */
+.annotation{
+  position:relative;border:2px dashed #e53;background:rgba(229,53,53,0.05);
+  border-radius:4px;
+}
+.ann-label{
+  position:absolute;top:-10px;left:8px;background:#e53;color:white;
+  font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;
+  letter-spacing:0.08em;white-space:nowrap;z-index:10;
+}
+
+/* ── Topbar ── */
+.topbar{
+  height:56px;background:var(--ink);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;gap:16px;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.tb-logo{font-family:'Crimson Pro',serif;font-size:18px;font-weight:600;color:white;}
+.tb-logo span{color:#818cf8;}
+.tb-score{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);
+  padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;color:white;}
+.tb-score-pts{color:#fbbf24;font-family:'JetBrains Mono',monospace;font-size:13px;}
+.tb-prog-wrap{flex:1;max-width:240px;height:4px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;}
+.tb-prog-bar{height:100%;background:linear-gradient(90deg,#818cf8,#34d399);border-radius:2px;width:38%;}
+.tb-btn{font-size:11px;padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,0.2);
+  background:transparent;color:rgba(255,255,255,0.7);cursor:pointer;}
+
+/* ── Shell layout ── */
+.shell{display:flex;flex:1;min-height:600px;}
+
+/* ── Sidebar ── */
+.sidebar{width:260px;background:var(--ink);flex-shrink:0;padding:12px 0 40px;overflow-y:auto;}
+.sb-section{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;
+  color:rgba(255,255,255,0.28);padding:16px 14px 6px;}
+.sb-item{padding:8px 14px;display:flex;align-items:center;gap:8px;font-size:12px;
+  color:rgba(255,255,255,0.5);border-left:3px solid transparent;cursor:pointer;}
+.sb-item.active{color:white;border-left-color:#818cf8;background:rgba(129,140,248,0.1);}
+.sb-item.done-i{color:rgba(52,211,153,0.85);}
+.sb-item.locked-i{color:rgba(255,255,255,0.22);}
+.sb-icon{font-size:13px;width:18px;text-align:center;}
+.sb-badge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 6px;border-radius:3px;font-weight:600;}
+.sb-badge.done-b{background:rgba(52,211,153,0.2);color:#34d399;}
+.sb-badge.prog-b{background:rgba(129,140,248,0.2);color:#818cf8;}
+.sb-badge.lock-b{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.25);}
+.sb-prog{height:2px;background:rgba(255,255,255,0.07);margin:0 14px 4px;border-radius:1px;overflow:hidden;}
+.sb-prog-bar{height:100%;border-radius:1px;}
+
+/* ── Main content ── */
+.main-content{flex:1;padding:32px 40px 60px;max-width:860px;overflow-y:auto;}
+
+/* ── Section label ── */
+.eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;margin-bottom:6px;}
+.eyebrow.blue{color:var(--blue);}
+.eyebrow.green{color:var(--green);}
+.eyebrow.purple{color:var(--purple);}
+
+h2{font-family:'Crimson Pro',serif;font-size:28px;font-weight:700;line-height:1.15;margin-bottom:4px;}
+h3{font-family:'Crimson Pro',serif;font-size:20px;font-weight:600;margin:20px 0 8px;}
+.desc{font-size:13px;color:var(--ink2);margin-bottom:20px;}
+
+/* ── Dashboard Cards ── */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0;}
+.class-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--r);
+  overflow:hidden;cursor:pointer;transition:box-shadow 0.2s;}
+.class-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);}
+.class-card.locked-c{opacity:0.5;}
+.card-accent{height:3px;}
+.card-body{padding:14px;}
+.card-icon{font-size:22px;margin-bottom:8px;}
+.card-title{font-family:'Crimson Pro',serif;font-size:15px;font-weight:700;margin-bottom:4px;line-height:1.2;}
+.card-sub{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:12px;}
+.card-stats{display:flex;gap:12px;margin-bottom:10px;}
+.stat{font-size:10px;color:var(--muted);}
+.stat strong{display:block;font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--ink);}
+.card-prog{height:3px;background:var(--rule);border-radius:2px;overflow:hidden;}
+.card-prog-bar{height:100%;border-radius:2px;}
+.card-chips{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;}
+
+/* ── Chips ── */
+.chip{display:inline-flex;align-items:center;padding:2px 8px;border-radius:4px;
+  font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
+.chip.d1{background:var(--green-lt);color:var(--green);}
+.chip.d2{background:var(--blue-lt);color:var(--blue);}
+.chip.d3{background:var(--amber-lt);color:var(--amber);}
+.chip.d4{background:var(--purple-lt);color:var(--purple);}
+.chip.lock{background:rgba(0,0,0,0.05);color:var(--muted);}
+.chip.status-done{background:var(--green-lt);color:var(--green);}
+.chip.status-prog{background:var(--blue-lt);color:var(--blue);}
+
+/* ── Callout ── */
+.callout{border-left:3px solid;padding:10px 14px;border-radius:0 var(--r) var(--r) 0;margin:12px 0;font-size:13px;}
+.callout.info{border-color:var(--blue);background:var(--blue-lt);}
+.callout.success{border-color:var(--green);background:var(--green-lt);}
+.callout.warning{border-color:var(--amber);background:var(--amber-lt);}
+.callout-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;}
+.callout.info .callout-title{color:var(--blue);}
+.callout.success .callout-title{color:var(--green);}
+.callout.warning .callout-title{color:var(--amber);}
+
+/* ── Exercise list item ── */
+.ex-list{display:flex;flex-direction:column;gap:6px;margin:16px 0;}
+.ex-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--white);
+  border:1px solid var(--rule);border-radius:var(--r);cursor:pointer;position:relative;overflow:hidden;}
+.ex-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;}
+.ex-item.diff1::before{background:var(--green);}
+.ex-item.diff2::before{background:var(--blue);}
+.ex-item.diff3::before{background:var(--amber);}
+.ex-item.diff4::before{background:var(--purple);}
+.ex-status{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0;border:1.5px solid var(--rule);color:var(--muted);}
+.ex-status.done{background:var(--green);border-color:var(--green);color:white;}
+.ex-status.wrong{background:var(--red-lt);border-color:var(--red);color:var(--red);}
+.ex-status.partial{background:var(--blue-lt);border-color:var(--blue);color:var(--blue);}
+.ex-title{flex:1;font-size:13px;font-weight:600;}
+.ex-tags{font-size:10px;color:var(--muted);}
+.ex-right{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.proof-badge{font-size:11px;color:var(--gold);}
+
+/* ── Problem panel ── */
+.problem-panel{background:var(--ink);color:var(--paper);padding:20px 24px;border-radius:var(--r);margin-bottom:14px;}
+.problem-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#818cf8;margin-bottom:10px;}
+.problem-text{font-size:15px;line-height:1.8;color:rgba(249,247,242,0.9);}
+.problem-text .katex{color:var(--paper);}
+.hint-btn{display:inline-flex;align-items:center;gap:5px;margin-top:12px;
+  padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.07);color:rgba(249,247,242,0.55);font-size:11px;cursor:pointer;}
+.hint-open{margin-top:10px;padding:10px 12px;background:rgba(129,140,248,0.15);border-radius:6px;
+  border-left:3px solid #818cf8;font-size:12px;color:rgba(249,247,242,0.85);}
+
+/* ── Attempt dots ── */
+.attempt-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:10px;color:var(--muted);}
+.attempt-dot{width:10px;height:10px;border-radius:50%;background:var(--rule);}
+.attempt-dot.correct{background:var(--green);}
+.attempt-dot.wrong{background:var(--red);}
+
+/* ── Choices ── */
+.choices{display:flex;flex-direction:column;gap:8px;margin:12px 0;}
+.choice{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;background:var(--white);
+  border:1px solid var(--rule);border-radius:var(--r);cursor:pointer;}
+.choice.selected{border-color:var(--blue);background:var(--blue-lt);}
+.choice.correct{border-color:var(--green);background:var(--green-lt);}
+.choice.wrong{border-color:var(--red);background:var(--red-lt);}
+.choice-letter{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;
+  color:var(--muted);flex-shrink:0;margin-top:2px;}
+.choice.selected .choice-letter{border-color:var(--blue);color:var(--blue);background:var(--blue-lt);}
+.choice.correct .choice-letter{border-color:var(--green);background:var(--green);color:white;}
+.choice.wrong .choice-letter{border-color:var(--red);background:var(--red);color:white;}
+.choice-text{flex:1;font-size:13px;}
+.choice-text .katex{color:var(--ink);}
+
+/* ── Buttons ── */
+.btn-primary{padding:8px 18px;border-radius:var(--r);border:none;background:var(--blue);color:white;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
+.btn-primary:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-primary.green{background:var(--green);}
+.btn-ghost{padding:7px 14px;border-radius:var(--r);border:1px solid var(--rule);
+  background:var(--white);color:var(--ink2);font-size:13px;cursor:pointer;}
+.action-row{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap;align-items:center;}
+
+/* ── Feedback ── */
+.feedback{border-radius:var(--r);padding:12px 16px;margin:10px 0;}
+.feedback.correct{background:var(--green-lt);border:1px solid rgba(27,122,94,0.2);}
+.feedback.wrong{background:var(--red-lt);border:1px solid rgba(184,28,28,0.2);}
+.feedback.info{background:var(--blue-lt);border:1px solid rgba(59,76,184,0.2);}
+.feedback-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;}
+.feedback.correct .feedback-title{color:var(--green);}
+.feedback.wrong .feedback-title{color:var(--red);}
+.feedback.info .feedback-title{color:var(--blue);}
+.feedback p{font-size:12px;color:var(--ink2);}
+.score-chip{display:inline-flex;align-items:center;gap:4px;background:var(--gold);color:white;
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:20px;margin-left:8px;}
+
+/* ── Proof accordion ── */
+.accordion{border:1px solid;border-radius:var(--r);overflow:hidden;margin:12px 0;}
+.accordion.gold{border-color:rgba(196,154,42,0.3);background:var(--gold-lt);}
+.accordion.blue{border-color:rgba(59,76,184,0.2);background:var(--blue-lt);}
+.acc-header{display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;cursor:pointer;font-size:11px;}
+.acc-header.gold{background:var(--gold-lt);}
+.acc-header.blue{background:var(--blue-lt);}
+.acc-label{display:flex;align-items:center;gap:6px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.1em;font-size:10px;}
+.acc-label.gold{color:var(--gold);}
+.acc-label.blue{color:var(--blue);}
+.acc-arrow{color:var(--muted);font-size:10px;}
+.acc-body{background:var(--white);padding:14px;}
+.acc-proof-title{font-family:'Crimson Pro',serif;font-size:15px;font-weight:600;margin-bottom:12px;}
+
+/* Proof step */
+.proof-step{display:grid;grid-template-columns:24px 1fr;gap:0 12px;padding:10px 0;
+  border-bottom:1px solid var(--paper2);}
+.proof-step:last-of-type{border-bottom:none;}
+.step-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;color:white;flex-shrink:0;margin-top:2px;}
+.step-num.gold-n{background:var(--gold);}
+.step-num.blue-n{background:var(--blue);}
+.step-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px;}
+.step-label.gold{color:var(--gold);}
+.step-label.blue{color:var(--blue);}
+.step-formula{background:var(--ink);color:var(--paper);border-radius:6px;
+  padding:7px 12px;margin:5px 0;overflow-x:auto;}
+.step-formula .katex{color:var(--paper);}
+.step-formula .katex-display{margin:0.1em 0;}
+.step-explain{font-size:11px;color:var(--ink2);}
+.proof-conclusion{margin-top:10px;padding:10px 12px;background:var(--gold-lt);
+  border-radius:6px;border-left:3px solid var(--gold);font-size:12px;color:var(--ink2);}
+
+/* ── Results ── */
+.results-hero{text-align:center;padding:30px 20px 20px;}
+.results-emoji{font-size:48px;margin-bottom:10px;}
+.results-score{font-family:'Crimson Pro',serif;font-size:56px;font-weight:700;color:var(--blue);line-height:1;}
+.results-label{font-size:12px;color:var(--muted);margin-top:4px;}
+.results-msg{font-size:13px;color:var(--ink2);margin-top:10px;max-width:400px;margin-inline:auto;}
+.results-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12px;}
+.results-table th{background:var(--ink);color:white;padding:8px 12px;text-align:left;font-weight:500;}
+.results-table td{padding:8px 12px;border-bottom:1px solid var(--rule);}
+
+/* ── Settings ── */
+.settings-section{margin-bottom:28px;}
+.settings-row{display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;border-bottom:1px solid var(--rule);}
+.toggle{width:44px;height:24px;background:var(--blue);border-radius:12px;position:relative;}
+.toggle-dot{width:18px;height:18px;background:white;border-radius:50%;position:absolute;top:3px;left:23px;}
+
+/* ── Screen selector ── */
+.screen-tabs{display:flex;gap:4px;padding:16px 20px 0;background:var(--white);border-bottom:1px solid var(--rule);}
+.stab{padding:8px 14px;font-size:12px;border-radius:4px 4px 0 0;cursor:pointer;border:none;
+  background:transparent;color:var(--muted);font-family:'Inter',sans-serif;}
+.stab.active{background:var(--blue);color:white;font-weight:600;}
+
+/* screen sections */
+.screen{display:none;}
+.screen.active{display:flex;flex-direction:column;}
+
+/* divider */
+hr{border:none;border-top:1px solid var(--rule);margin:16px 0;}
+
+.ex-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;
+  padding-top:16px;border-top:1px solid var(--rule);}
+.ex-counter{font-size:11px;color:var(--muted);}
+
+/* Locked overlay */
+.locked-overlay{position:relative;}
+.locked-overlay::after{content:'🔒 Completa i prerequisiti';position:absolute;inset:0;
+  background:rgba(249,247,242,0.85);display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;color:var(--muted);border-radius:var(--r);}
+</style>
+</head>
+<body>
+
+<div style="text-align:center;padding:20px 0 12px;font-family:'Inter',sans-serif;">
+  <h1 style="font-family:'Crimson Pro',serif;font-size:22px;color:#1C1C2E;">
+    Derivate App — Prototipo UI Annotato
+  </h1>
+  <p style="font-size:12px;color:#8A8A9A;margin-top:4px;">
+    Per Codex: ogni sezione mostra esattamente come implementare i componenti MUI corrispondenti.<br>
+    Le bordate rosse tratteggiate indicano i componenti chiave con il nome del file/componente.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SCHERMATA: DASHBOARD -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div style="text-align:center;padding:8px 0 4px;font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;">
+  SCHERMATA 1 — Dashboard (DashboardPage.tsx)
+</div>
+
+<div class="chrome">
+  <div class="chrome-bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="url-bar">https://derivate.vercel.app</div>
+  </div>
+
+  <!-- Topbar -->
+  <div class="annotation" style="border-width:0 0 2px 0;border-radius:0;">
+    <div class="ann-label">Topbar.tsx — AppBar MUI position="fixed" bgcolor=custom.ink</div>
+    <div class="topbar">
+      <div class="tb-logo">f<span>'</span> Derivate</div>
+      <div class="tb-prog-wrap"><div class="tb-prog-bar"></div></div>
+      <div class="tb-score">⭐ <span class="tb-score-pts">42</span> pt</div>
+      <button class="tb-btn">⚙ Impostazioni</button>
+    </div>
+  </div>
+
+  <div class="shell">
+    <!-- Sidebar -->
+    <div class="annotation" style="border-width:0 2px 0 0;border-radius:0;">
+      <div class="ann-label">Sidebar.tsx — Drawer MUI variant="permanent" width=260</div>
+      <div class="sidebar">
+        <div class="sb-section">Classi di problemi</div>
+
+        <div class="sb-item active">
+          <span class="sb-icon">∂</span>
+          <span>Rapporto incrementale</span>
+          <span class="sb-badge prog-b">4/7</span>
+        </div>
+        <div class="sb-prog"><div class="sb-prog-bar" style="width:57%;background:#818cf8;"></div></div>
+
+        <div class="sb-item done-i">
+          <span class="sb-icon">xⁿ</span>
+          <span>Regola delle potenze</span>
+          <span class="sb-badge done-b">✓ 3/3</span>
+        </div>
+        <div class="sb-prog"><div class="sb-prog-bar" style="width:100%;background:#34d399;"></div></div>
+
+        <div class="sb-item">
+          <span class="sb-icon">sin</span>
+          <span>sin, cos, eˣ, ln</span>
+          <span class="sb-badge prog-b">1/3</span>
+        </div>
+        <div class="sb-prog"><div class="sb-prog-bar" style="width:33%;background:#818cf8;"></div></div>
+
+        <div class="sb-item locked-i">
+          <span class="sb-icon">·</span>
+          <span>Regola del prodotto</span>
+          <span class="sb-badge lock-b">🔒</span>
+        </div>
+        <div class="sb-prog"></div>
+
+        <div class="sb-item locked-i">
+          <span class="sb-icon">÷</span>
+          <span>Regola del quoziente</span>
+          <span class="sb-badge lock-b">🔒</span>
+        </div>
+        <div class="sb-prog"></div>
+
+        <div class="sb-item locked-i">
+          <span class="sb-icon">∘</span>
+          <span>Regola della catena</span>
+          <span class="sb-badge lock-b">🔒</span>
+        </div>
+        <div class="sb-prog"></div>
+
+        <div class="sb-item locked-i">
+          <span class="sb-icon">📈</span>
+          <span>Applicazioni</span>
+          <span class="sb-badge lock-b">🔒</span>
+        </div>
+        <div class="sb-prog"></div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main-content">
+      <div class="eyebrow blue">Corso interattivo · Derivate</div>
+      <h2>Il tuo percorso di esercizi</h2>
+      <p class="desc">Gli esercizi sono organizzati in classi di problemi. Completa ogni classe per sbloccare la successiva.</p>
+
+      <div class="annotation">
+        <div class="ann-label">ClassCard.tsx — Card MUI con CardActionArea, border-left accent, LinearProgress</div>
+        <div class="card-grid">
+          <!-- Card 1 — in corso -->
+          <div class="class-card">
+            <div class="card-accent" style="background:var(--blue);"></div>
+            <div class="card-body">
+              <div class="card-icon">∂</div>
+              <div class="card-title">Rapporto Incrementale</div>
+              <div class="card-sub">Calcolo diretto dal limite — la radice di tutto.</div>
+              <div class="card-stats">
+                <div class="stat"><strong>4/7</strong>esercizi</div>
+                <div class="stat"><strong>12</strong>punti</div>
+              </div>
+              <div class="card-prog"><div class="card-prog-bar" style="width:57%;background:var(--blue);"></div></div>
+              <div class="card-chips">
+                <span class="chip d1">Base</span>
+                <span class="chip d2">Medio</span>
+                <span class="chip status-prog">● In corso</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 — completata -->
+          <div class="class-card">
+            <div class="card-accent" style="background:var(--green);"></div>
+            <div class="card-body">
+              <div class="card-icon">xⁿ</div>
+              <div class="card-title">Regola delle Potenze</div>
+              <div class="card-sub">Derivazione di monomi e potenze razionali.</div>
+              <div class="card-stats">
+                <div class="stat"><strong>3/3</strong>esercizi</div>
+                <div class="stat"><strong>8</strong>punti</div>
+              </div>
+              <div class="card-prog"><div class="card-prog-bar" style="width:100%;background:var(--green);"></div></div>
+              <div class="card-chips">
+                <span class="chip status-done">✓ Completata</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 — bloccata -->
+          <div class="class-card locked-c">
+            <div class="card-accent" style="background:var(--amber);"></div>
+            <div class="card-body">
+              <div class="card-icon">·</div>
+              <div class="card-title">Regola del Prodotto</div>
+              <div class="card-sub">Derivazione di prodotti di funzioni.</div>
+              <div class="card-stats">
+                <div class="stat"><strong>0/3</strong>esercizi</div>
+                <div class="stat"><strong>0</strong>punti</div>
+              </div>
+              <div class="card-prog"><div class="card-prog-bar" style="width:0%;background:var(--amber);"></div></div>
+              <div class="card-chips">
+                <span class="chip lock">🔒 Bloccata</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stato adattivo -->
+      <div class="annotation">
+        <div class="ann-label">GlobalStats — Callout adattivo basato su performance</div>
+        <div class="callout info">
+          <div class="callout-title">📈 Stai progredendo bene</div>
+          Hai completato <strong>14/27</strong> esercizi (52%) e guadagnato <strong>42</strong> punti.
+          <a style="color:var(--blue);font-weight:600;font-size:12px;margin-left:8px;">Continua da dove hai lasciato →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SCHERMATA: VISTA CLASSE -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div style="text-align:center;padding:24px 0 4px;font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;">
+  SCHERMATA 2 — Vista Classe (ClassPage.tsx)
+</div>
+
+<div class="chrome">
+  <div class="chrome-bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="url-bar">https://derivate.vercel.app/class/rapporto_incrementale</div>
+  </div>
+  <div class="topbar">
+    <div class="tb-logo">f<span>'</span> Derivate</div>
+    <div class="tb-prog-wrap"><div class="tb-prog-bar"></div></div>
+    <div class="tb-score">⭐ <span class="tb-score-pts">42</span> pt</div>
+  </div>
+  <div class="shell">
+    <div class="sidebar" style="min-height:400px;">
+      <div class="sb-section">Classi di problemi</div>
+      <div class="sb-item active"><span class="sb-icon">∂</span><span>Rapporto incrementale</span><span class="sb-badge prog-b">4/7</span></div>
+      <div class="sb-prog"><div class="sb-prog-bar" style="width:57%;background:#818cf8;"></div></div>
+      <div class="sb-item done-i"><span class="sb-icon">xⁿ</span><span>Regola delle potenze</span><span class="sb-badge done-b">✓</span></div>
+      <div class="sb-prog"><div class="sb-prog-bar" style="width:100%;background:#34d399;"></div></div>
+    </div>
+    <div class="main-content">
+      <div style="margin-bottom:16px;">
+        <button class="btn-ghost" style="font-size:11px;padding:4px 10px;">← Dashboard</button>
+      </div>
+      <div class="eyebrow blue">Classe di esercizi</div>
+      <h2>Rapporto incrementale e definizione</h2>
+      <p class="desc">Calcolo diretto dal limite del rapporto incrementale — la radice di tutto.</p>
+
+      <div class="callout success">
+        <div class="callout-title">✓ Prerequisiti soddisfatti</div>
+        Nessun prerequisito per questa classe. È il punto di partenza!
+      </div>
+
+      <div class="annotation">
+        <div class="ann-label">ExerciseListItem.tsx — ListItem MUI con ListItemButton, Avatar, Chip</div>
+        <div class="ex-list">
+          <!-- Completato correttamente -->
+          <div class="ex-item diff1">
+            <div class="ex-status done">✓</div>
+            <div>
+              <div class="ex-title">Derivata di una costante</div>
+              <div class="ex-tags">definizione · costante · base</div>
+            </div>
+            <div class="ex-right">
+              <span class="chip d1">Base</span>
+              <span class="proof-badge" title="Ha dimostrazione dal limite">📐</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);font-weight:700;">+3 pt</span>
+            </div>
+          </div>
+
+          <!-- In progress (non fatto) -->
+          <div class="ex-item diff1" style="border-color:var(--blue);background:var(--blue-lt);">
+            <div class="ex-status">○</div>
+            <div>
+              <div class="ex-title">Rapporto incrementale — calcolo numerico</div>
+              <div class="ex-tags">numerico · applicazione · geometrico</div>
+            </div>
+            <div class="ex-right">
+              <span class="chip d1">Base</span>
+              <span class="proof-badge">📐</span>
+            </div>
+          </div>
+
+          <!-- Non fatto diff2 -->
+          <div class="ex-item diff2">
+            <div class="ex-status">○</div>
+            <div>
+              <div class="ex-title">Derivata di 1/x</div>
+              <div class="ex-tags">potenza negativa · frazioni</div>
+            </div>
+            <div class="ex-right">
+              <span class="chip d2">Medio</span>
+              <span class="proof-badge">📐</span>
+            </div>
+          </div>
+
+          <!-- Sbagliato -->
+          <div class="ex-item diff2">
+            <div class="ex-status wrong">✗</div>
+            <div>
+              <div class="ex-title">Derivata di √x</div>
+              <div class="ex-tags">radice · razionalizzazione</div>
+            </div>
+            <div class="ex-right">
+              <span class="chip d2">Medio</span>
+              <span class="proof-badge">📐</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--red);">0 pt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SCHERMATA: ESERCIZIO -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div style="text-align:center;padding:24px 0 4px;font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;">
+  SCHERMATA 3 — Vista Esercizio (ExercisePage.tsx)
+</div>
+
+<div class="chrome">
+  <div class="chrome-bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="url-bar">https://derivate.vercel.app/class/rapporto_incrementale/exercise/ri_004</div>
+  </div>
+  <div class="topbar">
+    <div class="tb-logo">f<span>'</span> Derivate</div>
+    <div class="tb-prog-wrap"><div class="tb-prog-bar"></div></div>
+    <div class="tb-score">⭐ <span class="tb-score-pts">42</span> pt</div>
+  </div>
+  <div class="shell">
+    <div class="sidebar" style="min-height:600px;">
+      <div class="sb-section">Classi di problemi</div>
+      <div class="sb-item active"><span class="sb-icon">∂</span><span>Rapporto incrementale</span><span class="sb-badge prog-b">4/7</span></div>
+    </div>
+    <div class="main-content">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+        <button class="btn-ghost" style="font-size:11px;padding:4px 10px;">← Rapporto incrementale</button>
+        <span style="font-size:11px;color:var(--muted);">Esercizio 4 di 7</span>
+      </div>
+
+      <div class="eyebrow blue">Rapporto incrementale</div>
+      <h2>Derivata di x³</h2>
+      <div style="display:flex;align-items:center;gap:8px;margin:6px 0 20px;">
+        <span class="chip d1">Base</span>
+        <span style="font-size:10px;color:var(--muted);">potenza · definizione · binomio</span>
+        <span class="proof-badge" style="margin-left:auto;">📐 Con dimostrazione</span>
+      </div>
+
+      <!-- Problem -->
+      <div class="annotation">
+        <div class="ann-label">ProblemPanel.tsx — Paper bgcolor=custom.ink, KaTeX inline</div>
+        <div class="problem-panel">
+          <div class="problem-label">Problema</div>
+          <div class="problem-text">
+            Calcola \(f'(x)\) per \(f(x) = x^3\) usando la definizione tramite limite del rapporto incrementale.
+          </div>
+          <div class="hint-btn">💡 Mostra suggerimento</div>
+          <div class="hint-open">
+            Sviluppa \((x+h)^3\) con il binomio di Newton o per prodotto ripetuto.
+          </div>
+        </div>
+      </div>
+
+      <!-- Attempts -->
+      <div class="annotation">
+        <div class="ann-label">AttemptDots.tsx — 3 Box circolari con Tooltip MUI</div>
+        <div class="attempt-row">
+          <span style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);">Tentativi:</span>
+          <div class="attempt-dot wrong"></div>
+          <div class="attempt-dot"></div>
+          <div class="attempt-dot"></div>
+          <span style="font-size:10px;color:var(--muted);">2 rimasti</span>
+        </div>
+      </div>
+
+      <!-- Choices -->
+      <div class="annotation">
+        <div class="ann-label">ChoiceGroup.tsx — role="radiogroup". ChoiceButton.tsx — ButtonBase MUI con Avatar lettera</div>
+        <span style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);display:block;margin-bottom:8px;">Seleziona la risposta corretta</span>
+        <div class="choices">
+          <div class="choice">
+            <div class="choice-letter">A</div>
+            <div class="choice-text">\(f'(x) = 2x\)</div>
+          </div>
+          <div class="choice selected">
+            <div class="choice-letter">B</div>
+            <div class="choice-text">\(f'(x) = 3x^2\)</div>
+          </div>
+          <div class="choice">
+            <div class="choice-letter">C</div>
+            <div class="choice-text">\(f'(x) = x^3\)</div>
+          </div>
+          <div class="choice">
+            <div class="choice-letter">D</div>
+            <div class="choice-text">\(f'(x) = -\dfrac{1}{x^2}\)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feedback (stato: dopo risposta corretta) -->
+      <div class="annotation">
+        <div class="ann-label">FeedbackAlert.tsx — Alert MUI severity="success" con Chip punti</div>
+        <div class="feedback correct">
+          <div class="feedback-title">✓ Corretto! <span class="score-chip">+2 pt</span></div>
+          <p>La derivata di x³ è 3x². Caso n=3 della regola generale.</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="action-row">
+        <button class="btn-primary green">Prossimo esercizio →</button>
+      </div>
+
+      <!-- Proof accordion -->
+      <div class="annotation">
+        <div class="ann-label">ProofAccordion.tsx — Accordion MUI bgcolor=goldLight border=gold. +1pt bonus</div>
+        <div class="accordion gold">
+          <div class="acc-header gold" style="background:var(--gold-lt);">
+            <div class="acc-label gold">📐 Dimostrazione dal limite del rapporto incrementale</div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span class="chip" style="background:rgba(196,154,42,0.15);color:var(--gold);">+1 pt bonus</span>
+              <span class="acc-arrow">▼</span>
+            </div>
+          </div>
+          <!-- Espanso -->
+          <div class="acc-body">
+            <div class="acc-proof-title">Perché \((x^3)' = 3x^2\)?</div>
+            <div class="proof-step">
+              <div class="step-num gold-n">1</div>
+              <div>
+                <div class="step-label gold">Sviluppa \((x+h)^3\)</div>
+                <div class="step-formula">$$( x+h)^3 = x^3 + 3x^2h + 3xh^2 + h^3$$</div>
+                <div class="step-explain">Usando il cubo di un binomio: \((a+b)^3 = a^3+3a^2b+3ab^2+b^3\).</div>
+              </div>
+            </div>
+            <div class="proof-step">
+              <div class="step-num gold-n">2</div>
+              <div>
+                <div class="step-label gold">Calcola la differenza</div>
+                <div class="step-formula">$$(x^3+3x^2h+3xh^2+h^3) - x^3 = 3x^2h + 3xh^2 + h^3$$</div>
+                <div class="step-explain">Il termine \(x^3\) si annulla.</div>
+              </div>
+            </div>
+            <div class="proof-step">
+              <div class="step-num gold-n">3</div>
+              <div>
+                <div class="step-label gold">Dividi per \(h\) raccogliendo</div>
+                <div class="step-formula">$$\frac{h(3x^2+3xh+h^2)}{h} = 3x^2+3xh+h^2$$</div>
+                <div class="step-explain">Tutti i termini hanno \(h\) come fattore.</div>
+              </div>
+            </div>
+            <div class="proof-step">
+              <div class="step-num gold-n">4</div>
+              <div>
+                <div class="step-label gold">Passa al limite</div>
+                <div class="step-formula">$$\lim_{h \to 0}(3x^2+3xh+h^2) = 3x^2$$</div>
+                <div class="step-explain">Per \(h\to 0\), i termini con \(h\) si annullano.</div>
+              </div>
+            </div>
+            <div class="proof-conclusion">
+              \((x^3)' = 3x^2\). Schema generale: il binomio di Newton produce un termine dominante \(nx^{n-1}h\) che sopravvive al limite.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution accordion (chiuso) -->
+      <div class="annotation">
+        <div class="ann-label">SolutionAccordion.tsx — Accordion MUI bgcolor=blue-lt. Collassato di default</div>
+        <div class="accordion blue">
+          <div class="acc-header blue">
+            <div class="acc-label blue">📖 Soluzione passo per passo</div>
+            <span class="acc-arrow">▶</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <div class="ex-nav">
+        <button class="btn-ghost">← Precedente</button>
+        <span class="ex-counter">4 di 7</span>
+        <button class="btn-ghost">Successivo →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SCHERMATA: RISULTATI -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div style="text-align:center;padding:24px 0 4px;font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;">
+  SCHERMATA 4 — Risultati classe (ResultsPage.tsx)
+</div>
+
+<div class="chrome">
+  <div class="chrome-bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="url-bar">https://derivate.vercel.app/class/rapporto_incrementale/results</div>
+  </div>
+  <div class="topbar">
+    <div class="tb-logo">f<span>'</span> Derivate</div>
+    <div class="tb-prog-wrap"><div class="tb-prog-bar" style="width:52%;"></div></div>
+    <div class="tb-score">⭐ <span class="tb-score-pts">54</span> pt</div>
+  </div>
+  <div class="shell">
+    <div class="sidebar" style="min-height:400px;">
+      <div class="sb-section">Classi di problemi</div>
+      <div class="sb-item done-i"><span class="sb-icon">∂</span><span>Rapporto incrementale</span><span class="sb-badge done-b">✓ 7/7</span></div>
+    </div>
+    <div class="main-content">
+      <div class="annotation">
+        <div class="ann-label">ResultsPage.tsx — hero con score, tabella riepilogo, azioni adattive</div>
+        <div class="results-hero">
+          <div class="results-emoji">👍</div>
+          <div class="results-score">16</div>
+          <div class="results-label">punti guadagnati su 21 massimi (76%)</div>
+          <p class="results-msg">Buon lavoro! Puoi proseguire. Considera di ripassare gli esercizi dove hai guadagnato meno punti.</p>
+        </div>
+        <hr>
+        <h3>Riepilogo esercizi</h3>
+        <table class="results-table">
+          <thead>
+            <tr><th>Esercizio</th><th>Punti</th><th>Tentativi</th><th>📐</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Derivata di una costante</td><td style="color:var(--green);font-weight:700;">3</td><td>1</td><td>✓</td></tr>
+            <tr><td>Derivata di una funzione lineare</td><td style="color:var(--green);font-weight:700;">3</td><td>1</td><td>—</td></tr>
+            <tr><td>Derivata di x²</td><td style="color:var(--blue);font-weight:700;">2</td><td>2</td><td>✓</td></tr>
+            <tr><td>Derivata di x³</td><td style="color:var(--blue);font-weight:700;">2</td><td>2</td><td>✓</td></tr>
+            <tr><td>Rapporto incrementale numerico</td><td style="color:var(--green);font-weight:700;">3</td><td>1</td><td>✓</td></tr>
+            <tr><td>Derivata di 1/x</td><td style="color:var(--amber);font-weight:700;">1</td><td>3</td><td>—</td></tr>
+            <tr><td>Derivata di √x</td><td style="color:var(--red);font-weight:700;">0</td><td>3</td><td>—</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout info">
+          <div class="callout-title">🔓 Nuova classe sbloccata!</div>
+          <strong>Regola delle Potenze</strong> è ora disponibile.
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;">
+          <button class="btn-primary">→ Regola delle Potenze</button>
+          <button class="btn-ghost">↺ Ripeti classe</button>
+          <button class="btn-ghost">🏠 Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SCHERMATA: IMPOSTAZIONI -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div style="text-align:center;padding:24px 0 4px;font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;">
+  SCHERMATA 5 — Impostazioni (SettingsPage.tsx)
+</div>
+
+<div class="chrome" style="max-width:860px;margin-inline:auto;">
+  <div class="chrome-bar">
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <div class="url-bar">https://derivate.vercel.app/settings</div>
+  </div>
+  <div class="topbar">
+    <div class="tb-logo">f<span>'</span> Derivate</div>
+    <div class="tb-prog-wrap"><div class="tb-prog-bar" style="width:52%;"></div></div>
+    <div class="tb-score">⭐ <span class="tb-score-pts">54</span> pt</div>
+  </div>
+  <div class="main-content" style="max-width:600px;">
+    <div class="eyebrow blue">Configurazione</div>
+    <h2>Impostazioni</h2>
+    <hr>
+
+    <div class="annotation">
+      <div class="ann-label">SettingsPage.tsx — Switch MUI, Dialog per confirm, Button export/import</div>
+
+      <div class="settings-section">
+        <h3>Aspetto</h3>
+        <div class="settings-row">
+          <div>
+            <div style="font-weight:600;font-size:13px;">Tema scuro</div>
+            <div style="font-size:11px;color:var(--muted);">Cambia tra tema chiaro e scuro</div>
+          </div>
+          <div class="toggle"><div class="toggle-dot"></div></div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Progresso</h3>
+        <div class="settings-row">
+          <div>
+            <div style="font-weight:600;font-size:13px;">Esporta progresso</div>
+            <div style="font-size:11px;color:var(--muted);">Scarica il tuo progresso come file JSON</div>
+          </div>
+          <button class="btn-ghost">📤 Esporta</button>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div style="font-weight:600;font-size:13px;">Importa progresso</div>
+            <div style="font-size:11px;color:var(--muted);">Carica un file JSON di progresso precedente</div>
+          </div>
+          <button class="btn-ghost">📥 Importa</button>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div style="font-weight:600;font-size:13px;color:var(--red);">Azzera progresso</div>
+            <div style="font-size:11px;color:var(--muted);">Cancella tutti i dati salvati. Azione irreversibile.</div>
+          </div>
+          <button class="btn-primary" style="background:var(--red);">↺ Reset</button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>Info</h3>
+        <div class="settings-row">
+          <div style="font-size:13px;color:var(--muted);">Versione app</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;">v1.0.0</div>
+        </div>
+        <div class="settings-row">
+          <div style="font-size:13px;color:var(--muted);">Esercizi caricati</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;">27 (7 classi)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:40px 20px;font-size:11px;color:#8A8A9A;">
+  Derivate App — Prototipo UI · Tutti i colori, font e layout rispecchiano esattamente le specifiche in <code>docs/UI.md</code>
+</div>
+
+</body>
+</html>

@@ -21,10 +21,12 @@ import { useDBStore } from '@/store/dbStore';
 import { useProgressStore } from '@/store/progressStore';
 import { computeGlobalStats, getClassMetrics, getResumeTarget, stripLatex } from '@/utils/learning';
 import { MathText } from '@/components/math/MathText';
+import { useTranslation } from 'react-i18next';
 
 const accents = ['#4158D0', '#13795B', '#B88A1D', '#7448C8', '#D45B5B', '#287CA8', '#637088'];
 
 export function DashboardPage() {
+  const { t } = useTranslation();
   const db = useDBStore((state) => state.db);
   const loading = useDBStore((state) => state.loading);
   const error = useDBStore((state) => state.error);
@@ -33,7 +35,7 @@ export function DashboardPage() {
   const navigate = useNavigate();
 
   if (loading || !db) {
-    return <Box sx={{ py: 12, textAlign: 'center' }}><Typography>{error ? `Impossibile caricare gli esercizi: ${error}` : 'Preparo il percorso…'}</Typography></Box>;
+    return <Box sx={{ py: 12, textAlign: 'center' }}><Typography>{error ? t('adaptive.loadError', { error }) : t('adaptive.loading')}</Typography></Box>;
   }
   const stats = computeGlobalStats(db, progress);
   const resume = getResumeTarget(db, progress);
@@ -41,10 +43,10 @@ export function DashboardPage() {
   return (
     <>
       <Box component="section" sx={{ position: 'relative', overflow: 'hidden', bgcolor: 'custom.ink', color: 'white', borderRadius: 2.5, p: { xs: 3, sm: 5 }, mb: 5 }}>
-        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>Allenamento adattivo</Typography>
-        <Typography variant="h1" sx={{ maxWidth: 680 }}>Dalla lezione<br /><Box component="span" sx={{ color: '#F0C95A', fontStyle: 'italic' }}>alla padronanza.</Box></Typography>
+        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>{t('adaptive.eyebrow')}</Typography>
+        <Typography variant="h1" sx={{ maxWidth: 680 }}>{t('adaptive.title')}<br /><Box component="span" sx={{ color: '#F0C95A', fontStyle: 'italic' }}>{t('adaptive.titleAccent')}</Box></Typography>
         <Typography sx={{ color: '#C4CDDC', maxWidth: 590, mt: 2.5, mb: 3.5, fontSize: '1.05rem' }}>
-          Esercizi organizzati per prerequisiti e difficoltà. Gli argomenti da consolidare tornano per primi, mentre nuove classi si sbloccano con i tuoi progressi.
+          {t('adaptive.intro')}
         </Typography>
         <Button
           variant="contained"
@@ -53,16 +55,16 @@ export function DashboardPage() {
           onClick={() => resume ? navigate(`/class/${resume.classId}/exercise/${resume.exId}`) : navigate(`/class/${db.classes[0].id}`)}
           sx={{ bgcolor: '#F2C94C', color: '#17243F', '&:hover': { bgcolor: '#FFD968' } }}
         >
-          {stats.exercisesCompleted ? 'Continua gli esercizi' : 'Inizia gli esercizi'}
+          {stats.exercisesCompleted ? t('adaptive.continue') : t('adaptive.start')}
         </Button>
         <Box aria-hidden sx={{ position: 'absolute', right: { xs: -75, md: 45 }, bottom: -105, width: 310, height: 310, border: '1px solid rgba(255,255,255,.12)', borderRadius: '50%', '&:before': { content: '"f′(x)"', position: 'absolute', left: 65, top: 65, fontFamily: 'Crimson Pro', fontStyle: 'italic', fontSize: '4.6rem', color: 'rgba(255,255,255,.08)' } }} />
       </Box>
 
       <Grid container spacing={2.5} mb={5}>
         {[
-          { icon: <TaskAltRoundedIcon />, value: `${stats.exercisesCompleted}/${stats.exercisesTotal}`, label: 'esercizi completati' },
-          { icon: <InsightsOutlinedIcon />, value: `${stats.firstAttemptSuccessRate}%`, label: 'corretti al primo colpo' },
-          { icon: <AutoStoriesOutlinedIcon />, value: stats.proofViewedCount, label: 'dimostrazioni lette' },
+          { icon: <TaskAltRoundedIcon />, value: `${stats.exercisesCompleted}/${stats.exercisesTotal}`, label: t('adaptive.completed') },
+          { icon: <InsightsOutlinedIcon />, value: `${stats.firstAttemptSuccessRate}%`, label: t('adaptive.firstTry') },
+          { icon: <AutoStoriesOutlinedIcon />, value: stats.proofViewedCount, label: t('adaptive.proofs') },
         ].map((item) => (
           <Grid item xs={12} sm={4} key={item.label}>
             <Stack direction="row" spacing={2} alignItems="center" sx={{ borderTop: '1px solid', borderColor: 'divider', pt: 2 }}>
@@ -75,10 +77,10 @@ export function DashboardPage() {
 
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'end' }} mb={2.5}>
         <Box>
-          <Typography variant="h4" color="primary.main" mb={1}>Le classi di problemi</Typography>
-          <Typography variant="h2">Il tuo percorso</Typography>
+          <Typography variant="h4" color="primary.main" mb={1}>{t('adaptive.classes')}</Typography>
+          <Typography variant="h2">{t('adaptive.yourPath')}</Typography>
         </Box>
-        <Typography color="text.secondary" sx={{ maxWidth: 380, mt: { xs: 1, sm: 0 } }}>Completa una classe per sbloccare i concetti che dipendono da essa.</Typography>
+        <Typography color="text.secondary" sx={{ maxWidth: 380, mt: { xs: 1, sm: 0 } }}>{t('adaptive.unlockHint')}</Typography>
       </Stack>
 
       <Grid container spacing={2.5}>
@@ -101,23 +103,23 @@ export function DashboardPage() {
                   <Typography variant="body2" color="text.secondary" sx={{ mb: 2, flex: 1 }}>{cls.description}</Typography>
                   <Stack direction="row" spacing={.75} flexWrap="wrap" useFlexGap mb={2}>
                     {[...new Set(cls.exercises.map((exercise) => exercise.difficulty))].map((difficulty) => (
-                      <Chip key={difficulty} size="small" variant="outlined" label={db.difficulty_levels[String(difficulty)]?.label} />
+                      <Chip key={difficulty} size="small" variant="outlined" label={db.difficulty_levels[String(difficulty)]?.label ?? difficulty} />
                     ))}
                   </Stack>
                   <Stack direction="row" justifyContent="space-between" mb={.75}>
-                    <Typography variant="caption">{cls.exercises.length} ESERCIZI · {cls.exercises.length * 3} PT</Typography>
+                    <Typography variant="caption">{t('adaptive.exerciseCount', { count: cls.exercises.length, points: cls.exercises.length * 3 })}</Typography>
                     <Typography variant="caption">{metrics.progressPercent}%</Typography>
                   </Stack>
                   <LinearProgress variant="determinate" value={metrics.progressPercent} sx={{ mb: 1.5 }} />
                   <Typography variant="caption" sx={{ color: completed ? 'success.main' : unlocked ? 'primary.main' : 'text.disabled', fontWeight: 700 }}>
-                    {mastered ? '✓ PADRONEGGIATA' : completed ? '↻ DA RECUPERARE' : unlocked ? metrics.completed ? '● IN CORSO' : index === 0 ? 'INIZIA DA QUI →' : 'DISPONIBILE →' : '🔒 BLOCCATA NEL PERCORSO GUIDATO'}
+                    {mastered ? t('adaptive.statusMastered') : completed ? t('adaptive.statusRecovery') : unlocked ? metrics.completed ? t('adaptive.statusProgress') : index === 0 ? t('adaptive.statusStart') : t('adaptive.statusAvailable') : t('adaptive.statusLocked')}
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              {!unlocked && <Button fullWidth onClick={() => { startConsultation(cls.id); navigate(`/class/${cls.id}`); }}>Consulta comunque</Button>}
+              {!unlocked && <Button fullWidth onClick={() => { startConsultation(cls.id); navigate(`/class/${cls.id}`); }}>{t('adaptive.consult')}</Button>}
             </Card>
           );
-          return <Grid item xs={12} sm={6} md={4} key={cls.id}>{unlocked ? card : <Tooltip title={`Completa prima: ${prerequisite}`}><span style={{ display: 'block', height: '100%' }}>{card}</span></Tooltip>}</Grid>;
+          return <Grid item xs={12} sm={6} md={4} key={cls.id}>{unlocked ? card : <Tooltip title={t('adaptive.locked', { classes: prerequisite })}><span style={{ display: 'block', height: '100%' }}>{card}</span></Tooltip>}</Grid>;
         })}
       </Grid>
     </>

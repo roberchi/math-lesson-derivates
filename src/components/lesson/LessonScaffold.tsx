@@ -16,6 +16,7 @@ import ScheduleRoundedIcon from '@mui/icons-material/ScheduleRounded';
 import { Link, useNavigate } from 'react-router-dom';
 import { adjacentSection, lessonSections } from '@/data/course';
 import { useLessonStore } from '@/store/lessonStore';
+import { useTranslation } from 'react-i18next';
 
 interface LessonScaffoldProps {
   sectionId: string;
@@ -25,7 +26,8 @@ interface LessonScaffoldProps {
   children: ReactNode;
 }
 
-export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: LessonScaffoldProps) {
+export function LessonScaffold({ sectionId, children }: LessonScaffoldProps) {
+  const { t } = useTranslation();
   const section = lessonSections.find((item) => item.id === sectionId);
   const previous = adjacentSection(sectionId, -1);
   const next = adjacentSection(sectionId, 1);
@@ -47,20 +49,21 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
   };
 
   const forwardLabel = sectionId === 'interpretazioni'
-    ? 'Vai alla scheda §1'
-    : next?.shortTitle ?? 'Vai alla scheda §2';
+    ? t('lesson.goSheet1')
+    : next ? t(`course.${next.id}.short`) : t('lesson.goSheet2');
+  const sectionKind = section?.kind === 'optional' ? ` · ${t('lesson.optional')}` : section?.kind === 'appendix' ? ` · ${t('lesson.appendix')}` : '';
 
   return (
     <Box sx={{ maxWidth: 900, mx: 'auto' }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={4}>
-        <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit">Panoramica</Button>
+        <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit">{t('common.overview')}</Button>
         <Chip icon={<ScheduleRoundedIcon />} label={section?.duration ?? '—'} variant="outlined" />
       </Stack>
 
       <Box component="header" sx={{ mb: 5 }}>
-        <Typography variant="h4" color="primary.main" mb={1.5}>{eyebrow}</Typography>
-        <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', sm: '4.25rem' }, maxWidth: 800, mb: 2 }}>{title}</Typography>
-        <Typography sx={{ fontSize: '1.08rem', color: 'text.secondary', maxWidth: 720 }}>{lead}</Typography>
+        <Typography variant="h4" color="primary.main" mb={1.5}>{t('common.lesson')} {section?.lesson} · {section?.duration}{sectionKind}</Typography>
+        <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', sm: '4.25rem' }, maxWidth: 800, mb: 2 }}>{t(`lesson.content.${sectionId}.title`)}</Typography>
+        <Typography sx={{ fontSize: '1.08rem', color: 'text.secondary', maxWidth: 720 }}>{t(`lesson.content.${sectionId}.lead`)}</Typography>
       </Box>
 
       <Stack spacing={4.5}>{children}</Stack>
@@ -68,8 +71,8 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
       <Paper elevation={0} sx={{ mt: 6, p: { xs: 2.5, sm: 3.5 }, border: '1px solid', borderColor: completed ? 'success.main' : 'divider', bgcolor: completed ? 'success.light' : 'background.paper' }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ sm: 'center' }} justifyContent="space-between" gap={2}>
           <Box>
-            <Typography variant="h3" sx={{ fontSize: '1.45rem' }}>{completed ? 'Sezione letta' : 'Hai letto questa sezione?'}</Typography>
-            <Typography variant="body2" color="text.secondary">La lettura viene salvata, ma non equivale alla padronanza verificata negli esercizi.</Typography>
+            <Typography variant="h3" sx={{ fontSize: '1.45rem' }}>{completed ? t('lesson.sectionRead') : t('lesson.didRead')}</Typography>
+            <Typography variant="body2" color="text.secondary">{t('lesson.readNotice')}</Typography>
           </Box>
           <Button
             variant={completed ? 'outlined' : 'contained'}
@@ -77,17 +80,17 @@ export function LessonScaffold({ sectionId, eyebrow, title, lead, children }: Le
             startIcon={completed ? <CheckCircleRoundedIcon /> : <RadioButtonUncheckedRoundedIcon />}
             onClick={() => completed ? markIncomplete(sectionId) : markComplete(sectionId)}
           >
-            {completed ? 'Letta' : 'Segna come letta'}
+            {completed ? t('lesson.read') : t('lesson.markRead')}
           </Button>
         </Stack>
       </Paper>
 
       <Divider sx={{ my: 3 }} />
       <Typography variant="caption" color="text.secondary" display="block" textAlign="center" mb={1.5}>
-        {section?.shortTitle}{next ? ` · poi ${next.shortTitle}` : ''}
+        {section && t(`course.${section.id}.short`)}{next ? ` · ${t('lesson.then', { section: t(`course.${next.id}.short`) })}` : ''}
       </Typography>
       <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
-        <Button disabled={!previous} startIcon={<ArrowBackRoundedIcon />} onClick={() => previous && navigate(previous.path)}>{previous?.shortTitle ?? 'Panoramica'}</Button>
+        <Button disabled={!previous} startIcon={<ArrowBackRoundedIcon />} onClick={() => previous && navigate(previous.path)}>{previous ? t(`course.${previous.id}.short`) : t('common.overview')}</Button>
         <Button variant="contained" endIcon={<ArrowForwardRoundedIcon />} onClick={continueCourse}>{forwardLabel}</Button>
       </Stack>
     </Box>
