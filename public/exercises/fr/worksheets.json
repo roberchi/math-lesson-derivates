@@ -4,15 +4,15 @@
       "exercises": [
         {
           "number": 1,
-          "title": "Taux d’accroissement",
+          "title": "Taux d'accroissement",
           "type": "Par définition",
           "difficulty": "Base",
-          "prompt": "Pour \\(f(x)=x^2-3x+2\\), calculez et simplifiez le taux d’accroissement en \\(x_0=2\\), puis déterminez \\(f′(2)\\).",
+          "prompt": "Pour \\(f(x)=x^2-3x+2\\), calculez et simplifiez le taux d'accroissement en \\(x_0=2\\), puis déterminez \\(f′(2)\\).",
           "solution": {
             "steps": [
-              "Nous calculons \\(f(2)=0\\) et \\(f(2+h)=(2+h)^2-3(2+h)+2=h+h^2\\).",
-              "Les taux d'accroissement C'est $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
-              "Passage à la limite \\(h\\to0\\) Nous obtenons la dérivéeeeee au point."
+              "Calculons \\(f(2)=0\\) et \\(f(2+h)=(2+h)^2-3(2+h)+2=h+h^2\\).",
+              "Le taux d'accroissement est $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
+              "En passant à la limite pour \\(h\\to0\\), on obtient la dérivée au point."
             ],
             "result": "\\(\\boxed{f^{\\prime}(2)=1}\\)"
           }
@@ -22,13 +22,13 @@
           "title": "Trois dérivées par définition",
           "type": "Par définition",
           "difficulty": "Base",
-          "prompt": "À partir de la limite du taux d’accroissement, calculez les dérivées de : a) \\(3x+5\\) ; b) \\(x^3\\) ; c) \\(1/x\\). Indiquez le domaine.",
+          "prompt": "À partir de la limite du taux d'accroissement, calculez les dérivées de : a) \\(3x+5\\) ; b) \\(x^3\\) ; c) \\(1/x\\). Indiquez le domaine.",
           "solution": {
             "steps": [
-              "a) Pour \\(f(x)=3x+5\\): \\(\\frac{f(x+h)-f(x)}h=\\frac{3h}{h}=3\\), donc \\(f^{\\prime}(x)=3\\).",
-              "b) Pour \\(f(x)=x^3\\): $$\\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2\\longrightarrow3x^2.$$",
-              "c) Pour \\(f(x)=1/x\\)avec \\(x\\ne0\\): $$\\frac{1/(x+h)-1/x}{h}=-\\frac{1}{x(x+h)}\\longrightarrow-\\frac1{x^2}.$$",
-              "La fonction \\(1/x\\) et son dérivé ont domaine \\(\\mathbb R\\setminus\\{0\\}\\)."
+              "a) Pour \\(f(x)=3x+5\\) : \\(\\frac{f(x+h)-f(x)}h=\\frac{3h}{h}=3\\), donc \\(f^{\\prime}(x)=3\\).",
+              "b) Pour \\(f(x)=x^3\\) : $$\\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2\\longrightarrow3x^2.$$",
+              "c) Pour \\(f(x)=1/x\\), avec \\(x\\ne0\\) : $$\\frac{1/(x+h)-1/x}{h}=-\\frac{1}{x(x+h)}\\longrightarrow-\\frac1{x^2}.$$",
+              "La fonction \\(1/x\\) et sa dérivée ont pour domaine \\(\\mathbb R\\setminus\\{0\\}\\)."
             ],
             "result": "\\(\\boxed{3}\\), \\(\\boxed{3x^2}\\), \\(\\boxed{-1/x^2}\\)"
           }
@@ -38,12 +38,12 @@
           "title": "Droites tangentes",
           "type": "Géométrique",
           "difficulty": "★★",
-          "prompt": "Pour \\(f(x)=x^2\\) : a) trouvez la tangente en \\(x_0=3\\) ; b) trouvez les points où la tangente est parallèle à l’axe des x ; c) trouvez les points où la tangente forme un angle de 45° avec l’axe des x.",
+          "prompt": "Pour \\(f(x)=x^2\\) : a) trouvez la tangente en \\(x_0=3\\) ; b) trouvez les points où la tangente est parallèle à l'axe des x ; c) trouvez les points où la tangente forme un angle de 45° avec l'axe des x.",
           "solution": {
             "steps": [
-              "Pour \\(f(x)=x^2\\), oui \\(f^{\\prime}(x)=2x\\). Dans \\(x_0=3\\): \\(m=6\\) et \\(P=(3,9)\\), donc \\(y-9=6(x-3)\\).",
-              "Une tangente parallèle à la pente de l'axe des x zéro: \\(2x=0\\), donc le point est \\((0,0)\\).",
-              "Un coin de \\(45^\\circ\\) la pente \\(\\tan45^\\circ=1\\): \\(2x=1\\), donc \\(x=1/2\\) et \\(P=(1/2,1/4)\\)."
+              "Pour \\(f(x)=x^2\\), on a \\(f^{\\prime}(x)=2x\\). En \\(x_0=3\\) : \\(m=6\\) et \\(P=(3,9)\\), donc \\(y-9=6(x-3)\\).",
+              "Une tangente parallèle à l'axe des x a une pente nulle : \\(2x=0\\), donc le point est \\((0,0)\\).",
+              "Un angle de \\(45^\\circ\\) donne une pente \\(\\tan45^\\circ=1\\) : \\(2x=1\\), donc \\(x=1/2\\) et \\(P=(1/2,1/4)\\)."
             ],
             "result": "\\(\\boxed{y=6x-9}\\); \\((0,0)\\); \\(\\boxed{y=x-1/4}\\)"
           }
@@ -56,11 +56,11 @@
           "prompt": "Étudiez la dérivabilité de \\(f(x)=|x-2|\\) en \\(x_0=2\\) en calculant séparément les dérivées à droite et à gauche. Tracez le graphe.",
           "solution": {
             "steps": [
-              "Écrivons. fonction à la pièce: \\(f(x)=2-x\\) Si vous \\(x<2\\)Alors \\(f(x)=x-2\\) Si vous \\(x\\ge2\\).",
-              "La dérivéeeeee gauche \\(f_-^{\\prime}(2)=-1\\); droit dérivé \\(f_+^{\\prime}(2)=1\\).",
-              "Les deux limites sont terminées mais différentes : dans le graphe, un point incliné apparaît."
+              "Écrivons la fonction par morceaux : \\(f(x)=2-x\\) si \\(x<2\\), et \\(f(x)=x-2\\) si \\(x\\ge2\\).",
+              "La dérivée à gauche vaut \\(f_-^{\\prime}(2)=-1\\) ; la dérivée à droite vaut \\(f_+^{\\prime}(2)=1\\).",
+              "Les deux limites sont finies mais différentes : le graphe présente un point anguleux."
             ],
-            "result": "\\(\\boxed{f\\text{ non è derivabile in }x=2}\\)"
+            "result": "\\(\\boxed{f\\text{ n'est pas dérivable en }x=2}\\)"
           }
         },
         {
@@ -71,11 +71,11 @@
           "prompt": "Étudiez la dérivabilité de \\(f(x)=x|x|\\) en \\(x_0=0\\). Écrivez la fonction par morceaux et esquissez son graphe avant de calculer.",
           "solution": {
             "steps": [
-              "La forme est parfois \\(x|x|=-x^2\\) pour \\(x<0\\) et \\(x|x|=x^2\\) pour \\(x\\ge0\\).",
-              "De taux d'accroissement en zéro: \\(\\frac{f(h)-f(0)}h=|h|\\).",
+              "La forme par morceaux est \\(x|x|=-x^2\\) pour \\(x<0\\) et \\(x|x|=x^2\\) pour \\(x\\ge0\\).",
+              "Par le taux d'accroissement en zéro : \\(\\frac{f(h)-f(0)}h=|h|\\).",
               "De gauche et de droite \\(|h|\\to0\\), donc les deux limites coïncident."
             ],
-            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): la fonction se différencie en zéro."
+            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\) : la fonction est dérivable en zéro."
           }
         }
       ]
@@ -90,9 +90,9 @@
           "prompt": "Dérivez : a) \\(5x^4-3x^2+7\\) ; b) \\(\\sqrt{x}+1/x^2\\) ; c) \\(2e^x-4\\ln x\\) ; d) \\(3\\sin x-\\cos x\\).",
           "solution": {
             "steps": [
-              "a) Nous appliquons la règle du pouvoir par terme : \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
-              "b) Nous écrivons \\(\\sqrt x=x^{1/2}\\) et \\(1/x^2=x^{-2}\\): dérivé \\(1/(2\\sqrt x)-2/x^3\\)pour \\(x>0\\).",
-              "c) \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\)avec \\(x>0\\).",
+              "a) Appliquons la règle de la puissance terme à terme : \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
+              "b) Écrivons \\(\\sqrt x=x^{1/2}\\) et \\(1/x^2=x^{-2}\\) : la dérivée est \\(1/(2\\sqrt x)-2/x^3\\), pour \\(x>0\\).",
+              "c) \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\), avec \\(x>0\\).",
               "d) \\((3\\sin x-\\cos x)^{\\prime}=3\\cos x+\\sin x\\)."
             ],
             "result": "\\(\\boxed{20x^3-6x}\\); \\(\\boxed{\\frac1{2\\sqrt x}-\\frac2{x^3}}\\); \\(\\boxed{2e^x-\\frac4x}\\); \\(\\boxed{3\\cos x+\\sin x}\\)"
@@ -106,8 +106,8 @@
           "prompt": "Calculez la dérivée de : a) \\(x^2\\sin x\\) ; b) \\(e^x\\cos x\\). Indiquez clairement les deux facteurs et leurs dérivées.",
           "solution": {
             "steps": [
-              "a) Avec \\(u=x^2\\), \\(v=\\sin x\\): \\((uv)^{\\prime}=2x\\sin x+x^2\\cos x\\).",
-              "b) Avec \\(u=e^x\\), \\(v=\\cos x\\): \\((uv)^{\\prime}=e^x\\cos x-e^x\\sin x\\)."
+              "a) Avec \\(u=x^2\\), \\(v=\\sin x\\) : \\((uv)^{\\prime}=2x\\sin x+x^2\\cos x\\).",
+              "b) Avec \\(u=e^x\\), \\(v=\\cos x\\) : \\((uv)^{\\prime}=e^x\\cos x-e^x\\sin x\\)."
             ],
             "result": "\\(\\boxed{2x\\sin x+x^2\\cos x}\\); \\(\\boxed{e^x(\\cos x-\\sin x)}\\)"
           }
@@ -119,8 +119,8 @@
           "prompt": "Calculez la dérivée de : a) \\((x^2+1)/(x-1)\\) ; b) \\(\\tan x\\), en la réécrivant sous la forme \\(\\sin x/\\cos x\\).",
           "solution": {
             "steps": [
-              "a) Règle du quotient: $$\\left(\\frac{x^2+1}{x-1}\\right)^{\\prime}=\\frac{2x(x-1)-(x^2+1)}{(x-1)^2}=\\frac{x^2-2x-1}{(x-1)^2}.$$",
-              "b) Rédaction \\(\\tan x=\\sin x/\\cos x\\): $$\\frac{\\cos^2x+\\sin^2x}{\\cos^2x}=\\frac1{\\cos^2x}.$$"
+              "a) Règle du quotient : $$\\left(\\frac{x^2+1}{x-1}\\right)^{\\prime}=\\frac{2x(x-1)-(x^2+1)}{(x-1)^2}=\\frac{x^2-2x-1}{(x-1)^2}.$$",
+              "b) En écrivant \\(\\tan x=\\sin x/\\cos x\\) : $$\\frac{\\cos^2x+\\sin^2x}{\\cos^2x}=\\frac1{\\cos^2x}.$$"
             ],
             "result": "\\(\\boxed{\\frac{x^2-2x-1}{(x-1)^2}}\\); \\(\\boxed{\\sec^2x}\\), où \\(\\cos x\\ne0\\)"
           },
@@ -134,10 +134,10 @@
           "prompt": "Dérivez : a) \\(\\sin(x^2)\\) ; b) \\(e^{3x-1}\\) ; c) \\((x^3+5)^4\\) ; d) \\(\\ln(\\cos x)\\). Identifiez les fonctions intérieure et extérieure.",
           "solution": {
             "steps": [
-              "a) Poitrine externe, interne \\(x^2\\): \\(2x\\cos(x^2)\\).",
-              "b) Exponentielle externe, interne \\(3x-1\\): \\(3e^{3x-1}\\).",
-              "c) Puissance externe quatrième, interne \\(x^3+5\\): \\(4(x^3+5)^3\\cdot3x^2=12x^2(x^3+5)^3\\).",
-              "d) Logarithme externe, intérieur \\(\\cos x\\): \\(-\\sin x/\\cos x=-\\tan x\\), dans le domaine \\(\\cos x>0\\)."
+              "a) Fonction externe sinus, interne \\(x^2\\) : \\(2x\\cos(x^2)\\).",
+              "b) Exponentielle externe, interne \\(3x-1\\) : \\(3e^{3x-1}\\).",
+              "c) Puissance quatrième externe, interne \\(x^3+5\\) : \\(4(x^3+5)^3\\cdot3x^2=12x^2(x^3+5)^3\\).",
+              "d) Logarithme externe, interne \\(\\cos x\\) : \\(-\\sin x/\\cos x=-\\tan x\\), dans le domaine \\(\\cos x>0\\)."
             ],
             "result": "\\(\\boxed{2x\\cos(x^2)}\\); \\(\\boxed{3e^{3x-1}}\\); \\(\\boxed{12x^2(x^3+5)^3}\\); \\(\\boxed{-\\tan x}\\)"
           }
@@ -147,14 +147,14 @@
           "title": "Dérivée seconde",
           "type": "Dérivée seconde",
           "difficulty": "★★",
-          "prompt": "Pour \\(f(x)=x^4-6x^2+1\\), calculez \\(f′′(x)\\) et déterminez les points d’inflexion candidats.",
+          "prompt": "Pour \\(f(x)=x^4-6x^2+1\\), calculez \\(f′′(x)\\) et déterminez les points d'inflexion candidats.",
           "solution": {
             "steps": [
-              "Allons-y deux fois : \\(f^{\\prime}(x)=4x^3-12x\\) et \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
-              "Ponendo \\(f^{\\prime\\prime}(x)=0\\) nous trouvons \\(x=-1\\) et \\(x=1\\). Le signe de dérivéeeeee seconde changements dans les deux.",
-              "Calculer la commande : \\(f(-1)=f(1)=-4\\)."
+              "Dérivons deux fois : \\(f^{\\prime}(x)=4x^3-12x\\) et \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
+              "En posant \\(f^{\\prime\\prime}(x)=0\\), on trouve \\(x=-1\\) et \\(x=1\\). Le signe de la dérivée seconde change en chacun d'eux.",
+              "Calculons les ordonnées : \\(f(-1)=f(1)=-4\\)."
             ],
-            "result": "\\(\\boxed{(-1,-4)\\text{ e }(1,-4)}\\) Je suis points d'inflexion."
+            "result": "\\(\\boxed{(-1,-4)\\text{ et }(1,-4)}\\) sont des points d'inflexion."
           }
         },
         {
@@ -165,9 +165,9 @@
           "prompt": "Pour \\(f(x)=e^x\\sin(2x)\\), calculez \\(f′(x)\\) et déterminez les points stationnaires dans \\([0,\\pi]\\).",
           "solution": {
             "steps": [
-              "Dommages causés aux produits et aux chaînes \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
-              "Pour \\(e^x>0\\), nous imposons \\(\\sin(2x)+2\\cos(2x)=0\\)Je veux dire, \\(\\tan(2x)=-2\\).",
-              "Lieu \\(\\alpha=\\arctan2\\)dans la gamme \\([0,\\pi]\\) vous obtenez \\(x=(\\pi-\\alpha)/2\\) et \\(x=\\pi-\\alpha/2\\)."
+              "La règle du produit et la règle de la chaîne donnent \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
+              "Puisque \\(e^x>0\\), on impose \\(\\sin(2x)+2\\cos(2x)=0\\), c'est-à-dire \\(\\tan(2x)=-2\\).",
+              "En posant \\(\\alpha=\\arctan2\\), dans l'intervalle \\([0,\\pi]\\) on obtient \\(x=(\\pi-\\alpha)/2\\) et \\(x=\\pi-\\alpha/2\\)."
             ],
             "result": "\\(\\boxed{x=\\frac{\\pi-\\arctan2}{2},\\quad x=\\pi-\\frac{\\arctan2}{2}}\\)"
           }

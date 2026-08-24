@@ -10,8 +10,8 @@
           "solution": {
             "steps": [
               "Wir berechnen \\(f(2)=0\\) und \\(f(2+h)=(2+h)^2-3(2+h)+2=h+h^2\\).",
-              "Die Differenzenquotient Es ist $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
-              "Überschreiten des Limits \\(h\\to0\\) Wir bekommen die Ableitung am Punkt."
+              "Der Differenzenquotient ist $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
+              "Beim Grenzübergang \\(h\\to0\\) erhalten wir die Ableitung an der Stelle."
             ],
             "result": "\\(\\boxed{f^{\\prime}(2)=1}\\)"
           },
@@ -24,10 +24,10 @@
           "prompt": "Berechne mithilfe des Grenzwerts des Differenzenquotienten die Ableitungen von: a) \\(3x+5\\); b) \\(x^3\\); c) \\(1/x\\). Gib den Definitionsbereich an.",
           "solution": {
             "steps": [
-              "a Für \\(f(x)=3x+5\\): \\(\\frac{f(x+h)-f(x)}h=\\frac{3h}{h}=3\\), daher \\(f^{\\prime}(x)=3\\).",
-              "b Für \\(f(x)=x^3\\): $$\\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2\\longrightarrow3x^2.$$",
-              "c für \\(f(x)=1/x\\), mit \\(x\\ne0\\): $$\\frac{1/(x+h)-1/x}{h}=-\\frac{1}{x(x+h)}\\longrightarrow-\\frac1{x^2}.$$",
-              "Die Funktion \\(1/x\\) und sein Ableitung haben Domain \\(\\mathbb R\\setminus\\{0\\}\\)."
+              "a) Für \\(f(x)=3x+5\\): \\(\\frac{f(x+h)-f(x)}h=\\frac{3h}{h}=3\\), also \\(f^{\\prime}(x)=3\\).",
+              "b) Für \\(f(x)=x^3\\): $$\\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2\\longrightarrow3x^2.$$",
+              "c) Für \\(f(x)=1/x\\), mit \\(x\\ne0\\): $$\\frac{1/(x+h)-1/x}{h}=-\\frac{1}{x(x+h)}\\longrightarrow-\\frac1{x^2}.$$",
+              "Die Funktion \\(1/x\\) und ihre Ableitung haben den Definitionsbereich \\(\\mathbb R\\setminus\\{0\\}\\)."
             ],
             "result": "\\(\\boxed{3}\\), \\(\\boxed{3x^2}\\), \\(\\boxed{-1/x^2}\\)"
           },
@@ -41,9 +41,9 @@
           "prompt": "Für \\(f(x)=x^2\\): a) Bestimme die Tangente bei \\(x_0=3\\); b) finde die Punkte mit einer zur x-Achse parallelen Tangente; c) finde die Punkte, an denen die Tangente mit der x-Achse einen Winkel von 45° bildet.",
           "solution": {
             "steps": [
-              "für \\(f(x)=x^2\\), ja \\(f^{\\prime}(x)=2x\\). In \\(x_0=3\\): \\(m=6\\) und \\(P=(3,9)\\), daher \\(y-9=6(x-3)\\).",
-              "Eine Tangente parallel zur x-Achse Steigung Null: \\(2x=0\\)Daher ist der Punkt \\((0,0)\\).",
-              "Eine Ecke von \\(45^\\circ\\) Steigung \\(\\tan45^\\circ=1\\): \\(2x=1\\), daher \\(x=1/2\\) und \\(P=(1/2,1/4)\\)."
+              "Da \\(f(x)=x^2\\), gilt \\(f^{\\prime}(x)=2x\\). In \\(x_0=3\\): \\(m=6\\) und \\(P=(3,9)\\), also \\(y-9=6(x-3)\\).",
+              "Eine zur x-Achse parallele Tangente hat Steigung null: \\(2x=0\\), also ist der Punkt \\((0,0)\\).",
+              "Ein Winkel von \\(45^\\circ\\) ergibt Steigung \\(\\tan45^\\circ=1\\): \\(2x=1\\), also \\(x=1/2\\) und \\(P=(1/2,1/4)\\)."
             ],
             "result": "\\(\\boxed{y=6x-9}\\); \\((0,0)\\); \\(\\boxed{y=x-1/4}\\)"
           }
@@ -56,11 +56,11 @@
           "prompt": "Untersuche die Differenzierbarkeit von \\(f(x)=|x-2|\\) bei \\(x_0=2\\), indem du die rechts- und linksseitige Ableitung getrennt berechnest. Skizziere den Graphen.",
           "solution": {
             "steps": [
-              "Lasst uns schreiben. stückweise Funktion: \\(f(x)=2-x\\) Wenn Sie \\(x<2\\)Während \\(f(x)=x-2\\) Wenn Sie \\(x\\ge2\\).",
-              "Das Ableitung links \\(f_-^{\\prime}(2)=-1\\); abgeleitetes Recht \\(f_+^{\\prime}(2)=1\\).",
-              "Die beiden Grenzen sind abgeschlossen, aber unterschiedlich: In Graph erscheint ein abgewinkelter Punkt."
+              "Wir schreiben die Funktion stückweise: \\(f(x)=2-x\\) für \\(x<2\\), und \\(f(x)=x-2\\) für \\(x\\ge2\\).",
+              "Die linksseitige Ableitung ist \\(f_-^{\\prime}(2)=-1\\); die rechtsseitige Ableitung ist \\(f_+^{\\prime}(2)=1\\).",
+              "Die beiden Grenzwerte sind endlich, aber verschieden: Im Graphen erscheint ein Knickpunkt."
             ],
-            "result": "\\(\\boxed{f\\text{ non è derivabile in }x=2}\\)"
+            "result": "\\(\\boxed{f\\text{ ist in }x=2\\text{ nicht differenzierbar}}\\)"
           }
         },
         {
@@ -71,11 +71,11 @@
           "prompt": "Untersuche die Differenzierbarkeit von \\(f(x)=x|x|\\) bei \\(x_0=0\\). Schreibe die Funktion stückweise und skizziere den Graphen vor der Berechnung.",
           "solution": {
             "steps": [
-              "Die Form ist manchmal \\(x|x|=-x^2\\) für \\(x<0\\) und \\(x|x|=x^2\\) für \\(x\\ge0\\).",
-              "von Differenzenquotient in Null: \\(\\frac{f(h)-f(0)}h=|h|\\).",
-              "von links und rechts \\(|h|\\to0\\)Somit fallen die beiden Grenzen zusammen."
+              "Die stückweise Form ist \\(x|x|=-x^2\\) für \\(x<0\\) und \\(x|x|=x^2\\) für \\(x\\ge0\\).",
+              "Aus dem Differenzenquotienten in null: \\(\\frac{f(h)-f(0)}h=|h|\\).",
+              "Sowohl von links als auch von rechts gilt \\(|h|\\to0\\), also stimmen die beiden Grenzwerte überein."
             ],
-            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): die Funktion ist differenzbile in Null."
+            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): die Funktion ist in null differenzierbar."
           }
         }
       ]
@@ -89,10 +89,10 @@
           "prompt": "Leite ab: a) \\(5x^4-3x^2+7\\); b) \\(\\sqrt{x}+1/x^2\\); c) \\(2e^x-4\\ln x\\); d) \\(3\\sin x-\\cos x\\).",
           "solution": {
             "steps": [
-              "a) Wir wenden den Begriff Machtregel nach Begriff an: \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
-              "b Wir schreiben \\(\\sqrt x=x^{1/2}\\) und \\(1/x^2=x^{-2}\\)Ableitung Es ist \\(1/(2\\sqrt x)-2/x^3\\), für \\(x>0\\).",
-              "c \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\), mit \\(x>0\\).",
-              "d \\((3\\sin x-\\cos x)^{\\prime}=3\\cos x+\\sin x\\)."
+              "a) Wir wenden die Potenzregel gliedweise an: \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
+              "b) Wir schreiben \\(\\sqrt x=x^{1/2}\\) und \\(1/x^2=x^{-2}\\): die Ableitung ist \\(1/(2\\sqrt x)-2/x^3\\), für \\(x>0\\).",
+              "c) \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\), mit \\(x>0\\).",
+              "d) \\((3\\sin x-\\cos x)^{\\prime}=3\\cos x+\\sin x\\)."
             ],
             "result": "\\(\\boxed{20x^3-6x}\\); \\(\\boxed{\\frac1{2\\sqrt x}-\\frac2{x^3}}\\); \\(\\boxed{2e^x-\\frac4x}\\); \\(\\boxed{3\\cos x+\\sin x}\\)"
           },
@@ -105,8 +105,8 @@
           "prompt": "Berechne die Ableitung von: a) \\(x^2\\sin x\\); b) \\(e^x\\cos x\\). Benenne die beiden Faktoren und ihre Ableitungen deutlich.",
           "solution": {
             "steps": [
-              "a mit \\(u=x^2\\), \\(v=\\sin x\\): \\((uv)^{\\prime}=2x\\sin x+x^2\\cos x\\).",
-              "b mit \\(u=e^x\\), \\(v=\\cos x\\): \\((uv)^{\\prime}=e^x\\cos x-e^x\\sin x\\)."
+              "a) Mit \\(u=x^2\\), \\(v=\\sin x\\): \\((uv)^{\\prime}=2x\\sin x+x^2\\cos x\\).",
+              "b) Mit \\(u=e^x\\), \\(v=\\cos x\\): \\((uv)^{\\prime}=e^x\\cos x-e^x\\sin x\\)."
             ],
             "result": "\\(\\boxed{2x\\sin x+x^2\\cos x}\\); \\(\\boxed{e^x(\\cos x-\\sin x)}\\)"
           },
@@ -119,8 +119,8 @@
           "prompt": "Berechne die Ableitung von: a) \\((x^2+1)/(x-1)\\); b) \\(\\tan x\\), indem du die Funktion als \\(\\sin x/\\cos x\\) schreibst.",
           "solution": {
             "steps": [
-              "a Quotientenregel: $$\\left(\\frac{x^2+1}{x-1}\\right)^{\\prime}=\\frac{2x(x-1)-(x^2+1)}{(x-1)^2}=\\frac{x^2-2x-1}{(x-1)^2}.$$",
-              "b Schreiben \\(\\tan x=\\sin x/\\cos x\\): $$\\frac{\\cos^2x+\\sin^2x}{\\cos^2x}=\\frac1{\\cos^2x}.$$"
+              "a) Quotientenregel: $$\\left(\\frac{x^2+1}{x-1}\\right)^{\\prime}=\\frac{2x(x-1)-(x^2+1)}{(x-1)^2}=\\frac{x^2-2x-1}{(x-1)^2}.$$",
+              "b) Indem wir \\(\\tan x=\\sin x/\\cos x\\) schreiben: $$\\frac{\\cos^2x+\\sin^2x}{\\cos^2x}=\\frac1{\\cos^2x}.$$"
             ],
             "result": "\\(\\boxed{\\frac{x^2-2x-1}{(x-1)^2}}\\); \\(\\boxed{\\sec^2x}\\), wobei \\(\\cos x\\ne0\\)"
           },
@@ -134,10 +134,10 @@
           "prompt": "Leite ab: a) \\(\\sin(x^2)\\); b) \\(e^{3x-1}\\); c) \\((x^3+5)^4\\); d) \\(\\ln(\\cos x)\\). Kennzeichne innere und äußere Funktion.",
           "solution": {
             "steps": [
-              "a) Äußere Brust, innere \\(x^2\\): \\(2x\\cos(x^2)\\).",
-              "b Exponentiell extern, intern \\(3x-1\\): \\(3e^{3x-1}\\).",
-              "c Externe vierte Potenz, interne \\(x^3+5\\): \\(4(x^3+5)^3\\cdot3x^2=12x^2(x^3+5)^3\\).",
-              "d Außenlogarithmus, Innen \\(\\cos x\\): \\(-\\sin x/\\cos x=-\\tan x\\), in der Domain \\(\\cos x>0\\)."
+              "a) Äußere Funktion Sinus, innere \\(x^2\\): \\(2x\\cos(x^2)\\).",
+              "b) Äußere Funktion Exponential, innere \\(3x-1\\): \\(3e^{3x-1}\\).",
+              "c) Äußere Funktion vierte Potenz, innere \\(x^3+5\\): \\(4(x^3+5)^3\\cdot3x^2=12x^2(x^3+5)^3\\).",
+              "d) Äußere Funktion Logarithmus, innere \\(\\cos x\\): \\(-\\sin x/\\cos x=-\\tan x\\), im Definitionsbereich \\(\\cos x>0\\)."
             ],
             "result": "\\(\\boxed{2x\\cos(x^2)}\\); \\(\\boxed{3e^{3x-1}}\\); \\(\\boxed{12x^2(x^3+5)^3}\\); \\(\\boxed{-\\tan x}\\)"
           }
@@ -150,11 +150,11 @@
           "prompt": "Berechne für \\(f(x)=x^4-6x^2+1\\) die zweite Ableitung \\(f′′(x)\\) und bestimme die möglichen Wendepunkte.",
           "solution": {
             "steps": [
-              "Gehen wir zweimal: \\(f^{\\prime}(x)=4x^3-12x\\) und \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
-              "Ponendo \\(f^{\\prime\\prime}(x)=0\\) Wir finden \\(x=-1\\) und \\(x=1\\). Das Zeichen des zweite Ableitung Veränderungen in beiden.",
-              "Rechnendo die bestellten: \\(f(-1)=f(1)=-4\\)."
+              "Wir leiten zweimal ab: \\(f^{\\prime}(x)=4x^3-12x\\) und \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
+              "Indem wir \\(f^{\\prime\\prime}(x)=0\\) setzen, finden wir \\(x=-1\\) und \\(x=1\\). Das Vorzeichen der zweiten Ableitung wechselt in beiden Punkten.",
+              "Wir berechnen die Ordinaten: \\(f(-1)=f(1)=-4\\)."
             ],
-            "result": "\\(\\boxed{(-1,-4)\\text{ e }(1,-4)}\\) Ich bin Wendepunkte."
+            "result": "\\(\\boxed{(-1,-4)\\text{ und }(1,-4)}\\) sind Wendepunkte."
           }
         },
         {
@@ -165,9 +165,9 @@
           "prompt": "Berechne für \\(f(x)=e^x\\sin(2x)\\) die Ableitung \\(f′(x)\\) und bestimme die stationären Punkte im Intervall \\([0,\\pi]\\).",
           "solution": {
             "steps": [
-              "Produkt- und Kettenschäden \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
-              "für \\(e^x>0\\)Wir verhängen \\(\\sin(2x)+2\\cos(2x)=0\\)Ich meine, \\(\\tan(2x)=-2\\).",
-              "Ort \\(\\alpha=\\arctan2\\)im Bereich \\([0,\\pi]\\) Du bekommst \\(x=(\\pi-\\alpha)/2\\) und \\(x=\\pi-\\alpha/2\\)."
+              "Produkt- und Kettenregel ergeben \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
+              "Da \\(e^x>0\\), fordern wir \\(\\sin(2x)+2\\cos(2x)=0\\), das heißt \\(\\tan(2x)=-2\\).",
+              "Setzen wir \\(\\alpha=\\arctan2\\), so erhält man im Intervall \\([0,\\pi]\\) die Werte \\(x=(\\pi-\\alpha)/2\\) und \\(x=\\pi-\\alpha/2\\)."
             ],
             "result": "\\(\\boxed{x=\\frac{\\pi-\\arctan2}{2},\\quad x=\\pi-\\frac{\\arctan2}{2}}\\)"
           }
