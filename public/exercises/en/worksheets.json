@@ -11,7 +11,7 @@
           "solution": {
             "steps": [
               "We calculate \\(f(2)=0\\) and \\(f(2+h)=(2+h)^2-3(2+h)+2=h+h^2\\).",
-              "The difference quotient It is $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
+              "The difference quotient is $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
               "Passing to the limit \\(h\\to0\\) we get the derivative at the point."
             ],
             "result": "\\(\\boxed{f^{\\prime}(2)=1}\\)"
@@ -41,7 +41,7 @@
           "prompt": "For \\(f(x)=x^2\\): a) find the tangent line at \\(x_0=3\\); b) find the points where the tangent is parallel to the x-axis; c) find the points where the tangent makes a 45° angle with the x-axis.",
           "solution": {
             "steps": [
-              "For \\(f(x)=x^2\\), yes \\(f^{\\prime}(x)=2x\\). In \\(x_0=3\\): \\(m=6\\) and \\(P=(3,9)\\), therefore \\(y-9=6(x-3)\\).",
+              "For \\(f(x)=x^2\\), we have \\(f^{\\prime}(x)=2x\\). In \\(x_0=3\\): \\(m=6\\) and \\(P=(3,9)\\), therefore \\(y-9=6(x-3)\\).",
               "A tangent parallel to the x-axis slope zero: \\(2x=0\\), therefore the point is \\((0,0)\\).",
               "A corner of \\(45^\\circ\\) the slope \\(\\tan45^\\circ=1\\): \\(2x=1\\), therefore \\(x=1/2\\) and \\(P=(1/2,1/4)\\)."
             ],
@@ -56,11 +56,11 @@
           "prompt": "Study the differentiability of \\(f(x)=|x-2|\\) at \\(x_0=2\\) by calculating the right-hand and left-hand derivatives separately. Sketch the graph.",
           "solution": {
             "steps": [
-              "Let's write. piecewise function: \\(f(x)=2-x\\) If you \\(x<2\\)While \\(f(x)=x-2\\) If you \\(x\\ge2\\).",
+              "We write the piecewise function: \\(f(x)=2-x\\) for \\(x<2\\), and \\(f(x)=x-2\\) for \\(x\\ge2\\).",
               "The derivative left \\(f_-^{\\prime}(2)=-1\\); derivative right \\(f_+^{\\prime}(2)=1\\).",
               "The two limits are finite but different: in graph an angled point appears."
             ],
-            "result": "\\(\\boxed{f\\text{ non è derivabile in }x=2}\\)"
+            "result": "\\(\\boxed{f\\text{ is not differentiable at }x=2}\\)"
           }
         },
         {
@@ -75,7 +75,7 @@
               "From difference quotient in zero: \\(\\frac{f(h)-f(0)}h=|h|\\).",
               "Both from left and right \\(|h|\\to0\\), therefore the two limits coincide."
             ],
-            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): the function is differentiatebile in zero."
+            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): the function is differentiable in zero."
           }
         }
       ]
@@ -91,7 +91,7 @@
           "solution": {
             "steps": [
               "a) We apply the term power rule by term: \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
-              "b) We write \\(\\sqrt x=x^{1/2}\\) and \\(1/x^2=x^{-2}\\): derivative It is \\(1/(2\\sqrt x)-2/x^3\\), for \\(x>0\\).",
+              "b) We write \\(\\sqrt x=x^{1/2}\\) and \\(1/x^2=x^{-2}\\): the derivative is \\(1/(2\\sqrt x)-2/x^3\\), for \\(x>0\\).",
               "c) \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\), with \\(x>0\\).",
               "d) \\((3\\sin x-\\cos x)^{\\prime}=3\\cos x+\\sin x\\)."
             ],
@@ -134,7 +134,7 @@
           "prompt": "Differentiate: a) \\(\\sin(x^2)\\); b) \\(e^{3x-1}\\); c) \\((x^3+5)^4\\); d) \\(\\ln(\\cos x)\\). Identify the inner and outer functions.",
           "solution": {
             "steps": [
-              "a) External breast, internal \\(x^2\\): \\(2x\\cos(x^2)\\).",
+              "a) Outer sine, internal \\(x^2\\): \\(2x\\cos(x^2)\\).",
               "b) Exponential external, internal \\(3x-1\\): \\(3e^{3x-1}\\).",
               "c) External fourth power, internal \\(x^3+5\\): \\(4(x^3+5)^3\\cdot3x^2=12x^2(x^3+5)^3\\).",
               "d) External logarithm, interior \\(\\cos x\\): \\(-\\sin x/\\cos x=-\\tan x\\), in the domain \\(\\cos x>0\\)."
@@ -150,11 +150,11 @@
           "prompt": "Given \\(f(x)=x^4-6x^2+1\\), calculate \\(f′′(x)\\) and determine the candidate inflection points.",
           "solution": {
             "steps": [
-              "Let's go twice: \\(f^{\\prime}(x)=4x^3-12x\\) and \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
-              "Ponendo \\(f^{\\prime\\prime}(x)=0\\) we find \\(x=-1\\) and \\(x=1\\). The sign of second derivative changes in both.",
-              "Calculatendo the ordered: \\(f(-1)=f(1)=-4\\)."
+              "Differentiating twice: \\(f^{\\prime}(x)=4x^3-12x\\) and \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
+              "Setting \\(f^{\\prime\\prime}(x)=0\\) we find \\(x=-1\\) and \\(x=1\\). The sign of second derivative changes in both.",
+              "Computing the values: \\(f(-1)=f(1)=-4\\)."
             ],
-            "result": "\\(\\boxed{(-1,-4)\\text{ e }(1,-4)}\\) I am inflection points."
+            "result": "\\(\\boxed{(-1,-4)\\text{ and }(1,-4)}\\) are inflection points."
           }
         },
         {
@@ -166,8 +166,8 @@
           "solution": {
             "steps": [
               "The product and chain rules give \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
-              "For \\(e^x>0\\), we impose \\(\\sin(2x)+2\\cos(2x)=0\\)I mean, \\(\\tan(2x)=-2\\).",
-              "Place \\(\\alpha=\\arctan2\\)in the range \\([0,\\pi]\\) you get \\(x=(\\pi-\\alpha)/2\\) and \\(x=\\pi-\\alpha/2\\)."
+              "For \\(e^x>0\\), we impose \\(\\sin(2x)+2\\cos(2x)=0\\), i.e., \\(\\tan(2x)=-2\\).",
+              "Setting \\(\\alpha=\\arctan2\\)in the range \\([0,\\pi]\\) you get \\(x=(\\pi-\\alpha)/2\\) and \\(x=\\pi-\\alpha/2\\)."
             ],
             "result": "\\(\\boxed{x=\\frac{\\pi-\\arctan2}{2},\\quad x=\\pi-\\frac{\\arctan2}{2}}\\)"
           }

@@ -200,7 +200,7 @@
               {
                 "label": "Cálculo \\(f(x+h)\\) desarrollo de la plaza",
                 "latex": "f(x+h) = (x+h)^2 = x^2 + 2xh + h^2",
-                "explanation": "Utilizamos el cuadrado de una binomy: \\((a+b)^2 = a^2+2ab+b^2\\)."
+                "explanation": "Utilizamos el cuadrado de un binomio: \\((a+b)^2 = a^2+2ab+b^2\\)."
               },
               {
                 "label": "Cálculo \\(f(x+h)-f(x)\\)",
@@ -252,7 +252,7 @@
           "tags": [
             "potencia",
             "definición",
-            "binomy"
+            "binomio"
           ],
           "problem": {
             "text": "Cálculo \\(f'(x)\\) para \\(f(x) = x^3\\) usando la definición.",
@@ -268,7 +268,7 @@
               {
                 "label": "Desarrollo \\((x+h)^3\\)",
                 "latex": "(x+h)^3 = x^3 + 3x^2h + 3xh^2 + h^3",
-                "explanation": "Usando un cubo de binomy (o fórmula Newton con \\(n=3\\))."
+                "explanation": "Usando el cubo de un binomio (o fórmula de Newton con \\(n=3\\))."
               },
               {
                 "label": "Calcular la diferencia",
@@ -697,7 +697,7 @@
                 "explanation": "Una multiplicación constante \\(c\\) puede ser sacado de cociente incremental e) Por consiguiente, desde el límite."
               },
               {
-                "label": "Para \\(f(x)=x^4\\): desarrollo con la binomy de Newton",
+                "label": "Para \\(f(x)=x^4\\): desarrollo con el binomio de Newton",
                 "latex": "(x+h)^4 = x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4",
                 "explanation": "Sólo el término \\(4x^3 h\\) contribuye al límite después de la división por \\(h\\)."
               },

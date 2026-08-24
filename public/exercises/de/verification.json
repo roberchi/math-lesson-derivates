@@ -49,13 +49,13 @@
       "title": "Zweite Ableitung und Konkavität",
       "prompt": "Für \\(f(x)=xe^x\\): a) Berechne \\(f′(x)\\) und \\(f′′(x)\\); b) bestimme und klassifiziere den stationären Punkt; c) untersuche den Wechsel der Konkavität und bestimme den Wendepunkt.",
       "steps": [
-        "Mit dem Produktregel: \\(f^{\\prime}(x)=e^x+xe^x=e^x(x+1)\\). Differentiatendo noch einmal: \\(f^{\\prime\\prime}(x)=e^x(x+1)+e^x=e^x(x+2)\\).",
-        "I stationäre Punkte Treffen \\(e^x(x+1)=0\\). für \\(e^x>0\\), muss \\(x=-1\\); der Punkt ist \\((-1,-e^{-1})\\).",
+        "Mit dem Produktregel: \\(f^{\\prime}(x)=e^x+xe^x=e^x(x+1)\\). Nochmals differenzierend: \\(f^{\\prime\\prime}(x)=e^x(x+1)+e^x=e^x(x+2)\\).",
+        "Die stationären Punkte erfüllen \\(e^x(x+1)=0\\). für \\(e^x>0\\), muss \\(x=-1\\); der Punkt ist \\((-1,-e^{-1})\\).",
         "Einstufung: \\(f^{\\prime\\prime}(-1)=e^{-1}>0\\), daher die stationärer Punkt ist ein Minimum lokal.",
         "für \\(e^x>0\\)Das Zeichen des \\(f^{\\prime\\prime}(x)=e^x(x+2)\\) abhängig von \\(x+2\\): ist negativ für \\(x<-2\\) und positiv für \\(x>-2\\).",
-        "Kavitätsänderungen in \\(x=-2\\)Daher ist das Flexo \\((-2,-2e^{-2})\\)."
+        "Kavitätsänderungen in \\(x=-2\\)Daher ist der Wendepunkt \\((-2,-2e^{-2})\\)."
       ],
-      "result": "\\(\\boxed{f^{\\prime}=e^x(x+1),\\ f^{\\prime\\prime}=e^x(x+2)}\\), mindestens in \\((-1,-e^{-1})\\), Flexo in \\((-2,-2e^{-2})\\)",
+      "result": "\\(\\boxed{f^{\\prime}=e^x(x+1),\\ f^{\\prime\\prime}=e^x(x+2)}\\), mindestens in \\((-1,-e^{-1})\\), Wendepunkt in \\((-2,-2e^{-2})\\)",
       "rubric": "2 p Derivate · 3 p stationärer Punkt und Klassifizierung · 3 pt Zeichen f′′ und Flexo"
     }
   ]

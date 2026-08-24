@@ -60,7 +60,7 @@
               "La izquierda derivada \\(f_-^{\\prime}(2)=-1\\); derecho derivada \\(f_+^{\\prime}(2)=1\\).",
               "Los dos límites son finitos pero diferentes: en gráfica aparece un punto ángulo."
             ],
-            "result": "\\(\\boxed{f\\text{ non è derivabile in }x=2}\\)"
+            "result": "\\(\\boxed{f\\text{ no es derivable en }x=2}\\)"
           }
         },
         {

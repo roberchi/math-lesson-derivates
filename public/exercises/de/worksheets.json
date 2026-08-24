@@ -60,7 +60,7 @@
               "Das Ableitung links \\(f_-^{\\prime}(2)=-1\\); abgeleitetes Recht \\(f_+^{\\prime}(2)=1\\).",
               "Die beiden Grenzen sind abgeschlossen, aber unterschiedlich: In Graph erscheint ein abgewinkelter Punkt."
             ],
-            "result": "\\(\\boxed{f\\text{ non è derivabile in }x=2}\\)"
+            "result": "\\(\\boxed{f\\text{ ist nicht differenzierbar bei }x=2}\\)"
           }
         },
         {

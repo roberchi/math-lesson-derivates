@@ -21,10 +21,10 @@
       "title": "Tangent and normal lines",
       "prompt": "Given \\(f(x)=x^3-3x\\) and the point \\(P=(2,2)\\), find the equations of the tangent and normal lines to the graph at P.",
       "steps": [
-        "Let's go. \\(f^{\\prime}(x)=3x^2-3\\). The point \\(x=2\\), slope of the tangent \\(m_t=f^{\\prime}(2)=12-3=9\\).",
+        "We compute \\(f^{\\prime}(x)=3x^2-3\\). The point \\(x=2\\), slope of the tangent \\(m_t=f^{\\prime}(2)=12-3=9\\).",
         "We use the dot form–slope: \\(y-2=9(x-2)\\). Developing you get \\(y=9x-16\\).",
         "The normal is perpendicular to the tangent, therefore his slope is the reciprocal change of sign: \\(m_n=-1/9\\).",
-        "Again with the dot form–slope: \\(y-2=-\\frac19(x-2)\\)I mean, \\(y=-\\frac19x+\\frac{20}{9}\\)."
+        "Again with the dot form–slope: \\(y-2=-\\frac19(x-2)\\), i.e., \\(y=-\\frac19x+\\frac{20}{9}\\)."
       ],
       "result": "\\(\\boxed{t:y=9x-16}\\) and \\(\\boxed{n:y=-\\frac19x+\\frac{20}{9}}\\)",
       "rubric": "2 p derivative and slope · 2 pt tangent · 2 pt normal"
@@ -49,11 +49,11 @@
       "title": "Second derivative and concavity",
       "prompt": "For \\(f(x)=xe^x\\): a) calculate \\(f′(x)\\) and \\(f′′(x)\\); b) find and classify the stationary point; c) determine where concavity changes and locate the inflection point.",
       "steps": [
-        "With the product rule: \\(f^{\\prime}(x)=e^x+xe^x=e^x(x+1)\\). Differentiatendo again: \\(f^{\\prime\\prime}(x)=e^x(x+1)+e^x=e^x(x+2)\\).",
-        "I stationary points meet \\(e^x(x+1)=0\\). For \\(e^x>0\\), must be \\(x=-1\\); the point is \\((-1,-e^{-1})\\).",
+        "With the product rule: \\(f^{\\prime}(x)=e^x+xe^x=e^x(x+1)\\). Differentiating again: \\(f^{\\prime\\prime}(x)=e^x(x+1)+e^x=e^x(x+2)\\).",
+        "The stationary points satisfy \\(e^x(x+1)=0\\). For \\(e^x>0\\), must be \\(x=-1\\); the point is \\((-1,-e^{-1})\\).",
         "Classification: \\(f^{\\prime\\prime}(-1)=e^{-1}>0\\), therefore the stationary point is a minimum local.",
         "For \\(e^x>0\\), the sign of \\(f^{\\prime\\prime}(x)=e^x(x+2)\\) depends on \\(x+2\\): is negative for \\(x<-2\\) and positive for \\(x>-2\\).",
-        "Concavity changes in \\(x=-2\\), therefore The inflection point is \\((-2,-2e^{-2})\\)."
+        "Concavity changes in \\(x=-2\\), therefore the inflection point is \\((-2,-2e^{-2})\\)."
       ],
       "result": "\\(\\boxed{f^{\\prime}=e^x(x+1),\\ f^{\\prime\\prime}=e^x(x+2)}\\), minimum in \\((-1,-e^{-1})\\), inflection point in \\((-2,-2e^{-2})\\)",
       "rubric": "2 p derivatives · 3 p stationary point and classification · 3 pt sign f′′ and inflection point"

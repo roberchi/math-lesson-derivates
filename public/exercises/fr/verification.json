@@ -53,10 +53,10 @@
         "Les points stationnaires Rencontre \\(e^x(x+1)=0\\). Pour \\(e^x>0\\), doit être \\(x=-1\\); le point est \\((-1,-e^{-1})\\).",
         "Classement: \\(f^{\\prime\\prime}(-1)=e^{-1}>0\\), donc point stationnaire est un minimum local.",
         "Pour \\(e^x>0\\), le signe \\(f^{\\prime\\prime}(x)=e^x(x+2)\\) dépend de \\(x+2\\): est négatif pour \\(x<-2\\) et positifs pour \\(x>-2\\).",
-        "Changements de concavité \\(x=-2\\), donc le flexo est \\((-2,-2e^{-2})\\)."
+        "Changements de concavité \\(x=-2\\), donc le point d'inflexion est \\((-2,-2e^{-2})\\)."
       ],
       "result": "\\(\\boxed{f^{\\prime}=e^x(x+1),\\ f^{\\prime\\prime}=e^x(x+2)}\\), minimum en \\((-1,-e^{-1})\\), flexo dans \\((-2,-2e^{-2})\\)",
-      "rubric": "2 p dérivéeeeees · 3 p point stationnaire et classification · 3 pt signe f′′ et flexo"
+      "rubric": "2 p dérivées · 3 p point stationnaire et classification · 3 pt signe f′′ et point d'inflexion"
     }
   ]
 }

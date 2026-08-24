@@ -12,7 +12,7 @@
             "steps": [
               "Nous calculons \\(f(2)=0\\) et \\(f(2+h)=(2+h)^2-3(2+h)+2=h+h^2\\).",
               "Les taux d'accroissement C'est $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
-              "Passage à la limite \\(h\\to0\\) Nous obtenons la dérivéeeeee au point."
+              "Passage à la limite \\(h\\to0\\) Nous obtenons la dérivée au point."
             ],
             "result": "\\(\\boxed{f^{\\prime}(2)=1}\\)"
           }
@@ -57,10 +57,10 @@
           "solution": {
             "steps": [
               "Écrivons. fonction à la pièce: \\(f(x)=2-x\\) Si vous \\(x<2\\)Alors \\(f(x)=x-2\\) Si vous \\(x\\ge2\\).",
-              "La dérivéeeeee gauche \\(f_-^{\\prime}(2)=-1\\); droit dérivé \\(f_+^{\\prime}(2)=1\\).",
+              "La dérivée gauche \\(f_-^{\\prime}(2)=-1\\); droit dérivé \\(f_+^{\\prime}(2)=1\\).",
               "Les deux limites sont terminées mais différentes : dans le graphe, un point incliné apparaît."
             ],
-            "result": "\\(\\boxed{f\\text{ non è derivabile in }x=2}\\)"
+            "result": "\\(\\boxed{f\\text{ n'est pas dérivable en }x=2}\\)"
           }
         },
         {
@@ -151,7 +151,7 @@
           "solution": {
             "steps": [
               "Allons-y deux fois : \\(f^{\\prime}(x)=4x^3-12x\\) et \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
-              "Ponendo \\(f^{\\prime\\prime}(x)=0\\) nous trouvons \\(x=-1\\) et \\(x=1\\). Le signe de dérivéeeeee seconde changements dans les deux.",
+              "Ponendo \\(f^{\\prime\\prime}(x)=0\\) nous trouvons \\(x=-1\\) et \\(x=1\\). Le signe de dérivée seconde changements dans les deux.",
               "Calculer la commande : \\(f(-1)=f(1)=-4\\)."
             ],
             "result": "\\(\\boxed{(-1,-4)\\text{ e }(1,-4)}\\) Je suis points d'inflexion."
