@@ -1,0 +1,62 @@
+{
+  "problems": [
+    {
+      "number": 1,
+      "points": 6,
+      "title": "Definition und Berechnung über den Grenzwert",
+      "prompt": "Gib die formale Definition der Ableitung an einer Stelle an. Berechne anschließend ausschließlich mit dem Differenzenquotienten die Ableitung von \\(f(x)=2x^2-x\\).",
+      "steps": [
+        "Definition: \\(f^{\\prime}(a)=\\displaystyle\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}\\), sofern die Grenzwert existiert und endlich ist.",
+        "Wir berechnen die beiden Werte: \\(f(a+h)=2(a+h)^2-(a+h)\\) und \\(f(a)=2a^2-a\\).",
+        "Wir ersetzen und entwickeln: $$\\frac{f(a+h)-f(a)}{h}=\\frac{2a^2+4ah+2h^2-a-h-2a^2+a}{h}.$$ ",
+        "Wir sammeln \\(h\\) und wir vereinfachen, mit \\(h\\neq0\\): $$\\frac{h(4a+2h-1)}{h}=4a+2h-1.$$ ",
+        "Überschreiten des Limits \\(h\\to0\\) Wir bekommen \\(f^{\\prime}(a)=4a-1\\), daher \\(f^{\\prime}(x)=4x-1\\)."
+      ],
+      "result": "\\(\\boxed{f^{\\prime}(x)=4x-1}\\)",
+      "rubric": "2 pt richtige Definition · 3 pt Entwicklung des Berichts · 1 pt Grenzwert und Ergebnis"
+    },
+    {
+      "number": 2,
+      "points": 6,
+      "title": "Tangente und Normale",
+      "prompt": "Gegeben sind \\(f(x)=x^3-3x\\) und der Punkt \\(P=(2,2)\\). Bestimme die Gleichungen der Tangente und der Normalen an den Graphen im Punkt P.",
+      "steps": [
+        "Lass uns gehen. \\(f^{\\prime}(x)=3x^2-3\\). Der Punkt \\(x=2\\)Steigung der Tangente \\(m_t=f^{\\prime}(2)=12-3=9\\).",
+        "Wir verwenden die Punktform-Slope: \\(y-2=9(x-2)\\). Entwickeln Sie erhalten \\(y=9x-16\\).",
+        "Die Normale steht senkrecht zur Tangente, daher ist ihre Steigung die gegenseitige Zeichenänderung: \\(m_n=-1/9\\).",
+        "Wieder mit der Punktform-Steigung: \\(y-2=-\\frac19(x-2)\\)Ich meine, \\(y=-\\frac19x+\\frac{20}{9}\\)."
+      ],
+      "result": "\\(\\boxed{t:y=9x-16}\\) und \\(\\boxed{n:y=-\\frac19x+\\frac{20}{9}}\\)",
+      "rubric": "2 p Ableitung und Steigung · 2 pt Tangente · 2 pt normal"
+    },
+    {
+      "number": 3,
+      "points": 10,
+      "title": "Ableitungsregeln",
+      "prompt": "Berechne die Ableitungen und gib jeweils die verwendete Regel an: a) \\(x^2e^x\\); b) \\((x^2+1)/(x-1)\\); c) \\(\\sin(3x^2)\\); d) \\(\\ln(1+x^2)\\).",
+      "steps": [
+        "a Produktregel: \\((uv)^{\\prime}=u^{\\prime}v+uv^{\\prime}\\). Daher \\((x^2e^x)^{\\prime}=2xe^x+x^2e^x=e^x(x^2+2x)\\).",
+        "b Quotientenregel: $$\\left(\\frac{x^2+1}{x-1}\\right)^{\\prime}=\\frac{2x(x-1)-(x^2+1)}{(x-1)^2}=\\frac{x^2-2x-1}{(x-1)^2}.$$ ",
+        "c Regel von verkettete FunktionDerivat External ist \\(\\cos(3x^2)\\)Das Innere ist \\(6x\\). Daher \\((\\sin(3x^2))^{\\prime}=6x\\cos(3x^2)\\).",
+        "d. Mehr verkettete Funktion: \\((\\ln u)^{\\prime}=u^{\\prime}/u\\), mit \\(u=1+x^2\\). Daher \\((\\ln(1+x^2))^{\\prime}=\\frac{2x}{1+x^2}\\)."
+      ],
+      "result": "\\(\\boxed{e^x(x^2+2x)}\\); \\(\\boxed{\\frac{x^2-2x-1}{(x-1)^2}}\\); \\(\\boxed{6x\\cos(3x^2)}\\); \\(\\boxed{\\frac{2x}{1+x^2}}\\)",
+      "rubric": "2,5 pt für jede Ableitung: angegebene Regel, Schritte und Ergebnis"
+    },
+    {
+      "number": 4,
+      "points": 8,
+      "title": "Zweite Ableitung und Konkavität",
+      "prompt": "Für \\(f(x)=xe^x\\): a) Berechne \\(f′(x)\\) und \\(f′′(x)\\); b) bestimme und klassifiziere den stationären Punkt; c) untersuche den Wechsel der Konkavität und bestimme den Wendepunkt.",
+      "steps": [
+        "Mit dem Produktregel: \\(f^{\\prime}(x)=e^x+xe^x=e^x(x+1)\\). Nochmals differenzierend: \\(f^{\\prime\\prime}(x)=e^x(x+1)+e^x=e^x(x+2)\\).",
+        "Die stationären Punkte erfüllen \\(e^x(x+1)=0\\). für \\(e^x>0\\), muss \\(x=-1\\); der Punkt ist \\((-1,-e^{-1})\\).",
+        "Einstufung: \\(f^{\\prime\\prime}(-1)=e^{-1}>0\\), daher die stationärer Punkt ist ein Minimum lokal.",
+        "für \\(e^x>0\\)Das Zeichen des \\(f^{\\prime\\prime}(x)=e^x(x+2)\\) abhängig von \\(x+2\\): ist negativ für \\(x<-2\\) und positiv für \\(x>-2\\).",
+        "Kavitätsänderungen in \\(x=-2\\)Daher ist der Wendepunkt \\((-2,-2e^{-2})\\)."
+      ],
+      "result": "\\(\\boxed{f^{\\prime}=e^x(x+1),\\ f^{\\prime\\prime}=e^x(x+2)}\\), mindestens in \\((-1,-e^{-1})\\), Wendepunkt in \\((-2,-2e^{-2})\\)",
+      "rubric": "2 p Derivate · 3 p stationärer Punkt und Klassifizierung · 3 pt Zeichen f′′ und Flexo"
+    }
+  ]
+}

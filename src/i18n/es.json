@@ -1,0 +1,488 @@
+{
+  "language": {
+    "label": "Idioma",
+    "it": "Italiano",
+    "en": "Inglés",
+    "fr": "Francés",
+    "de": "Alemán",
+    "es": "Español"
+  },
+  "meta": {
+    "title": "Derivadas — Curso interactivo",
+    "description": "Curso interactivo y adaptativo sobre derivadas para bachillerato",
+    "ogDescription": "Ejercicios adaptativos con demostraciones a partir de límites y cocientes incrementales."
+  },
+  "common": {
+    "overview": "Vista general",
+    "settings": "Ajustes",
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "result": "Resultado",
+    "dashboard": "Panel",
+    "exercises": "Ejercicios",
+    "glossary": "Glosario",
+    "loadingPage": "Cargando página",
+    "openGlossary": "Abrir glosario",
+    "externalSource": "Fuente externa",
+    "learnMore": "Más información",
+    "storyOfIdeas": "UNA HISTORIA DE IDEAS",
+    "lesson": "LECCIÓN",
+    "objective": "OBJETIVO",
+    "readSections": "SECCIONES LEÍDAS",
+    "points": "pts",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "print": "Imprimir",
+    "saved": "Guardado"
+  },
+  "header": {
+    "skip": "Ir al contenido",
+    "openPath": "Abrir itinerario de aprendizaje",
+    "subtitle": "de los límites al dominio",
+    "lessons": "LECCIONES",
+    "lessonProgress": "Progreso de las lecciones",
+    "settings": "Ajustes",
+    "points": "★ {{points}} pts"
+  },
+  "nav": {
+    "yourPath": "Tu itinerario de aprendizaje",
+    "coreCount": "de {{count}} secciones fundamentales",
+    "materials": "Materiales",
+    "lesson1": "Lección 1",
+    "lesson2": "Lección 2",
+    "worksheet1": "Ficha de ejercicios §1",
+    "worksheet2": "Ficha de ejercicios §2",
+    "finalTest": "Prueba final",
+    "adaptive": "Ejercicios adaptativos",
+    "core": "NÚCLEO",
+    "enrichment": "AMPLIACIÓN"
+  },
+  "course": {
+    "velocita": {
+      "title": "El problema: velocidad instantánea",
+      "short": "Velocidad instantánea"
+    },
+    "geometria": {
+      "title": "Geometría de la derivada",
+      "short": "Geometría"
+    },
+    "definizione": {
+      "title": "Definición formal",
+      "short": "Definición formal"
+    },
+    "derivabilita": {
+      "title": "Derivabilidad y puntos singulares",
+      "short": "Derivabilidad"
+    },
+    "interpretazioni": {
+      "title": "Interpretaciones y aplicaciones",
+      "short": "Interpretaciones"
+    },
+    "warmup": {
+      "title": "Repaso y calentamiento",
+      "short": "Calentamiento"
+    },
+    "fondamentali": {
+      "title": "Derivadas fundamentales",
+      "short": "Derivadas fundamentales"
+    },
+    "regole": {
+      "title": "Reglas de derivación",
+      "short": "Reglas de derivación"
+    },
+    "derivata-seconda": {
+      "title": "Segunda derivada",
+      "short": "Segunda derivada"
+    },
+    "taylor": {
+      "title": "Serie de Taylor",
+      "short": "Taylor · opcional"
+    },
+    "teoremi": {
+      "title": "Apéndice: teoremas de derivación",
+      "short": "Teoremas · apéndice"
+    }
+  },
+  "overview": {
+    "eyebrow": "Curso guiado · dos lecciones de 2 horas",
+    "title": "Derivadas:",
+    "titleAccent": "de los límites al dominio.",
+    "intro": "Partimos de una pregunta concreta —¿cómo se mide la velocidad en un solo instante?— y construimos la geometría, la definición y las reglas sin omitir pasos.",
+    "openSummary": "Abrir resumen",
+    "resume": "Continuar la lección",
+    "start": "Empezar por el problema",
+    "coreRead": "{{read}}/{{total}} SECCIONES FUNDAMENTALES LEÍDAS · {{optional}}/{{optionalTotal}} AMPLIACIONES",
+    "progress": "PROGRESO DEL CURSO",
+    "coreSections": "secciones fundamentales leídas",
+    "verified": "conceptos verificados",
+    "mastered": "clases dominadas",
+    "enrichment": "ampliaciones visitadas",
+    "oneQuestion": "Una pregunta, tres respuestas",
+    "what": "¿Qué es una derivada?",
+    "question": "PREGUNTA {{number}}",
+    "unlock": "La respuesta aparece después de leer «{{section}}».",
+    "cards": {
+      "geometry": {
+        "q": "¿Cómo se halla la pendiente de una curva?",
+        "label": "GEOMÉTRICA",
+        "title": "Una pendiente",
+        "answer": "Es la pendiente de la recta tangente, obtenida como límite de las rectas secantes."
+      },
+      "analytic": {
+        "q": "¿Por qué aparece un límite?",
+        "label": "ANALÍTICA",
+        "title": "Un límite",
+        "answer": "Es el límite del cociente incremental cuando el incremento tiende a cero sin llegar a ser cero."
+      },
+      "application": {
+        "q": "¿Qué mide realmente?",
+        "label": "APLICADA",
+        "title": "Una tasa instantánea",
+        "answer": "Mide la rapidez con la que cambia una magnitud, con un signo y una unidad precisa."
+      }
+    },
+    "lesson1": {
+      "title": "El concepto de derivada",
+      "subtitle": "Del movimiento a la definición formal",
+      "duration": "2 horas",
+      "objective": "Construir la derivada como objeto geométrico, analítico y físico."
+    },
+    "lesson2": {
+      "title": "Reglas, Taylor y teoremas",
+      "subtitle": "De las demostraciones al dominio del cálculo",
+      "duration": "2 horas + apéndice",
+      "objective": "Deducir las reglas a partir de límites, aplicarlas y explorar los principales teoremas mediante figuras y casos prácticos."
+    },
+    "break": "PAUSA + FICHA §{{sheet}} · 10 MIN",
+    "associated": "Materiales relacionados",
+    "train": "Practicar y evaluar",
+    "material": {
+      "sheet1": "Ficha §1",
+      "sheet1Body": "Definición y significado geométrico · 25 min",
+      "sheet2": "Ficha §2",
+      "sheet2Body": "Reglas de derivación · 30 min",
+      "test": "Prueba final",
+      "testBody": "4 problemas · 30 puntos · 45 min",
+      "adaptive": "Ejercicios adaptativos",
+      "adaptiveBody": "32 ejercicios de dificultad progresiva"
+    },
+    "source": "Código fuente",
+    "sourceBody": "Consulta el proyecto, la documentación y el historial de cambios en GitHub.",
+    "openRepo": "Abrir repositorio"
+  },
+  "lesson": {
+    "optional": "Opcional",
+    "appendix": "Apéndice",
+    "content": {
+      "velocita": {
+        "title": "Velocidad en un solo instante",
+        "lead": "Antes de la fórmula está el problema: la velocidad media corresponde a un intervalo de tiempo, pero ¿cómo expresamos la velocidad en un instante sin duración?"
+      },
+      "geometria": {
+        "title": "La secante se convierte en tangente",
+        "lead": "La derivada surge geométricamente al acercar dos puntos de una gráfica. Mueve h y observa cómo la pendiente de la secante converge a la pendiente de la tangente."
+      },
+      "definizione": {
+        "title": "La definición formal",
+        "lead": "Damos ahora una forma precisa a la intuición geométrica y física. La derivada existe cuando el cociente incremental tiende a un valor finito."
+      },
+      "derivabilita": {
+        "title": "Continua no significa derivable",
+        "lead": "Una función derivable siempre es continua. El recíproco puede fallar: una gráfica puede ser continua y tener una esquina o una tangente vertical."
+      },
+      "interpretazioni": {
+        "title": "Tres formas de decir «derivada»",
+        "lead": "El mismo objeto matemático describe una pendiente, un límite y una tasa de variación. Saber pasar de una interpretación a otra es el verdadero objetivo de la lección."
+      },
+      "warmup": {
+        "title": "Tres preguntas para retomar",
+        "lead": "Antes de construir las reglas operativas, recuperamos las ideas de la primera lección. Responde en voz alta o por escrito y abre después la corrección."
+      },
+      "fondamentali": {
+        "title": "Construimos juntos la tabla",
+        "lead": "La columna central es la más importante: recuerda qué idea produce cada fórmula para poder reconstruirla cuando la memoria no sea suficiente."
+      },
+      "regole": {
+        "title": "Cuatro reglas, cuatro ideas",
+        "lead": "Para cada regla relacionamos la fórmula operativa, su demostración mediante límites y su lectura verbal. Una regla está lista para usarse cuando se comprende su origen."
+      },
+      "derivata-seconda": {
+        "title": "La derivada de la derivada",
+        "lead": "f″ mide cómo cambia la pendiente. En una gráfica describe la concavidad; en el movimiento, la aceleración."
+      },
+      "taylor": {
+        "title": "El ADN local de una función",
+        "lead": "Taylor responde a una pregunta concreta: cerca de un punto elegido, ¿podemos sustituir una función difícil por un polinomio más sencillo que se le parezca mucho?"
+      },
+      "teoremi": {
+        "title": "Los teoremas que ponen a trabajar la derivada",
+        "lead": "Todavía no es un estudio completo de funciones, sino una caja de herramientas. Cada teorema parte de una figura, responde a una pregunta concreta y declara claramente cuándo puede utilizarse."
+      }
+    },
+    "sectionRead": "Sección leída",
+    "didRead": "¿Has leído esta sección?",
+    "readNotice": "La lectura se guarda, pero no equivale al dominio verificado mediante ejercicios.",
+    "read": "Leída",
+    "markRead": "Marcar como leída",
+    "then": "después {{section}}",
+    "goSheet1": "Ir a la ficha §1",
+    "goSheet2": "Ir a la ficha §2"
+  },
+  "adaptive": {
+    "eyebrow": "Entrenamiento adaptativo",
+    "title": "De la lección",
+    "titleAccent": "al dominio.",
+    "intro": "Los ejercicios están organizados por requisitos previos y dificultad. Los temas que necesitan refuerzo aparecen primero y las nuevas clases se desbloquean con tu progreso.",
+    "continue": "Continuar los ejercicios",
+    "start": "Empezar los ejercicios",
+    "completed": "ejercicios completados",
+    "firstTry": "correctos al primer intento",
+    "proofs": "demostraciones leídas",
+    "classes": "Clases de problemas",
+    "yourPath": "Tu itinerario",
+    "unlockHint": "Completa una clase para desbloquear los conceptos que dependen de ella.",
+    "exerciseCount": "{{count}} EJERCICIOS · {{points}} PTS",
+    "locked": "Completa primero: {{classes}}",
+    "loading": "Preparando el itinerario…",
+    "loadError": "No se pueden cargar los ejercicios: {{error}}",
+    "statusMastered": "✓ DOMINADA",
+    "statusRecovery": "↻ NECESITA REPASO",
+    "statusProgress": "● EN CURSO",
+    "statusStart": "EMPIEZA AQUÍ →",
+    "statusAvailable": "DISPONIBLE →",
+    "statusLocked": "🔒 BLOQUEADA EN EL ITINERARIO",
+    "consult": "Consultar de todos modos"
+  },
+  "difficulty": {
+    "1": "Básico",
+    "2": "Intermedio",
+    "3": "Avanzado",
+    "4": "Desafío"
+  },
+  "settings": {
+    "back": "Volver al panel",
+    "eyebrow": "Preferencias",
+    "title": "Ajustes",
+    "intro": "Personaliza la lectura y gestiona tu progreso local.",
+    "dark": "Tema oscuro",
+    "darkBody": "Reduce el brillo y mantiene un alto contraste en las fórmulas.",
+    "export": "Exportar progreso",
+    "exportBody": "Descarga una copia JSON de tus resultados.",
+    "exportAction": "Exportar",
+    "import": "Importar progreso",
+    "importBody": "Restaura un archivo exportado por esta aplicación (esquema de progreso v4).",
+    "importAction": "Importar",
+    "invalid": "El archivo no contiene un progreso válido o utiliza una versión incompatible.",
+    "imported": "Progreso importado correctamente",
+    "restart": "Reiniciar el itinerario",
+    "restartBody": "Elimina las secciones leídas, los puntos, los intentos, las clases completadas y las fichas digitales guardadas en este navegador.",
+    "reset": "Restablecer progreso",
+    "footer": "DERIVADAS · VERSIÓN 1.0.0 · LOS DATOS PERMANECEN EN TU NAVEGADOR",
+    "confirmTitle": "¿Restablecer todo el progreso?",
+    "confirmBody": "La operación eliminará definitivamente las secciones leídas, los puntos, las respuestas, las clases completadas y las fichas digitales. Puedes exportar antes una copia de seguridad.",
+    "resetAll": "Restablecer todo",
+    "resetDone": "Progreso y fichas digitales restablecidos"
+  },
+  "glossary": {
+    "eyebrow": "Vocabulario del curso",
+    "title": "Glosario",
+    "openDefinition": "Abrir la definición de {{term}}",
+    "terms": {
+      "differenceQuotient": {
+        "term": "Cociente incremental",
+        "definition": "Cociente entre la variación de una función y la variación h de la variable. La derivada nace de su límite."
+      },
+      "secant": {
+        "term": "Recta secante",
+        "definition": "Recta que pasa por dos puntos de la gráfica. Al acercar los puntos, las secantes pueden tender a la tangente."
+      },
+      "tangent": {
+        "term": "Recta tangente",
+        "definition": "Recta que tiene la misma dirección local que la gráfica en un punto; su pendiente es la derivada."
+      },
+      "differentiability": {
+        "term": "Derivabilidad",
+        "definition": "Existencia de una derivada finita en el punto, con el mismo límite por la izquierda y por la derecha."
+      },
+      "prosthaphaeresis": {
+        "term": "Prostaféresis",
+        "definition": "Identidad trigonométrica que transforma sumas o diferencias de senos y cosenos en productos."
+      },
+      "operatorNotation": {
+        "term": "Notación de operador",
+        "definition": "Escritura Df que considera la derivación como una operación aplicada a la función f."
+      },
+      "curvature": {
+        "term": "Curvatura",
+        "definition": "Medida geométrica de la rapidez con la que una curva cambia de dirección. Añade información al simple signo de f″."
+      },
+      "osculatingCircle": {
+        "term": "Círculo osculador",
+        "definition": "Círculo que aproxima localmente la posición, la dirección y la curvatura de una curva."
+      },
+      "maclaurin": {
+        "term": "Maclaurin",
+        "definition": "Caso del polinomio de Taylor centrado en x₀=0, llamado así por Colin Maclaurin."
+      },
+      "adequality": {
+        "term": "Adecuación",
+        "definition": "Método histórico para hallar tangentes y extremos, desarrollado por Fermat antes del cálculo infinitesimal."
+      },
+      "darboux": {
+        "term": "Darboux",
+        "definition": "Teorema según el cual una derivada toma todos los valores intermedios incluso cuando no es continua."
+      },
+      "cauchy": {
+        "term": "Cauchy",
+        "definition": "Matemático que dio rigor a los límites, la continuidad y el teorema generalizado del valor medio."
+      }
+    }
+  },
+  "solution": {
+    "intro": "Compara el procedimiento, no solo el resultado. La solución se abre paso a paso.",
+    "check": "1. Comprueba tu desarrollo",
+    "rule": "He indicado la regla o definición utilizada",
+    "steps": "He escrito todos los pasos sin saltos",
+    "domain": "He comprobado signos, dominio y unidades",
+    "hint": "2. Mostrar una pista",
+    "hintBody": "Identifica la estructura del problema y escribe la fórmula general antes de sustituir los datos.",
+    "firstStep": "3. Mostrar el primer paso",
+    "nextStep": "Mostrar el paso siguiente"
+  },
+  "classPage": {
+    "back": "Volver al itinerario",
+    "classOf": "Clase {{current}} de {{total}}",
+    "prerequisites": "REQUISITOS PREVIOS",
+    "completed": "COMPLETADOS",
+    "intro": "El orden se adapta a tus resultados: primero aparece lo que necesitas reforzar.",
+    "review": "Repasar",
+    "continue": "Continuar",
+    "start": "Empezar la clase",
+    "proofAvailable": "Demostración disponible",
+    "mastered": "Clase dominada: puede desbloquearse el contenido siguiente.",
+    "recovery": "Clase completada, pero necesita repaso: se requiere al menos un 70 % y dos respuestas correctas.",
+    "results": "Ver resultados"
+  },
+  "exercisePage": {
+    "counter": "EJERCICIO {{current}} / {{total}}",
+    "exercise": "Ejercicio",
+    "problem": "Problema",
+    "helpAvailable": "Las ayudas progresivas están disponibles debajo de las respuestas.",
+    "choose": "Elige la respuesta correcta",
+    "confirm": "Confirmar respuesta",
+    "proceed": "Continuar",
+    "retry": "Repetir ejercicio",
+    "hint": "Mostrar una pista",
+    "recall": "Recordar el concepto",
+    "firstStep": "Mostrar el primer paso",
+    "fullSolution": "Mostrar la solución completa",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "remaining": "{{count}} INTENTOS RESTANTES",
+    "correct": "¡Correcto!",
+    "great": "Excelente razonamiento.",
+    "earned": "⭐ +{{points}} puntos obtenidos",
+    "attemptsEnded": "Intentos agotados",
+    "attemptsEndedBody": "Observa la respuesta correcta y estudia los pasos de la solución.",
+    "incorrect": "No es correcto",
+    "solutionShown": "Solución mostrada",
+    "solutionShownBody": "Estudia los pasos; podrás repetir el ejercicio cuando quieras.",
+    "attemptsSentence_one": "Te queda {{count}} intento.",
+    "attemptsSentence_other": "Te quedan {{count}} intentos.",
+    "defaultHint": "Identifica primero la estructura de la función y la regla necesaria.",
+    "recallBody": "Recuerda: escribe primero la regla general, da nombre a las funciones implicadas y después sustituye.",
+    "firstStepLabel": "Primer paso:",
+    "proof": "📐 Demostración mediante el límite",
+    "read": "leída ✓",
+    "guidedReading": "lectura guiada",
+    "proofIdea": "Idea de la demostración, sin repetir todos los pasos",
+    "conclusion": "Conclusión",
+    "recognize": "Qué debes reconocer",
+    "checkpoint": "Comprobación de comprensión",
+    "checkpointRetry": "Vuelve a leer el paso en el que aparece h e inténtalo de nuevo.",
+    "solution": "📖 Solución paso a paso"
+  },
+  "resultsPage": {
+    "mastered": "Clase dominada",
+    "recovery": "Clase completada · se necesita repaso",
+    "pointsOf": "PUNTOS DE {{max}}",
+    "score": "RESULTADO",
+    "correct": "RESPUESTAS CORRECTAS",
+    "summary": "Resumen de ejercicios",
+    "exercise": "Ejercicio",
+    "attempts": "Intentos",
+    "proof": "Demostración",
+    "points": "Puntos",
+    "read": "leída",
+    "unavailable": "n/d",
+    "nextClass": "Clase siguiente",
+    "startRecovery": "Empezar repaso ({{count}})",
+    "reviewClass": "Repasar la clase"
+  },
+  "worksheet": {
+    "correction": "Corrección guiada · una solución cada vez",
+    "print": "Imprimir ficha",
+    "eyebrow": "Ficha de ejercicios §{{sheet}}",
+    "title1": "Definición y significado geométrico",
+    "title2": "Reglas de derivación",
+    "time1": "25 minutos",
+    "time2": "30 minutos",
+    "name": "Nombre ____________________",
+    "intro": "Muestra todos los pasos. En los cálculos por definición, escribe el cociente incremental antes de simplificar.",
+    "guidedSolution": "Solución guiada paso a paso"
+  },
+  "verification": {
+    "print": "Imprimir prueba",
+    "eyebrow": "Prueba final",
+    "title": "Derivadas",
+    "intro": "Realiza primero la prueba y abre después las soluciones guiadas para corregirte.",
+    "time": "45 minutos",
+    "points": "30 puntos",
+    "solution": "Solución guiada",
+    "check": "Comprobar la solución y los pasos",
+    "rubric": "Criterios de corrección",
+    "bonus": "Desafío adicional · Taylor (no incluido en los 30 puntos)",
+    "bonusBody": "Construye el polinomio de Taylor de orden 3 centrado en cero para f(x)=xeˣ. Utilízalo como ampliación después de completar la prueba básica."
+  },
+  "exerciseFiles": {
+    "loadError": "No se puede cargar el archivo de ejercicios: {{error}}"
+  },
+  "workspace": {
+    "open": "Abrir la ficha digital a pantalla completa",
+    "autosave": "Guardado automático activo",
+    "close": "Cerrar la ficha digital",
+    "problem": "Problema",
+    "worksheetLabel": "Ficha {{sheet}} · Ejercicio {{exercise}}",
+    "verificationLabel": "Prueba · Problema {{problem}}",
+    "pen": "Lápiz",
+    "highlighter": "Rotulador",
+    "eraser": "Goma",
+    "pan": "Mover la hoja",
+    "strokeColor": "Color del trazo",
+    "strokeSize": "Grosor del trazo",
+    "solution": "Solución",
+    "clear": "Borrar",
+    "scrollableSheet": "{{label}}: hoja desplazable con líneas numeradas",
+    "writingArea": "{{label}}: área de escritura libre",
+    "ruleWritten": "Regla escrita",
+    "stepsShown": "Pasos mostrados",
+    "domainChecked": "Signos y dominio comprobados"
+  },
+  "conclusionPage": {
+    "eyebrow": "Resumen del núcleo fundamental",
+    "title": "La pregunta inicial ya tiene respuesta.",
+    "incomplete": "Puedes consultar ahora el resumen; {{read}} de {{total}} secciones fundamentales aparecen como leídas.",
+    "velocity": "Velocidad en el instante t = 2",
+    "explain": "Explícalo con tus propias palabras",
+    "explainBody": "Escribir una definición personal hace visibles las conexiones que realmente has construido.",
+    "definition": "La derivada es…",
+    "geometry": "¿Qué sé reconocer en una gráfica?",
+    "calculus": "¿Qué sé calcular?",
+    "applications": "¿Qué sé interpretar?",
+    "save": "Guardar mi resumen",
+    "saved": "Resumen guardado en este navegador.",
+    "next": "El paso siguiente",
+    "assess": "Comprobar el dominio",
+    "back": "Volver a la vista general"
+  }
+}

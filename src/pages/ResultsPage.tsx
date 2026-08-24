@@ -21,8 +21,10 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useDBStore } from '@/store/dbStore';
 import { useProgressStore } from '@/store/progressStore';
 import { getClassMetrics, getResultMessage, stripLatex } from '@/utils/learning';
+import { useTranslation } from 'react-i18next';
 
 export function ResultsPage() {
+  const { t } = useTranslation();
   const { classId = '' } = useParams();
   const db = useDBStore((state) => state.db);
   const progress = useProgressStore((state) => state.progress);
@@ -41,24 +43,24 @@ export function ResultsPage() {
     <Box sx={{ maxWidth: 900, mx: 'auto' }}>
       <Box sx={{ textAlign: 'center', mb: 4 }}>
         <Typography sx={{ fontSize: '4rem', lineHeight: 1, mb: 2 }}>{message.emoji}</Typography>
-        <Typography variant="h4" color="primary.main" mb={1}>{metrics.mastered ? 'Classe padroneggiata' : 'Classe completata · recupero necessario'}</Typography>
+        <Typography variant="h4" color="primary.main" mb={1}>{metrics.mastered ? t('resultsPage.mastered') : t('resultsPage.recovery')}</Typography>
         <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', sm: '4rem' }, mb: 1 }}>{message.title}</Typography>
         <Typography color="text.secondary">{stripLatex(cls.title)}</Typography>
       </Box>
 
       <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 2, p: { xs: 2.5, sm: 4 }, mb: 3 }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center" spacing={{ xs: 2, sm: 5 }} divider={<Divider orientation="vertical" flexItem />}>
-          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1 }}>{metrics.score}</Typography><Typography variant="caption" color="text.secondary">PUNTI SU {metrics.maxScore}</Typography></Box>
-          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1 }}>{metrics.percent}%</Typography><Typography variant="caption" color="text.secondary">RISULTATO</Typography></Box>
-          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1, color: metrics.mastered ? 'success.main' : 'warning.main' }}>{metrics.correctCount}</Typography><Typography variant="caption" color="text.secondary">RISPOSTE CORRETTE</Typography></Box>
+          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1 }}>{metrics.score}</Typography><Typography variant="caption" color="text.secondary">{t('resultsPage.pointsOf', { max: metrics.maxScore })}</Typography></Box>
+          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1 }}>{metrics.percent}%</Typography><Typography variant="caption" color="text.secondary">{t('resultsPage.score')}</Typography></Box>
+          <Box textAlign="center"><Typography sx={{ fontFamily: 'Crimson Pro', fontWeight: 700, fontSize: '3.5rem', lineHeight: 1, color: metrics.mastered ? 'success.main' : 'warning.main' }}>{metrics.correctCount}</Typography><Typography variant="caption" color="text.secondary">{t('resultsPage.correct')}</Typography></Box>
         </Stack>
       </Paper>
       <Alert severity={message.severity} sx={{ mb: 4 }}>{message.body}</Alert>
 
-      <Typography variant="h3" mb={2}>Riepilogo esercizi</Typography>
+      <Typography variant="h3" mb={2}>{t('resultsPage.summary')}</Typography>
       <TableContainer component={Paper} elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 2, mb: 4 }}>
         <Table>
-          <TableHead><TableRow><TableCell>Esercizio</TableCell><TableCell align="center">Tentativi</TableCell><TableCell align="center">Dimostrazione</TableCell><TableCell align="right">Punti</TableCell></TableRow></TableHead>
+          <TableHead><TableRow><TableCell>{t('resultsPage.exercise')}</TableCell><TableCell align="center">{t('resultsPage.attempts')}</TableCell><TableCell align="center">{t('resultsPage.proof')}</TableCell><TableCell align="right">{t('resultsPage.points')}</TableCell></TableRow></TableHead>
           <TableBody>
             {cls.exercises.map((exercise) => {
               const attempt = progress.classes[classId]?.attempts[exercise.id];
@@ -66,7 +68,7 @@ export function ResultsPage() {
                 <TableRow key={exercise.id} hover sx={{ cursor: 'pointer' }} onClick={() => navigate(`/class/${classId}/exercise/${exercise.id}`)}>
                   <TableCell><Typography fontWeight={650}>{exercise.title}</Typography></TableCell>
                   <TableCell align="center">{attempt?.tries.length || '—'}</TableCell>
-                  <TableCell align="center">{exercise.proof_from_limit ? attempt?.proofViewed ? <Chip size="small" color="warning" variant="outlined" label="📐 letta" /> : <Typography color="text.disabled">—</Typography> : <Typography color="text.disabled">n/d</Typography>}</TableCell>
+                  <TableCell align="center">{exercise.proof_from_limit ? attempt?.proofViewed ? <Chip size="small" color="warning" variant="outlined" label={`📐 ${t('resultsPage.read')}`} /> : <Typography color="text.disabled">—</Typography> : <Typography color="text.disabled">{t('resultsPage.unavailable')}</Typography>}</TableCell>
                   <TableCell align="right"><Typography fontWeight={800} color={(attempt?.score ?? 0) > 0 ? 'success.main' : 'error.main'}>{attempt?.score ?? 0}{attempt?.proofViewed ? ' + 1' : ''}</Typography></TableCell>
                 </TableRow>
               );
@@ -76,10 +78,10 @@ export function ResultsPage() {
       </TableContainer>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="center" gap={1.5}>
-        {nextClass && <Button variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} onClick={() => navigate(`/class/${nextClass.id}`)}>Prossima classe</Button>}
-        {!metrics.mastered && recovery.length > 0 && <Button variant="contained" color="warning" size="large" startIcon={<RefreshRoundedIcon />} onClick={() => navigate(`/class/${classId}/exercise/${recovery[0].id}`)}>Avvia recupero ({recovery.length})</Button>}
-        <Button variant="outlined" size="large" startIcon={<RefreshRoundedIcon />} onClick={() => navigate(`/class/${classId}`)}>Ripassa la classe</Button>
-        <Button color="inherit" size="large" startIcon={<HomeRoundedIcon />} onClick={() => navigate('/')}>Dashboard</Button>
+        {nextClass && <Button variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} onClick={() => navigate(`/class/${nextClass.id}`)}>{t('resultsPage.nextClass')}</Button>}
+        {!metrics.mastered && recovery.length > 0 && <Button variant="contained" color="warning" size="large" startIcon={<RefreshRoundedIcon />} onClick={() => navigate(`/class/${classId}/exercise/${recovery[0].id}`)}>{t('resultsPage.startRecovery', { count: recovery.length })}</Button>}
+        <Button variant="outlined" size="large" startIcon={<RefreshRoundedIcon />} onClick={() => navigate(`/class/${classId}`)}>{t('resultsPage.reviewClass')}</Button>
+        <Button color="inherit" size="large" startIcon={<HomeRoundedIcon />} onClick={() => navigate('/')}>{t('common.dashboard')}</Button>
       </Stack>
     </Box>
   );

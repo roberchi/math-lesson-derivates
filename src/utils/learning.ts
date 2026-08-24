@@ -151,61 +151,16 @@ export function stripLatex(text: string) {
 export function createSeededChoices(exercise: Exercise, cls: ExerciseClass, db: ExerciseDB) {
   const correct = exercise.answer.latex;
   void cls; void db;
-  const authored = exercise.distractors ?? defaultDistractors(exercise, cls.id);
+  const authored = exercise.distractors ?? [];
   let seed = [...exercise.id].reduce((sum, char) => sum + char.charCodeAt(0), 0);
   const random = () => {
     seed = (seed * 9301 + 49297) % 233280;
     return seed / 233280;
   };
   const uniqueDistractors = authored.filter((item, index, items) => item.latex !== correct && items.findIndex((candidate) => candidate.latex === item.latex) === index);
-  const fallbackDistractors = [
-    { latex: `-${correct}`, feedback: 'Hai cambiato il segno senza che la regola lo richiedesse.', misconceptionId: 'unjustified-sign' },
-    { latex: `${correct}+1`, feedback: 'Hai aggiunto un termine che non nasce da alcun passaggio di derivazione.', misconceptionId: 'invented-term' },
-    { latex: `\\frac{1}{${correct}}`, feedback: 'Hai preso il reciproco del risultato senza una regola che lo giustifichi.', misconceptionId: 'unjustified-reciprocal' },
-  ];
-  const distractors = [...uniqueDistractors, ...fallbackDistractors].filter((item, index, items) => item.latex !== correct && items.findIndex((candidate) => candidate.latex === item.latex) === index).slice(0, 3);
+  const distractors = uniqueDistractors.slice(0, 3);
   return [
-    { latex: correct, isCorrect: true, feedback: exercise.answer.text ?? 'Risposta corretta.', misconceptionId: null },
+    { latex: correct, isCorrect: true, feedback: exercise.answer.text ?? '', misconceptionId: null },
     ...distractors.map((item) => ({ ...item, isCorrect: false })),
   ].sort(() => random() - 0.5);
-}
-
-function defaultDistractors(exercise: Exercise, classId: string): NonNullable<Exercise['distractors']> {
-  const answer = exercise.answer.latex;
-  const tag = exercise.tags.join(' ');
-  if (classId === 'regola_catena' || tag.includes('catena')) return [
-    { latex: `${answer}\\,\\text{ senza il fattore interno}`, feedback: 'Hai derivato lo strato esterno ma manca la derivata dello strato interno.', misconceptionId: 'chain-inner-missing' },
-    { latex: "f'(x)=g'(x)", feedback: 'Hai derivato solo la funzione interna: bisogna derivare anche quella esterna.', misconceptionId: 'chain-outer-missing' },
-    { latex: "f'(x)=f'(g(x))+g'(x)", feedback: 'Nella catena i contributi si moltiplicano, non si sommano.', misconceptionId: 'chain-added' },
-  ];
-  if (classId === 'regola_prodotto' || tag.includes('prodotto')) return [
-    { latex: "f'(x)=f'(x)g'(x)", feedback: 'La derivata di un prodotto non è il prodotto delle derivate.', misconceptionId: 'product-derivatives' },
-    { latex: "f'(x)=f'(x)g(x)", feedback: 'Hai derivato solo il primo fattore: manca il secondo contributo.', misconceptionId: 'product-first-only' },
-    { latex: "f'(x)=f(x)g'(x)", feedback: 'Hai derivato solo il secondo fattore: manca il primo contributo.', misconceptionId: 'product-second-only' },
-  ];
-  if (classId === 'regola_quoziente' || tag.includes('quoziente')) return [
-    { latex: "f'(x)=\\frac{f'(x)}{g'(x)}", feedback: 'La derivata del quoziente non è il quoziente delle derivate.', misconceptionId: 'quotient-derivatives' },
-    { latex: "f'(x)=\\frac{f'g-fg'}{g}", feedback: 'Al denominatore deve comparire il quadrato della funzione sotto.', misconceptionId: 'quotient-square' },
-    { latex: "f'(x)=\\frac{fg'-f'g}{g^2}", feedback: 'I termini del numeratore sono invertiti: il segno cambia.', misconceptionId: 'quotient-order' },
-  ];
-  if (classId === 'potenze') return [
-    { latex: "f'(x)=x^{n-1}", feedback: 'Hai ridotto l’esponente ma manca il coefficiente n.', misconceptionId: 'power-coefficient' },
-    { latex: "f'(x)=nx^n", feedback: 'Il coefficiente è sceso, ma l’esponente deve diminuire di uno.', misconceptionId: 'power-exponent' },
-    { latex: "f'(x)=(n-1)x^n", feedback: 'Hai modificato il coefficiente invece dell’esponente.', misconceptionId: 'power-rule-swapped' },
-  ];
-  if (classId === 'funzioni_elementari') return [
-    { latex: `-${answer}`, feedback: 'Controlla il ciclo delle derivate e il punto in cui compare il segno meno.', misconceptionId: 'elementary-sign' },
-    { latex: "f'(x)=1", feedback: 'Uno non è la derivata universale delle funzioni elementari.', misconceptionId: 'always-one' },
-    { latex: "f'(x)=f(x)", feedback: 'Solo l’esponenziale coincide con la propria derivata.', misconceptionId: 'elementary-copy' },
-  ];
-  if (classId === 'rapporto_incrementale') return [
-    { latex: "f'(x)=\\frac{f(x+h)-f(x)}{h}\\big|_{h=0}", feedback: 'Non si sostituisce h=0: si semplifica per h≠0 e poi si calcola il limite.', misconceptionId: 'h-equals-zero' },
-    { latex: "f'(x)=f(x+h)-f(x)", feedback: 'Manca la divisione per la variazione orizzontale h.', misconceptionId: 'missing-denominator' },
-    { latex: "f'(x)=f(x)", feedback: 'Il valore della funzione e il suo tasso di variazione non coincidono in generale.', misconceptionId: 'value-vs-derivative' },
-  ];
-  return [
-    { latex: `-${answer}`, feedback: 'Il segno è stato invertito senza una ragione matematica.', misconceptionId: 'application-sign' },
-    { latex: `\\frac{1}{${answer}}`, feedback: 'Hai preso il reciproco, cambiando anche il significato delle unità.', misconceptionId: 'application-reciprocal' },
-    { latex: "f'(x)=f(x)", feedback: 'Hai confuso il valore della grandezza con il suo tasso di cambiamento.', misconceptionId: 'value-vs-rate' },
-  ];
 }

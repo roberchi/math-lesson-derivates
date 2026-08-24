@@ -1,0 +1,178 @@
+{
+  "sheets": {
+    "1": {
+      "exercises": [
+        {
+          "number": 1,
+          "title": "Difference quotient",
+          "type": "From the definition",
+          "difficulty": "Basic",
+          "prompt": "For \\(f(x)=x^2-3x+2\\), calculate and simplify the difference quotient at \\(x_0=2\\), then determine \\(f′(2)\\).",
+          "solution": {
+            "steps": [
+              "We calculate \\(f(2)=0\\) and \\(f(2+h)=(2+h)^2-3(2+h)+2=h+h^2\\).",
+              "The difference quotient is $$\\frac{f(2+h)-f(2)}{h}=\\frac{h+h^2}{h}=1+h,\\qquad h\\ne0.$$",
+              "Passing to the limit \\(h\\to0\\) we get the derivative at the point."
+            ],
+            "result": "\\(\\boxed{f^{\\prime}(2)=1}\\)"
+          }
+        },
+        {
+          "number": 2,
+          "title": "Three derivatives from the definition",
+          "type": "From the definition",
+          "difficulty": "Basic",
+          "prompt": "Using the limit of the difference quotient, calculate the derivatives of: a) \\(3x+5\\); b) \\(x^3\\); c) \\(1/x\\). State the domain.",
+          "solution": {
+            "steps": [
+              "(a) For \\(f(x)=3x+5\\): \\(\\frac{f(x+h)-f(x)}h=\\frac{3h}{h}=3\\), therefore \\(f^{\\prime}(x)=3\\).",
+              "(b) For \\(f(x)=x^3\\): $$\\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2\\longrightarrow3x^2.$$",
+              "c) For \\(f(x)=1/x\\), with \\(x\\ne0\\): $$\\frac{1/(x+h)-1/x}{h}=-\\frac{1}{x(x+h)}\\longrightarrow-\\frac1{x^2}.$$",
+              "The function \\(1/x\\) and his derivative have domain \\(\\mathbb R\\setminus\\{0\\}\\)."
+            ],
+            "result": "\\(\\boxed{3}\\), \\(\\boxed{3x^2}\\), \\(\\boxed{-1/x^2}\\)"
+          }
+        },
+        {
+          "number": 3,
+          "title": "Tangent lines",
+          "type": "Geometric",
+          "difficulty": "★★",
+          "prompt": "For \\(f(x)=x^2\\): a) find the tangent line at \\(x_0=3\\); b) find the points where the tangent is parallel to the x-axis; c) find the points where the tangent makes a 45° angle with the x-axis.",
+          "solution": {
+            "steps": [
+              "For \\(f(x)=x^2\\), we have \\(f^{\\prime}(x)=2x\\). In \\(x_0=3\\): \\(m=6\\) and \\(P=(3,9)\\), therefore \\(y-9=6(x-3)\\).",
+              "A tangent parallel to the x-axis slope zero: \\(2x=0\\), therefore the point is \\((0,0)\\).",
+              "A corner of \\(45^\\circ\\) the slope \\(\\tan45^\\circ=1\\): \\(2x=1\\), therefore \\(x=1/2\\) and \\(P=(1/2,1/4)\\)."
+            ],
+            "result": "\\(\\boxed{y=6x-9}\\); \\((0,0)\\); \\(\\boxed{y=x-1/4}\\)"
+          }
+        },
+        {
+          "number": 4,
+          "title": "Absolute value",
+          "type": "Differentiability",
+          "difficulty": "★★",
+          "prompt": "Study the differentiability of \\(f(x)=|x-2|\\) at \\(x_0=2\\) by calculating the right-hand and left-hand derivatives separately. Sketch the graph.",
+          "solution": {
+            "steps": [
+              "We write the piecewise function: \\(f(x)=2-x\\) for \\(x<2\\), and \\(f(x)=x-2\\) for \\(x\\ge2\\).",
+              "The derivative left \\(f_-^{\\prime}(2)=-1\\); derivative right \\(f_+^{\\prime}(2)=1\\).",
+              "The two limits are finite but different: in graph an angled point appears."
+            ],
+            "result": "\\(\\boxed{f\\text{ is not differentiable at }x=2}\\)"
+          }
+        },
+        {
+          "number": 5,
+          "title": "A differentiability challenge",
+          "type": "Challenge",
+          "difficulty": "★★★",
+          "prompt": "Study the differentiability of \\(f(x)=x|x|\\) at \\(x_0=0\\). Write the function piecewise and sketch its graph before calculating.",
+          "solution": {
+            "steps": [
+              "The shape piecewise is \\(x|x|=-x^2\\) for \\(x<0\\) and \\(x|x|=x^2\\) for \\(x\\ge0\\).",
+              "From difference quotient in zero: \\(\\frac{f(h)-f(0)}h=|h|\\).",
+              "Both from left and right \\(|h|\\to0\\), therefore the two limits coincide."
+            ],
+            "result": "\\(\\boxed{f^{\\prime}(0)=0}\\): the function is differentiable in zero."
+          }
+        }
+      ]
+    },
+    "2": {
+      "exercises": [
+        {
+          "number": 1,
+          "title": "Fundamental table",
+          "type": "Basic rules",
+          "difficulty": "Basic",
+          "prompt": "Differentiate: a) \\(5x^4-3x^2+7\\); b) \\(\\sqrt{x}+1/x^2\\); c) \\(2e^x-4\\ln x\\); d) \\(3\\sin x-\\cos x\\).",
+          "solution": {
+            "steps": [
+              "a) We apply the term power rule by term: \\((5x^4-3x^2+7)^{\\prime}=20x^3-6x\\).",
+              "b) We write \\(\\sqrt x=x^{1/2}\\) and \\(1/x^2=x^{-2}\\): the derivative is \\(1/(2\\sqrt x)-2/x^3\\), for \\(x>0\\).",
+              "c) \\((2e^x-4\\ln x)^{\\prime}=2e^x-4/x\\), with \\(x>0\\).",
+              "d) \\((3\\sin x-\\cos x)^{\\prime}=3\\cos x+\\sin x\\)."
+            ],
+            "result": "\\(\\boxed{20x^3-6x}\\); \\(\\boxed{\\frac1{2\\sqrt x}-\\frac2{x^3}}\\); \\(\\boxed{2e^x-\\frac4x}\\); \\(\\boxed{3\\cos x+\\sin x}\\)"
+          }
+        },
+        {
+          "number": 2,
+          "title": "Products",
+          "type": "Product",
+          "difficulty": "Basic",
+          "prompt": "Calculate the derivative of: a) \\(x^2\\sin x\\); b) \\(e^x\\cos x\\). Clearly identify the two factors and their derivatives.",
+          "solution": {
+            "steps": [
+              "a) With \\(u=x^2\\), \\(v=\\sin x\\): \\((uv)^{\\prime}=2x\\sin x+x^2\\cos x\\).",
+              "b) With \\(u=e^x\\), \\(v=\\cos x\\): \\((uv)^{\\prime}=e^x\\cos x-e^x\\sin x\\)."
+            ],
+            "result": "\\(\\boxed{2x\\sin x+x^2\\cos x}\\); \\(\\boxed{e^x(\\cos x-\\sin x)}\\)"
+          }
+        },
+        {
+          "number": 3,
+          "title": "Quotients",
+          "type": "Quotient",
+          "prompt": "Calculate the derivative of: a) \\((x^2+1)/(x-1)\\); b) \\(\\tan x\\), rewriting it as \\(\\sin x/\\cos x\\).",
+          "solution": {
+            "steps": [
+              "(a) Quotient rule: $$\\left(\\frac{x^2+1}{x-1}\\right)^{\\prime}=\\frac{2x(x-1)-(x^2+1)}{(x-1)^2}=\\frac{x^2-2x-1}{(x-1)^2}.$$",
+              "b) Writing \\(\\tan x=\\sin x/\\cos x\\): $$\\frac{\\cos^2x+\\sin^2x}{\\cos^2x}=\\frac1{\\cos^2x}.$$"
+            ],
+            "result": "\\(\\boxed{\\frac{x^2-2x-1}{(x-1)^2}}\\); \\(\\boxed{\\sec^2x}\\), where \\(\\cos x\\ne0\\)"
+          },
+          "difficulty": "Intermediate"
+        },
+        {
+          "number": 4,
+          "title": "Composite functions",
+          "type": "Chain rule",
+          "difficulty": "★★",
+          "prompt": "Differentiate: a) \\(\\sin(x^2)\\); b) \\(e^{3x-1}\\); c) \\((x^3+5)^4\\); d) \\(\\ln(\\cos x)\\). Identify the inner and outer functions.",
+          "solution": {
+            "steps": [
+              "a) Outer sine, internal \\(x^2\\): \\(2x\\cos(x^2)\\).",
+              "b) Exponential external, internal \\(3x-1\\): \\(3e^{3x-1}\\).",
+              "c) External fourth power, internal \\(x^3+5\\): \\(4(x^3+5)^3\\cdot3x^2=12x^2(x^3+5)^3\\).",
+              "d) External logarithm, interior \\(\\cos x\\): \\(-\\sin x/\\cos x=-\\tan x\\), in the domain \\(\\cos x>0\\)."
+            ],
+            "result": "\\(\\boxed{2x\\cos(x^2)}\\); \\(\\boxed{3e^{3x-1}}\\); \\(\\boxed{12x^2(x^3+5)^3}\\); \\(\\boxed{-\\tan x}\\)"
+          }
+        },
+        {
+          "number": 5,
+          "title": "Second derivative",
+          "type": "Second derivative",
+          "difficulty": "★★",
+          "prompt": "Given \\(f(x)=x^4-6x^2+1\\), calculate \\(f′′(x)\\) and determine the candidate inflection points.",
+          "solution": {
+            "steps": [
+              "Differentiating twice: \\(f^{\\prime}(x)=4x^3-12x\\) and \\(f^{\\prime\\prime}(x)=12x^2-12=12(x^2-1)\\).",
+              "Setting \\(f^{\\prime\\prime}(x)=0\\) we find \\(x=-1\\) and \\(x=1\\). The sign of second derivative changes in both.",
+              "Computing the values: \\(f(-1)=f(1)=-4\\)."
+            ],
+            "result": "\\(\\boxed{(-1,-4)\\text{ and }(1,-4)}\\) are inflection points."
+          }
+        },
+        {
+          "number": 6,
+          "title": "Combined rules",
+          "type": "Challenge",
+          "difficulty": "★★★",
+          "prompt": "For \\(f(x)=e^x\\sin(2x)\\), calculate \\(f′(x)\\) and determine the stationary points in \\([0,\\pi]\\).",
+          "solution": {
+            "steps": [
+              "The product and chain rules give \\(f^{\\prime}(x)=e^x\\sin(2x)+2e^x\\cos(2x)=e^x[\\sin(2x)+2\\cos(2x)]\\).",
+              "For \\(e^x>0\\), we impose \\(\\sin(2x)+2\\cos(2x)=0\\), i.e., \\(\\tan(2x)=-2\\).",
+              "Setting \\(\\alpha=\\arctan2\\)in the range \\([0,\\pi]\\) you get \\(x=(\\pi-\\alpha)/2\\) and \\(x=\\pi-\\alpha/2\\)."
+            ],
+            "result": "\\(\\boxed{x=\\frac{\\pi-\\arctan2}{2},\\quad x=\\pi-\\frac{\\arctan2}{2}}\\)"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,27 +1,33 @@
 import { create } from 'zustand';
 import type { ExerciseDB } from '@/types/exercise';
-import { addConceptExercises } from '@/data/conceptExercises';
+import type { SupportedLanguage } from '@/i18n';
 
 interface DBStore {
   db: ExerciseDB | null;
   loading: boolean;
   error: string | null;
-  loadDB: () => Promise<void>;
+  language: SupportedLanguage | null;
+  loadDB: (language: SupportedLanguage) => Promise<void>;
 }
+
+let requestId = 0;
 
 export const useDBStore = create<DBStore>((set, get) => ({
   db: null,
   loading: false,
   error: null,
-  loadDB: async () => {
-    if (get().db || get().loading) return;
-    set({ loading: true, error: null });
+  language: null,
+  loadDB: async (language) => {
+    if (get().db && get().language === language) return;
+    const currentRequest = ++requestId;
+    set({ loading: true, error: null, language });
     try {
-      const response = await fetch('/exercises/esercizi.json');
+      const response = await fetch(`/exercises/${language}/esercizi.json`);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      set({ db: addConceptExercises((await response.json()) as ExerciseDB), loading: false });
+      const db = (await response.json()) as ExerciseDB;
+      if (currentRequest === requestId) set({ db, loading: false });
     } catch (error) {
-      set({ error: error instanceof Error ? error.message : 'Errore sconosciuto', loading: false });
+      if (currentRequest === requestId) set({ error: error instanceof Error ? error.message : 'Unknown error', loading: false });
     }
   },
 }));

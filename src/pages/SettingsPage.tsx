@@ -26,8 +26,10 @@ import { useProgressStore } from '@/store/progressStore';
 import { useUIStore } from '@/store/uiStore';
 import { useLessonStore } from '@/store/lessonStore';
 import { useWritingStore } from '@/store/writingStore';
+import { useTranslation } from 'react-i18next';
 
 export function SettingsPage() {
+  const { t } = useTranslation();
   const { mode, toggleMode } = useColorMode();
   const resetProgress = useProgressStore((state) => state.resetProgress);
   const exportProgress = useProgressStore((state) => state.exportProgress);
@@ -80,53 +82,53 @@ export function SettingsPage() {
       valid = false;
     }
     setImportError(!valid);
-    if (valid) notify('Progresso importato correttamente');
+    if (valid) notify(t('settings.imported'));
     event.target.value = '';
   };
 
   return (
     <Box sx={{ maxWidth: 760, mx: 'auto' }}>
-      <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit" sx={{ mb: 3 }}>Torna alla dashboard</Button>
-      <Typography variant="h4" color="primary.main" mb={1}>Preferenze</Typography>
-      <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', sm: '3.8rem' }, mb: 1 }}>Impostazioni</Typography>
-      <Typography color="text.secondary" mb={4}>Personalizza la lettura e gestisci il tuo progresso locale.</Typography>
+      <Button component={Link} to="/" startIcon={<ArrowBackRoundedIcon />} color="inherit" sx={{ mb: 3 }}>{t('settings.back')}</Button>
+      <Typography variant="h4" color="primary.main" mb={1}>{t('settings.eyebrow')}</Typography>
+      <Typography variant="h1" sx={{ fontSize: { xs: '2.8rem', sm: '3.8rem' }, mb: 1 }}>{t('settings.title')}</Typography>
+      <Typography color="text.secondary" mb={4}>{t('settings.intro')}</Typography>
 
       <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 2, overflow: 'hidden', mb: 3 }}>
         <SettingRow
           icon={mode === 'dark' ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />}
-          title="Tema scuro"
-          description="Riduce la luminosità e mantiene alto il contrasto delle formule."
-          action={<Switch checked={mode === 'dark'} onChange={toggleMode} inputProps={{ 'aria-label': 'Tema scuro' }} />}
+          title={t('settings.dark')}
+          description={t('settings.darkBody')}
+          action={<Switch checked={mode === 'dark'} onChange={toggleMode} inputProps={{ 'aria-label': t('settings.dark') }} />}
         />
         <Divider />
         <SettingRow
           icon={<DownloadOutlinedIcon />}
-          title="Esporta progresso"
-          description="Scarica una copia JSON dei tuoi risultati."
-          action={<Button onClick={download} startIcon={<DownloadOutlinedIcon />}>Esporta</Button>}
+          title={t('settings.export')}
+          description={t('settings.exportBody')}
+          action={<Button onClick={download} startIcon={<DownloadOutlinedIcon />}>{t('settings.exportAction')}</Button>}
         />
         <Divider />
         <SettingRow
           icon={<UploadOutlinedIcon />}
-          title="Importa progresso"
-          description="Ripristina un file esportato da questa app (schema progresso v4)."
-          action={<><input ref={fileInput} hidden type="file" accept="application/json" onChange={upload} /><Button onClick={() => fileInput.current?.click()} startIcon={<UploadOutlinedIcon />}>Importa</Button></>}
+          title={t('settings.import')}
+          description={t('settings.importBody')}
+          action={<><input ref={fileInput} hidden type="file" accept="application/json" onChange={upload} /><Button onClick={() => fileInput.current?.click()} startIcon={<UploadOutlinedIcon />}>{t('settings.importAction')}</Button></>}
         />
       </Paper>
-      {importError && <Alert severity="error" sx={{ mb: 3 }}>Il file non è un progresso valido o usa una versione non compatibile.</Alert>}
+      {importError && <Alert severity="error" sx={{ mb: 3 }}>{t('settings.invalid')}</Alert>}
 
       <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'error.light', borderRadius: 2, p: 3, mb: 4 }}>
-        <Typography variant="h3" sx={{ fontSize: '1.35rem', mb: .5 }}>Ricomincia il percorso</Typography>
-        <Typography variant="body2" color="text.secondary" mb={2}>Cancella sezioni lette, punti, tentativi, classi completate e fogli digitali salvati in questo browser.</Typography>
-        <Button color="error" variant="outlined" startIcon={<RestartAltRoundedIcon />} onClick={() => setConfirmOpen(true)}>Resetta progresso</Button>
+        <Typography variant="h3" sx={{ fontSize: '1.35rem', mb: .5 }}>{t('settings.restart')}</Typography>
+        <Typography variant="body2" color="text.secondary" mb={2}>{t('settings.restartBody')}</Typography>
+        <Button color="error" variant="outlined" startIcon={<RestartAltRoundedIcon />} onClick={() => setConfirmOpen(true)}>{t('settings.reset')}</Button>
       </Paper>
 
-      <Typography variant="caption" color="text.secondary">DERIVATE · VERSIONE 1.0.0 · I DATI RESTANO NEL TUO BROWSER</Typography>
+      <Typography variant="caption" color="text.secondary">{t('settings.footer')}</Typography>
 
       <Dialog open={confirmOpen} onClose={() => setConfirmOpen(false)}>
-        <DialogTitle>Azzerare tutto il progresso?</DialogTitle>
-        <DialogContent><DialogContentText>L’operazione rimuoverà definitivamente sezioni lette, punti, risposte, classi completate e contenuto dei fogli digitali. Puoi esportare prima una copia di sicurezza del progresso.</DialogContentText></DialogContent>
-        <DialogActions><Button onClick={() => setConfirmOpen(false)}>Annulla</Button><Button color="error" variant="contained" onClick={() => { resetProgress(); resetLessons(); resetWritingSheets(); localStorage.removeItem('deriv_progress_v3'); localStorage.removeItem('deriv_progress_v4'); localStorage.removeItem('derivate_lesson_progress_v1'); localStorage.removeItem('derivate_lesson_progress_v2'); localStorage.removeItem('derivate_writing_sheets_v1'); localStorage.removeItem('derivate_conclusione_v1'); setConfirmOpen(false); notify('Progresso e fogli digitali azzerati', 'info'); }}>Azzera tutto</Button></DialogActions>
+        <DialogTitle>{t('settings.confirmTitle')}</DialogTitle>
+        <DialogContent><DialogContentText>{t('settings.confirmBody')}</DialogContentText></DialogContent>
+        <DialogActions><Button onClick={() => setConfirmOpen(false)}>{t('common.cancel')}</Button><Button color="error" variant="contained" onClick={() => { resetProgress(); resetLessons(); resetWritingSheets(); localStorage.removeItem('deriv_progress_v3'); localStorage.removeItem('deriv_progress_v4'); localStorage.removeItem('derivate_lesson_progress_v1'); localStorage.removeItem('derivate_lesson_progress_v2'); localStorage.removeItem('derivate_writing_sheets_v1'); localStorage.removeItem('derivate_conclusione_v1'); setConfirmOpen(false); notify(t('settings.resetDone'), 'info'); }}>{t('settings.resetAll')}</Button></DialogActions>
       </Dialog>
     </Box>
   );

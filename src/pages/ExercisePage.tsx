@@ -34,6 +34,7 @@ import { useUIStore } from '@/store/uiStore';
 import type { SolutionStep } from '@/types/exercise';
 import { arePrerequisitesMastered, buildAdaptiveOrder, calculateScore, createSeededChoices, stripLatex } from '@/utils/learning';
 import { getClassMetrics } from '@/utils/learning';
+import { useTranslation } from 'react-i18next';
 
 const shake = keyframes`
   0%, 100% { transform: translateX(0); }
@@ -46,6 +47,7 @@ const shake = keyframes`
 type Feedback = { type: 'success' | 'error' | 'info'; title: string; body: string; points?: number } | null;
 
 export function ExercisePage() {
+  const { t } = useTranslation();
   const { classId = '', exId = '' } = useParams();
   const db = useDBStore((state) => state.db);
   const progress = useProgressStore((state) => state.progress);
@@ -128,8 +130,8 @@ export function ExercisePage() {
       const score = calculateScore(nextTries, attempt?.solutionViewed ?? false, rules);
       finalize(classId, exId, score);
       finishClassIfNeeded();
-      setFeedback({ type: 'success', title: 'Corretto!', body: exercise.answer.text ?? 'Ottimo ragionamento.', points: score });
-      notify(`⭐ +${score} punti guadagnati`);
+      setFeedback({ type: 'success', title: t('exercisePage.correct'), body: exercise.answer.text ?? t('exercisePage.great'), points: score });
+      notify(t('exercisePage.earned', { points: score }));
       window.setTimeout(() => nextButton.current?.focus(), 50);
     } else {
       setWrongChoices((items) => [...new Set([...items, selected])]);
@@ -137,10 +139,10 @@ export function ExercisePage() {
       if (nextTries.length >= 3) {
         finalize(classId, exId, 0);
         finishClassIfNeeded();
-        setFeedback({ type: 'error', title: 'Tentativi terminati', body: 'Osserva la risposta corretta e studia i passaggi della soluzione.' });
+        setFeedback({ type: 'error', title: t('exercisePage.attemptsEnded'), body: t('exercisePage.attemptsEndedBody') });
         setSolutionOpen(true);
       } else {
-        setFeedback({ type: 'error', title: 'Non è corretto', body: `${choices[selected].feedback} Ti ${3 - nextTries.length === 1 ? 'rimane' : 'rimangono'} ${3 - nextTries.length} ${3 - nextTries.length === 1 ? 'tentativo' : 'tentativi'}.` });
+        setFeedback({ type: 'error', title: t('exercisePage.incorrect'), body: `${choices[selected].feedback} ${t('exercisePage.attemptsSentence', { count: 3 - nextTries.length })}` });
       }
     }
   };
@@ -152,7 +154,7 @@ export function ExercisePage() {
       finishClassIfNeeded();
     }
     setSolutionOpen(true);
-    setFeedback({ type: 'info', title: 'Soluzione mostrata', body: 'Studia i passaggi: potrai ripetere l’esercizio quando vuoi.' });
+    setFeedback({ type: 'info', title: t('exercisePage.solutionShown'), body: t('exercisePage.solutionShownBody') });
   };
 
   const advanceHelp = () => {
@@ -194,22 +196,22 @@ export function ExercisePage() {
     <Box sx={{ maxWidth: 860, mx: 'auto' }}>
       <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
         <Button component={Link} to={`/class/${classId}`} startIcon={<ArrowBackRoundedIcon />} color="inherit">{stripLatex(cls.title)}</Button>
-        <Typography variant="caption" color="text.secondary">ESERCIZIO {currentIndex + 1} / {ordered.length}</Typography>
+        <Typography variant="caption" color="text.secondary">{t('exercisePage.counter', { current: currentIndex + 1, total: ordered.length })}</Typography>
       </Stack>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={1} mb={2}>
-        <Box><Typography variant="h4" color="primary.main" mb={.7}>Esercizio</Typography><Typography variant="h2" sx={{ fontSize: { xs: '2rem', sm: '2.5rem' } }}>{exercise.title}</Typography></Box>
+        <Box><Typography variant="h4" color="primary.main" mb={.7}>{t('exercisePage.exercise')}</Typography><Typography variant="h2" sx={{ fontSize: { xs: '2rem', sm: '2.5rem' } }}>{exercise.title}</Typography></Box>
         <Stack direction="row" spacing={1}><DifficultyChip level={exercise.difficulty} />{exercise.tags.slice(0, 2).map((tag) => <Chip key={tag} size="small" label={tag} variant="outlined" />)}</Stack>
       </Stack>
 
       <Paper elevation={0} sx={{ bgcolor: 'custom.ink', color: '#F2F5FA', borderRadius: 2, p: { xs: 2.5, sm: 4 }, mb: 3, overflow: 'hidden' }}>
-        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>Problema</Typography>
+        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>{t('exercisePage.problem')}</Typography>
         <Typography id="problem-title" component="div" sx={{ fontSize: '1.15rem', lineHeight: 1.85 }}><MathText text={exercise.problem.text} /></Typography>
-        <Typography variant="caption" sx={{ display: 'block', mt: 3, pt: 2, borderTop: '1px solid rgba(255,255,255,.13)', color: '#CCD4E1' }}>Gli aiuti progressivi sono disponibili sotto le risposte.</Typography>
+        <Typography variant="caption" sx={{ display: 'block', mt: 3, pt: 2, borderTop: '1px solid rgba(255,255,255,.13)', color: '#CCD4E1' }}>{t('exercisePage.helpAvailable')}</Typography>
       </Paper>
 
       <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" alignItems={{ sm: 'center' }} gap={1} mb={2}>
-        <Typography variant="h3" sx={{ fontSize: '1.35rem' }}>Scegli la risposta corretta</Typography>
+        <Typography variant="h3" sx={{ fontSize: '1.35rem' }}>{t('exercisePage.choose')}</Typography>
         <AttemptDots tries={tries} />
       </Stack>
 
@@ -241,19 +243,19 @@ export function ExercisePage() {
 
       <Stack direction={{ xs: 'column', sm: 'row' }} gap={1.5} mb={3}>
         {!done ? (
-          <Button variant="contained" size="large" disabled={selected === null} onClick={confirmAnswer} sx={{ flex: 1 }}>Conferma risposta</Button>
+          <Button variant="contained" size="large" disabled={selected === null} onClick={confirmAnswer} sx={{ flex: 1 }}>{t('exercisePage.confirm')}</Button>
         ) : (
-          <Button ref={nextButton} variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} onClick={goForward} sx={{ flex: 1 }}>Prosegui</Button>
+          <Button ref={nextButton} variant="contained" size="large" endIcon={<ArrowForwardRoundedIcon />} onClick={goForward} sx={{ flex: 1 }}>{t('exercisePage.proceed')}</Button>
         )}
         <Button variant="outlined" size="large" color="inherit" startIcon={done ? <RefreshRoundedIcon /> : <VisibilityOutlinedIcon />} onClick={done ? retry : advanceHelp}>
-          {done ? 'Riprova esercizio' : helpLevel === 0 ? 'Mostra un indizio' : helpLevel === 1 ? 'Richiama il concetto' : helpLevel === 2 ? 'Mostra il primo passaggio' : 'Mostra la soluzione completa'}
+          {done ? t('exercisePage.retry') : helpLevel === 0 ? t('exercisePage.hint') : helpLevel === 1 ? t('exercisePage.recall') : helpLevel === 2 ? t('exercisePage.firstStep') : t('exercisePage.fullSolution')}
         </Button>
       </Stack>
 
       {!done && helpLevel > 0 && <Alert severity="info" sx={{ mb: 2 }}>
-        {helpLevel === 1 && <MathText text={exercise.problem.hint ?? 'Individua prima la struttura della funzione e la regola necessaria.'} />}
-        {helpLevel === 2 && <>Richiamo: scrivi prima la regola generale, poi assegna un nome alle funzioni coinvolte e soltanto dopo sostituisci.</>}
-        {helpLevel >= 3 && <><strong>Primo passaggio:</strong> <MathText text={`\\(${exercise.solution_steps[0]?.latex ?? exercise.answer.latex}\\) — ${exercise.solution_steps[0]?.explanation ?? ''}`} /></>}
+        {helpLevel === 1 && <MathText text={exercise.problem.hint ?? t('exercisePage.defaultHint')} />}
+        {helpLevel === 2 && <>{t('exercisePage.recallBody')}</>}
+        {helpLevel >= 3 && <><strong>{t('exercisePage.firstStepLabel')}</strong> <MathText text={`\\(${exercise.solution_steps[0]?.latex ?? exercise.answer.latex}\\) — ${exercise.solution_steps[0]?.explanation ?? ''}`} /></>}
       </Alert>}
 
       {feedback && (
@@ -266,43 +268,44 @@ export function ExercisePage() {
         <Accordion expanded={proofOpen} onChange={toggleProof} disabled={!done} sx={{ mb: 2, border: '1px solid', borderColor: 'rgba(184,138,29,.45)', bgcolor: 'custom.goldLight', borderRadius: '10px !important', overflow: 'hidden' }}>
           <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}>
             <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ sm: 'center' }} gap={1}>
-              <Typography fontWeight={800} sx={{ color: 'custom.gold' }}>📐 Dimostrazione dal limite</Typography>
-              <Chip size="small" label={attempt?.proofViewed ? 'letta ✓' : 'lettura guidata'} color="warning" variant="outlined" />
+              <Typography fontWeight={800} sx={{ color: 'custom.gold' }}>{t('exercisePage.proof')}</Typography>
+              <Chip size="small" label={attempt?.proofViewed ? t('exercisePage.read') : t('exercisePage.guidedReading')} color="warning" variant="outlined" />
             </Stack>
           </AccordionSummary>
           <AccordionDetails sx={{ bgcolor: 'background.paper', p: { xs: 2, sm: 3 } }}>
-            <Typography variant="h3" mb={2}>{isRepresentativeProof ? exercise.proof_from_limit.title : 'Idea della prova, senza ripetere tutti i passaggi'}</Typography>
+            <Typography variant="h3" mb={2}>{isRepresentativeProof ? exercise.proof_from_limit.title : t('exercisePage.proofIdea')}</Typography>
             <StepList steps={isRepresentativeProof ? exercise.proof_from_limit.steps : exercise.proof_from_limit.steps.slice(0, 2)} color="gold" />
-            <Box sx={{ mt: 2, p: 2, bgcolor: 'custom.goldLight', borderLeft: '3px solid', borderColor: 'custom.gold' }}><Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>{isRepresentativeProof ? 'Conclusione' : 'Che cosa devi riconoscere'}</Typography><MathText text={exercise.proof_from_limit.conclusion} /></Box>
+            <Box sx={{ mt: 2, p: 2, bgcolor: 'custom.goldLight', borderLeft: '3px solid', borderColor: 'custom.gold' }}><Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>{isRepresentativeProof ? t('exercisePage.conclusion') : t('exercisePage.recognize')}</Typography><MathText text={exercise.proof_from_limit.conclusion} /></Box>
             {isRepresentativeProof && <Paper elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'warning.light' }}>
-              <Typography fontWeight={800} mb={1}>Checkpoint di comprensione</Typography>
+              <Typography fontWeight={800} mb={1}>{t('exercisePage.checkpoint')}</Typography>
               <Typography variant="body2" mb={1.5}>{checkpoint.prompt}</Typography>
               <Stack gap={1}>{checkpoint.choices.map((choice, index) => <Button key={choice} variant={proofChoice === index ? 'contained' : 'outlined'} color={proofChoice !== null && index === checkpoint.correctIndex ? 'success' : 'warning'} onClick={() => { setProofChoice(index); if (index === checkpoint.correctIndex) passProofCheckpoint(classId, exId); }}>{choice}</Button>)}</Stack>
-              {proofChoice !== null && <Alert severity={proofChoice === checkpoint.correctIndex ? 'success' : 'warning'} sx={{ mt: 1.5 }}>{proofChoice === checkpoint.correctIndex ? checkpoint.explanation : 'Rileggi il passaggio in cui compare h e riprova.'}</Alert>}
+              {proofChoice !== null && <Alert severity={proofChoice === checkpoint.correctIndex ? 'success' : 'warning'} sx={{ mt: 1.5 }}>{proofChoice === checkpoint.correctIndex ? checkpoint.explanation : t('exercisePage.checkpointRetry')}</Alert>}
             </Paper>}
           </AccordionDetails>
         </Accordion>
       )}
 
       <Accordion expanded={solutionOpen} onChange={(_event, expanded) => setSolutionOpen(expanded)} sx={{ mb: 4, border: '1px solid', borderColor: 'rgba(65,88,208,.35)', borderRadius: '10px !important', overflow: 'hidden' }}>
-        <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}><Typography fontWeight={800} color="primary.main">📖 Soluzione passo per passo</Typography></AccordionSummary>
+        <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />}><Typography fontWeight={800} color="primary.main">{t('exercisePage.solution')}</Typography></AccordionSummary>
         <AccordionDetails sx={{ p: { xs: 2, sm: 3 } }}><StepList steps={exercise.solution_steps} color="primary" /></AccordionDetails>
       </Accordion>
 
       <Divider sx={{ mb: 2 }} />
       <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Button disabled={!previous} startIcon={<ArrowBackRoundedIcon />} onClick={() => previous && navigate(`/class/${classId}/exercise/${previous.id}`)}>Precedente</Button>
+        <Button disabled={!previous} startIcon={<ArrowBackRoundedIcon />} onClick={() => previous && navigate(`/class/${classId}/exercise/${previous.id}`)}>{t('exercisePage.previous')}</Button>
         <Typography variant="caption">{currentIndex + 1} DI {ordered.length}</Typography>
-        <Button disabled={!next && !done} endIcon={<ArrowForwardRoundedIcon />} onClick={done ? goForward : () => next && navigate(`/class/${classId}/exercise/${next.id}`)}>Successivo</Button>
+        <Button disabled={!next && !done} endIcon={<ArrowForwardRoundedIcon />} onClick={done ? goForward : () => next && navigate(`/class/${classId}/exercise/${next.id}`)}>{t('exercisePage.next')}</Button>
       </Stack>
     </Box>
   );
 }
 
 function AttemptDots({ tries }: { tries: ('correct' | 'wrong')[] }) {
+  const { t } = useTranslation();
   return (
     <Stack direction="row" spacing={1} alignItems="center">
-      <Typography variant="caption" color="text.secondary">{Math.max(0, 3 - tries.length)} TENTATIVI RIMASTI</Typography>
+      <Typography variant="caption" color="text.secondary">{t('exercisePage.remaining', { count: Math.max(0, 3 - tries.length) })}</Typography>
       {[0, 1, 2].map((index) => (
         <Tooltip key={index} title={tries[index] ? `Tentativo ${index + 1}: ${tries[index] === 'correct' ? 'corretto' : 'sbagliato'}` : `Tentativo ${index + 1}`}>
           <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: tries[index] === 'correct' ? 'success.main' : tries[index] === 'wrong' ? 'error.main' : 'action.disabledBackground', border: '1px solid', borderColor: tries[index] ? 'transparent' : 'divider' }} />
