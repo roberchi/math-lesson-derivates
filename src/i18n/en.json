@@ -1,0 +1,1336 @@
+{
+  "language": {
+    "label": "Language",
+    "it": "Italian",
+    "en": "English",
+    "fr": "French",
+    "de": "German",
+    "es": "Spanish"
+  },
+  "meta": {
+    "title": "Derivatives — Interactive course",
+    "description": "An adaptive interactive derivatives course for upper-secondary students",
+    "ogDescription": "Adaptive exercises with proofs built from limits and difference quotients."
+  },
+  "common": {
+    "overview": "Overview",
+    "settings": "Settings",
+    "close": "Close",
+    "cancel": "Cancel",
+    "result": "Result",
+    "dashboard": "Dashboard",
+    "exercises": "Exercises",
+    "glossary": "Glossary",
+    "loadingPage": "Loading page",
+    "openGlossary": "Open glossary",
+    "externalSource": "External source",
+    "learnMore": "Learn more",
+    "storyOfIdeas": "A STORY OF IDEAS",
+    "lesson": "LESSON",
+    "objective": "OBJECTIVE",
+    "readSections": "SECTIONS READ",
+    "points": "pts",
+    "next": "Next",
+    "previous": "Previous",
+    "print": "Print",
+    "saved": "Saved"
+  },
+  "header": {
+    "skip": "Skip to content",
+    "openPath": "Open learning path",
+    "subtitle": "from limits to mastery",
+    "lessons": "LESSONS",
+    "lessonProgress": "Lesson progress",
+    "settings": "Settings",
+    "points": "★ {{points}} pts"
+  },
+  "nav": {
+    "yourPath": "Your learning path",
+    "coreCount": "of {{count}} core sections",
+    "materials": "Materials",
+    "lesson1": "Lesson 1",
+    "lesson2": "Lesson 2",
+    "worksheet1": "Worksheet §1",
+    "worksheet2": "Worksheet §2",
+    "finalTest": "Final test",
+    "adaptive": "Adaptive exercises",
+    "core": "CORE",
+    "enrichment": "ENRICHMENT"
+  },
+  "course": {
+    "velocita": {
+      "title": "The problem: instantaneous velocity",
+      "short": "Instantaneous velocity"
+    },
+    "geometria": {
+      "title": "Geometry of the derivative",
+      "short": "Geometry"
+    },
+    "definizione": {
+      "title": "Formal definition",
+      "short": "Formal definition"
+    },
+    "derivabilita": {
+      "title": "Differentiability and singular points",
+      "short": "Differentiability"
+    },
+    "interpretazioni": {
+      "title": "Interpretations and applications",
+      "short": "Interpretations"
+    },
+    "warmup": {
+      "title": "Review and warm-up",
+      "short": "Warm-up"
+    },
+    "fondamentali": {
+      "title": "Fundamental derivatives",
+      "short": "Fundamental derivatives"
+    },
+    "regole": {
+      "title": "Differentiation rules",
+      "short": "Differentiation rules"
+    },
+    "derivata-seconda": {
+      "title": "Second derivative",
+      "short": "Second derivative"
+    },
+    "taylor": {
+      "title": "Taylor series",
+      "short": "Taylor · optional"
+    },
+    "teoremi": {
+      "title": "Appendix: derivative theorems",
+      "short": "Theorems · appendix"
+    }
+  },
+  "overview": {
+    "eyebrow": "Guided course · two 2-hour lessons",
+    "title": "Derivatives:",
+    "titleAccent": "from limits to mastery.",
+    "intro": "We start with a concrete question—how do you measure velocity at a single instant?—and build the geometry, definition and rules without skipping steps.",
+    "openSummary": "Open summary",
+    "resume": "Resume lesson",
+    "start": "Start with the problem",
+    "coreRead": "{{read}}/{{total}} CORE SECTIONS READ · {{optional}}/{{optionalTotal}} ENRICHMENT",
+    "progress": "COURSE PROGRESS",
+    "coreSections": "core sections read",
+    "verified": "concepts verified",
+    "mastered": "classes mastered",
+    "enrichment": "enrichment sections visited",
+    "oneQuestion": "One question, three answers",
+    "what": "What is a derivative?",
+    "question": "QUESTION {{number}}",
+    "unlock": "The answer is revealed after reading “{{section}}”.",
+    "cards": {
+      "geometry": {
+        "q": "How do you find a slope on a curve?",
+        "label": "GEOMETRIC",
+        "title": "A slope",
+        "answer": "It is the slope of the tangent line, obtained as the limit of secant lines."
+      },
+      "analytic": {
+        "q": "Why does a limit appear?",
+        "label": "ANALYTIC",
+        "title": "A limit",
+        "answer": "It is the limit of the difference quotient as the increment tends to zero without becoming zero."
+      },
+      "application": {
+        "q": "What does it really measure?",
+        "label": "APPLIED",
+        "title": "An instantaneous rate",
+        "answer": "It measures how quickly a quantity changes, with a sign and a precise unit."
+      }
+    },
+    "lesson1": {
+      "title": "The concept of derivative",
+      "subtitle": "From motion to the formal definition",
+      "duration": "2 hours",
+      "objective": "Build the derivative as a geometric, analytic and physical object."
+    },
+    "lesson2": {
+      "title": "Rules, Taylor and theorems",
+      "subtitle": "From proofs to calculation mastery",
+      "duration": "2 hours + appendix",
+      "objective": "Derive rules from limits, apply them and explore the main theorems through figures and practical cases."
+    },
+    "break": "BREAK + WORKSHEET §{{sheet}} · 10 MIN",
+    "associated": "Related materials",
+    "train": "Practice and assess",
+    "material": {
+      "sheet1": "Worksheet §1",
+      "sheet1Body": "Definition and geometric meaning · 25 min",
+      "sheet2": "Worksheet §2",
+      "sheet2Body": "Differentiation rules · 30 min",
+      "test": "Final test",
+      "testBody": "4 problems · 30 points · 45 min",
+      "adaptive": "Adaptive exercises",
+      "adaptiveBody": "27 exercises with progressive difficulty"
+    },
+    "source": "Source code",
+    "sourceBody": "Browse the project, documentation and change history on GitHub.",
+    "openRepo": "Open repository"
+  },
+  "lesson": {
+    "optional": "Optional",
+    "appendix": "Appendix",
+    "content": {
+      "velocita": {
+        "title": "Velocity at a single instant",
+        "lead": "Before the formula comes the problem: average velocity belongs to a time interval, but how can we express velocity at an instant with no duration?"
+      },
+      "geometria": {
+        "title": "The secant becomes a tangent",
+        "lead": "The derivative arises geometrically by bringing two points on a graph closer. Move h and watch the secant slope converge to the tangent slope."
+      },
+      "definizione": {
+        "title": "The formal definition",
+        "lead": "We now give precise form to the geometric and physical intuition. The derivative exists when the difference quotient tends to a finite value."
+      },
+      "derivabilita": {
+        "title": "Continuous does not mean differentiable",
+        "lead": "A differentiable function is always continuous. The converse can fail: a graph may be unbroken and still have a corner or vertical tangent."
+      },
+      "interpretazioni": {
+        "title": "Three ways to say “derivative”",
+        "lead": "The same mathematical object describes a slope, a limit and a rate of change. Moving between these interpretations is the real goal of the lesson."
+      },
+      "warmup": {
+        "title": "Three questions to restart",
+        "lead": "Before building operational rules, recall the ideas from lesson one. Answer aloud or on paper, then open the correction."
+      },
+      "fondamentali": {
+        "title": "Building the table together",
+        "lead": "The middle column matters most: remember which idea produces each formula, so you can reconstruct it when memory is not enough."
+      },
+      "regole": {
+        "title": "Four rules, four ideas",
+        "lead": "For every rule we connect the working formula, its proof from limits and its verbal reading. A rule is ready to use only after understanding where it comes from."
+      },
+      "derivata-seconda": {
+        "title": "The derivative of the derivative",
+        "lead": "f″ measures how slope changes. On a graph it describes concavity; in motion it describes acceleration."
+      },
+      "taylor": {
+        "title": "The local DNA of a function",
+        "lead": "Taylor answers a concrete question: near a chosen point, can a difficult function be replaced by a simpler polynomial that closely resembles it?"
+      },
+      "teoremi": {
+        "title": "The theorems that put derivatives to work",
+        "lead": "This is not yet a full function study; it is a toolkit. Every theorem starts from a figure, answers a concrete question and clearly states when it can be used."
+      }
+    },
+    "sectionRead": "Section read",
+    "didRead": "Have you read this section?",
+    "readNotice": "Reading is saved, but it is not the same as mastery verified through exercises.",
+    "read": "Read",
+    "markRead": "Mark as read",
+    "then": "then {{section}}",
+    "goSheet1": "Go to worksheet §1",
+    "goSheet2": "Go to worksheet §2"
+  },
+  "adaptive": {
+    "eyebrow": "Adaptive practice",
+    "title": "From lessons",
+    "titleAccent": "to mastery.",
+    "intro": "Exercises are organized by prerequisites and difficulty. Topics that need reinforcement return first, while new classes unlock as you progress.",
+    "continue": "Continue exercises",
+    "start": "Start exercises",
+    "completed": "exercises completed",
+    "firstTry": "correct on first try",
+    "proofs": "proofs read",
+    "classes": "Problem classes",
+    "yourPath": "Your learning path",
+    "unlockHint": "Complete a class to unlock concepts that depend on it.",
+    "exerciseCount": "{{count}} EXERCISES · {{points}} PTS",
+    "locked": "Complete first: {{classes}}",
+    "loading": "Preparing your path…",
+    "loadError": "Unable to load exercises: {{error}}",
+    "statusMastered": "✓ MASTERED",
+    "statusRecovery": "↻ NEEDS REVIEW",
+    "statusProgress": "● IN PROGRESS",
+    "statusStart": "START HERE →",
+    "statusAvailable": "AVAILABLE →",
+    "statusLocked": "🔒 LOCKED IN GUIDED PATH",
+    "consult": "Browse anyway"
+  },
+  "difficulty": {
+    "1": "Basic",
+    "2": "Intermediate",
+    "3": "Advanced",
+    "4": "Challenge"
+  },
+  "settings": {
+    "back": "Back to dashboard",
+    "eyebrow": "Preferences",
+    "title": "Settings",
+    "intro": "Customize reading and manage your local progress.",
+    "dark": "Dark theme",
+    "darkBody": "Reduces brightness while keeping formulas highly legible.",
+    "export": "Export progress",
+    "exportBody": "Download a JSON copy of your results.",
+    "exportAction": "Export",
+    "import": "Import progress",
+    "importBody": "Restore a file exported from this app (progress schema v4).",
+    "importAction": "Import",
+    "invalid": "This file is not valid progress data or uses an incompatible version.",
+    "imported": "Progress imported successfully",
+    "restart": "Restart the path",
+    "restartBody": "Delete read sections, points, attempts, completed classes and saved digital worksheets in this browser.",
+    "reset": "Reset progress",
+    "footer": "DERIVATIVES · VERSION 1.0.0 · DATA STAYS IN YOUR BROWSER",
+    "confirmTitle": "Reset all progress?",
+    "confirmBody": "This permanently removes read sections, points, answers, completed classes and digital worksheet content. You can export a backup first.",
+    "resetAll": "Reset everything",
+    "resetDone": "Progress and digital worksheets reset"
+  },
+  "glossary": {
+    "eyebrow": "Course vocabulary",
+    "title": "Glossary",
+    "openDefinition": "Open definition of {{term}}",
+    "terms": {
+      "differenceQuotient": {
+        "term": "Difference quotient",
+        "definition": "The ratio between the change in a function and the change h in its variable. The derivative arises from its limit."
+      },
+      "secant": {
+        "term": "Secant line",
+        "definition": "A line through two points of a graph. As the points move closer, secants may tend to the tangent."
+      },
+      "tangent": {
+        "term": "Tangent line",
+        "definition": "A line with the same local direction as the graph at a point; its slope is the derivative."
+      },
+      "differentiability": {
+        "term": "Differentiability",
+        "definition": "The existence of a finite derivative at a point, with the same limit from the left and right."
+      },
+      "prosthaphaeresis": {
+        "term": "Prosthaphaeresis",
+        "definition": "A trigonometric identity that turns sums or differences of sines and cosines into products."
+      },
+      "operatorNotation": {
+        "term": "Operator notation",
+        "definition": "The notation Df, which treats differentiation as an operation applied to the function f."
+      },
+      "curvature": {
+        "term": "Curvature",
+        "definition": "A geometric measure of how quickly a curve changes direction. It adds information beyond the sign of f″."
+      },
+      "osculatingCircle": {
+        "term": "Osculating circle",
+        "definition": "A circle that locally approximates the position, direction and curvature of a curve."
+      },
+      "maclaurin": {
+        "term": "Maclaurin",
+        "definition": "The Taylor polynomial centered at x₀=0, named after Colin Maclaurin."
+      },
+      "adequality": {
+        "term": "Adequality",
+        "definition": "A historical method for finding tangents and extrema, developed by Fermat before infinitesimal calculus."
+      },
+      "darboux": {
+        "term": "Darboux",
+        "definition": "The theorem stating that a derivative takes every intermediate value even when it is not continuous."
+      },
+      "cauchy": {
+        "term": "Cauchy",
+        "definition": "The mathematician who made limits, continuity and the generalized mean value theorem rigorous."
+      }
+    }
+  },
+  "solution": {
+    "intro": "Compare the method, not only the result. The solution opens one step at a time.",
+    "check": "1. Check your work",
+    "rule": "I stated the rule or definition used",
+    "steps": "I wrote every step without gaps",
+    "domain": "I checked signs, domain and units",
+    "hint": "2. Show a hint",
+    "hintBody": "Identify the structure of the problem and write the general formula before substituting data.",
+    "firstStep": "3. Show the first step",
+    "nextStep": "Show the next step"
+  },
+  "classPage": {
+    "back": "Back to path",
+    "classOf": "Class {{current}} of {{total}}",
+    "prerequisites": "PREREQUISITES",
+    "completed": "COMPLETED",
+    "intro": "The order adapts to your results: concepts needing reinforcement come first.",
+    "review": "Review",
+    "continue": "Continue",
+    "start": "Start class",
+    "proofAvailable": "Proof available",
+    "mastered": "Class mastered: the next content can unlock.",
+    "recovery": "Class completed but needs review: at least 70% and two correct answers are required.",
+    "results": "View results"
+  },
+  "exercisePage": {
+    "counter": "EXERCISE {{current}} / {{total}}",
+    "exercise": "Exercise",
+    "problem": "Problem",
+    "helpAvailable": "Progressive help is available below the answers.",
+    "choose": "Choose the correct answer",
+    "confirm": "Confirm answer",
+    "proceed": "Continue",
+    "retry": "Retry exercise",
+    "hint": "Show a hint",
+    "recall": "Review the concept",
+    "firstStep": "Show the first step",
+    "fullSolution": "Show full solution",
+    "previous": "Previous",
+    "next": "Next",
+    "remaining": "{{count}} ATTEMPTS LEFT",
+    "correct": "Correct!",
+    "great": "Excellent reasoning.",
+    "earned": "⭐ +{{points}} points earned",
+    "attemptsEnded": "No attempts left",
+    "attemptsEndedBody": "Review the correct answer and study the solution steps.",
+    "incorrect": "Not correct",
+    "solutionShown": "Solution shown",
+    "solutionShownBody": "Study the steps; you can retry the exercise whenever you want.",
+    "attemptsSentence_one": "You have {{count}} attempt left.",
+    "attemptsSentence_other": "You have {{count}} attempts left.",
+    "defaultHint": "First identify the structure of the function and the rule you need.",
+    "recallBody": "Recall: write the general rule first, name the functions involved, and only then substitute.",
+    "firstStepLabel": "First step:",
+    "proof": "📐 Proof from the limit",
+    "read": "read ✓",
+    "guidedReading": "guided reading",
+    "proofIdea": "Proof idea, without repeating every step",
+    "conclusion": "Conclusion",
+    "recognize": "What you need to recognize",
+    "checkpoint": "Understanding checkpoint",
+    "checkpointRetry": "Read the step involving h again and retry.",
+    "solution": "📖 Step-by-step solution"
+  },
+  "resultsPage": {
+    "mastered": "Class mastered",
+    "recovery": "Class completed · review required",
+    "pointsOf": "POINTS OUT OF {{max}}",
+    "score": "SCORE",
+    "correct": "CORRECT ANSWERS",
+    "summary": "Exercise summary",
+    "exercise": "Exercise",
+    "attempts": "Attempts",
+    "proof": "Proof",
+    "points": "Points",
+    "read": "read",
+    "unavailable": "n/a",
+    "nextClass": "Next class",
+    "startRecovery": "Start review ({{count}})",
+    "reviewClass": "Review class"
+  },
+  "worksheet": {
+    "correction": "Guided correction · one solution at a time",
+    "print": "Print worksheet",
+    "eyebrow": "Worksheet §{{sheet}}",
+    "title1": "Definition and geometric meaning",
+    "title2": "Differentiation rules",
+    "time1": "25 minutes",
+    "time2": "30 minutes",
+    "name": "Name ____________________",
+    "intro": "Show every step. For calculations from the definition, write the difference quotient before simplifying.",
+    "guidedSolution": "Guided step-by-step solution"
+  },
+  "verification": {
+    "print": "Print test",
+    "eyebrow": "Final test",
+    "title": "Derivatives",
+    "intro": "Complete the test first, then open the guided solutions to review your work.",
+    "time": "45 minutes",
+    "points": "30 points",
+    "solution": "Guided solution",
+    "check": "Check the solution and steps",
+    "rubric": "Rubric",
+    "bonus": "Bonus challenge · Taylor (not included in the 30 points)",
+    "bonusBody": "Build the third-order Taylor polynomial centered at zero for f(x)=xeˣ. Use it as enrichment after completing the core test."
+  },
+  "exerciseFiles": {
+    "loadError": "Unable to load the exercise file: {{error}}"
+  },
+  "workspace": {
+    "open": "Open the digital worksheet full screen",
+    "autosave": "Autosave active",
+    "close": "Close the digital worksheet",
+    "problem": "Problem",
+    "worksheetLabel": "Worksheet {{sheet}} · Exercise {{exercise}}",
+    "verificationLabel": "Test · Problem {{problem}}",
+    "pen": "Pen",
+    "highlighter": "Highlighter",
+    "eraser": "Eraser",
+    "pan": "Move the sheet",
+    "strokeColor": "Stroke color",
+    "strokeSize": "Stroke size",
+    "solution": "Solution",
+    "clear": "Clear",
+    "scrollableSheet": "{{label}}: scrollable sheet with numbered lines",
+    "writingArea": "{{label}}: freehand writing area",
+    "ruleWritten": "Rule written",
+    "stepsShown": "Steps shown",
+    "domainChecked": "Signs and domain checked"
+  },
+  "conclusionPage": {
+    "eyebrow": "Core summary",
+    "title": "The opening question now has an answer.",
+    "incomplete": "You can view the summary now; {{read}} of {{total}} core sections are marked as read.",
+    "velocity": "Velocity at t = 2",
+    "explain": "Explain it in your own words",
+    "explainBody": "Writing a personal definition makes the connections you have built visible.",
+    "definition": "The derivative is…",
+    "geometry": "What can I see on the graph?",
+    "calculus": "What can I calculate?",
+    "applications": "What can I interpret?",
+    "save": "Save my summary",
+    "saved": "Summary saved in this browser.",
+    "next": "The next step",
+    "assess": "Assess mastery",
+    "back": "Back to overview"
+  },
+  "chainRule": {
+    "intro": {
+      "paragraph1": "A composite function is a function inside another. The value of \\(x\\) does not reach the sine directly: it is first transformed into \\(x^2\\), then the result enters the sine. Each transformation is a layer.",
+      "paragraph2": "Think of an onion: the outer formula wraps the inner ones. To differentiate correctly we remove one layer at a time, skipping none."
+    },
+    "buildBox": {
+      "overline": "FIRST: HOW THE FUNCTION IS BUILT",
+      "title": "From the inside out",
+      "subtitle": "Follow the journey of the value of x: the output of one layer becomes the input of the next.",
+      "ariaLabel": "Layered construction of sine of x squared",
+      "symbolsNote": "In symbols: \\(u=x^2\\), then \\(y=\\sin u\\). So \\(y=\\sin(x^2)\\)."
+    },
+    "buildLayers": [
+      {
+        "label": "Input",
+        "action": "start from the variable"
+      },
+      {
+        "label": "Inner layer",
+        "action": "square it"
+      },
+      {
+        "label": "Outer layer",
+        "action": "apply the sine"
+      }
+    ],
+    "deriveBox": {
+      "overline": "THEN: HOW TO DIFFERENTIATE",
+      "title": "From the outside in",
+      "subtitle": "Now we reverse the perspective: we start from the last layer applied, the outermost one. After differentiating it, we enter the next layer and multiply the new factor."
+    },
+    "derivativeLayers": [
+      {
+        "label": "START FROM THE OUTSIDE",
+        "title": "Differentiate the sine, but leave what it contains unchanged",
+        "explanation": "The derivative of sine is cosine. In this first step x² stays inside the parentheses, unchanged: we have not differentiated it yet."
+      },
+      {
+        "label": "ENTER THE NEXT LAYER",
+        "title": "Now differentiate the inner part",
+        "explanation": "Once the sine layer is removed, we encounter the elementary function x². Its derivative is 2x."
+      },
+      {
+        "label": "LINK THE EFFECTS",
+        "title": "Multiply the derivatives collected along the way",
+        "explanation": "The first factor describes how the sine reacts; the second describes how quickly its input x² changes."
+      }
+    ],
+    "whyMultiply": {
+      "title": "Why do the derivatives multiply?",
+      "paragraph": "A small change in \\(x\\) is first multiplied by the \\(x^2\\) layer by the factor \\(2x\\): the absolute value tells how much it changes, the sign also in which direction. That change then reaches the sine and is multiplied again by \\(\\cos(x^2)\\).",
+      "totalEffect": "The total effect is the product of the effects traversed:"
+    },
+    "deepSection": {
+      "overline": "AN ONION WITH THREE LAYERS",
+      "title": "What if the function were \\(e^{\\sin(x^2)}\\)?",
+      "subtitle": "The method does not change. We keep going inside until we reach x, collecting one factor per layer.",
+      "layerLabel": "LAYER"
+    },
+    "deepLayers": [
+      {
+        "layer": "Outer",
+        "reading": "The exponential remains exponential. Everything in the exponent stays fixed for now."
+      },
+      {
+        "layer": "Middle",
+        "reading": "We enter the exponent: the sine becomes cosine, keeping x² as the argument."
+      },
+      {
+        "layer": "Inner",
+        "reading": "We reach the last layer, the power, and differentiate it."
+      }
+    ],
+    "multiplyThreeFactors": {
+      "overline": "MULTIPLY THE THREE FACTORS",
+      "factor1": "1. derivative of the exponential",
+      "factor2": "2. derivative of the sine",
+      "factor3": "3. derivative of the square"
+    },
+    "procedureBox": {
+      "title": "The procedure to reuse every time"
+    },
+    "procedure": [
+      {
+        "title": "Mentally circle the layers",
+        "text": "Identify which function wraps all the others, then which are contained inside it."
+      },
+      {
+        "title": "Differentiate the outer layer",
+        "text": "Leave everything inside its parentheses unchanged."
+      },
+      {
+        "title": "Enter one layer and multiply",
+        "text": "Repeat: differentiate the new layer, keep what it contains, and add the factor to the product."
+      },
+      {
+        "title": "Stop when you reach x",
+        "text": "At that point you have gone through all the layers; you can reorder and simplify the product."
+      }
+    ]
+  },
+  "derivation": {
+    "proofVersionLabel": "PROOF VERSION",
+    "howToRead": "HOW TO READ IT AND WHEN TO USE IT",
+    "formulaLabel": "FORMULA",
+    "conclusionLabel": "CONCLUSION",
+    "mandatoryCheckpoint": "MANDATORY CHECKPOINT",
+    "rereadAndRetry": "Re-read the steps and try again."
+  },
+  "lessonOne": {
+    "velocity": {
+      "eyebrow": "Lesson 1 · 0:00–0:10",
+      "situationEyebrow": "The concrete situation",
+      "fallingObject": {
+        "title": "An object is falling",
+        "body": "Imagine watching a falling object. The distance it covers does not grow at a constant rate: every second it moves faster. From two positions we can compute the average velocity, but a speedometer shows something different: a velocity at that very instant."
+      },
+      "observe": {
+        "label": "I OBSERVE",
+        "value": "two positions",
+        "body": "The position at time t and shortly after, at time t + h."
+      },
+      "measure": {
+        "label": "I MEASURE",
+        "value": "a change",
+        "body": "How much distance was covered during that small interval."
+      },
+      "ask": {
+        "label": "I ASK",
+        "value": "and at an instant?",
+        "body": "We make the interval smaller and smaller, without setting it equal to zero."
+      },
+      "bridge": {
+        "title": "The bridge to the limit",
+        "body1": "Having posed the question, we can give it a language. If the position law is \\(s(t)=\\tfrac12gt^2\\), the average velocity between \\(t\\) and \\(t+h\\) is:",
+        "body2": "The instantaneous velocity emerges by observing what happens as \\(h\\) approaches zero. This is exactly the kind of question a limit answers."
+      },
+      "historyNote": {
+        "title": "Galileo and the problem of velocity",
+        "summary": "Galileo describes accelerated motion in 1638, but he still lacks the calculus.",
+        "body": "Galileo understood that in free fall the distance grows as the square of time. He could describe motion over intervals, but he did not yet have a rigorous definition of instantaneous velocity. Newton and Leibniz would build the necessary tools some decades after his death."
+      },
+      "alert": {
+        "strong": "Question to carry to the next section:",
+        "body": "if velocity is the slope of a position-time graph, how do we find the slope of a curve at a point?"
+      }
+    },
+    "geometry": {
+      "eyebrow": "Lesson 1 · 0:10–0:30",
+      "guided": {
+        "eyebrow": "Guided reading",
+        "titlePre": "From the",
+        "titlePost": "to the slope",
+        "para1": "Fix the point \\(P=(x_0,f(x_0))\\) and choose a second point \\(Q=(x_0+h,f(x_0+h))\\). The line through them is a secant.",
+        "para2": "As \\(h\\to0\\), Q approaches P and the secant lines tend to a limiting position: the tangent line. Its slope is \\(f'(x_0)\\)."
+      },
+      "example": {
+        "eyebrow": "Required example",
+        "title": "For f(x) = x² at x₀ = 1",
+        "step1": "Substitute the function into the difference quotient.",
+        "step2": "Expand the square and cancel h, which is non-zero while we compute the quotient.",
+        "step3": "The slope of the tangent at x₀ = 1 is 2."
+      },
+      "normal": {
+        "eyebrow": "Another direction",
+        "title": "The normal line",
+        "para": "The normal passes through the same point as the tangent but is perpendicular to it. If the tangent has a finite non-zero slope, \\(m_n=-1/m_t\\).",
+        "note": "If the tangent is horizontal, the normal is vertical: \\(x=x_0\\). If the tangent is vertical, the normal is horizontal: \\(y=f(x_0)\\)."
+      },
+      "historyNote": {
+        "title": "Leibniz, infinitesimals and dy/dx",
+        "summary": "The notation dy/dx preserves the geometric intuition of a ratio of changes.",
+        "body": "In 1675 Leibniz introduced the symbols dx and dy. He thought of them as infinitely small changes — a powerful idea, even though the rigorous foundation would come in the nineteenth century with Cauchy's definition of a limit."
+      }
+    },
+    "definition": {
+      "eyebrow": "Lesson 1 · 0:30–0:55",
+      "box": {
+        "heading": "Definition",
+        "line1": "f is said to be differentiable at x₀ if the following limit exists and is finite",
+        "line2": "That number is the derivative of f at x₀."
+      },
+      "numberOrFunction": {
+        "title": "A number or a function?"
+      },
+      "atPoint": {
+        "label": "AT A POINT",
+        "title": "f′(x₀) is a number",
+        "body": "It measures the slope or rate of change at a specific point x₀."
+      },
+      "asFunction": {
+        "label": "AT EVERY POINT",
+        "title": "f′(x) is a function",
+        "body": "By repeating the limit for every x we obtain a new function: the derivative function."
+      },
+      "notations": {
+        "summary": "Further reading: four historical notations"
+      },
+      "proof": {
+        "eyebrow": "Required guided proof",
+        "title": "The formula comes from the limit",
+        "derivationTitle": "Derivative of x²",
+        "meaning": "It states that the slope of the parabola \\(y=x^2\\), at every point \\(x\\), equals \\(2x\\). To the right of the origin it is positive, to the left it is negative, and at zero it is zero.",
+        "checkpoint": {
+          "question": "Why can we cancel the factor h?",
+          "choice0": "Because in the quotient h is non-zero; the limit comes afterwards",
+          "choice1": "Because we immediately set h=0",
+          "choice2": "Because h always equals 1",
+          "explanation": "Correct: we cancel for h≠0 and only then take the limit."
+        },
+        "step1": {
+          "label": "Difference quotient",
+          "explanation": "Start from the definition with \\(f(x)=x^2\\)."
+        },
+        "step2": {
+          "label": "Expand the square",
+          "explanation": "Use \\((x+h)^2=x^2+2xh+h^2\\) and cancel \\(x^2\\)."
+        },
+        "step3": {
+          "label": "Cancel h",
+          "explanation": "For \\(h\\neq0\\) we can cancel the factor h."
+        },
+        "step4": {
+          "label": "Take the limit",
+          "explanation": "As h tends to zero, \\(2x\\) remains."
+        },
+        "conclusion": "Therefore, for every x, \\((x^2)'=2x\\)."
+      },
+      "historyNote": {
+        "title": "Newton and Leibniz: two languages for change",
+        "summary": "Two independent discoveries, a heated dispute and notations we still use today.",
+        "body": "Newton developed the method of fluxions by thinking of quantities that flow in time; Leibniz built a language of differentials better suited to symbolic computation. Today we use both intuitions, made rigorous by the theory of limits."
+      }
+    },
+    "differentiability": {
+      "eyebrow": "Lesson 1 · 1:05–1:30",
+      "theorem": {
+        "eyebrow": "Theorem",
+        "title": "Differentiability ⇒ continuity",
+        "para": "If f is differentiable at x₀, then it is continuous at x₀. The proof uses the same difference quotient:",
+        "note": "Hence \\(f(x_0+h)\\to f(x_0)\\). The converse fails: \\(f(x)=|x|\\) is continuous at 0 but the one-sided slopes are −1 and +1."
+      },
+      "lab": {
+        "eyebrow": "Laboratory of limit cases",
+        "title": "What does the secant do at a singular point?",
+        "para": "Select the three cases and move x₀ to zero. At the corner the two one-sided slopes differ; at the cusp and the vertical tangent the slope does not remain finite."
+      },
+      "cases": {
+        "corner": {
+          "title": "Corner point",
+          "body": "The one-sided derivatives exist and are finite, but have different values."
+        },
+        "cusp": {
+          "title": "Cusp",
+          "body": "The one-sided slopes become infinite with opposite signs: the graph forms a sharp point."
+        },
+        "vertical": {
+          "title": "Vertical tangent",
+          "body": "The slopes grow without bound with the same sign: the tangent is vertical."
+        }
+      }
+    },
+    "interpretations": {
+      "eyebrow": "Lesson 1 · 1:30–2:00",
+      "geometric": {
+        "label": "GEOMETRIC",
+        "title": "Slope of the tangent",
+        "body": "On the graph, f′(x₀) gives how steeply the curve is inclined at the point x₀."
+      },
+      "analytic": {
+        "label": "ANALYTIC",
+        "title": "Limit of the quotient"
+      },
+      "physical": {
+        "label": "PHYSICAL",
+        "title": "Instantaneous rate",
+        "body": "If f measures a quantity, f′ measures how rapidly it is changing."
+      },
+      "realWorld": {
+        "eyebrow": "In the real world",
+        "title": "The same idea, different names",
+        "velocity": {
+          "title": "Velocity",
+          "body": "The derivative of position with respect to time."
+        },
+        "current": {
+          "title": "Current",
+          "body": "The rate at which electric charge flows."
+        },
+        "growth": {
+          "title": "Growth",
+          "body": "The instantaneous growth rate of a population."
+        },
+        "cost": {
+          "title": "Marginal cost",
+          "body": "How much it costs to produce one additional unit."
+        }
+      },
+      "problem": {
+        "eyebrow": "Interpreted problem",
+        "title": "How much does one extra unit cost?",
+        "para": "A small firm models its total cost, in euros, as \\(C(q)=0{,}02q^2+8q+500\\), where q is the number of units.",
+        "interpretationLabel": "Interpretation:",
+        "interpretationBody": "near 100 units, producing one additional unit increases the cost by about €12. The positive sign indicates an increase; the unit is euros per unit produced. The derivative enables a local decision without recalculating the entire cost."
+      },
+      "closing": {
+        "heading": "Closing question",
+        "question": "\"What is the derivative?\"",
+        "body": "Try to answer without formulas, once as a geometer, once as an analyst, and once as a physicist. Then move on to worksheet §1."
+      },
+      "historyNote": {
+        "title": "From orbits to machine learning",
+        "summary": "The derivative has become the common language of systems that change.",
+        "body": "From Newton's mechanics to the equations of electromagnetism, from marginal cost to the optimisation of machine-learning models, the derivative makes change into a computable object."
+      }
+    }
+  },
+  "velocityInquiry": {
+    "title": "A small numerical experiment",
+    "lead": {
+      "pre": "The position is",
+      "mid": ". We want to estimate the velocity exactly at",
+      "post": "using shorter and shorter intervals."
+    },
+    "predictionLabel": "Before calculating: towards which velocity do you think we will converge?",
+    "calculateButton": "Calculate average velocities",
+    "table": {
+      "h": "h",
+      "interval": "Interval",
+      "avgVelocity": "Average velocity",
+      "intervalValue": "from {{from}} to {{to}}"
+    },
+    "result": {
+      "pre": "The values follow",
+      "post": "and approach 20. The instantaneous velocity is therefore 20 units of space per unit of time."
+    },
+    "warning": {
+      "pre": "We never set",
+      "post": "in the quotient: we would be dividing by zero. Instead, we compute the value the quotient approaches as h becomes small."
+    }
+  },
+  "lessonTwo": {
+    "warmup": {
+      "q1": "What are the three readings of the derivative?",
+      "a1": "Geometric: slope of the tangent. Analytic: limit of the difference quotient. Physical: instantaneous rate of change.",
+      "q2": "What is the difference between f′(x₀) and f′(x)?",
+      "a2": "f′(x₀) is a number attached to a specific point; f′(x) is the function that assigns to each x the slope at that point.",
+      "q3": "Does continuity imply differentiability?",
+      "a3": "No. |x| is continuous at zero but has one-sided derivatives −1 and +1, so it is not differentiable at zero.",
+      "objectiveTitle": "Lesson objective",
+      "objectiveHeading": "Build the table — don't just receive it.",
+      "objectiveBody": "Every fundamental formula and every rule will be derived from what we already know about limits.",
+      "prereqEyebrow": "Prerequisites recalled",
+      "prereqTitle": "The two fundamental limits we will use",
+      "prereqBody": "We are not proving them here: we recall them numerically and state them as known results. They are the necessary bridge for differentiating sine and the exponential without hidden steps.",
+      "limit1Note": "For t = 0.1 the ratio is about 0.9983; for t = 0.01 it is about 0.99998.",
+      "limit2Note": "For t = 0.1 the ratio is about 1.0517; for t = 0.01 it is about 1.0050."
+    },
+    "fundamentals": {
+      "colFunction": "Function",
+      "colTool": "Tool",
+      "colDerivative": "Derivative",
+      "toolNewtonBinomial": "Newton's binomial",
+      "toolAdditionFormulas": "addition formulas",
+      "demoEyebrow": "Proof version",
+      "demoTitle": "Three ideas worth reconstructing",
+      "powerTitle": "Integer power",
+      "powerMeaning": "Used to differentiate a power of \\(x\\): the exponent \\(n\\) drops in front as a multiplier and then decreases by one. For example, \\((x^3)'=3x^2\\).",
+      "stepDefinition": "Definition",
+      "powerStep1": "We start from the difference quotient.",
+      "stepNewton": "Newton's binomial",
+      "powerStep2": "The first term cancels \\(x^n\\); all others contain h.",
+      "stepDivideH": "Divide by h",
+      "powerStep3": "After simplification only the first term carries no factor h.",
+      "stepLimit": "Limit",
+      "powerStep4": "Terms containing h tend to zero.",
+      "powerConclusion": "The power rule is not a trick: it is the first coefficient of Newton's binomial that survives the limit.",
+      "sineTitle": "Sine · guided proof",
+      "sineMeaning": "Cosine measures the slope of sine at the same point.",
+      "sineCheckQ": "Which prerequisite makes the last step possible?",
+      "sineCheckC0": "The limit of sin(t)/t equals 1",
+      "sineCheckC1": "sin(0) equals 1",
+      "sineCheckC2": "Cosine is always constant",
+      "sineCheckExp": "Correct: the standard limit recalled in the warm-up appears.",
+      "stepDiffQuotient": "Difference quotient",
+      "sineStep1": "We start from the definition.",
+      "stepProsthaphaeresis": "Prosthaphaeresis formula",
+      "sineStep2": "Prosthaphaeresis converts the difference into a product; find the term in the glossary.",
+      "stepNotableLimit": "Standard limit",
+      "sineStep3": "The second factor tends to 1, as recalled in the warm-up.",
+      "sineConclusion": "Therefore \\((\\sin x)'=\\cos x\\).",
+      "cosineTitle": "Cosine",
+      "cosineMeaning": "States that the slope of cosine at \\(x\\) is the opposite of the value of sine at the same point. The minus sign indicates that cosine initially decreases.",
+      "stepAdditionFormula": "Addition formula",
+      "cosineStep1": "We substitute into the difference quotient.",
+      "stepSeparate": "Separate",
+      "cosineStep2": "Two standard limits appear.",
+      "stepNotableLimits": "Standard limits",
+      "cosineStep3": "\\((\\cos h-1)/h\\to0\\) and \\(\\sin h/h\\to1\\).",
+      "cosineConclusion": "Cosine differentiates to sine with a negative sign.",
+      "expInsightTitle": "Why \\((e^x)'=e^x\\) is extraordinary",
+      "expInsightBody": "It is the only function whose rate of growth always equals its own value. That is why it appears in bacterial growth, radioactive decay and continuous compound interest.",
+      "historyTitle": "The exponential and self-reinforcing systems",
+      "historySummary": "When the rate of growth is proportional to the quantity present, eˣ appears.",
+      "historyBody": "If a population grows at a rate proportional to its size, the equation is N′ = kN. Its solutions are exponential: the function eˣ is the natural model for processes with proportional feedback."
+    },
+    "rules": {
+      "linearityTitle": "Linearity",
+      "linearityMeaning": "Used for sums and multiples: \\(f\\) and \\(g\\) are functions, while \\(\\alpha\\) and \\(\\beta\\) are constant numbers. Each function is differentiated separately and the constants are kept.",
+      "linearityStep1": "We group the variations of f and g separately.",
+      "stepSeparateLimit": "Separate and take the limit",
+      "linearityStep2": "The limit of a sum is the sum of the limits; constants factor out.",
+      "linearityConclusion": "Differentiation is a linear operation.",
+      "productTitle": "Product rule",
+      "productMeaning": "Used when \\(f(x)\\) and \\(g(x)\\) are multiplied. First differentiate \\(f\\) keeping \\(g\\) fixed, then keep \\(f\\) fixed and differentiate \\(g\\); finally add the two contributions.",
+      "productCheckQ": "Why does the formula contain two terms?",
+      "productCheckC0": "Each term measures the change in one factor while the other stays fixed",
+      "productCheckC1": "Because we simply multiply the two derivatives",
+      "productCheckC2": "Because a product always becomes a sum",
+      "productCheckExp": "Correct: the two terms separate the contributions of each factor.",
+      "productStep1": "The numerator cannot be separated directly.",
+      "stepAddZero": "Add zero",
+      "productStep2": "We add and subtract \\(f(x)g(x+h)\\): this is Leibniz's trick.",
+      "stepFactor": "Factor",
+      "productStep3": "We now recognise the two difference quotients.",
+      "productStep4": "Differentiability implies continuity, so \\(g(x+h)\\to g(x)\\).",
+      "productConclusion": "Differentiate one factor at a time, keeping the other fixed, then add the contributions.",
+      "quotientTitle": "Quotient rule",
+      "quotientMeaning": "Used when a function \\(f\\) is divided by a function \\(g\\), with \\(g(x)\\neq0\\). The order in the numerator matters: derivative of top times bottom, minus top times derivative of bottom.",
+      "stepRewriteProduct": "Rewrite as a product",
+      "quotientStep1": "We derive it from the product rule, with \\(g\\neq0\\).",
+      "stepDerive": "Differentiate",
+      "quotientStep2": "We apply the product rule to the right-hand side.",
+      "stepIsolate": "Isolate the derivative",
+      "quotientStep3": "Move the second term to the left and divide by g.",
+      "quotientConclusion": "Order matters in the numerator: derivative of top times bottom minus top times derivative of bottom.",
+      "chainTitle": "Chain rule",
+      "chainMeaning": "Used when one function is inside another: \\(f\\circ g\\) means \\(f(g(x))\\). Differentiate the outer function evaluated at the inner, then multiply by the derivative of the inner function.",
+      "stepCompositeRatio": "Composite difference quotient",
+      "chainStep1": "The outer variation depends on the variation of the inner function.",
+      "stepIntroduceK": "Introduce k without dividing by zero",
+      "chainStep2": "Set φ(k)=[f(g(x)+k)-f(g(x))]/k for k≠0 and φ(0)=f′(g(x)). This keeps the identity valid even when the inner variation is zero.",
+      "stepPassLimit": "Take the limit",
+      "chainStep3": "By continuity of g, \\(h\\to0\\) implies \\(k\\to0\\).",
+      "chainConclusion": "Differentiate the outer function evaluated at the inner, then multiply by the derivative of the inner.",
+      "canonicalEyebrow": "Canonical example",
+      "canonicalTitle": "sin(x²): reading the layers",
+      "afterChainEyebrow": "After the chain rule",
+      "afterChainTitle": "Now we can justify the logarithm",
+      "lnTitle": "Natural logarithm · in depth",
+      "lnMeaning": "The proof uses the chain rule, so it is presented only now.",
+      "stepInverseFunctions": "Inverse functions",
+      "lnStep1": "The logarithm is the inverse of the exponential.",
+      "stepDeriveChain": "Differentiate using the chain rule",
+      "lnStep2": "Differentiating e^y with respect to x yields dy/dx.",
+      "stepSolve": "Solve",
+      "lnStep3": "Substitute e^y=x, with x>0.",
+      "lnConclusion": "The proof is no longer circular: the chain rule has already been established.",
+      "historyProductTitle": "The trick in the product rule",
+      "historyProductSummary": "Adding and subtracting the same term transforms an opaque expression into two difference quotients.",
+      "historyProductBody": "The decisive step is inserting zero in the form f(x)g(x+h) − f(x)g(x+h). The value does not change, but it allows us to isolate the variation of each factor. This is a classic example of how a proof also suggests the best way to remember a formula.",
+      "historyChainTitle": "Chain rule: intuition and rigour",
+      "historyChainSummary": "dy/dx = dy/du · du/dx is excellent intuition, but the limit explains why it works.",
+      "historyChainBody": "Leibniz's notation makes differentials look like fractions that cancel. The rigorous proof replaces this cancellation with two difference quotients and uses the continuity of the inner function."
+    },
+    "secondDerivative": {
+      "heading": "Second derivative",
+      "concaveUpTitle": "Concave upward",
+      "concaveUpBody": "Slopes are increasing: the graph has the shape of a cup.",
+      "concaveDownTitle": "Concave downward",
+      "concaveDownBody": "Slopes are decreasing: the graph has the shape of a dome.",
+      "physicsLabel": "PHYSICS",
+      "accelerationTitle": "Acceleration",
+      "accelerationBody": "If \\(s(t)\\) is position, \\(v(t)=s'(t)\\) and \\(a(t)=s''(t)\\).",
+      "lookFirstEyebrow": "Look first, then compute",
+      "lookFirstTitle": "The second derivative is the direction in which the graph bends",
+      "lookFirstBody": "Remembering \"cup\" and \"dome\" is not enough. The second derivative compares the slopes of nearby tangents: if they increase, \\(f''&gt;0\\); if they decrease, \\(f''&lt;0\\). The yellow lines in the graphs make this variation visible.",
+      "labEyebrow": "Interactive lab",
+      "labTitle": "Move the point and watch the curvature change",
+      "labBody": "Drag the point along the function and compare the tangent with the sign of \\(f''\\). If you open the detail panel, the",
+      "osculatingCircleTerm": "Osculating circle",
+      "labBodyEnd": " adds information on how much and in which direction the curve is bending.",
+      "stationaryEyebrow": "Preview: function analysis",
+      "stationaryTitle": "Stationary points and inflection points",
+      "stationaryBody": "A point is stationary when \\(f'(x_0)=0\\): the tangent is horizontal. It may be a maximum, a minimum or an inflection point; to distinguish them we will need to study the sign of f′ and f″.",
+      "stationaryNote": "Both points have a horizontal tangent. The second derivative \\(f''(x)=6x\\) helps us determine that one is a maximum and the other a minimum.",
+      "alert": "This is only a bridge: the full analysis of maxima, minima and inflection points comes later. In the appendix after Taylor you will find Rolle, Lagrange and the other theorems read graphically and through practical cases."
+    },
+    "taylor": {
+      "advancedLabel": "Advanced topic.",
+      "advancedNote": "This section is not part of the basic assessment.",
+      "beforeFormulaEyebrow": "Before the formula",
+      "beforeFormulaTitle": "What are we trying to achieve?",
+      "beforeFormulaP1": "Functions such as \\(e^x\\), \\(\\sin x\\) or \\(\\cos x\\) are not polynomials. Taylor constructs a local substitute, called the approximating polynomial: a formula made only of sums, products and powers, hence easy to compute and to graph.",
+      "beforeFormulaP2": "\"Approximating\" does not mean finding an exact copy. It means choosing a point \\(x_0\\) and building a polynomial that shares the same value there and — by adding terms — the same slope, the same curvature and so on. Near \\(x_0\\) the two curves nearly overlap; farther away they may diverge.",
+      "card1Eyebrow": "The goal",
+      "card1Title": "A more manageable function",
+      "card1Body": "Use a simple polynomial in place of the original function, but only in the region where the resemblance is good enough.",
+      "card2Eyebrow": "The centre x₀",
+      "card2Title": "The point of maximum fidelity",
+      "card2Body": "This is the point around which we build the approximation. Changing the centre means asking the polynomial to be accurate in a different region.",
+      "card3Eyebrow": "The error",
+      "card3Title": "How far we are",
+      "card3Body": "At a point x it is the vertical distance between the two graphs: \\(|f(x)-P_n(x)|\\). A small error means a good approximation.",
+      "simpleExampleTitle": "A non-technical example",
+      "simpleExampleBody": "Near zero, \\(e^x\\) resembles the line \\(1+x\\). For \\(x=0.1\\) we get \\(1+0.1=1.1\\), while the true value is about \\(1.10517\\). The error is about \\(0.00517\\): it is not zero, but we know exactly what we are losing by using the simpler formula.",
+      "buildEyebrow": "Construction in three steps",
+      "buildTitle": "How much information do we want to preserve?",
+      "step0Title": "Same value",
+      "step0Text": "The constant polynomial knows only the height of the function at the chosen centre.",
+      "step1Title": "Same value and same slope",
+      "step1Text": "We add the tangent line: at the centre the two curves also share the same direction.",
+      "step2Title": "We add the curvature",
+      "step2Text": "The second derivative makes the way the curve bends coincide as well.",
+      "summaryNote": "You do not need to memorise the summation immediately: it simply says \"take the information about the function at \\(x_0\\) and add it one piece at a time, from position to finer and finer variations\".",
+      "labEyebrow": "Lab",
+      "labTitle": "Move the centre and observe where the polynomial works",
+      "developsTitle": "Three fundamental expansions centred at zero",
+      "macLaurinNote": "When the centre is zero the expansion is also called a Maclaurin series. For these three functions the full series converges on all of ℝ, but with a finite number of terms the approximation is generally better near the centre.",
+      "insightTitle": "Central insight",
+      "insightBody": "Every term uses a derivative of order k at the chosen centre. The derivative is the local DNA of the function: it contains information about value, direction, curvature and higher-order variations. The error, however, reminds us that local information does not mean equality everywhere.",
+      "historyTitle": "Taylor, Maclaurin and Cauchy",
+      "historySummary": "The formula was born in the eighteenth century; understanding when it truly represents the function took another century.",
+      "historyBody": "Brook Taylor published the formula in 1715. Colin Maclaurin studied the case centred at zero systematically. In the nineteenth century Cauchy clarified that possessing derivatives of every order does not automatically guarantee that the series converges to the function."
+    },
+    "theorems": {}
+  },
+  "taylorLab": {
+    "functions": {
+      "exponential": "Exponential",
+      "sine": "Sine",
+      "cosine": "Cosine"
+    },
+    "chips": {
+      "function": "function",
+      "error": "error"
+    },
+    "tooltips": {
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "resetView": "Reset view"
+    },
+    "dragHint": "Drag to pan · scroll or buttons to zoom",
+    "canvasAriaLabel": "Interactive graph of the function and its Taylor polynomial. Drag to pan and use the scroll wheel to zoom.",
+    "message": {
+      "order0": "We know only the value of the function at x₀ = {{x0}}.",
+      "order1": "Value and slope now match: the polynomial is the tangent line.",
+      "order2": "The second derivative adds curvature: the two curves agree over a longer range.",
+      "orderN": "We use {{count}} local pieces of information: the value and derivatives up to order {{order}}."
+    },
+    "sliders": {
+      "centerLabel": "CENTER POINT · x₀ = {{x0}}",
+      "centerAriaLabel": "Center point x zero",
+      "orderLabel": "POLYNOMIAL ORDER · {{order}}",
+      "orderAriaLabel": "Order of the Taylor polynomial"
+    },
+    "polynomial": {
+      "caption": "DISPLAYED POLYNOMIAL",
+      "roundingNote": "Coefficients are rounded to three digits; the graph uses the full values."
+    },
+    "errorLineNote": "The green line measures the distance between the function and the polynomial at",
+    "errorDisplay": {
+      "label": "ERROR AT x = {{x}}"
+    },
+    "challenge": {
+      "title": "Challenge: the minimum degree",
+      "instructions": "Move the order slider and find the first degree for which the error at the green point is less than {{threshold}}.",
+      "button": "Check my answer",
+      "feedback": {
+        "noThresholdReached": "None of the available orders reaches the threshold: move the point closer to the center.",
+        "exact": "Correct: P{{order}} is the first polynomial that meets the threshold.",
+        "errorTooLarge": "The error is still too large. Try increasing the order.",
+        "thresholdMetButSuboptimal": "The threshold is met, but P{{minimumOrder}} was already sufficient: look for the minimum degree."
+      }
+    }
+  },
+  "theorems": {
+    "appendixNote": {
+      "strong": "How to use this appendix.",
+      "body": "There is no need to memorise the proofs: for each theorem, ask yourself which hypotheses to check, which picture to visualise, and which practical problem it solves."
+    },
+    "accordion": {
+      "openCard": "Open card",
+      "hypotheses": "Hypotheses",
+      "geometry": "Mental picture",
+      "use": "When to use it",
+      "caution": "Watch out"
+    },
+    "sketch": {
+      "ariaLabel": "Geometric interpretation: {{title}}"
+    },
+    "groups": {
+      "existence": {
+        "eyebrow": "Existence",
+        "title": "Three theorems for finding special points"
+      },
+      "behavior": {
+        "eyebrow": "Reading the graph",
+        "title": "From the sign of derivatives to behaviour"
+      },
+      "advanced": {
+        "eyebrow": "Advanced tools",
+        "title": "Five ideas to consult when needed"
+      }
+    },
+    "mvtLab": {
+      "eyebrow": "Lab",
+      "title": "The chord searches for a parallel tangent",
+      "body": "Move the endpoints on the parabola. Lagrange guarantees a point",
+      "bodyTail": "where the tangent is parallel to the chord; when both endpoints share the same height, the special case of Rolle applies.",
+      "canvasAriaLabel": "Parabola with chord AB and parallel tangent at point c",
+      "chordChip": "chord AB",
+      "tangentChip": "tangent at c",
+      "caseLagrange": "Lagrange case",
+      "caseRolle": "Rolle case",
+      "endpointA": "ENDPOINT a = {{a}}",
+      "endpointAAriaLabel": "Left endpoint a",
+      "endpointB": "ENDPOINT b = {{b}}",
+      "endpointBAriaLabel": "Right endpoint b",
+      "slopeChord": "Chord slope",
+      "pointC": "Guaranteed point c",
+      "slopeTangent": "Tangent slope",
+      "alertRolle": "Rolle: A and B have the same height, so the chord and the guaranteed tangent are horizontal.",
+      "alertLagrange": "Lagrange: the green tangent is parallel to the yellow chord; both represent the same rate of change."
+    },
+    "practicalBox": {
+      "title": "A practical use without a full function analysis",
+      "bodyPre": "If you know an interval where",
+      "bodyMid": ", Lagrange lets you conclude that increasing",
+      "bodyPost": "by 4 makes the function grow between 8 and 12. There is no need to draw the full graph: just check the possible slopes."
+    },
+    "history": {
+      "fermat": {
+        "title": "Fermat before the notation f′",
+        "summary": "Fermat looked for maxima, minima and tangents with the method of adequality.",
+        "body": "In the 1630s Pierre de Fermat developed an algebraic method for maxima, minima and tangents. He did not yet use limits or modern notation, but the idea anticipated the horizontal-tangent condition at smooth extrema."
+      },
+      "rolleEtAl": {
+        "title": "Rolle, Lagrange and Cauchy",
+        "summary": "A result on the roots of equations gave rise to the mean value theorem.",
+        "body": "Michel Rolle published in 1691 the result now bearing his name, originally in the context of algebraic equations. Lagrange placed it within the new analysis; in the nineteenth century Cauchy gave the mean value theorem a rigorous formulation and proof."
+      },
+      "darboux": {
+        "title": "Darboux and derivatives without jumps",
+        "summary": "In 1875 Darboux proved that a derivative always takes intermediate values.",
+        "body": "Gaston Darboux showed that a derivative can be discontinuous yet cannot jump directly from one slope to another. The result definitively separated two ideas: continuity and the intermediate value property."
+      },
+      "lhopital": {
+        "title": "One rule, two names",
+        "summary": "L'Hôpital's rule appeared in the first calculus textbook, but came from Johann Bernoulli's lectures.",
+        "body": "In 1696 Guillaume de l'Hôpital published Analyse des infiniment petits, the first systematic calculus textbook. The rule bears his name, but historical documents show the result came from Johann Bernoulli's lectures, which l'Hôpital had sponsored."
+      },
+      "taylorError": {
+        "title": "Lagrange, Cauchy and the Taylor remainder",
+        "summary": "The remainder turns a good approximation into a controllable estimate.",
+        "body": "Lagrange formulated one of the most widely used expressions for the Taylor remainder; Cauchy developed another form and helped clarify the convergence hypotheses. The practical idea is modern and decisive: approximating is not enough — one must know how large the error can be."
+      }
+    },
+    "fermat": {
+      "title": "Fermat's Theorem",
+      "subtitle": "Where to look for maxima and minima",
+      "hypotheses": "The point \\(x_0\\) is interior to the domain, the function is differentiable at \\(x_0\\), and has a local maximum or minimum there.",
+      "geometry": "At a smooth extremum the curve cannot keep rising or falling: the tangent must be horizontal.",
+      "use": "Reduces the search for extrema to stationary points and points where the derivative does not exist.",
+      "caution": "This is a necessary condition, not sufficient: \\(f(x)=x^3\\) has \\(f^{\\prime}(0)=0\\), but zero is not an extremum."
+    },
+    "rolle": {
+      "title": "Rolle's Theorem",
+      "subtitle": "Same height, horizontal tangent",
+      "hypotheses": "\\(f\\) is continuous on \\([a,b]\\), differentiable on \\((a,b)\\), and takes the same value at both endpoints.",
+      "geometry": "If the path starts and ends at the same height, at least one intermediate point has a horizontal tangent.",
+      "use": "Allows counting or separating zeros: between two distinct zeros of \\(f\\) there is at least one zero of \\(f^{\\prime}\\).",
+      "caution": "It guarantees the existence of at least one point, but says nothing about where it is or whether it is unique."
+    },
+    "lagrange": {
+      "title": "Lagrange's Mean Value Theorem",
+      "subtitle": "An instantaneous rate equals the average rate",
+      "hypotheses": "\\(f\\) is continuous on the closed interval \\([a,b]\\) and differentiable on its interior.",
+      "geometry": "There exists at least one tangent line parallel to the chord joining the two endpoints of the graph.",
+      "use": "Links total variation and instantaneous rate; also allows estimating how much a function can change.",
+      "caution": "The theorem guarantees \\(c\\), but generally provides no formula for computing it."
+    },
+    "monotone": {
+      "title": "Monotonicity Test",
+      "subtitle": "The sign of the derivative orients the graph",
+      "hypotheses": "\\(f\\) is continuous on the interval and differentiable on its interior; the sign of \\(f^{\\prime}\\) is checked over the entire interval.",
+      "geometry": "Tangents with positive slope accompany a rising graph; negative slopes accompany a falling graph.",
+      "use": "Allows comparing function values without computing all of them, and reading local behaviour.",
+      "caution": "An isolated zero of \\(f^{\\prime}\\) does not necessarily interrupt monotonicity: \\(x^3\\) remains increasing through zero."
+    },
+    "secondTest": {
+      "title": "Second Derivative Test",
+      "subtitle": "Classifying a stationary point",
+      "hypotheses": "The function is twice differentiable near \\(x_0\\) and \\(f^{\\prime}(x_0)=0\\).",
+      "geometry": "A horizontal tangent inside a cup identifies a minimum; inside a cap it identifies a maximum.",
+      "use": "Quickly classifies many stationary points without constructing a full sign chart for \\(f^{\\prime}\\).",
+      "caution": "If \\(f^{\\prime\\prime}(x_0)=0\\), the test is inconclusive: \\(x^4\\), \\(-x^4\\) and \\(x^3\\) yield three different behaviours."
+    },
+    "convexity": {
+      "title": "Convexity Test",
+      "subtitle": "The sign of f″ describes curvature",
+      "hypotheses": "The second derivative exists on the interval and maintains the same sign throughout.",
+      "geometry": "When \\(f^{\\prime\\prime}>0\\) the tangents lie below the graph; when \\(f^{\\prime\\prime}<0\\) they lie above.",
+      "use": "Allows understanding which way the curve bends and identifying possible inflection points.",
+      "caution": "The single value \\(f^{\\prime\\prime}(x_0)=0\\) is not enough to assert that \\(x_0\\) is an inflection point: a change of concavity is required."
+    },
+    "cauchy": {
+      "title": "Cauchy's Mean Value Theorem",
+      "subtitle": "Two variations compared at the same point",
+      "hypotheses": "\\(f\\) and \\(g\\) are continuous on \\([a,b]\\), differentiable on \\((a,b)\\), and \\(g^{\\prime}\\neq0\\).",
+      "geometry": "The parametric curve \\((g(t),f(t))\\) has a tangent parallel to the chord between the endpoints.",
+      "use": "Compares two quantities changing together and is the theoretical basis for L'Hôpital's rule.",
+      "caution": "The hypotheses must be checked for both functions, and the denominator of the ratio must be meaningful."
+    },
+    "darboux": {
+      "title": "Darboux's Theorem",
+      "subtitle": "Slopes cannot jump",
+      "hypotheses": "\\(f\\) is differentiable on an interval; the derivative function need not be assumed continuous.",
+      "geometry": "As the tangent rotates from one slope to another, it passes through every intermediate inclination.",
+      "use": "Allows ruling out that a step function is the derivative of any function.",
+      "caution": "Having all intermediate values does not mean being continuous: a derivative can be discontinuous without making jumps."
+    },
+    "lhopital": {
+      "title": "L'Hôpital's Rule",
+      "subtitle": "Comparing rates of vanishing or growth",
+      "hypotheses": "The ratio has an indeterminate form \\(0/0\\) or \\(\\infty/\\infty\\), the functions are differentiable near the point, and the limit of the ratio of derivatives exists.",
+      "geometry": "Near the common point, the ratio of heights is replaced by the ratio of slopes.",
+      "use": "Simplifies limits such as \\(\\lim_{x\\to0}\\sin x/x\\) or comparisons between exponential and polynomial growth.",
+      "caution": "It does not apply to every fraction: the indeterminate form must be verified first, and the procedure sometimes needs to be repeated."
+    },
+    "inverse": {
+      "title": "Derivative of the Inverse Function",
+      "subtitle": "Reflecting the graph swaps the slopes",
+      "hypotheses": "\\(f\\) is invertible near \\(x_0\\), differentiable, and \\(f^{\\prime}(x_0)\\neq0\\).",
+      "geometry": "The graphs of \\(f\\) and \\(f^{-1}\\) are symmetric about \\(y=x\\); the slopes of the tangents are reciprocals.",
+      "use": "Derives naturally the derivatives of logarithm, square root and inverse trigonometric functions.",
+      "caution": "If \\(f^{\\prime}(x_0)=0\\), the inverse may have a vertical tangent and the formula yields no finite value."
+    },
+    "taylorError": {
+      "title": "Taylor's Theorem with Lagrange Remainder",
+      "subtitle": "Measuring the error of the approximation",
+      "hypotheses": "\\(f\\) possesses the necessary derivatives between the centre \\(a\\) and the point \\(x\\).",
+      "geometry": "The polynomial agrees locally with the value and derivatives; the remainder measures the vertical distance still visible from the curve.",
+      "use": "Establishes how many digits or what precision we can expect from a Taylor approximation.",
+      "caution": "The error depends on a higher-order derivative at an unknown point \\(\\xi\\): it must be estimated over the whole interval."
+    }
+  },
+  "geometryLab": {
+    "canvasAriaLabel": "Cartesian graph with uniform scale showing secant lines, tangent and normal",
+    "chips": {
+      "rightSecant": "right secant",
+      "leftSecant": "left secant",
+      "tangent": "tangent",
+      "normal": "normal"
+    },
+    "sliders": {
+      "basePoint": "BASE POINT · x₀ = {{value}}",
+      "basePointAriaLabel": "Base point x zero",
+      "distance": "DISTANCE · |h| = {{value}}",
+      "distanceAriaLabel": "Absolute value of increment h"
+    },
+    "metrics": {
+      "fromLeft": "from the left",
+      "fromRight": "from the right"
+    },
+    "buttons": {
+      "stop": "Stop",
+      "animate": "Animate h → 0",
+      "showNormal": "Show normal",
+      "hideNormal": "Hide normal"
+    },
+    "prediction": {
+      "question": "Before revealing: as we approach from the left and from the right, will the slopes tend to the same value?",
+      "same": "Yes, they coincide",
+      "different": "No, they remain different",
+      "reveal": "Reveal and compare",
+      "feedbackClose": "The two slopes are now very close: the two-sided limit is consistent with a derivative. h never becomes zero: the ratio would be undefined.",
+      "feedbackFar": "The one-sided slopes do not coincide yet. Reduce |h|; if they remain different, the derivative does not exist. h never becomes zero: the ratio would be undefined."
+    },
+    "canvas": {
+      "deltaX": "Δx = h",
+      "deltaY": "Δy"
+    },
+    "undefined": "undefined"
+  },
+  "secondDerivativeLab": {
+    "canvasAriaLabel": "Interactive concavity graph with tangent line and osculating circle",
+    "concavityUp": {
+      "title": "Concave upward",
+      "text": "Moving from left to right, the slopes increase: from negative they become zero and then positive."
+    },
+    "concavityDown": {
+      "title": "Concave downward",
+      "text": "Moving from left to right, the slopes decrease: from positive they become zero and then negative."
+    },
+    "inflection": {
+      "title": "Possible inflection point",
+      "text": "If the second derivative changes sign, the concavity also changes. The zero value alone, however, is not sufficient.",
+      "svgLabel": "change of concavity"
+    },
+    "chips": {
+      "function": "function",
+      "tangent": "tangent",
+      "osculatingCircle": "osculating circle"
+    },
+    "sliders": {
+      "movePoint": "MOVE THE POINT · x₀ = {{value}}",
+      "movePointAriaLabel": "Position of the point on the function"
+    },
+    "buttons": {
+      "stopPoint": "Stop point",
+      "animatePoint": "Animate point",
+      "hideAdvanced": "Hide advanced curvature",
+      "exploreAdvanced": "Explore: curvature and osculating circle"
+    },
+    "prediction": {
+      "question": "Before reading the value: will f″ be positive, negative or approximately zero here?",
+      "reveal": "Reveal",
+      "correct": "Correct prediction. At this point",
+      "compare": "Compare your prediction with the graph. At this point"
+    },
+    "metrics": {
+      "slope": "Slope",
+      "slopeChange": "Slope change",
+      "curvature": "Curvature",
+      "radius": "Circle radius"
+    },
+    "status": {
+      "positive": {
+        "title": "Concave upward",
+        "body": "The slopes are increasing: the tangent rotates counterclockwise as the point advances."
+      },
+      "negative": {
+        "title": "Concave downward",
+        "body": "The slopes are decreasing: the tangent rotates clockwise as the point advances."
+      },
+      "zero": {
+        "title": "Zero curvature at this point",
+        "body": "The osculating circle has infinite radius. Check nearby points: if f″ changes sign, this is an inflection point."
+      }
+    },
+    "advanced": {
+      "title": "Why a circle?",
+      "body1": "The tangent reproduces value and slope; the osculating circle also reproduces local curvature. Its radius satisfies",
+      "body2": "with",
+      "body3": "The smaller the radius, the more the curve bends."
+    }
+  }
+}

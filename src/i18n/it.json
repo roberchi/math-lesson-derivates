@@ -1,0 +1,1336 @@
+{
+  "language": {
+    "label": "Lingua",
+    "it": "Italiano",
+    "en": "Inglese",
+    "fr": "Francese",
+    "de": "Tedesco",
+    "es": "Spagnolo"
+  },
+  "meta": {
+    "title": "Derivate — Corso interattivo",
+    "description": "Corso interattivo adattivo sulle derivate per il liceo scientifico",
+    "ogDescription": "Esercizi adattivi con dimostrazioni dal limite del rapporto incrementale."
+  },
+  "common": {
+    "overview": "Panoramica",
+    "settings": "Impostazioni",
+    "close": "Chiudi",
+    "cancel": "Annulla",
+    "result": "Risultato",
+    "dashboard": "Dashboard",
+    "exercises": "Esercizi",
+    "glossary": "Glossario",
+    "loadingPage": "Caricamento pagina",
+    "openGlossary": "Apri il glossario",
+    "externalSource": "Fonte esterna",
+    "learnMore": "Approfondisci",
+    "storyOfIdeas": "UNA STORIA DI IDEE",
+    "lesson": "LEZIONE",
+    "objective": "OBIETTIVO",
+    "readSections": "SEZIONI LETTE",
+    "points": "pt",
+    "next": "Successivo",
+    "previous": "Precedente",
+    "print": "Stampa",
+    "saved": "Salvato"
+  },
+  "header": {
+    "skip": "Vai al contenuto",
+    "openPath": "Apri il percorso",
+    "subtitle": "dal limite alla padronanza",
+    "lessons": "LEZIONI",
+    "lessonProgress": "Progresso lezioni",
+    "settings": "Impostazioni",
+    "points": "★ {{points}} pt"
+  },
+  "nav": {
+    "yourPath": "Il tuo percorso",
+    "coreCount": "di {{count}} sezioni fondamentali",
+    "materials": "Materiali",
+    "lesson1": "Lezione 1",
+    "lesson2": "Lezione 2",
+    "worksheet1": "Scheda esercizi §1",
+    "worksheet2": "Scheda esercizi §2",
+    "finalTest": "Verifica finale",
+    "adaptive": "Esercizi adattivi",
+    "core": "NUCLEO",
+    "enrichment": "APPROFONDIMENTI"
+  },
+  "course": {
+    "velocita": {
+      "title": "Il problema: velocità istantanea",
+      "short": "Velocità istantanea"
+    },
+    "geometria": {
+      "title": "Geometria della derivata",
+      "short": "Geometria"
+    },
+    "definizione": {
+      "title": "Definizione formale",
+      "short": "Definizione formale"
+    },
+    "derivabilita": {
+      "title": "Derivabilità e punti singolari",
+      "short": "Derivabilità"
+    },
+    "interpretazioni": {
+      "title": "Interpretazioni e applicazioni",
+      "short": "Interpretazioni"
+    },
+    "warmup": {
+      "title": "Ripasso e warm-up",
+      "short": "Warm-up"
+    },
+    "fondamentali": {
+      "title": "Derivate fondamentali",
+      "short": "Derivate fondamentali"
+    },
+    "regole": {
+      "title": "Regole di derivazione",
+      "short": "Regole di derivazione"
+    },
+    "derivata-seconda": {
+      "title": "Derivata seconda",
+      "short": "Derivata seconda"
+    },
+    "taylor": {
+      "title": "Serie di Taylor",
+      "short": "Taylor · opzionale"
+    },
+    "teoremi": {
+      "title": "Appendice: teoremi della derivata",
+      "short": "Teoremi · appendice"
+    }
+  },
+  "overview": {
+    "eyebrow": "Corso guidato · 2 lezioni da 2 ore",
+    "title": "Derivate:",
+    "titleAccent": "dal limite alla padronanza.",
+    "intro": "Partiamo da una domanda concreta — come si misura una velocità in un singolo istante? — e costruiamo geometria, definizione e regole senza saltare i passaggi.",
+    "openSummary": "Apri la sintesi",
+    "resume": "Riprendi la lezione",
+    "start": "Comincia dal problema",
+    "coreRead": "{{read}}/{{total}} FONDAMENTALI LETTE · {{optional}}/{{optionalTotal}} APPROFONDIMENTI",
+    "progress": "PROGRESSO DEL CORSO",
+    "coreSections": "sezioni fondamentali lette",
+    "verified": "concetti verificati",
+    "mastered": "classi padroneggiate",
+    "enrichment": "approfondimenti visitati",
+    "oneQuestion": "Una domanda, tre risposte",
+    "what": "Cos’è la derivata?",
+    "question": "DOMANDA {{number}}",
+    "unlock": "La risposta si rivela dopo aver letto la sezione “{{section}}”.",
+    "cards": {
+      "geometry": {
+        "q": "Come trovi una pendenza su una curva?",
+        "label": "GEOMETRICA",
+        "title": "Una pendenza",
+        "answer": "È la pendenza della retta tangente, ottenuta come limite delle rette secanti."
+      },
+      "analytic": {
+        "q": "Perché compare un limite?",
+        "label": "ANALITICA",
+        "title": "Un limite",
+        "answer": "È il limite del rapporto incrementale quando l’incremento tende a zero senza diventarlo."
+      },
+      "application": {
+        "q": "Che cosa misura davvero?",
+        "label": "APPLICATIVA",
+        "title": "Un tasso istantaneo",
+        "answer": "Misura quanto rapidamente cambia una grandezza, con un segno e una precisa unità di misura."
+      }
+    },
+    "lesson1": {
+      "title": "Il concetto di derivata",
+      "subtitle": "Dal moto di un corpo alla definizione formale",
+      "duration": "2 ore",
+      "objective": "Costruire la derivata come oggetto geometrico, analitico e fisico."
+    },
+    "lesson2": {
+      "title": "Regole, Taylor e teoremi",
+      "subtitle": "Dalle dimostrazioni alla padronanza del calcolo",
+      "duration": "2 ore + appendice",
+      "objective": "Ricavare le regole dai limiti, applicarle e consultare i principali teoremi attraverso figure e casi pratici."
+    },
+    "break": "PAUSA + SCHEDA ESERCIZI §{{sheet}} · 10 MIN",
+    "associated": "Materiali associati",
+    "train": "Allenati e verifica",
+    "material": {
+      "sheet1": "Scheda §1",
+      "sheet1Body": "Definizione e significato geometrico · 25 min",
+      "sheet2": "Scheda §2",
+      "sheet2Body": "Regole di derivazione · 30 min",
+      "test": "Verifica finale",
+      "testBody": "4 problemi · 30 punti · 45 min",
+      "adaptive": "Esercizi adattivi",
+      "adaptiveBody": "27 esercizi con difficoltà progressiva"
+    },
+    "source": "Codice sorgente",
+    "sourceBody": "Consulta il progetto, la documentazione e lo storico delle modifiche su GitHub.",
+    "openRepo": "Apri il repository"
+  },
+  "lesson": {
+    "optional": "Opzionale",
+    "appendix": "Appendice",
+    "content": {
+      "velocita": {
+        "title": "Una velocità in un solo istante",
+        "lead": "Prima della formula viene il problema: la velocità media è associata a un intervallo temporale, ma come possiamo esprimere la velocità in un istante che non ha durata?"
+      },
+      "geometria": {
+        "title": "La secante diventa tangente",
+        "lead": "La derivata nasce geometricamente facendo avvicinare due punti del grafico. Muovi h e guarda la pendenza della secante convergere verso quella della tangente."
+      },
+      "definizione": {
+        "title": "La definizione formale",
+        "lead": "Ora diamo forma precisa all’intuizione geometrica e fisica. La derivata esiste quando il rapporto incrementale tende a un valore finito."
+      },
+      "derivabilita": {
+        "title": "Continua non significa derivabile",
+        "lead": "Una funzione derivabile è sempre continua. Il contrario può fallire: un grafico può non spezzarsi e avere comunque uno spigolo o una tangente verticale."
+      },
+      "interpretazioni": {
+        "title": "Tre modi di dire “derivata”",
+        "lead": "Lo stesso oggetto matematico descrive una pendenza, un limite e un tasso di variazione. Saper passare da una lettura all’altra è il vero obiettivo della lezione."
+      },
+      "warmup": {
+        "title": "Tre domande per ripartire",
+        "lead": "Prima di costruire le regole operative, recuperiamo le idee della prima lezione. Rispondi a voce o su carta, poi apri la correzione."
+      },
+      "fondamentali": {
+        "title": "La tabella, costruita insieme",
+        "lead": "La colonna centrale è la più importante: ricorda quale idea produce la formula, così puoi ricostruirla quando la memoria non basta."
+      },
+      "regole": {
+        "title": "Quattro regole, quattro idee",
+        "lead": "Per ogni regola teniamo insieme formula operativa, dimostrazione dal limite e lettura verbale. La regola è pronta all’uso solo dopo aver capito da dove viene."
+      },
+      "derivata-seconda": {
+        "title": "La derivata della derivata",
+        "lead": "f″ misura come cambia la pendenza. Sul grafico descrive la concavità; nel moto descrive l’accelerazione."
+      },
+      "taylor": {
+        "title": "Il DNA locale di una funzione",
+        "lead": "Taylor risponde a una domanda concreta: possiamo sostituire, vicino a un punto scelto, una funzione difficile con un polinomio più semplice che le assomigli molto?"
+      },
+      "teoremi": {
+        "title": "I teoremi che fanno lavorare la derivata",
+        "lead": "Non è ancora uno studio di funzione: è una cassetta degli attrezzi. Ogni teorema parte da una figura, risponde a una domanda concreta e dichiara chiaramente quando può essere usato."
+      }
+    },
+    "sectionRead": "Sezione letta",
+    "didRead": "Hai letto questa sezione?",
+    "readNotice": "La lettura viene salvata, ma non equivale alla padronanza verificata negli esercizi.",
+    "read": "Letta",
+    "markRead": "Segna come letta",
+    "then": "poi {{section}}",
+    "goSheet1": "Vai alla scheda §1",
+    "goSheet2": "Vai alla scheda §2"
+  },
+  "adaptive": {
+    "eyebrow": "Allenamento adattivo",
+    "title": "Dalla lezione",
+    "titleAccent": "alla padronanza.",
+    "intro": "Esercizi organizzati per prerequisiti e difficoltà. Gli argomenti da consolidare tornano per primi, mentre nuove classi si sbloccano con i tuoi progressi.",
+    "continue": "Continua gli esercizi",
+    "start": "Inizia gli esercizi",
+    "completed": "esercizi completati",
+    "firstTry": "corretti al primo colpo",
+    "proofs": "dimostrazioni lette",
+    "classes": "Le classi di problemi",
+    "yourPath": "Il tuo percorso",
+    "unlockHint": "Completa una classe per sbloccare i concetti che dipendono da essa.",
+    "exerciseCount": "{{count}} ESERCIZI · {{points}} PT",
+    "locked": "Completa prima: {{classes}}",
+    "loading": "Preparo il percorso…",
+    "loadError": "Impossibile caricare gli esercizi: {{error}}",
+    "statusMastered": "✓ PADRONEGGIATA",
+    "statusRecovery": "↻ DA RECUPERARE",
+    "statusProgress": "● IN CORSO",
+    "statusStart": "INIZIA DA QUI →",
+    "statusAvailable": "DISPONIBILE →",
+    "statusLocked": "🔒 BLOCCATA NEL PERCORSO GUIDATO",
+    "consult": "Consulta comunque"
+  },
+  "difficulty": {
+    "1": "Base",
+    "2": "Medio",
+    "3": "Avanzato",
+    "4": "Sfida"
+  },
+  "settings": {
+    "back": "Torna alla dashboard",
+    "eyebrow": "Preferenze",
+    "title": "Impostazioni",
+    "intro": "Personalizza la lettura e gestisci il tuo progresso locale.",
+    "dark": "Tema scuro",
+    "darkBody": "Riduce la luminosità e mantiene alto il contrasto delle formule.",
+    "export": "Esporta progresso",
+    "exportBody": "Scarica una copia JSON dei tuoi risultati.",
+    "exportAction": "Esporta",
+    "import": "Importa progresso",
+    "importBody": "Ripristina un file esportato da questa app (schema progresso v4).",
+    "importAction": "Importa",
+    "invalid": "Il file non è un progresso valido o usa una versione non compatibile.",
+    "imported": "Progresso importato correttamente",
+    "restart": "Ricomincia il percorso",
+    "restartBody": "Cancella sezioni lette, punti, tentativi, classi completate e fogli digitali salvati in questo browser.",
+    "reset": "Resetta progresso",
+    "footer": "DERIVATE · VERSIONE 1.0.0 · I DATI RESTANO NEL TUO BROWSER",
+    "confirmTitle": "Azzerare tutto il progresso?",
+    "confirmBody": "L’operazione rimuoverà definitivamente sezioni lette, punti, risposte, classi completate e contenuto dei fogli digitali. Puoi esportare prima una copia di sicurezza del progresso.",
+    "resetAll": "Azzera tutto",
+    "resetDone": "Progresso e fogli digitali azzerati"
+  },
+  "glossary": {
+    "eyebrow": "Parole del corso",
+    "title": "Glossario",
+    "openDefinition": "Apri definizione di {{term}}",
+    "terms": {
+      "differenceQuotient": {
+        "term": "Rapporto incrementale",
+        "definition": "Rapporto tra la variazione di una funzione e la variazione h della variabile. La derivata nasce dal suo limite."
+      },
+      "secant": {
+        "term": "Secante",
+        "definition": "Retta che passa per due punti del grafico. Avvicinando i punti, le secanti possono tendere alla tangente."
+      },
+      "tangent": {
+        "term": "Tangente",
+        "definition": "Retta che nel punto ha la stessa direzione locale del grafico; la sua pendenza è la derivata."
+      },
+      "differentiability": {
+        "term": "Derivabilità",
+        "definition": "Esistenza di una derivata finita nel punto, con lo stesso limite da sinistra e da destra."
+      },
+      "prosthaphaeresis": {
+        "term": "Prostaferesi",
+        "definition": "Formula trigonometrica che trasforma somme o differenze di seni e coseni in prodotti."
+      },
+      "operatorNotation": {
+        "term": "Notazione operatoriale",
+        "definition": "Scrittura Df che considera la derivazione come un’operazione applicata alla funzione f."
+      },
+      "curvature": {
+        "term": "Curvatura",
+        "definition": "Misura geometrica di quanto rapidamente una curva cambia direzione. È un approfondimento rispetto al solo segno di f″."
+      },
+      "osculatingCircle": {
+        "term": "Cerchio osculatore",
+        "definition": "Cerchio che approssima localmente posizione, direzione e curvatura della curva."
+      },
+      "maclaurin": {
+        "term": "Maclaurin",
+        "definition": "Caso del polinomio di Taylor centrato in x₀=0, dal nome di Colin Maclaurin."
+      },
+      "adequality": {
+        "term": "Adeguaglianza",
+        "definition": "Metodo storico per trovare tangenti ed estremi, sviluppato da Fermat prima del calcolo infinitesimale."
+      },
+      "darboux": {
+        "term": "Darboux",
+        "definition": "Teorema: una derivata assume tutti i valori intermedi anche quando non è continua."
+      },
+      "cauchy": {
+        "term": "Cauchy",
+        "definition": "Matematico che rese rigorosi limite, continuità e teorema del valor medio generalizzato."
+      }
+    }
+  },
+  "solution": {
+    "intro": "Confronta il procedimento, non soltanto il risultato. La soluzione si apre un passaggio alla volta.",
+    "check": "1. Controlla il tuo svolgimento",
+    "rule": "Ho indicato la regola o la definizione usata",
+    "steps": "Ho scritto i passaggi senza salti",
+    "domain": "Ho controllato segni, dominio e unità",
+    "hint": "2. Mostra un indizio",
+    "hintBody": "Individua la struttura del problema e scrivi la formula generale prima di sostituire i dati.",
+    "firstStep": "3. Mostra il primo passaggio",
+    "nextStep": "Mostra il passaggio successivo"
+  },
+  "classPage": {
+    "back": "Torna al percorso",
+    "classOf": "Classe {{current}} di {{total}}",
+    "prerequisites": "PREREQUISITI",
+    "completed": "COMPLETATI",
+    "intro": "L’ordine si adatta ai tuoi risultati: prima ciò che serve consolidare.",
+    "review": "Ripassa",
+    "continue": "Continua",
+    "start": "Inizia la classe",
+    "proofAvailable": "Dimostrazione disponibile",
+    "mastered": "Classe padroneggiata: il seguito può sbloccarsi.",
+    "recovery": "Classe completata ma da recuperare: serve almeno il 70% e due risposte corrette.",
+    "results": "Vedi risultati"
+  },
+  "exercisePage": {
+    "counter": "ESERCIZIO {{current}} / {{total}}",
+    "exercise": "Esercizio",
+    "problem": "Problema",
+    "helpAvailable": "Gli aiuti progressivi sono disponibili sotto le risposte.",
+    "choose": "Scegli la risposta corretta",
+    "confirm": "Conferma risposta",
+    "proceed": "Prosegui",
+    "retry": "Riprova esercizio",
+    "hint": "Mostra un indizio",
+    "recall": "Richiama il concetto",
+    "firstStep": "Mostra il primo passaggio",
+    "fullSolution": "Mostra la soluzione completa",
+    "previous": "Precedente",
+    "next": "Successivo",
+    "remaining": "{{count}} TENTATIVI RIMASTI",
+    "correct": "Corretto!",
+    "great": "Ottimo ragionamento.",
+    "earned": "⭐ +{{points}} punti guadagnati",
+    "attemptsEnded": "Tentativi terminati",
+    "attemptsEndedBody": "Osserva la risposta corretta e studia i passaggi della soluzione.",
+    "incorrect": "Non è corretto",
+    "solutionShown": "Soluzione mostrata",
+    "solutionShownBody": "Studia i passaggi: potrai ripetere l’esercizio quando vuoi.",
+    "attemptsSentence_one": "Ti rimane {{count}} tentativo.",
+    "attemptsSentence_other": "Ti rimangono {{count}} tentativi.",
+    "defaultHint": "Individua prima la struttura della funzione e la regola necessaria.",
+    "recallBody": "Richiamo: scrivi prima la regola generale, poi assegna un nome alle funzioni coinvolte e soltanto dopo sostituisci.",
+    "firstStepLabel": "Primo passaggio:",
+    "proof": "📐 Dimostrazione dal limite",
+    "read": "letta ✓",
+    "guidedReading": "lettura guidata",
+    "proofIdea": "Idea della prova, senza ripetere tutti i passaggi",
+    "conclusion": "Conclusione",
+    "recognize": "Che cosa devi riconoscere",
+    "checkpoint": "Checkpoint di comprensione",
+    "checkpointRetry": "Rileggi il passaggio in cui compare h e riprova.",
+    "solution": "📖 Soluzione passo per passo"
+  },
+  "resultsPage": {
+    "mastered": "Classe padroneggiata",
+    "recovery": "Classe completata · recupero necessario",
+    "pointsOf": "PUNTI SU {{max}}",
+    "score": "RISULTATO",
+    "correct": "RISPOSTE CORRETTE",
+    "summary": "Riepilogo esercizi",
+    "exercise": "Esercizio",
+    "attempts": "Tentativi",
+    "proof": "Dimostrazione",
+    "points": "Punti",
+    "read": "letta",
+    "unavailable": "n/d",
+    "nextClass": "Prossima classe",
+    "startRecovery": "Avvia recupero ({{count}})",
+    "reviewClass": "Ripassa la classe"
+  },
+  "worksheet": {
+    "correction": "Correzione guidata · una soluzione alla volta",
+    "print": "Stampa scheda",
+    "eyebrow": "Scheda esercizi §{{sheet}}",
+    "title1": "Definizione e significato geometrico",
+    "title2": "Regole di derivazione",
+    "time1": "25 minuti",
+    "time2": "30 minuti",
+    "name": "Nome ____________________",
+    "intro": "Mostra tutti i passaggi. Nei calcoli per definizione, scrivi il rapporto incrementale prima di eseguire le semplificazioni.",
+    "guidedSolution": "Soluzione guidata con i passaggi"
+  },
+  "verification": {
+    "print": "Stampa verifica",
+    "eyebrow": "Verifica finale",
+    "title": "Derivate",
+    "intro": "Svolgi prima la prova, poi apri le soluzioni guidate per correggerti.",
+    "time": "45 minuti",
+    "points": "30 punti",
+    "solution": "Soluzione guidata",
+    "check": "Controlla la soluzione e i passaggi",
+    "rubric": "Rubrica",
+    "bonus": "Sfida bonus · Taylor (non inclusa nei 30 punti)",
+    "bonusBody": "Costruisci il polinomio di Taylor di ordine 3, centrato in zero, per f(x)=xeˣ. Usalo come approfondimento dopo aver concluso la prova base."
+  },
+  "exerciseFiles": {
+    "loadError": "Impossibile caricare il file degli esercizi: {{error}}"
+  },
+  "workspace": {
+    "open": "Apri il foglio digitale a tutto schermo",
+    "autosave": "Salvataggio automatico attivo",
+    "close": "Chiudi il foglio digitale",
+    "problem": "Problema",
+    "worksheetLabel": "Scheda {{sheet}} · Esercizio {{exercise}}",
+    "verificationLabel": "Verifica · Problema {{problem}}",
+    "pen": "Penna",
+    "highlighter": "Evidenziatore",
+    "eraser": "Gomma",
+    "pan": "Sposta il foglio",
+    "strokeColor": "Colore tratto",
+    "strokeSize": "Dimensione tratto",
+    "solution": "Soluzione",
+    "clear": "Cancella",
+    "scrollableSheet": "{{label}}: foglio scorrevole con righe numerate",
+    "writingArea": "{{label}}: area di scrittura libera",
+    "ruleWritten": "Regola scritta",
+    "stepsShown": "Passaggi mostrati",
+    "domainChecked": "Segni e dominio controllati"
+  },
+  "conclusionPage": {
+    "eyebrow": "Sintesi del nucleo fondamentale",
+    "title": "Ora la domanda iniziale ha una risposta.",
+    "incomplete": "Puoi consultare la sintesi ora; risultano lette {{read}} sezioni fondamentali su {{total}}.",
+    "velocity": "La velocità nell’istante t = 2",
+    "explain": "Spiegala con parole tue",
+    "explainBody": "Scrivere una definizione personale rende visibile ciò che hai davvero collegato.",
+    "definition": "La derivata è…",
+    "geometry": "Che cosa so vedere sul grafico?",
+    "calculus": "Che cosa so calcolare?",
+    "applications": "Che cosa so interpretare?",
+    "save": "Salva la mia sintesi",
+    "saved": "Sintesi salvata in questo browser.",
+    "next": "Il passo successivo",
+    "assess": "Verifica la padronanza",
+    "back": "Torna alla panoramica"
+  },
+  "chainRule": {
+    "intro": {
+      "paragraph1": "Una funzione composta è una funzione dentro un'altra. Il valore di \\(x\\) non arriva direttamente al seno: prima viene trasformato in \\(x^2\\), poi il risultato entra nel seno. Ogni trasformazione è uno strato.",
+      "paragraph2": "Pensa a una cipolla: la formula esterna avvolge quelle interne. Per derivare correttamente togliamo uno strato alla volta, senza saltarne nessuno."
+    },
+    "buildBox": {
+      "overline": "PRIMA: COME SI COSTRUISCE LA FUNZIONE",
+      "title": "Dall'interno verso l'esterno",
+      "subtitle": "Segui il viaggio del valore di x: l'uscita di uno strato diventa l'ingresso del successivo.",
+      "ariaLabel": "Costruzione a strati di seno di x quadrato",
+      "symbolsNote": "In simboli: \\(u=x^2\\), poi \\(y=\\sin u\\). Quindi \\(y=\\sin(x^2)\\)."
+    },
+    "buildLayers": [
+      {
+        "label": "Ingresso",
+        "action": "parti dalla variabile"
+      },
+      {
+        "label": "Strato interno",
+        "action": "eleva al quadrato"
+      },
+      {
+        "label": "Strato esterno",
+        "action": "applica il seno"
+      }
+    ],
+    "deriveBox": {
+      "overline": "POI: COME SI DERIVA",
+      "title": "Dall'esterno verso l'interno",
+      "subtitle": "Ora invertiamo lo sguardo: partiamo dall'ultimo strato applicato, quello più esterno. Dopo averlo derivato entriamo nello strato successivo e moltiplichiamo il nuovo fattore."
+    },
+    "derivativeLayers": [
+      {
+        "label": "PARTI DALL'ESTERNO",
+        "title": "Deriva il seno, ma lascia fermo ciò che contiene",
+        "explanation": "La derivata di seno è coseno. In questo primo passaggio x² resta dentro le parentesi, identico: non lo abbiamo ancora derivato."
+      },
+      {
+        "label": "ENTRA NELLO STRATO SUCCESSIVO",
+        "title": "Ora deriva la parte interna",
+        "explanation": "Tolto lo strato del seno, incontriamo la funzione elementare x². La sua derivata è 2x."
+      },
+      {
+        "label": "COLLEGA GLI EFFETTI",
+        "title": "Moltiplica le derivate raccolte lungo il percorso",
+        "explanation": "Il primo fattore racconta come reagisce il seno; il secondo racconta quanto velocemente cambia il suo ingresso x²."
+      }
+    ],
+    "whyMultiply": {
+      "title": "Perché le derivate si moltiplicano?",
+      "paragraph": "Una piccola variazione di \\(x\\) viene prima moltiplicata dallo strato \\(x^2\\) per il fattore \\(2x\\): il valore assoluto indica quanto cambia, il segno anche in quale verso. Quella variazione arriva poi al seno e viene moltiplicata ancora per \\(\\cos(x^2)\\).",
+      "totalEffect": "L'effetto totale è il prodotto degli effetti attraversati:"
+    },
+    "deepSection": {
+      "overline": "UNA CIPOLLA CON TRE STRATI",
+      "title": "E se la funzione fosse \\(e^{\\sin(x^2)}\\)?",
+      "subtitle": "Il metodo non cambia. Continuiamo a entrare finché arriviamo a x, raccogliendo un fattore per ogni strato.",
+      "layerLabel": "STRATO"
+    },
+    "deepLayers": [
+      {
+        "layer": "Esterno",
+        "reading": "L'esponenziale rimane esponenziale. Tutto ciò che sta nell'esponente resta fermo per ora."
+      },
+      {
+        "layer": "Intermedio",
+        "reading": "Entriamo nell'esponente: il seno diventa coseno, mantenendo x² come argomento."
+      },
+      {
+        "layer": "Interno",
+        "reading": "Arriviamo all'ultimo strato, la potenza, e la deriviamo."
+      }
+    ],
+    "multiplyThreeFactors": {
+      "overline": "MOLTIPLICA I TRE FATTORI",
+      "factor1": "1. derivata dell'esponenziale",
+      "factor2": "2. derivata del seno",
+      "factor3": "3. derivata del quadrato"
+    },
+    "procedureBox": {
+      "title": "La procedura da riutilizzare sempre"
+    },
+    "procedure": [
+      {
+        "title": "Cerchia mentalmente gli strati",
+        "text": "Individua quale funzione avvolge tutte le altre, poi quali sono contenute al suo interno."
+      },
+      {
+        "title": "Deriva lo strato esterno",
+        "text": "Lascia invariato tutto ciò che è dentro le sue parentesi."
+      },
+      {
+        "title": "Entra di uno strato e moltiplica",
+        "text": "Ripeti: deriva il nuovo strato, conserva ciò che contiene e aggiungi il fattore al prodotto."
+      },
+      {
+        "title": "Fermati quando raggiungi x",
+        "text": "A quel punto hai attraversato tutti gli strati; puoi riordinare e semplificare il prodotto."
+      }
+    ]
+  },
+  "derivation": {
+    "proofVersionLabel": "VERSIONE DIMOSTRATIVA",
+    "howToRead": "COME SI LEGGE E QUANDO SI USA",
+    "formulaLabel": "FORMULA",
+    "conclusionLabel": "CONCLUSIONE",
+    "mandatoryCheckpoint": "CHECKPOINT OBBLIGATORIO",
+    "rereadAndRetry": "Rileggi i passaggi e riprova."
+  },
+  "lessonOne": {
+    "velocity": {
+      "eyebrow": "Lezione 1 · 0:00–0:10",
+      "situationEyebrow": "La situazione concreta",
+      "fallingObject": {
+        "title": "Un oggetto sta cadendo",
+        "body": "Immagina di osservare un oggetto che cade. Il suo spazio percorso non cresce sempre allo stesso ritmo: ogni secondo va più veloce. Conoscendo due posizioni possiamo calcolare la velocità media, ma il tachimetro mostra qualcosa di diverso: una velocità in quell'istante."
+      },
+      "observe": {
+        "label": "OSSERVO",
+        "value": "due posizioni",
+        "body": "La posizione al tempo t e poco dopo, al tempo t + h."
+      },
+      "measure": {
+        "label": "MISURO",
+        "value": "una variazione",
+        "body": "Quanto spazio è stato percorso durante quel piccolo intervallo."
+      },
+      "ask": {
+        "label": "DOMANDO",
+        "value": "e in un istante?",
+        "body": "Rendiamo l'intervallo sempre più piccolo, senza porlo uguale a zero."
+      },
+      "bridge": {
+        "title": "Il ponte verso il limite",
+        "body1": "Dopo aver formulato la domanda, possiamo darle un linguaggio. Se la legge oraria è \\(s(t)=\\tfrac12gt^2\\), la velocità media tra \\(t\\) e \\(t+h\\) è:",
+        "body2": "La velocità istantanea emerge osservando cosa succede quando \\(h\\) si avvicina a zero. È esattamente il tipo di domanda a cui risponde un limite."
+      },
+      "historyNote": {
+        "title": "Galileo e il problema della velocità",
+        "summary": "Galileo descrive il moto accelerato nel 1638, ma gli manca ancora il calcolo infinitesimale.",
+        "body": "Galileo comprese che nella caduta libera lo spazio cresce come il quadrato del tempo. Poteva descrivere il moto su intervalli, ma non disponeva ancora di una definizione rigorosa di velocità istantanea. Newton e Leibniz costruiranno gli strumenti necessari alcuni decenni dopo la sua morte."
+      },
+      "alert": {
+        "strong": "Domanda da portare alla sezione successiva:",
+        "body": "se la velocità è la pendenza di un grafico spazio-tempo, come troviamo la pendenza di una curva in un punto?"
+      }
+    },
+    "geometry": {
+      "eyebrow": "Lezione 1 · 0:10–0:30",
+      "guided": {
+        "eyebrow": "Lettura guidata",
+        "titlePre": "Dal",
+        "titlePost": "alla pendenza",
+        "para1": "Fissiamo il punto \\(P=(x_0,f(x_0))\\) e scegliamo un secondo punto \\(Q=(x_0+h,f(x_0+h))\\). La retta che li attraversa è una secante.",
+        "para2": "Quando \\(h\\to0\\), il punto Q si avvicina a P e le rette secanti tendono a una posizione limite: la retta tangente. La sua pendenza è \\(f'(x_0)\\)."
+      },
+      "example": {
+        "eyebrow": "Esempio obbligatorio",
+        "title": "Per f(x) = x² nel punto x₀ = 1",
+        "step1": "Sostituiamo la funzione nel rapporto incrementale.",
+        "step2": "Sviluppiamo il quadrato e semplifichiamo h, che è diverso da zero mentre calcoliamo il rapporto.",
+        "step3": "La pendenza della tangente in x₀ = 1 è 2."
+      },
+      "normal": {
+        "eyebrow": "Un'altra direzione",
+        "title": "La retta normale",
+        "para": "La normale passa per lo stesso punto della tangente, ma è perpendicolare. Se la tangente ha pendenza finita e diversa da zero, \\(m_n=-1/m_t\\).",
+        "note": "Se la tangente è orizzontale, la normale è verticale: \\(x=x_0\\). Se la tangente è verticale, la normale è orizzontale: \\(y=f(x_0)\\)."
+      },
+      "historyNote": {
+        "title": "Leibniz, gli infinitesimi e dy/dx",
+        "summary": "La notazione dy/dx conserva l'intuizione geometrica di un rapporto fra variazioni.",
+        "body": "Nel 1675 Leibniz introdusse i simboli dx e dy. Li pensava come variazioni infinitamente piccole: un'idea potentissima, anche se la base rigorosa arriverà nell'Ottocento con la definizione di limite di Cauchy."
+      }
+    },
+    "definition": {
+      "eyebrow": "Lezione 1 · 0:30–0:55",
+      "box": {
+        "heading": "Definizione",
+        "line1": "f si dice derivabile in x₀ se esiste finito il limite",
+        "line2": "Quel numero è la derivata di f in x₀."
+      },
+      "numberOrFunction": {
+        "title": "Un numero oppure una funzione?"
+      },
+      "atPoint": {
+        "label": "IN UN PUNTO",
+        "title": "f′(x₀) è un numero",
+        "body": "Misura la pendenza o il tasso di variazione in uno specifico punto x₀."
+      },
+      "asFunction": {
+        "label": "PER OGNI PUNTO",
+        "title": "f′(x) è una funzione",
+        "body": "Ripetendo il limite per ogni x otteniamo una nuova funzione: la funzione derivata."
+      },
+      "notations": {
+        "summary": "Approfondimento: quattro notazioni storiche"
+      },
+      "proof": {
+        "eyebrow": "Dimostrazione guidata obbligatoria",
+        "title": "La formula nasce dal limite",
+        "derivationTitle": "Derivata di x²",
+        "meaning": "Dice che la pendenza della parabola \\(y=x^2\\), in ogni punto \\(x\\), vale \\(2x\\). A destra dell'origine è positiva, a sinistra è negativa e in zero vale zero.",
+        "checkpoint": {
+          "question": "Perché possiamo semplificare il fattore h?",
+          "choice0": "Perché nel rapporto h è diverso da zero; il limite viene dopo",
+          "choice1": "Perché poniamo subito h=0",
+          "choice2": "Perché h vale sempre 1",
+          "explanation": "Esatto: si semplifica per h≠0 e soltanto dopo si studia il limite."
+        },
+        "step1": {
+          "label": "Rapporto incrementale",
+          "explanation": "Partiamo dalla definizione con \\(f(x)=x^2\\)."
+        },
+        "step2": {
+          "label": "Sviluppa il quadrato",
+          "explanation": "Usiamo \\((x+h)^2=x^2+2xh+h^2\\) e cancelliamo \\(x^2\\)."
+        },
+        "step3": {
+          "label": "Semplifica h",
+          "explanation": "Per \\(h\\neq0\\) possiamo semplificare il fattore h."
+        },
+        "step4": {
+          "label": "Passa al limite",
+          "explanation": "Quando h tende a zero rimane \\(2x\\)."
+        },
+        "conclusion": "Quindi, per ogni x, \\((x^2)'=2x\\)."
+      },
+      "historyNote": {
+        "title": "Newton e Leibniz: due linguaggi per il cambiamento",
+        "summary": "Due scoperte indipendenti, una disputa accesa e notazioni che usiamo ancora oggi.",
+        "body": "Newton sviluppò il metodo delle flussioni pensando a grandezze che scorrono nel tempo; Leibniz costruì un linguaggio di differenziali più adatto al calcolo simbolico. Oggi usiamo entrambe le intuizioni, rese rigorose dalla teoria dei limiti."
+      }
+    },
+    "differentiability": {
+      "eyebrow": "Lezione 1 · 1:05–1:30",
+      "theorem": {
+        "eyebrow": "Teorema",
+        "title": "Derivabilità ⇒ continuità",
+        "para": "Se f è derivabile in x₀, allora è continua in x₀. La dimostrazione usa lo stesso rapporto incrementale:",
+        "note": "Quindi \\(f(x_0+h)\\to f(x_0)\\). Il viceversa non vale: \\(f(x)=|x|\\) è continua in 0 ma le pendenze laterali sono −1 e +1."
+      },
+      "lab": {
+        "eyebrow": "Laboratorio dei casi limite",
+        "title": "Che cosa fa la secante nel punto singolare?",
+        "para": "Seleziona i tre casi e porta x₀ a zero. Nel punto angoloso le due pendenze laterali non coincidono; nella cuspide e nella tangente verticale la pendenza non resta finita."
+      },
+      "cases": {
+        "corner": {
+          "title": "Punto angoloso",
+          "body": "Le derivate laterali esistono e sono finite, ma hanno valori diversi."
+        },
+        "cusp": {
+          "title": "Cuspide",
+          "body": "Le pendenze laterali diventano infinite con segni opposti: il grafico forma una punta."
+        },
+        "vertical": {
+          "title": "Tangente verticale",
+          "body": "Le pendenze crescono senza limite con lo stesso segno: la tangente è verticale."
+        }
+      }
+    },
+    "interpretations": {
+      "eyebrow": "Lezione 1 · 1:30–2:00",
+      "geometric": {
+        "label": "GEOMETRICA",
+        "title": "Pendenza della tangente",
+        "body": "Sul grafico, f′(x₀) dice quanto è inclinata la curva nel punto x₀."
+      },
+      "analytic": {
+        "label": "ANALITICA",
+        "title": "Limite del rapporto"
+      },
+      "physical": {
+        "label": "FISICA",
+        "title": "Tasso istantaneo",
+        "body": "Se f misura una grandezza, f′ misura quanto rapidamente sta cambiando."
+      },
+      "realWorld": {
+        "eyebrow": "Nel mondo reale",
+        "title": "La stessa idea cambia nome",
+        "velocity": {
+          "title": "Velocità",
+          "body": "La derivata della posizione rispetto al tempo."
+        },
+        "current": {
+          "title": "Corrente",
+          "body": "La velocità con cui passa la carica elettrica."
+        },
+        "growth": {
+          "title": "Crescita",
+          "body": "Il tasso di crescita istantaneo di una popolazione."
+        },
+        "cost": {
+          "title": "Costo marginale",
+          "body": "Quanto costa produrre una piccola unità in più."
+        }
+      },
+      "problem": {
+        "eyebrow": "Problema interpretato",
+        "title": "Quanto costa produrre una unità in più?",
+        "para": "Una piccola impresa modella il costo totale, in euro, con \\(C(q)=0{,}02q^2+8q+500\\), dove q è il numero di pezzi.",
+        "interpretationLabel": "Interpretazione:",
+        "interpretationBody": "attorno a 100 pezzi, produrre un pezzo aggiuntivo aumenta il costo di circa 12 €. Il segno positivo indica un aumento; l'unità è euro per pezzo. La derivata permette una decisione locale senza ricalcolare l'intero costo."
+      },
+      "closing": {
+        "heading": "Domanda di chiusura",
+        "question": "«Cos'è la derivata?»",
+        "body": "Prova a rispondere senza formule, una volta da geometra, una da analista e una da fisico. Poi passa alla scheda §1."
+      },
+      "historyNote": {
+        "title": "Dalle orbite al machine learning",
+        "summary": "La derivata è diventata il linguaggio comune dei sistemi che cambiano.",
+        "body": "Dalla meccanica di Newton alle equazioni dell'elettromagnetismo, dal costo marginale all'ottimizzazione dei modelli di machine learning, la derivata permette di trasformare il cambiamento in un oggetto calcolabile."
+      }
+    }
+  },
+  "velocityInquiry": {
+    "title": "Un piccolo esperimento numerico",
+    "lead": {
+      "pre": "La posizione è",
+      "mid": ". Vogliamo stimare la velocità esattamente a",
+      "post": "usando intervalli sempre più brevi."
+    },
+    "predictionLabel": "Prima di calcolare: verso quale velocità pensi che convergeremo?",
+    "calculateButton": "Calcola le velocità medie",
+    "table": {
+      "h": "h",
+      "interval": "Intervallo",
+      "avgVelocity": "Velocità media",
+      "intervalValue": "da {{from}} a {{to}}"
+    },
+    "result": {
+      "pre": "I valori seguono",
+      "post": "e si avvicinano a 20. La velocità istantanea è quindi 20 unità di spazio per unità di tempo."
+    },
+    "warning": {
+      "pre": "Non poniamo mai",
+      "post": "nel rapporto: divideremmo per zero. Calcoliamo invece il valore verso cui il rapporto tende quando h diventa piccolo."
+    }
+  },
+  "lessonTwo": {
+    "warmup": {
+      "q1": "Quali sono le tre letture della derivata?",
+      "a1": "Geometrica: pendenza della tangente. Analitica: limite del rapporto incrementale. Fisica: tasso di variazione istantaneo.",
+      "q2": "Che differenza c'è tra f′(x₀) e f′(x)?",
+      "a2": "f′(x₀) è un numero riferito a un punto; f′(x) è la funzione che associa a ogni x la pendenza in quel punto.",
+      "q3": "Continuità implica derivabilità?",
+      "a3": "No. |x| è continua in zero ma ha derivate laterali −1 e +1, quindi non è derivabile in zero.",
+      "objectiveTitle": "Obiettivo dell'ora",
+      "objectiveHeading": "Costruire, non ricevere, la tabella.",
+      "objectiveBody": "Ogni formula fondamentale e ogni regola verrà ricavata da ciò che già sappiamo sui limiti.",
+      "prereqEyebrow": "Prerequisiti riattivati",
+      "prereqTitle": "I due limiti notevoli che useremo",
+      "prereqBody": "Non li stiamo dimostrando qui: li richiamiamo numericamente e li dichiariamo come risultati già noti. Sono il ponte necessario per derivare seno ed esponenziale senza passaggi nascosti.",
+      "limit1Note": "Per t = 0,1 il rapporto vale circa 0,9983; per t = 0,01 vale circa 0,99998.",
+      "limit2Note": "Per t = 0,1 il rapporto vale circa 1,0517; per t = 0,01 vale circa 1,0050."
+    },
+    "fundamentals": {
+      "colFunction": "Funzione",
+      "colTool": "Strumento",
+      "colDerivative": "Derivata",
+      "toolNewtonBinomial": "binomio di Newton",
+      "toolAdditionFormulas": "formule di addizione",
+      "demoEyebrow": "Versione dimostrativa",
+      "demoTitle": "Tre idee da saper ricostruire",
+      "powerTitle": "Potenza intera",
+      "powerMeaning": "Serve a derivare una potenza di \\(x\\): l'esponente \\(n\\) scende davanti come moltiplicatore e poi diminuisce di uno. Per esempio, \\((x^3)'=3x^2\\).",
+      "stepDefinition": "Definizione",
+      "powerStep1": "Partiamo dal rapporto incrementale.",
+      "stepNewton": "Binomio di Newton",
+      "powerStep2": "Il primo termine cancella \\(x^n\\); tutti gli altri contengono h.",
+      "stepDivideH": "Dividi per h",
+      "powerStep3": "Dopo la semplificazione solo il primo termine non conserva un fattore h.",
+      "stepLimit": "Limite",
+      "powerStep4": "I termini che contengono h tendono a zero.",
+      "powerConclusion": "La regola della potenza non è un trucco: è il primo coefficiente del binomio di Newton che sopravvive al limite.",
+      "sineTitle": "Seno · dimostrazione guidata",
+      "sineMeaning": "Il coseno misura la pendenza del seno nello stesso punto.",
+      "sineCheckQ": "Quale prerequisito rende possibile l'ultimo passaggio?",
+      "sineCheckC0": "Il limite di sin(t)/t vale 1",
+      "sineCheckC1": "sin(0) vale 1",
+      "sineCheckC2": "Il coseno è sempre costante",
+      "sineCheckExp": "Esatto: compare il limite notevole richiamato nel warm-up.",
+      "stepDiffQuotient": "Rapporto incrementale",
+      "sineStep1": "Partiamo dalla definizione.",
+      "stepProsthaphaeresis": "Formula di prostaferesi",
+      "sineStep2": "La prostaferesi trasforma la differenza in un prodotto; trovi il termine nel glossario.",
+      "stepNotableLimit": "Limite notevole",
+      "sineStep3": "Il secondo fattore tende a 1, come richiamato nel warm-up.",
+      "sineConclusion": "Quindi \\((\\sin x)'=\\cos x\\).",
+      "cosineTitle": "Coseno",
+      "cosineMeaning": "Dice che la pendenza del coseno nel punto \\(x\\) è l'opposto del valore del seno nello stesso punto. Il segno meno indica che il coseno inizialmente scende.",
+      "stepAdditionFormula": "Formula di addizione",
+      "cosineStep1": "Sostituiamo nel rapporto incrementale.",
+      "stepSeparate": "Separa",
+      "cosineStep2": "Compaiono due limiti notevoli.",
+      "stepNotableLimits": "Limiti notevoli",
+      "cosineStep3": "\\((\\cos h-1)/h\\to0\\) e \\(\\sin h/h\\to1\\).",
+      "cosineConclusion": "Il coseno deriva nel seno con segno negativo.",
+      "expInsightTitle": "Perché \\((e^x)'=e^x\\) è straordinario",
+      "expInsightBody": "È l'unica funzione la cui velocità di crescita coincide sempre con il suo valore. Per questo appare in crescita batterica, decadimento radioattivo e interesse composto continuo.",
+      "historyTitle": "L'esponenziale e i sistemi che crescono da sé",
+      "historySummary": "Quando il tasso di crescita è proporzionale alla quantità presente, compare eˣ.",
+      "historyBody": "Se una popolazione cresce a una velocità proporzionale alla popolazione stessa, l'equazione è N′ = kN. Le sue soluzioni sono esponenziali: la funzione eˣ è il modello naturale dei processi con feedback proporzionale."
+    },
+    "rules": {
+      "linearityTitle": "Linearità",
+      "linearityMeaning": "Serve per somme e multipli: \\(f\\) e \\(g\\) sono funzioni, mentre \\(\\alpha\\) e \\(\\beta\\) sono numeri costanti. Si deriva ogni funzione separatamente e si mantengono le costanti.",
+      "linearityStep1": "Raggruppiamo separatamente le variazioni di f e g.",
+      "stepSeparateLimit": "Separa e passa al limite",
+      "linearityStep2": "Il limite della somma è la somma dei limiti; le costanti escono.",
+      "linearityConclusion": "Derivare è un'operazione lineare.",
+      "productTitle": "Regola del prodotto",
+      "productMeaning": "Serve quando \\(f(x)\\) e \\(g(x)\\) sono moltiplicate. Si deriva prima \\(f\\) lasciando ferma \\(g\\), poi si lascia ferma \\(f\\) e si deriva \\(g\\); infine si sommano i due contributi.",
+      "productCheckQ": "Perché nella formula compaiono due addendi?",
+      "productCheckC0": "Ogni addendo misura la variazione di un fattore mentre l'altro resta fermo",
+      "productCheckC1": "Perché si moltiplicano semplicemente le due derivate",
+      "productCheckC2": "Perché il prodotto diventa sempre una somma",
+      "productCheckExp": "Esatto: i due addendi separano i contributi dei due fattori.",
+      "productStep1": "Il numeratore non si separa direttamente.",
+      "stepAddZero": "Aggiungi zero",
+      "productStep2": "Aggiungiamo e sottraiamo \\(f(x)g(x+h)\\): è il trucco di Leibniz.",
+      "stepFactor": "Raccogli",
+      "productStep3": "Ora riconosciamo i due rapporti incrementali.",
+      "productStep4": "La derivabilità implica continuità, quindi \\(g(x+h)\\to g(x)\\).",
+      "productConclusion": "Si deriva un fattore alla volta, lasciando fermo l'altro, e si sommano i contributi.",
+      "quotientTitle": "Regola del quoziente",
+      "quotientMeaning": "Serve quando una funzione \\(f\\) è divisa per una funzione \\(g\\), con \\(g(x)\\neq0\\). Al numeratore l'ordine è importante: derivata del sopra per sotto, meno sopra per derivata del sotto.",
+      "stepRewriteProduct": "Riscrivi come prodotto",
+      "quotientStep1": "La ricaviamo dalla regola del prodotto, con \\(g\\neq0\\).",
+      "stepDerive": "Deriva",
+      "quotientStep2": "Applichiamo la regola del prodotto al membro destro.",
+      "stepIsolate": "Isola la derivata",
+      "quotientStep3": "Portiamo il secondo termine a sinistra e dividiamo per g.",
+      "quotientConclusion": "Nel numeratore l'ordine conta: derivata del sopra per sotto meno sopra per derivata del sotto.",
+      "chainTitle": "Regola della catena",
+      "chainMeaning": "Serve quando una funzione è dentro un'altra: \\(f\\circ g\\) significa \\(f(g(x))\\). Si deriva la funzione esterna, la si valuta nell'interno e si moltiplica per la derivata della funzione interna.",
+      "stepCompositeRatio": "Rapporto della composta",
+      "chainStep1": "La variazione esterna dipende dalla variazione della funzione interna.",
+      "stepIntroduceK": "Introduci k senza dividere per zero",
+      "chainStep2": "Poniamo φ(k)=[f(g(x)+k)-f(g(x))]/k per k≠0 e φ(0)=f′(g(x)). Così l'identità resta valida anche quando la variazione interna è zero.",
+      "stepPassLimit": "Passa al limite",
+      "chainStep3": "Per continuità di g, \\(h\\to0\\) implica \\(k\\to0\\).",
+      "chainConclusion": "Deriva l'esterno valutato nell'interno, poi moltiplica per la derivata dell'interno.",
+      "canonicalEyebrow": "Esempio canonico",
+      "canonicalTitle": "sin(x²): leggere gli strati",
+      "afterChainEyebrow": "Dopo la catena",
+      "afterChainTitle": "Ora possiamo giustificare il logaritmo",
+      "lnTitle": "Logaritmo naturale · approfondimento",
+      "lnMeaning": "La dimostrazione usa la catena, quindi viene presentata solo adesso.",
+      "stepInverseFunctions": "Funzioni inverse",
+      "lnStep1": "Il logaritmo è l'inversa dell'esponenziale.",
+      "stepDeriveChain": "Deriva con la catena",
+      "lnStep2": "Derivando e^y rispetto a x compare dy/dx.",
+      "stepSolve": "Risolvi",
+      "lnStep3": "Sostituiamo e^y=x, con x>0.",
+      "lnConclusion": "La prova non è più circolare: la regola della catena è già stata costruita.",
+      "historyProductTitle": "Il trucco nella regola del prodotto",
+      "historyProductSummary": "Aggiungere e sottrarre lo stesso termine trasforma un'espressione opaca in due rapporti incrementali.",
+      "historyProductBody": "Il passaggio decisivo è inserire zero nella forma f(x)g(x+h) − f(x)g(x+h). Non cambia il valore, ma permette di isolare la variazione di ciascun fattore. È un esempio classico di come una dimostrazione suggerisca anche il modo migliore di ricordare una formula.",
+      "historyChainTitle": "Chain rule: intuizione e rigore",
+      "historyChainSummary": "dy/dx = dy/du · du/dx è un'intuizione eccellente, ma il limite spiega perché funziona.",
+      "historyChainBody": "La notazione di Leibniz fa sembrare i differenziali frazioni che si semplificano. La dimostrazione rigorosa sostituisce questa cancellazione con due rapporti incrementali e usa la continuità della funzione interna."
+    },
+    "secondDerivative": {
+      "heading": "Derivata seconda",
+      "concaveUpTitle": "Concava verso l'alto",
+      "concaveUpBody": "Le pendenze aumentano: il grafico ha la forma di una coppa.",
+      "concaveDownTitle": "Concava verso il basso",
+      "concaveDownBody": "Le pendenze diminuiscono: il grafico ha la forma di una cupola.",
+      "physicsLabel": "FISICA",
+      "accelerationTitle": "Accelerazione",
+      "accelerationBody": "Se \\(s(t)\\) è la posizione, \\(v(t)=s'(t)\\) e \\(a(t)=s''(t)\\).",
+      "lookFirstEyebrow": "Prima guarda, poi calcola",
+      "lookFirstTitle": "La derivata seconda è il verso in cui piega il grafico",
+      "lookFirstBody": "Non basta ricordare \"coppa\" e \"cupola\". La derivata seconda confronta le pendenze di tangenti vicine: se aumentano, \\(f''&gt;0\\); se diminuiscono, \\(f''&lt;0\\). Le linee gialle nei grafici rendono visibile proprio questa variazione.",
+      "labEyebrow": "Laboratorio interattivo",
+      "labTitle": "Muovi il punto e osserva cambiare la curvatura",
+      "labBody": "Sposta il punto lungo la funzione e confronta tangente e segno di \\(f''\\). Se apri l'approfondimento, il",
+      "osculatingCircleTerm": "Cerchio osculatore",
+      "labBodyEnd": " aggiunge l'informazione su quanto e verso dove la curva sta piegando.",
+      "stationaryEyebrow": "Anteprima dello studio di funzione",
+      "stationaryTitle": "Punti stazionari e flessi",
+      "stationaryBody": "Un punto è stazionario quando \\(f'(x_0)=0\\): la tangente è orizzontale. Può essere un massimo, un minimo o un flesso; per distinguerli servirà studiare il segno di f′ e f″.",
+      "stationaryNote": "I due punti hanno tangente orizzontale. La derivata seconda \\(f''(x)=6x\\) aiuta a capire che uno è un massimo e l'altro un minimo.",
+      "alert": "Questo è solo un ponte: lo studio completo di massimi, minimi e flessi verrà più avanti. Nell'appendice dopo Taylor troverai invece Rolle, Lagrange e gli altri teoremi letti in modo grafico e pratico."
+    },
+    "taylor": {
+      "advancedLabel": "Approfondimento avanzato.",
+      "advancedNote": "Questa sezione non fa parte della verifica di base.",
+      "beforeFormulaEyebrow": "Prima della formula",
+      "beforeFormulaTitle": "Che cosa stiamo cercando di ottenere?",
+      "beforeFormulaP1": "Funzioni come \\(e^x\\), \\(\\sin x\\) o \\(\\cos x\\) non sono polinomi. Taylor costruisce però un sostituto locale, chiamato polinomio approssimante: una formula fatta soltanto di somme, prodotti e potenze, quindi facile da calcolare e da disegnare.",
+      "beforeFormulaP2": "\"Approssimare\" non significa trovare una copia esatta. Significa scegliere un punto \\(x_0\\) e costruire un polinomio che lì abbia lo stesso valore e, aggiungendo termini, la stessa pendenza, la stessa curvatura e così via. Vicino a \\(x_0\\) le due curve quasi si sovrappongono; allontanandosi possono separarsi.",
+      "card1Eyebrow": "L'obiettivo",
+      "card1Title": "Una funzione più maneggevole",
+      "card1Body": "Usare un polinomio semplice al posto della funzione originale, ma soltanto nella zona in cui la somiglianza è abbastanza buona.",
+      "card2Eyebrow": "Il centro x₀",
+      "card2Title": "Il punto di massima fedeltà",
+      "card2Body": "È il punto attorno al quale costruiamo l'approssimazione. Cambiare centro significa chiedere al polinomio di essere preciso in un'altra zona.",
+      "card3Eyebrow": "L'errore",
+      "card3Title": "Quanto siamo lontani",
+      "card3Body": "In un punto x è la distanza verticale tra i due grafici: \\(|f(x)-P_n(x)|\\). Errore piccolo significa approssimazione buona.",
+      "simpleExampleTitle": "Un esempio senza tecnicismi",
+      "simpleExampleBody": "Vicino a zero, \\(e^x\\) assomiglia alla retta \\(1+x\\). Per \\(x=0{,}1\\) otteniamo \\(1+0{,}1=1{,}1\\), mentre il valore reale è circa \\(1{,}10517\\). L'errore è circa \\(0{,}00517\\): non è zero, ma sappiamo esattamente che cosa stiamo perdendo usando la formula più semplice.",
+      "buildEyebrow": "Costruzione in tre passi",
+      "buildTitle": "Quante informazioni vogliamo conservare?",
+      "step0Title": "Stesso valore",
+      "step0Text": "Il polinomio costante sa soltanto a quale altezza si trova la funzione nel centro scelto.",
+      "step1Title": "Stesso valore e stessa pendenza",
+      "step1Text": "Aggiungiamo la retta tangente: nel centro le due curve hanno anche la stessa direzione.",
+      "step2Title": "Aggiungiamo la curvatura",
+      "step2Text": "La derivata seconda fa coincidere anche il modo in cui la curva si piega.",
+      "summaryNote": "Non devi memorizzare subito la sommatoria: dice soltanto \"prendi le informazioni della funzione in \\(x_0\\) e aggiungile una alla volta, dalla posizione fino alle variazioni più fini\".",
+      "labEyebrow": "Laboratorio",
+      "labTitle": "Sposta il centro e osserva dove il polinomio funziona",
+      "developsTitle": "Tre sviluppi fondamentali centrati in zero",
+      "macLaurinNote": "Quando il centro è zero si parla anche di sviluppo di MacLaurin. Per queste tre funzioni la serie completa converge su tutto ℝ, ma con un numero finito di termini l'approssimazione è generalmente migliore vicino al centro.",
+      "insightTitle": "Insight centrale",
+      "insightBody": "Ogni termine usa una derivata di ordine k nel centro scelto. La derivata è il DNA locale della funzione: contiene l'informazione su valore, direzione, curvatura e variazioni di ordine superiore. L'errore ci ricorda però che informazione locale non significa uguaglianza ovunque.",
+      "historyTitle": "Taylor, MacLaurin e Cauchy",
+      "historySummary": "La formula nasce nel Settecento; capire quando rappresenta davvero la funzione richiederà un altro secolo.",
+      "historyBody": "Brook Taylor pubblicò la formula nel 1715. Colin MacLaurin studiò sistematicamente il caso centrato in zero. Nell'Ottocento Cauchy chiarì che possedere derivate di ogni ordine non garantisce automaticamente che la serie converga alla funzione."
+    },
+    "theorems": {}
+  },
+  "taylorLab": {
+    "functions": {
+      "exponential": "Esponenziale",
+      "sine": "Seno",
+      "cosine": "Coseno"
+    },
+    "chips": {
+      "function": "funzione",
+      "error": "errore"
+    },
+    "tooltips": {
+      "zoomIn": "Zoom avanti",
+      "zoomOut": "Zoom indietro",
+      "resetView": "Ripristina coordinate"
+    },
+    "dragHint": "Trascina per spostare · rotella o pulsanti per zoomare",
+    "canvasAriaLabel": "Grafico interattivo della funzione e del suo polinomio di Taylor. Trascina per spostare il piano e usa la rotella per lo zoom.",
+    "message": {
+      "order0": "Conosciamo soltanto il valore della funzione in x₀ = {{x0}}.",
+      "order1": "Ora coincidono valore e pendenza: il polinomio è la retta tangente.",
+      "order2": "La derivata seconda aggiunge la curvatura: le due curve si assomigliano più a lungo.",
+      "orderN": "Usiamo {{count}} informazioni locali: valore e derivate fino all'ordine {{order}}."
+    },
+    "sliders": {
+      "centerLabel": "PUNTO CENTRALE · x₀ = {{x0}}",
+      "centerAriaLabel": "Punto centrale x zero",
+      "orderLabel": "ORDINE DEL POLINOMIO · {{order}}",
+      "orderAriaLabel": "Ordine del polinomio di Taylor"
+    },
+    "polynomial": {
+      "caption": "POLINOMIO VISUALIZZATO",
+      "roundingNote": "I coefficienti sono arrotondati a tre cifre; il grafico usa i valori completi."
+    },
+    "errorLineNote": "La linea verde misura la distanza tra funzione e polinomio in",
+    "errorDisplay": {
+      "label": "ERRORE IN x = {{x}}"
+    },
+    "challenge": {
+      "title": "Sfida: il grado minimo",
+      "instructions": "Sposta il cursore dell'ordine e trova il primo grado per cui l'errore nel punto verde è minore di {{threshold}}.",
+      "button": "Controlla la mia scelta",
+      "feedback": {
+        "noThresholdReached": "Con gli ordini disponibili la soglia non viene raggiunta: avvicina il punto al centro.",
+        "exact": "Esatto: P{{order}} è il primo polinomio che rispetta la soglia.",
+        "errorTooLarge": "L'errore è ancora troppo grande. Prova ad aumentare l'ordine.",
+        "thresholdMetButSuboptimal": "La soglia è rispettata, ma anche P{{minimumOrder}} bastava: cerca il grado minimo."
+      }
+    }
+  },
+  "theorems": {
+    "appendixNote": {
+      "strong": "Come usare questa appendice.",
+      "body": "Non serve memorizzare le dimostrazioni: per ogni teorema chiediti quali ipotesi controllare, quale figura immaginare e quale problema pratico risolve."
+    },
+    "accordion": {
+      "openCard": "Apri scheda",
+      "hypotheses": "Ipotesi",
+      "geometry": "Figura mentale",
+      "use": "Quando usarlo",
+      "caution": "Attenzione"
+    },
+    "sketch": {
+      "ariaLabel": "Interpretazione geometrica: {{title}}"
+    },
+    "groups": {
+      "existence": {
+        "eyebrow": "Esistenza",
+        "title": "Tre teoremi per trovare punti speciali"
+      },
+      "behavior": {
+        "eyebrow": "Lettura del grafico",
+        "title": "Dal segno delle derivate al comportamento"
+      },
+      "advanced": {
+        "eyebrow": "Strumenti avanzati",
+        "title": "Cinque idee da consultare quando servono"
+      }
+    },
+    "mvtLab": {
+      "eyebrow": "Laboratorio",
+      "title": "La corda cerca una tangente parallela",
+      "body": "Muovi gli estremi sulla parabola. Lagrange garantisce un punto",
+      "bodyTail": "in cui la tangente è parallela alla corda; quando gli estremi hanno la stessa quota compare il caso particolare di Rolle.",
+      "canvasAriaLabel": "Parabola con corda AB e tangente parallela nel punto c",
+      "chordChip": "corda AB",
+      "tangentChip": "tangente in c",
+      "caseLagrange": "Caso Lagrange",
+      "caseRolle": "Caso Rolle",
+      "endpointA": "ESTREMO a = {{a}}",
+      "endpointAAriaLabel": "Estremo sinistro a",
+      "endpointB": "ESTREMO b = {{b}}",
+      "endpointBAriaLabel": "Estremo destro b",
+      "slopeChord": "Pendenza corda",
+      "pointC": "Punto garantito c",
+      "slopeTangent": "Pendenza tangente",
+      "alertRolle": "Rolle: A e B hanno la stessa quota, quindi la corda e la tangente garantita sono orizzontali.",
+      "alertLagrange": "Lagrange: la tangente verde è parallela alla corda gialla; rappresentano la stessa variazione per unità di x."
+    },
+    "practicalBox": {
+      "title": "Un uso pratico senza fare uno studio di funzione",
+      "bodyPre": "Se conosci un intervallo in cui",
+      "bodyMid": ", Lagrange ti permette già di concludere che, aumentando",
+      "bodyPost": "di 4, la funzione cresce tra 8 e 12. Non occorre disegnare tutto il grafico: basta controllare le pendenze possibili."
+    },
+    "history": {
+      "fermat": {
+        "title": "Fermat prima della notazione f′",
+        "summary": "Fermat cercava massimi, minimi e tangenti con il metodo dell'adeguaglianza.",
+        "body": "Negli anni Trenta del Seicento Pierre de Fermat sviluppò un metodo algebrico per massimi, minimi e tangenti. Non usava ancora limiti o la notazione moderna, ma l'idea anticipava la condizione di tangente orizzontale negli estremi regolari."
+      },
+      "rolleEtAl": {
+        "title": "Rolle, Lagrange e Cauchy",
+        "summary": "Da un risultato sulle radici delle equazioni nacque il teorema del valor medio.",
+        "body": "Michel Rolle pubblicò nel 1691 il risultato oggi associato al suo nome, inizialmente nel contesto delle equazioni algebriche. Lagrange lo inserì nella nuova analisi; nell'Ottocento Cauchy diede al teorema del valor medio una formulazione e una dimostrazione rigorose."
+      },
+      "darboux": {
+        "title": "Darboux e le derivate senza salti",
+        "summary": "Nel 1875 Darboux dimostrò che una derivata assume sempre i valori intermedi.",
+        "body": "Gaston Darboux mostrò che una derivata può anche essere discontinua, ma non può saltare direttamente da una pendenza a un'altra. Il risultato separò definitivamente due idee: continuità e proprietà dei valori intermedi."
+      },
+      "lhopital": {
+        "title": "Una regola, due nomi",
+        "summary": "La regola di de l'Hôpital apparve nel primo manuale di calcolo, ma proveniva dalle lezioni di Johann Bernoulli.",
+        "body": "Nel 1696 Guillaume de l'Hôpital pubblicò Analyse des infiniment petits, il primo manuale sistematico di calcolo differenziale. La regola porta il suo nome, ma i documenti storici mostrano che il risultato proveniva dalle lezioni di Johann Bernoulli, che l'Hôpital aveva sostenuto economicamente."
+      },
+      "taylorError": {
+        "title": "Lagrange, Cauchy e l'errore di Taylor",
+        "summary": "Il resto trasforma una buona approssimazione in una stima controllabile.",
+        "body": "Lagrange formulò una delle espressioni più usate per il resto di Taylor; Cauchy ne sviluppò un'altra forma e contribuì a chiarire le ipotesi di convergenza. L'idea pratica è moderna e decisiva: non basta approssimare, bisogna sapere quanto possiamo sbagliare."
+      }
+    },
+    "fermat": {
+      "title": "Teorema di Fermat",
+      "subtitle": "Dove cercare massimi e minimi",
+      "hypotheses": "Il punto \\(x_0\\) è interno al dominio, la funzione è derivabile in \\(x_0\\) e lì ha un massimo o minimo locale.",
+      "geometry": "In un estremo regolare la curva non può continuare a salire o scendere: la tangente deve essere orizzontale.",
+      "use": "Riduce la ricerca degli estremi ai punti stazionari e ai punti in cui la derivata non esiste.",
+      "caution": "È una condizione necessaria, non sufficiente: \\(f(x)=x^3\\) ha \\(f^{\\prime}(0)=0\\), ma zero non è un estremo."
+    },
+    "rolle": {
+      "title": "Teorema di Rolle",
+      "subtitle": "Stessa quota, tangente orizzontale",
+      "hypotheses": "\\(f\\) è continua su \\([a,b]\\), derivabile su \\((a,b)\\) e assume lo stesso valore agli estremi.",
+      "geometry": "Se il percorso parte e arriva alla stessa altezza, in almeno un punto intermedio la tangente è orizzontale.",
+      "use": "Permette di contare o separare gli zeri: tra due zeri distinti di \\(f\\) esiste almeno uno zero di \\(f^{\\prime}\\).",
+      "caution": "Garantisce l'esistenza di almeno un punto, ma non dice dove sia né se sia unico."
+    },
+    "lagrange": {
+      "title": "Teorema di Lagrange",
+      "subtitle": "Una velocità istantanea uguaglia quella media",
+      "hypotheses": "\\(f\\) è continua sull'intervallo chiuso \\([a,b]\\) e derivabile al suo interno.",
+      "geometry": "Esiste almeno una tangente parallela alla corda che congiunge i due estremi del grafico.",
+      "use": "Collega variazione totale e tasso istantaneo; permette anche di stimare quanto può cambiare una funzione.",
+      "caution": "Il teorema garantisce \\(c\\), ma in generale non fornisce una formula per calcolarlo."
+    },
+    "monotone": {
+      "title": "Criterio di monotonia",
+      "subtitle": "Il segno della derivata orienta il grafico",
+      "hypotheses": "\\(f\\) è continua sull'intervallo e derivabile al suo interno; il segno di \\(f^{\\prime}\\) è controllato su tutto l'intervallo.",
+      "geometry": "Tangenti con pendenza positiva accompagnano un grafico che sale; pendenze negative un grafico che scende.",
+      "use": "Consente di confrontare valori della funzione senza calcolarli tutti e di leggere l'andamento locale.",
+      "caution": "Uno zero isolato di \\(f^{\\prime}\\) non interrompe necessariamente la crescita: \\(x^3\\) resta crescente attraversando zero."
+    },
+    "secondTest": {
+      "title": "Test della derivata seconda",
+      "subtitle": "Classificare un punto stazionario",
+      "hypotheses": "La funzione è derivabile due volte vicino a \\(x_0\\) e \\(f^{\\prime}(x_0)=0\\).",
+      "geometry": "Una tangente orizzontale dentro una coppa individua un minimo; dentro una cupola individua un massimo.",
+      "use": "Classifica rapidamente molti punti stazionari senza costruire uno studio completo del segno di \\(f^{\\prime}\\).",
+      "caution": "Se \\(f^{\\prime\\prime}(x_0)=0\\), il test non decide: \\(x^4\\), \\(-x^4\\) e \\(x^3\\) danno tre comportamenti diversi."
+    },
+    "convexity": {
+      "title": "Criterio di convessità",
+      "subtitle": "Il segno di f″ descrive la curvatura",
+      "hypotheses": "La derivata seconda esiste nell'intervallo considerato e mantiene lo stesso segno.",
+      "geometry": "Con \\(f^{\\prime\\prime}>0\\) le tangenti restano sotto il grafico; con \\(f^{\\prime\\prime}<0\\) restano sopra.",
+      "use": "Permette di capire verso dove piega la curva e di riconoscere possibili cambi di concavità.",
+      "caution": "Il solo valore \\(f^{\\prime\\prime}(x_0)=0\\) non basta per affermare che \\(x_0\\) sia un flesso: serve un cambio di concavità."
+    },
+    "cauchy": {
+      "title": "Teorema di Cauchy",
+      "subtitle": "Due variazioni confrontate nello stesso punto",
+      "hypotheses": "\\(f\\) e \\(g\\) sono continue su \\([a,b]\\), derivabili in \\((a,b)\\) e \\(g^{\\prime}\\neq0\\).",
+      "geometry": "La curva parametrica \\((g(t),f(t))\\) possiede una tangente parallela alla corda tra gli estremi.",
+      "use": "Confronta due grandezze che cambiano insieme ed è la base teorica della regola di de l'Hôpital.",
+      "caution": "Occorre controllare le ipotesi su entrambe le funzioni e che il denominatore del rapporto sia significativo."
+    },
+    "darboux": {
+      "title": "Teorema di Darboux",
+      "subtitle": "Le pendenze non possono saltare",
+      "hypotheses": "\\(f\\) è derivabile su un intervallo; non è necessario supporre continua la funzione derivata.",
+      "geometry": "Mentre la tangente ruota da una pendenza a un'altra, assume tutte le inclinazioni intermedie.",
+      "use": "Permette di escludere che una funzione a gradino sia la derivata di qualche funzione.",
+      "caution": "Avere tutti i valori intermedi non significa essere continua: una derivata può essere discontinua senza fare salti."
+    },
+    "lhopital": {
+      "title": "Regola di de l'Hôpital",
+      "subtitle": "Confrontare velocità di annullamento o crescita",
+      "hypotheses": "Il rapporto presenta una forma \\(0/0\\) o \\(\\infty/\\infty\\), le funzioni sono derivabili vicino al punto e il limite del rapporto delle derivate esiste.",
+      "geometry": "Vicino al punto comune, il rapporto tra le altezze viene sostituito dal rapporto tra le pendenze.",
+      "use": "Semplifica limiti come \\(\\lim_{x\\to0}\\sin x/x\\) o confronti tra crescite esponenziali e polinomiali.",
+      "caution": "Non si applica a qualunque frazione: prima va verificata la forma indeterminata e talvolta serve ripetere il procedimento."
+    },
+    "inverse": {
+      "title": "Derivata della funzione inversa",
+      "subtitle": "Riflettere il grafico scambia le pendenze",
+      "hypotheses": "\\(f\\) è invertibile vicino a \\(x_0\\), derivabile e \\(f^{\\prime}(x_0)\\neq0\\).",
+      "geometry": "I grafici di \\(f\\) e \\(f^{-1}\\) sono simmetrici rispetto a \\(y=x\\); le pendenze delle tangenti sono reciproche.",
+      "use": "Ricava in modo naturale le derivate di logaritmo, radice e funzioni trigonometriche inverse.",
+      "caution": "Se \\(f^{\\prime}(x_0)=0\\), l'inversa può avere una tangente verticale e la formula non produce un valore finito."
+    },
+    "taylorError": {
+      "title": "Taylor con resto di Lagrange",
+      "subtitle": "Misurare l'errore dell'approssimazione",
+      "hypotheses": "\\(f\\) possiede le derivate necessarie tra il centro \\(a\\) e il punto \\(x\\).",
+      "geometry": "Il polinomio coincide localmente con valore e derivate; il resto misura la distanza verticale ancora visibile dalla curva.",
+      "use": "Stabilisce quante cifre o quale precisione possiamo aspettarci da un'approssimazione di Taylor.",
+      "caution": "L'errore dipende da una derivata di ordine superiore in un punto \\(\\xi\\) non noto: va stimata su tutto l'intervallo."
+    }
+  },
+  "geometryLab": {
+    "canvasAriaLabel": "Grafico cartesiano in scala uniforme con rette secanti, tangente e normale",
+    "chips": {
+      "rightSecant": "secante destra",
+      "leftSecant": "secante sinistra",
+      "tangent": "tangente",
+      "normal": "normale"
+    },
+    "sliders": {
+      "basePoint": "PUNTO BASE · x₀ = {{value}}",
+      "basePointAriaLabel": "Punto base x zero",
+      "distance": "DISTANZA · |h| = {{value}}",
+      "distanceAriaLabel": "Valore assoluto dell'incremento h"
+    },
+    "metrics": {
+      "fromLeft": "da sinistra",
+      "fromRight": "da destra"
+    },
+    "buttons": {
+      "stop": "Ferma",
+      "animate": "Anima h → 0",
+      "showNormal": "Mostra normale",
+      "hideNormal": "Nascondi normale"
+    },
+    "prediction": {
+      "question": "Prima di rivelare: avvicinandosi da sinistra e da destra, le pendenze tenderanno allo stesso valore?",
+      "same": "Sì, coincidono",
+      "different": "No, restano diverse",
+      "reveal": "Rivela e confronta",
+      "feedbackClose": "Le due pendenze sono ormai molto vicine: il limite bilaterale è compatibile con una derivata. h non diventa mai zero: il rapporto sarebbe indefinito.",
+      "feedbackFar": "Le pendenze laterali non coincidono ancora. Riduci |h|; se restano diverse, la derivata non esiste. h non diventa mai zero: il rapporto sarebbe indefinito."
+    },
+    "canvas": {
+      "deltaX": "Δx = h",
+      "deltaY": "Δy"
+    },
+    "undefined": "non definita"
+  },
+  "secondDerivativeLab": {
+    "canvasAriaLabel": "Grafico interattivo della concavità con tangente e cerchio osculatore",
+    "concavityUp": {
+      "title": "Concava verso l'alto",
+      "text": "Procedendo da sinistra a destra, le pendenze aumentano: da negative diventano nulle e poi positive."
+    },
+    "concavityDown": {
+      "title": "Concava verso il basso",
+      "text": "Procedendo da sinistra a destra, le pendenze diminuiscono: da positive diventano nulle e poi negative."
+    },
+    "inflection": {
+      "title": "Possibile flesso",
+      "text": "Se la derivata seconda cambia segno, anche la concavità cambia. Il solo valore zero, però, non basta.",
+      "svgLabel": "cambio di concavità"
+    },
+    "chips": {
+      "function": "funzione",
+      "tangent": "tangente",
+      "osculatingCircle": "cerchio osculatore"
+    },
+    "sliders": {
+      "movePoint": "SPOSTA IL PUNTO · x₀ = {{value}}",
+      "movePointAriaLabel": "Posizione del punto sulla funzione"
+    },
+    "buttons": {
+      "stopPoint": "Ferma punto",
+      "animatePoint": "Anima il punto",
+      "hideAdvanced": "Nascondi curvatura avanzata",
+      "exploreAdvanced": "Approfondisci: curvatura e cerchio osculatore"
+    },
+    "prediction": {
+      "question": "Prima di leggere il valore: qui f″ sarà positivo, negativo oppure circa zero?",
+      "reveal": "Rivela",
+      "correct": "Previsione corretta. In questo punto",
+      "compare": "Confronta la tua previsione con il grafico. In questo punto"
+    },
+    "metrics": {
+      "slope": "Pendenza",
+      "slopeChange": "Variazione pendenza",
+      "curvature": "Curvatura",
+      "radius": "Raggio del cerchio"
+    },
+    "status": {
+      "positive": {
+        "title": "Concava verso l'alto",
+        "body": "Le pendenze stanno aumentando: la tangente ruota in senso antiorario mentre il punto avanza."
+      },
+      "negative": {
+        "title": "Concava verso il basso",
+        "body": "Le pendenze stanno diminuendo: la tangente ruota in senso orario mentre il punto avanza."
+      },
+      "zero": {
+        "title": "Curvatura nulla in questo punto",
+        "body": "Il cerchio osculatore ha raggio infinito. Controlla i punti vicini: se f″ cambia segno, questo è un flesso."
+      }
+    },
+    "advanced": {
+      "title": "Perché un cerchio?",
+      "body1": "La tangente riproduce valore e pendenza; il cerchio osculatore riproduce anche la curvatura locale. Il suo raggio soddisfa",
+      "body2": "con",
+      "body3": "Più il raggio è piccolo, più la curva piega."
+    }
+  }
+}

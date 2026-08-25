@@ -1,0 +1,1336 @@
+{
+  "language": {
+    "label": "Sprache",
+    "it": "Italienisch",
+    "en": "Englisch",
+    "fr": "Französisch",
+    "de": "Deutsch",
+    "es": "Spanisch"
+  },
+  "meta": {
+    "title": "Ableitungen — Interaktiver Kurs",
+    "description": "Ein adaptiver interaktiver Kurs zu Ableitungen für die Oberstufe",
+    "ogDescription": "Adaptive Übungen mit Beweisen über Grenzwerte und Differenzenquotienten."
+  },
+  "common": {
+    "overview": "Übersicht",
+    "settings": "Einstellungen",
+    "close": "Schließen",
+    "cancel": "Abbrechen",
+    "result": "Ergebnis",
+    "dashboard": "Dashboard",
+    "exercises": "Übungen",
+    "glossary": "Glossar",
+    "loadingPage": "Seite wird geladen",
+    "openGlossary": "Glossar öffnen",
+    "externalSource": "Externe Quelle",
+    "learnMore": "Mehr erfahren",
+    "storyOfIdeas": "EINE GESCHICHTE DER IDEEN",
+    "lesson": "LEKTION",
+    "objective": "ZIEL",
+    "readSections": "GELESENE ABSCHNITTE",
+    "points": "Pkt.",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "print": "Drucken",
+    "saved": "Gespeichert"
+  },
+  "header": {
+    "skip": "Zum Inhalt springen",
+    "openPath": "Lernpfad öffnen",
+    "subtitle": "vom Grenzwert zur Beherrschung",
+    "lessons": "LEKTIONEN",
+    "lessonProgress": "Lektionsfortschritt",
+    "settings": "Einstellungen",
+    "points": "★ {{points}} Pkt."
+  },
+  "nav": {
+    "yourPath": "Dein Lernpfad",
+    "coreCount": "von {{count}} Kernabschnitten",
+    "materials": "Materialien",
+    "lesson1": "Lektion 1",
+    "lesson2": "Lektion 2",
+    "worksheet1": "Arbeitsblatt §1",
+    "worksheet2": "Arbeitsblatt §2",
+    "finalTest": "Abschlusstest",
+    "adaptive": "Adaptive Übungen",
+    "core": "KERN",
+    "enrichment": "VERTIEFUNG"
+  },
+  "course": {
+    "velocita": {
+      "title": "Das Problem: Momentangeschwindigkeit",
+      "short": "Momentangeschwindigkeit"
+    },
+    "geometria": {
+      "title": "Geometrie der Ableitung",
+      "short": "Geometrie"
+    },
+    "definizione": {
+      "title": "Formale Definition",
+      "short": "Formale Definition"
+    },
+    "derivabilita": {
+      "title": "Differenzierbarkeit und singuläre Punkte",
+      "short": "Differenzierbarkeit"
+    },
+    "interpretazioni": {
+      "title": "Interpretationen und Anwendungen",
+      "short": "Interpretationen"
+    },
+    "warmup": {
+      "title": "Wiederholung und Warm-up",
+      "short": "Warm-up"
+    },
+    "fondamentali": {
+      "title": "Grundlegende Ableitungen",
+      "short": "Grundlegende Ableitungen"
+    },
+    "regole": {
+      "title": "Ableitungsregeln",
+      "short": "Ableitungsregeln"
+    },
+    "derivata-seconda": {
+      "title": "Zweite Ableitung",
+      "short": "Zweite Ableitung"
+    },
+    "taylor": {
+      "title": "Taylorreihe",
+      "short": "Taylor · optional"
+    },
+    "teoremi": {
+      "title": "Anhang: Ableitungssätze",
+      "short": "Sätze · Anhang"
+    }
+  },
+  "overview": {
+    "eyebrow": "Geführter Kurs · zwei Lektionen à 2 Stunden",
+    "title": "Ableitungen:",
+    "titleAccent": "vom Grenzwert zur Beherrschung.",
+    "intro": "Wir beginnen mit einer konkreten Frage: Wie misst man die Geschwindigkeit in einem einzelnen Augenblick? Daraus entwickeln wir Geometrie, Definition und Regeln ohne Schritte zu überspringen.",
+    "openSummary": "Zusammenfassung öffnen",
+    "resume": "Lektion fortsetzen",
+    "start": "Mit dem Problem beginnen",
+    "coreRead": "{{read}}/{{total}} KERNABSCHNITTE GELESEN · {{optional}}/{{optionalTotal}} VERTIEFUNGEN",
+    "progress": "KURSFORTSCHRITT",
+    "coreSections": "Kernabschnitte gelesen",
+    "verified": "Konzepte überprüft",
+    "mastered": "Klassen gemeistert",
+    "enrichment": "Vertiefungen besucht",
+    "oneQuestion": "Eine Frage, drei Antworten",
+    "what": "Was ist eine Ableitung?",
+    "question": "FRAGE {{number}}",
+    "unlock": "Die Antwort erscheint nach dem Lesen von „{{section}}“.",
+    "cards": {
+      "geometry": {
+        "q": "Wie findet man die Steigung einer Kurve?",
+        "label": "GEOMETRISCH",
+        "title": "Eine Steigung",
+        "answer": "Sie ist die Steigung der Tangente, gewonnen als Grenzwert der Sekanten."
+      },
+      "analytic": {
+        "q": "Warum tritt ein Grenzwert auf?",
+        "label": "ANALYTISCH",
+        "title": "Ein Grenzwert",
+        "answer": "Es ist der Grenzwert des Differenzenquotienten, wenn der Zuwachs gegen null geht, ohne null zu werden."
+      },
+      "application": {
+        "q": "Was misst sie wirklich?",
+        "label": "ANWENDUNG",
+        "title": "Eine momentane Rate",
+        "answer": "Sie misst, wie schnell sich eine Größe ändert, mit Vorzeichen und genauer Einheit."
+      }
+    },
+    "lesson1": {
+      "title": "Das Konzept der Ableitung",
+      "subtitle": "Von der Bewegung zur formalen Definition",
+      "duration": "2 Stunden",
+      "objective": "Die Ableitung als geometrisches, analytisches und physikalisches Objekt aufbauen."
+    },
+    "lesson2": {
+      "title": "Regeln, Taylor und Sätze",
+      "subtitle": "Von Beweisen zur sicheren Berechnung",
+      "duration": "2 Stunden + Anhang",
+      "objective": "Regeln aus Grenzwerten herleiten, anwenden und die wichtigsten Sätze anhand von Abbildungen und praktischen Fällen erkunden."
+    },
+    "break": "PAUSE + ARBEITSBLATT §{{sheet}} · 10 MIN",
+    "associated": "Zugehörige Materialien",
+    "train": "Üben und überprüfen",
+    "material": {
+      "sheet1": "Arbeitsblatt §1",
+      "sheet1Body": "Definition und geometrische Bedeutung · 25 Min.",
+      "sheet2": "Arbeitsblatt §2",
+      "sheet2Body": "Ableitungsregeln · 30 Min.",
+      "test": "Abschlusstest",
+      "testBody": "4 Aufgaben · 30 Punkte · 45 Min.",
+      "adaptive": "Adaptive Übungen",
+      "adaptiveBody": "27 Übungen mit steigendem Schwierigkeitsgrad"
+    },
+    "source": "Quellcode",
+    "sourceBody": "Projekt, Dokumentation und Änderungshistorie auf GitHub ansehen.",
+    "openRepo": "Repository öffnen"
+  },
+  "lesson": {
+    "optional": "Optional",
+    "appendix": "Anhang",
+    "content": {
+      "velocita": {
+        "title": "Geschwindigkeit in einem einzigen Augenblick",
+        "lead": "Vor der Formel steht das Problem: Die Durchschnittsgeschwindigkeit gehört zu einem Zeitintervall. Wie beschreibt man die Geschwindigkeit in einem Zeitpunkt ohne Dauer?"
+      },
+      "geometria": {
+        "title": "Die Sekante wird zur Tangente",
+        "lead": "Die Ableitung entsteht geometrisch, indem zwei Punkte des Graphen zusammenrücken. Verändere h und beobachte, wie die Sekantensteigung zur Tangentensteigung konvergiert."
+      },
+      "definizione": {
+        "title": "Die formale Definition",
+        "lead": "Nun fassen wir die geometrische und physikalische Intuition präzise. Die Ableitung existiert, wenn der Differenzenquotient gegen einen endlichen Wert strebt."
+      },
+      "derivabilita": {
+        "title": "Stetig bedeutet nicht differenzierbar",
+        "lead": "Eine differenzierbare Funktion ist immer stetig. Die Umkehrung gilt nicht: Ein Graph kann ununterbrochen sein und dennoch eine Ecke oder vertikale Tangente haben."
+      },
+      "interpretazioni": {
+        "title": "Drei Bedeutungen von „Ableitung“",
+        "lead": "Dasselbe mathematische Objekt beschreibt Steigung, Grenzwert und Änderungsrate. Zwischen diesen Deutungen zu wechseln ist das eigentliche Lernziel."
+      },
+      "warmup": {
+        "title": "Drei Fragen zum Wiedereinstieg",
+        "lead": "Bevor wir Rechenregeln aufbauen, rufen wir die Ideen der ersten Lektion ab. Antworte mündlich oder auf Papier und öffne dann die Korrektur."
+      },
+      "fondamentali": {
+        "title": "Die Tabelle gemeinsam aufbauen",
+        "lead": "Die mittlere Spalte ist am wichtigsten: Merke dir, welche Idee die Formel erzeugt, damit du sie rekonstruieren kannst."
+      },
+      "regole": {
+        "title": "Vier Regeln, vier Ideen",
+        "lead": "Für jede Regel verbinden wir Rechenformel, Grenzwertbeweis und sprachliche Deutung. Einsatzbereit ist sie erst, wenn ihre Herkunft verstanden ist."
+      },
+      "derivata-seconda": {
+        "title": "Die Ableitung der Ableitung",
+        "lead": "f″ misst, wie sich die Steigung ändert. Im Graphen beschreibt sie die Krümmung, in der Bewegung die Beschleunigung."
+      },
+      "taylor": {
+        "title": "Die lokale DNA einer Funktion",
+        "lead": "Taylor beantwortet eine konkrete Frage: Kann man eine schwierige Funktion nahe einem gewählten Punkt durch ein einfacheres, sehr ähnliches Polynom ersetzen?"
+      },
+      "teoremi": {
+        "title": "Sätze, die die Ableitung arbeiten lassen",
+        "lead": "Dies ist noch keine vollständige Funktionsuntersuchung, sondern ein Werkzeugkasten. Jeder Satz beginnt mit einer Abbildung, beantwortet eine konkrete Frage und nennt klar seine Voraussetzungen."
+      }
+    },
+    "sectionRead": "Abschnitt gelesen",
+    "didRead": "Hast du diesen Abschnitt gelesen?",
+    "readNotice": "Das Lesen wird gespeichert, entspricht aber nicht der durch Übungen überprüften Beherrschung.",
+    "read": "Gelesen",
+    "markRead": "Als gelesen markieren",
+    "then": "danach {{section}}",
+    "goSheet1": "Zum Arbeitsblatt §1",
+    "goSheet2": "Zum Arbeitsblatt §2"
+  },
+  "adaptive": {
+    "eyebrow": "Adaptives Training",
+    "title": "Von der Lektion",
+    "titleAccent": "zur Beherrschung.",
+    "intro": "Die Übungen sind nach Voraussetzungen und Schwierigkeit geordnet. Themen mit Übungsbedarf kehren zuerst zurück; neue Klassen werden mit deinem Fortschritt freigeschaltet.",
+    "continue": "Übungen fortsetzen",
+    "start": "Übungen beginnen",
+    "completed": "Übungen abgeschlossen",
+    "firstTry": "beim ersten Versuch richtig",
+    "proofs": "Beweise gelesen",
+    "classes": "Aufgabenklassen",
+    "yourPath": "Dein Lernpfad",
+    "unlockHint": "Schließe eine Klasse ab, um davon abhängige Konzepte freizuschalten.",
+    "exerciseCount": "{{count}} ÜBUNGEN · {{points}} PKT.",
+    "locked": "Zuerst abschließen: {{classes}}",
+    "loading": "Lernpfad wird vorbereitet…",
+    "loadError": "Übungen konnten nicht geladen werden: {{error}}",
+    "statusMastered": "✓ GEMEISTERT",
+    "statusRecovery": "↻ ZU WIEDERHOLEN",
+    "statusProgress": "● IN ARBEIT",
+    "statusStart": "HIER STARTEN →",
+    "statusAvailable": "VERFÜGBAR →",
+    "statusLocked": "🔒 IM LERNPFAD GESPERRT",
+    "consult": "Trotzdem ansehen"
+  },
+  "difficulty": {
+    "1": "Basis",
+    "2": "Mittel",
+    "3": "Fortgeschritten",
+    "4": "Herausforderung"
+  },
+  "settings": {
+    "back": "Zurück zum Dashboard",
+    "eyebrow": "Präferenzen",
+    "title": "Einstellungen",
+    "intro": "Passe das Lesen an und verwalte deinen lokalen Fortschritt.",
+    "dark": "Dunkles Design",
+    "darkBody": "Reduziert die Helligkeit und erhält einen hohen Kontrast der Formeln.",
+    "export": "Fortschritt exportieren",
+    "exportBody": "Lade eine JSON-Kopie deiner Ergebnisse herunter.",
+    "exportAction": "Exportieren",
+    "import": "Fortschritt importieren",
+    "importBody": "Stelle eine aus dieser App exportierte Datei wieder her (Fortschrittsschema v4).",
+    "importAction": "Importieren",
+    "invalid": "Diese Datei enthält keinen gültigen Fortschritt oder verwendet eine inkompatible Version.",
+    "imported": "Fortschritt erfolgreich importiert",
+    "restart": "Lernpfad neu beginnen",
+    "restartBody": "Löscht gelesene Abschnitte, Punkte, Versuche, abgeschlossene Klassen und gespeicherte digitale Arbeitsblätter in diesem Browser.",
+    "reset": "Fortschritt zurücksetzen",
+    "footer": "ABLEITUNGEN · VERSION 1.0.0 · DATEN BLEIBEN IN DEINEM BROWSER",
+    "confirmTitle": "Gesamten Fortschritt zurücksetzen?",
+    "confirmBody": "Dadurch werden gelesene Abschnitte, Punkte, Antworten, abgeschlossene Klassen und digitale Arbeitsblätter dauerhaft entfernt. Du kannst vorher eine Sicherung exportieren.",
+    "resetAll": "Alles zurücksetzen",
+    "resetDone": "Fortschritt und digitale Arbeitsblätter zurückgesetzt"
+  },
+  "glossary": {
+    "eyebrow": "Kursbegriffe",
+    "title": "Glossar",
+    "openDefinition": "Definition von {{term}} öffnen",
+    "terms": {
+      "differenceQuotient": {
+        "term": "Differenzenquotient",
+        "definition": "Das Verhältnis zwischen der Änderung einer Funktion und der Änderung h ihrer Variablen. Die Ableitung entsteht aus seinem Grenzwert."
+      },
+      "secant": {
+        "term": "Sekante",
+        "definition": "Eine Gerade durch zwei Punkte des Graphen. Wenn die Punkte zusammenrücken, können die Sekanten gegen die Tangente streben."
+      },
+      "tangent": {
+        "term": "Tangente",
+        "definition": "Eine Gerade mit derselben lokalen Richtung wie der Graph im Punkt; ihre Steigung ist die Ableitung."
+      },
+      "differentiability": {
+        "term": "Differenzierbarkeit",
+        "definition": "Existenz einer endlichen Ableitung im Punkt mit demselben links- und rechtsseitigen Grenzwert."
+      },
+      "prosthaphaeresis": {
+        "term": "Prosthaphaeresis",
+        "definition": "Eine trigonometrische Identität, die Summen oder Differenzen von Sinus und Kosinus in Produkte umwandelt."
+      },
+      "operatorNotation": {
+        "term": "Operatornotation",
+        "definition": "Die Schreibweise Df, die das Differenzieren als eine auf die Funktion f angewandte Operation betrachtet."
+      },
+      "curvature": {
+        "term": "Krümmung",
+        "definition": "Ein geometrisches Maß dafür, wie schnell eine Kurve ihre Richtung ändert. Sie ergänzt das bloße Vorzeichen von f″."
+      },
+      "osculatingCircle": {
+        "term": "Krümmungskreis",
+        "definition": "Ein Kreis, der Position, Richtung und Krümmung einer Kurve lokal annähert."
+      },
+      "maclaurin": {
+        "term": "Maclaurin",
+        "definition": "Der Spezialfall des Taylorpolynoms mit Zentrum x₀=0, benannt nach Colin Maclaurin."
+      },
+      "adequality": {
+        "term": "Adäqualität",
+        "definition": "Eine historische Methode zum Finden von Tangenten und Extrema, die Fermat vor der Infinitesimalrechnung entwickelte."
+      },
+      "darboux": {
+        "term": "Darboux",
+        "definition": "Der Satz, dass eine Ableitung auch bei Unstetigkeit alle Zwischenwerte annimmt."
+      },
+      "cauchy": {
+        "term": "Cauchy",
+        "definition": "Der Mathematiker, der Grenzwerte, Stetigkeit und den verallgemeinerten Mittelwertsatz streng begründete."
+      }
+    }
+  },
+  "solution": {
+    "intro": "Vergleiche den Lösungsweg, nicht nur das Ergebnis. Die Lösung öffnet sich Schritt für Schritt.",
+    "check": "1. Eigene Lösung prüfen",
+    "rule": "Ich habe die verwendete Regel oder Definition angegeben",
+    "steps": "Ich habe alle Schritte ohne Lücken notiert",
+    "domain": "Ich habe Vorzeichen, Definitionsbereich und Einheiten geprüft",
+    "hint": "2. Hinweis anzeigen",
+    "hintBody": "Erkenne die Struktur der Aufgabe und schreibe die allgemeine Formel vor dem Einsetzen der Daten auf.",
+    "firstStep": "3. Ersten Schritt anzeigen",
+    "nextStep": "Nächsten Schritt anzeigen"
+  },
+  "classPage": {
+    "back": "Zurück zum Lernpfad",
+    "classOf": "Klasse {{current}} von {{total}}",
+    "prerequisites": "VORAUSSETZUNGEN",
+    "completed": "ABGESCHLOSSEN",
+    "intro": "Die Reihenfolge passt sich deinen Ergebnissen an: Zuerst kommt, was gefestigt werden muss.",
+    "review": "Wiederholen",
+    "continue": "Fortsetzen",
+    "start": "Klasse beginnen",
+    "proofAvailable": "Beweis verfügbar",
+    "mastered": "Klasse gemeistert: Die nächsten Inhalte können freigeschaltet werden.",
+    "recovery": "Klasse abgeschlossen, aber zu wiederholen: Mindestens 70 % und zwei richtige Antworten sind erforderlich.",
+    "results": "Ergebnisse ansehen"
+  },
+  "exercisePage": {
+    "counter": "ÜBUNG {{current}} / {{total}}",
+    "exercise": "Übung",
+    "problem": "Aufgabe",
+    "helpAvailable": "Schrittweise Hilfen sind unter den Antworten verfügbar.",
+    "choose": "Wähle die richtige Antwort",
+    "confirm": "Antwort bestätigen",
+    "proceed": "Weiter",
+    "retry": "Übung wiederholen",
+    "hint": "Hinweis anzeigen",
+    "recall": "Konzept wiederholen",
+    "firstStep": "Ersten Schritt anzeigen",
+    "fullSolution": "Vollständige Lösung anzeigen",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "remaining": "{{count}} VERSUCHE ÜBRIG",
+    "correct": "Richtig!",
+    "great": "Sehr gut überlegt.",
+    "earned": "⭐ +{{points}} Punkte erhalten",
+    "attemptsEnded": "Keine Versuche mehr",
+    "attemptsEndedBody": "Betrachte die richtige Antwort und lerne die Lösungsschritte.",
+    "incorrect": "Nicht richtig",
+    "solutionShown": "Lösung angezeigt",
+    "solutionShownBody": "Lerne die Schritte; du kannst die Übung jederzeit wiederholen.",
+    "attemptsSentence_one": "Du hast noch {{count}} Versuch.",
+    "attemptsSentence_other": "Du hast noch {{count}} Versuche.",
+    "defaultHint": "Bestimme zuerst die Struktur der Funktion und die benötigte Regel.",
+    "recallBody": "Erinnerung: Schreibe zuerst die allgemeine Regel, benenne die beteiligten Funktionen und setze erst danach ein.",
+    "firstStepLabel": "Erster Schritt:",
+    "proof": "📐 Beweis über den Grenzwert",
+    "read": "gelesen ✓",
+    "guidedReading": "geführte Lektüre",
+    "proofIdea": "Beweisidee, ohne alle Schritte zu wiederholen",
+    "conclusion": "Schlussfolgerung",
+    "recognize": "Was du erkennen musst",
+    "checkpoint": "Verständniskontrolle",
+    "checkpointRetry": "Lies den Schritt mit h erneut und versuche es noch einmal.",
+    "solution": "📖 Schrittweise Lösung"
+  },
+  "resultsPage": {
+    "mastered": "Klasse gemeistert",
+    "recovery": "Klasse abgeschlossen · Wiederholung nötig",
+    "pointsOf": "PUNKTE VON {{max}}",
+    "score": "ERGEBNIS",
+    "correct": "RICHTIGE ANTWORTEN",
+    "summary": "Übungsübersicht",
+    "exercise": "Übung",
+    "attempts": "Versuche",
+    "proof": "Beweis",
+    "points": "Punkte",
+    "read": "gelesen",
+    "unavailable": "k. A.",
+    "nextClass": "Nächste Klasse",
+    "startRecovery": "Wiederholung starten ({{count}})",
+    "reviewClass": "Klasse wiederholen"
+  },
+  "worksheet": {
+    "correction": "Geführte Korrektur · jeweils eine Lösung",
+    "print": "Arbeitsblatt drucken",
+    "eyebrow": "Arbeitsblatt §{{sheet}}",
+    "title1": "Definition und geometrische Bedeutung",
+    "title2": "Ableitungsregeln",
+    "time1": "25 Minuten",
+    "time2": "30 Minuten",
+    "name": "Name ____________________",
+    "intro": "Zeige alle Schritte. Schreibe bei Berechnungen über die Definition zuerst den Differenzenquotienten und vereinfache danach.",
+    "guidedSolution": "Geführte Lösung mit Schritten"
+  },
+  "verification": {
+    "print": "Test drucken",
+    "eyebrow": "Abschlusstest",
+    "title": "Ableitungen",
+    "intro": "Bearbeite zuerst den Test und öffne danach die geführten Lösungen zur Kontrolle.",
+    "time": "45 Minuten",
+    "points": "30 Punkte",
+    "solution": "Geführte Lösung",
+    "check": "Lösung und Schritte prüfen",
+    "rubric": "Bewertung",
+    "bonus": "Bonusaufgabe · Taylor (nicht in den 30 Punkten)",
+    "bonusBody": "Bestimme das Taylorpolynom dritter Ordnung mit Zentrum null für f(x)=xeˣ. Nutze es nach dem Basistest als Vertiefung."
+  },
+  "exerciseFiles": {
+    "loadError": "Die Übungsdatei konnte nicht geladen werden: {{error}}"
+  },
+  "workspace": {
+    "open": "Digitales Arbeitsblatt im Vollbild öffnen",
+    "autosave": "Automatisches Speichern aktiv",
+    "close": "Digitales Arbeitsblatt schließen",
+    "problem": "Aufgabe",
+    "worksheetLabel": "Arbeitsblatt {{sheet}} · Übung {{exercise}}",
+    "verificationLabel": "Test · Aufgabe {{problem}}",
+    "pen": "Stift",
+    "highlighter": "Textmarker",
+    "eraser": "Radierer",
+    "pan": "Blatt verschieben",
+    "strokeColor": "Strichfarbe",
+    "strokeSize": "Strichstärke",
+    "solution": "Lösung",
+    "clear": "Löschen",
+    "scrollableSheet": "{{label}}: scrollbares Blatt mit nummerierten Zeilen",
+    "writingArea": "{{label}}: freier Schreibbereich",
+    "ruleWritten": "Regel notiert",
+    "stepsShown": "Schritte gezeigt",
+    "domainChecked": "Vorzeichen und Definitionsbereich geprüft"
+  },
+  "conclusionPage": {
+    "eyebrow": "Zusammenfassung des Kernstoffs",
+    "title": "Die Ausgangsfrage hat jetzt eine Antwort.",
+    "incomplete": "Du kannst die Zusammenfassung ansehen; {{read}} von {{total}} Kernabschnitten sind als gelesen markiert.",
+    "velocity": "Geschwindigkeit im Zeitpunkt t = 2",
+    "explain": "Erkläre es mit eigenen Worten",
+    "explainBody": "Eine persönliche Definition macht sichtbar, welche Verbindungen du aufgebaut hast.",
+    "definition": "Die Ableitung ist…",
+    "geometry": "Was erkenne ich im Graphen?",
+    "calculus": "Was kann ich berechnen?",
+    "applications": "Was kann ich deuten?",
+    "save": "Meine Zusammenfassung speichern",
+    "saved": "Zusammenfassung in diesem Browser gespeichert.",
+    "next": "Der nächste Schritt",
+    "assess": "Beherrschung prüfen",
+    "back": "Zurück zur Übersicht"
+  },
+  "chainRule": {
+    "intro": {
+      "paragraph1": "Eine zusammengesetzte Funktion ist eine Funktion innerhalb einer anderen. Der Wert von \\(x\\) gelangt nicht direkt zum Sinus: Er wird zunächst in \\(x^2\\) umgewandelt, dann tritt das Ergebnis in den Sinus ein. Jede Transformation ist eine Schicht.",
+      "paragraph2": "Stell dir eine Zwiebel vor: Die äußere Formel umhüllt die inneren. Um korrekt abzuleiten, entfernen wir eine Schicht nach der anderen, ohne eine auszulassen."
+    },
+    "buildBox": {
+      "overline": "ZUERST: WIE DIE FUNKTION AUFGEBAUT WIRD",
+      "title": "Von innen nach außen",
+      "subtitle": "Verfolge den Weg des Wertes von x: Der Ausgang einer Schicht wird zum Eingang der nächsten.",
+      "ariaLabel": "Schichtweiser Aufbau von Sinus x-Quadrat",
+      "symbolsNote": "In Symbolen: \\(u=x^2\\), dann \\(y=\\sin u\\). Also \\(y=\\sin(x^2)\\)."
+    },
+    "buildLayers": [
+      {
+        "label": "Eingabe",
+        "action": "beginne mit der Variablen"
+      },
+      {
+        "label": "Innere Schicht",
+        "action": "quadrieren"
+      },
+      {
+        "label": "Äußere Schicht",
+        "action": "Sinus anwenden"
+      }
+    ],
+    "deriveBox": {
+      "overline": "DANN: WIE MAN ABLEITET",
+      "title": "Von außen nach innen",
+      "subtitle": "Jetzt kehren wir die Perspektive um: Wir beginnen mit der zuletzt angewendeten, der äußersten Schicht. Nachdem wir sie abgeleitet haben, gehen wir in die nächste Schicht und multiplizieren den neuen Faktor."
+    },
+    "derivativeLayers": [
+      {
+        "label": "VON AUSSEN BEGINNEN",
+        "title": "Den Sinus ableiten, aber den Inhalt unverändert lassen",
+        "explanation": "Die Ableitung des Sinus ist der Kosinus. In diesem ersten Schritt bleibt x² unverändert in den Klammern: Es wurde noch nicht abgeleitet."
+      },
+      {
+        "label": "IN DIE NÄCHSTE SCHICHT EINTRETEN",
+        "title": "Jetzt den inneren Teil ableiten",
+        "explanation": "Sobald die Sinusschicht entfernt ist, begegnen wir der elementaren Funktion x². Ihre Ableitung ist 2x."
+      },
+      {
+        "label": "DIE EFFEKTE VERKNÜPFEN",
+        "title": "Die gesammelten Ableitungen entlang des Weges multiplizieren",
+        "explanation": "Der erste Faktor beschreibt, wie der Sinus reagiert; der zweite beschreibt, wie schnell sein Eingang x² sich ändert."
+      }
+    ],
+    "whyMultiply": {
+      "title": "Warum werden die Ableitungen multipliziert?",
+      "paragraph": "Eine kleine Änderung von \\(x\\) wird zunächst durch die Schicht \\(x^2\\) mit dem Faktor \\(2x\\) multipliziert: Der Absolutwert gibt an, wie viel sich ändert, das Vorzeichen auch in welche Richtung. Diese Änderung erreicht dann den Sinus und wird erneut mit \\(\\cos(x^2)\\) multipliziert.",
+      "totalEffect": "Der Gesamteffekt ist das Produkt der durchlaufenen Effekte:"
+    },
+    "deepSection": {
+      "overline": "EINE ZWIEBEL MIT DREI SCHICHTEN",
+      "title": "Was wäre, wenn die Funktion \\(e^{\\sin(x^2)}\\) wäre?",
+      "subtitle": "Die Methode ändert sich nicht. Wir gehen weiter hinein, bis wir x erreichen, und sammeln für jede Schicht einen Faktor.",
+      "layerLabel": "SCHICHT"
+    },
+    "deepLayers": [
+      {
+        "layer": "Äußere",
+        "reading": "Die Exponentialfunktion bleibt Exponentialfunktion. Alles im Exponenten bleibt vorerst unverändert."
+      },
+      {
+        "layer": "Mittlere",
+        "reading": "Wir treten in den Exponenten ein: Der Sinus wird zum Kosinus, wobei x² als Argument beibehalten wird."
+      },
+      {
+        "layer": "Innere",
+        "reading": "Wir erreichen die letzte Schicht, die Potenz, und leiten sie ab."
+      }
+    ],
+    "multiplyThreeFactors": {
+      "overline": "DIE DREI FAKTOREN MULTIPLIZIEREN",
+      "factor1": "1. Ableitung der Exponentialfunktion",
+      "factor2": "2. Ableitung des Sinus",
+      "factor3": "3. Ableitung des Quadrats"
+    },
+    "procedureBox": {
+      "title": "Das stets wiederverwendbare Verfahren"
+    },
+    "procedure": [
+      {
+        "title": "Die Schichten gedanklich einkreisen",
+        "text": "Bestimme, welche Funktion alle anderen umhüllt, und dann, welche im Inneren enthalten sind."
+      },
+      {
+        "title": "Die äußere Schicht ableiten",
+        "text": "Alles innerhalb ihrer Klammern unverändert lassen."
+      },
+      {
+        "title": "Eine Schicht eintreten und multiplizieren",
+        "text": "Wiederholen: Die neue Schicht ableiten, ihren Inhalt beibehalten und den Faktor zum Produkt hinzufügen."
+      },
+      {
+        "title": "Anhalten, wenn man x erreicht",
+        "text": "An diesem Punkt wurden alle Schichten durchlaufen; das Produkt kann neu geordnet und vereinfacht werden."
+      }
+    ]
+  },
+  "derivation": {
+    "proofVersionLabel": "BEWEISVERSION",
+    "howToRead": "WIE MAN SIE LIEST UND WANN MAN SIE VERWENDET",
+    "formulaLabel": "FORMEL",
+    "conclusionLabel": "SCHLUSSFOLGERUNG",
+    "mandatoryCheckpoint": "OBLIGATORISCHER KONTROLLPUNKT",
+    "rereadAndRetry": "Lies die Schritte noch einmal durch und versuche es erneut."
+  },
+  "lessonOne": {
+    "velocity": {
+      "eyebrow": "Lektion 1 · 0:00–0:10",
+      "situationEyebrow": "Die konkrete Situation",
+      "fallingObject": {
+        "title": "Ein Objekt fällt",
+        "body": "Stell dir vor, du beobachtest einen fallenden Gegenstand. Der zurückgelegte Weg wächst nicht gleichmäßig – jede Sekunde wird er schneller. Aus zwei Positionen lässt sich die Durchschnittsgeschwindigkeit berechnen, aber der Tachometer zeigt etwas anderes: eine Geschwindigkeit in genau diesem Augenblick."
+      },
+      "observe": {
+        "label": "ICH BEOBACHTE",
+        "value": "zwei Positionen",
+        "body": "Die Position zum Zeitpunkt t und kurz danach, zum Zeitpunkt t + h."
+      },
+      "measure": {
+        "label": "ICH MESSE",
+        "value": "eine Änderung",
+        "body": "Welcher Weg in diesem kleinen Zeitintervall zurückgelegt wurde."
+      },
+      "ask": {
+        "label": "ICH FRAGE",
+        "value": "und in einem Augenblick?",
+        "body": "Wir verkleinern das Intervall immer mehr, ohne es gleich null zu setzen."
+      },
+      "bridge": {
+        "title": "Die Brücke zum Grenzwert",
+        "body1": "Nachdem wir die Frage gestellt haben, können wir ihr eine Sprache geben. Wenn das Bewegungsgesetz \\(s(t)=\\tfrac12gt^2\\) lautet, ist die Durchschnittsgeschwindigkeit zwischen \\(t\\) und \\(t+h\\):",
+        "body2": "Die Momentangeschwindigkeit ergibt sich, indem man beobachtet, was passiert, wenn \\(h\\) gegen null geht. Genau diese Art von Frage beantwortet ein Grenzwert."
+      },
+      "historyNote": {
+        "title": "Galilei und das Problem der Geschwindigkeit",
+        "summary": "Galilei beschreibt die gleichmäßig beschleunigte Bewegung 1638, doch die Infinitesimalrechnung fehlt ihm noch.",
+        "body": "Galilei erkannte, dass beim freien Fall der Weg mit dem Quadrat der Zeit wächst. Er konnte die Bewegung über Intervalle beschreiben, verfügte aber noch nicht über eine strenge Definition der Momentangeschwindigkeit. Newton und Leibniz werden die notwendigen Werkzeuge einige Jahrzehnte nach seinem Tod schaffen."
+      },
+      "alert": {
+        "strong": "Frage für den nächsten Abschnitt:",
+        "body": "Wenn die Geschwindigkeit die Steigung eines Ort-Zeit-Graphen ist, wie findet man die Steigung einer Kurve in einem Punkt?"
+      }
+    },
+    "geometry": {
+      "eyebrow": "Lektion 1 · 0:10–0:30",
+      "guided": {
+        "eyebrow": "Geführte Lektüre",
+        "titlePre": "Vom",
+        "titlePost": "zur Steigung",
+        "para1": "Fixieren wir den Punkt \\(P=(x_0,f(x_0))\\) und wählen einen zweiten Punkt \\(Q=(x_0+h,f(x_0+h))\\). Die Gerade durch beide Punkte ist eine Sekante.",
+        "para2": "Wenn \\(h\\to0\\), nähert sich Q dem Punkt P, und die Sekanten streben gegen eine Grenzlage: die Tangente. Ihre Steigung ist \\(f'(x_0)\\)."
+      },
+      "example": {
+        "eyebrow": "Pflichtbeispiel",
+        "title": "Für f(x) = x² an der Stelle x₀ = 1",
+        "step1": "Setzen wir die Funktion in den Differenzenquotienten ein.",
+        "step2": "Das Quadrat wird ausmultipliziert und h gekürzt, das beim Berechnen des Quotienten ungleich null ist.",
+        "step3": "Die Steigung der Tangente an der Stelle x₀ = 1 beträgt 2."
+      },
+      "normal": {
+        "eyebrow": "Eine andere Richtung",
+        "title": "Die Normale",
+        "para": "Die Normale geht durch denselben Punkt wie die Tangente, steht aber senkrecht auf ihr. Hat die Tangente eine endliche, von null verschiedene Steigung, gilt \\(m_n=-1/m_t\\).",
+        "note": "Ist die Tangente waagerecht, ist die Normale senkrecht: \\(x=x_0\\). Ist die Tangente senkrecht, ist die Normale waagerecht: \\(y=f(x_0)\\)."
+      },
+      "historyNote": {
+        "title": "Leibniz, Infinitesimale und dy/dx",
+        "summary": "Die Schreibweise dy/dx bewahrt die geometrische Intuition eines Verhältnisses von Änderungen.",
+        "body": "Im Jahr 1675 führte Leibniz die Symbole dx und dy ein. Er verstand sie als unendlich kleine Änderungen – eine mächtige Idee, auch wenn die strenge Grundlage erst im 19. Jahrhundert mit Cauchys Grenzwertdefinition folgen sollte."
+      }
+    },
+    "definition": {
+      "eyebrow": "Lektion 1 · 0:30–0:55",
+      "box": {
+        "heading": "Definition",
+        "line1": "f heißt differenzierbar in x₀, wenn der folgende Grenzwert existiert und endlich ist",
+        "line2": "Diese Zahl ist die Ableitung von f in x₀."
+      },
+      "numberOrFunction": {
+        "title": "Eine Zahl oder eine Funktion?"
+      },
+      "atPoint": {
+        "label": "IN EINEM PUNKT",
+        "title": "f′(x₀) ist eine Zahl",
+        "body": "Sie misst die Steigung oder Änderungsrate an einem bestimmten Punkt x₀."
+      },
+      "asFunction": {
+        "label": "IN JEDEM PUNKT",
+        "title": "f′(x) ist eine Funktion",
+        "body": "Wiederholt man den Grenzwert für jedes x, erhält man eine neue Funktion: die Ableitungsfunktion."
+      },
+      "notations": {
+        "summary": "Vertiefung: vier historische Schreibweisen"
+      },
+      "proof": {
+        "eyebrow": "Pflichtbeweis mit Anleitung",
+        "title": "Die Formel entsteht aus dem Grenzwert",
+        "derivationTitle": "Ableitung von x²",
+        "meaning": "Sie besagt, dass die Steigung der Parabel \\(y=x^2\\) in jedem Punkt \\(x\\) gleich \\(2x\\) ist. Rechts vom Ursprung ist sie positiv, links negativ und im Ursprung null.",
+        "checkpoint": {
+          "question": "Warum darf man den Faktor h kürzen?",
+          "choice0": "Weil h im Quotienten ungleich null ist; der Grenzwert kommt erst danach",
+          "choice1": "Weil man sofort h=0 setzt",
+          "choice2": "Weil h stets gleich 1 ist",
+          "explanation": "Richtig: man kürzt für h≠0, und erst danach bildet man den Grenzwert."
+        },
+        "step1": {
+          "label": "Differenzenquotient",
+          "explanation": "Ausgehend von der Definition mit \\(f(x)=x^2\\)."
+        },
+        "step2": {
+          "label": "Quadrat ausmultiplizieren",
+          "explanation": "Man verwendet \\((x+h)^2=x^2+2xh+h^2\\) und kürzt \\(x^2\\)."
+        },
+        "step3": {
+          "label": "h kürzen",
+          "explanation": "Für \\(h\\neq0\\) kann man den Faktor h kürzen."
+        },
+        "step4": {
+          "label": "Grenzwert bilden",
+          "explanation": "Wenn h gegen null geht, bleibt \\(2x\\) übrig."
+        },
+        "conclusion": "Also gilt für jedes x: \\((x^2)'=2x\\)."
+      },
+      "historyNote": {
+        "title": "Newton und Leibniz: zwei Sprachen für Veränderung",
+        "summary": "Zwei unabhängige Entdeckungen, ein heftiger Streit und Schreibweisen, die wir noch heute verwenden.",
+        "body": "Newton entwickelte die Methode der Fluxionen und dachte dabei an Größen, die in der Zeit fließen; Leibniz schuf eine Sprache der Differentiale, die besser für symbolisches Rechnen geeignet war. Heute verwenden wir beide Intuitionen, die durch die Grenzwerttheorie streng begründet wurden."
+      }
+    },
+    "differentiability": {
+      "eyebrow": "Lektion 1 · 1:05–1:30",
+      "theorem": {
+        "eyebrow": "Satz",
+        "title": "Differenzierbarkeit ⇒ Stetigkeit",
+        "para": "Ist f in x₀ differenzierbar, so ist f in x₀ stetig. Der Beweis benutzt denselben Differenzenquotienten:",
+        "note": "Also gilt \\(f(x_0+h)\\to f(x_0)\\). Die Umkehrung gilt nicht: \\(f(x)=|x|\\) ist in 0 stetig, aber die einseitigen Steigungen sind −1 und +1."
+      },
+      "lab": {
+        "eyebrow": "Labor der Grenzfälle",
+        "title": "Was macht die Sekante am singulären Punkt?",
+        "para": "Wähle die drei Fälle aus und führe x₀ gegen null. Am Knickpunkt stimmen die beiden einseitigen Steigungen nicht überein; an der Spitze und der senkrechten Tangente bleibt die Steigung nicht endlich."
+      },
+      "cases": {
+        "corner": {
+          "title": "Knickpunkt",
+          "body": "Die einseitigen Ableitungen existieren und sind endlich, haben aber unterschiedliche Werte."
+        },
+        "cusp": {
+          "title": "Spitze",
+          "body": "Die einseitigen Steigungen werden mit entgegengesetzten Vorzeichen unendlich: Der Graph bildet eine Spitze."
+        },
+        "vertical": {
+          "title": "Senkrechte Tangente",
+          "body": "Die Steigungen wachsen mit gleichem Vorzeichen unbeschränkt: die Tangente ist senkrecht."
+        }
+      }
+    },
+    "interpretations": {
+      "eyebrow": "Lektion 1 · 1:30–2:00",
+      "geometric": {
+        "label": "GEOMETRISCH",
+        "title": "Steigung der Tangente",
+        "body": "Im Graphen gibt f′(x₀) an, wie stark die Kurve im Punkt x₀ geneigt ist."
+      },
+      "analytic": {
+        "label": "ANALYTISCH",
+        "title": "Grenzwert des Quotienten"
+      },
+      "physical": {
+        "label": "PHYSIKALISCH",
+        "title": "Momentane Rate",
+        "body": "Misst f eine Größe, so misst f′ wie schnell diese sich ändert."
+      },
+      "realWorld": {
+        "eyebrow": "In der realen Welt",
+        "title": "Dieselbe Idee trägt verschiedene Namen",
+        "velocity": {
+          "title": "Geschwindigkeit",
+          "body": "Die Ableitung des Ortes nach der Zeit."
+        },
+        "current": {
+          "title": "Stromstärke",
+          "body": "Die Rate, mit der elektrische Ladung fließt."
+        },
+        "growth": {
+          "title": "Wachstum",
+          "body": "Die momentane Wachstumsrate einer Population."
+        },
+        "cost": {
+          "title": "Grenzkosten",
+          "body": "Die Kosten für die Produktion einer zusätzlichen Einheit."
+        }
+      },
+      "problem": {
+        "eyebrow": "Interpretiertes Problem",
+        "title": "Was kostet eine zusätzliche Einheit?",
+        "para": "Ein kleines Unternehmen modelliert die Gesamtkosten in Euro mit \\(C(q)=0{,}02q^2+8q+500\\), wobei q die Stückzahl ist.",
+        "interpretationLabel": "Interpretation:",
+        "interpretationBody": "Bei rund 100 Stück erhöht eine zusätzliche Einheit die Kosten um etwa 12 €. Das positive Vorzeichen zeigt einen Anstieg; die Einheit ist Euro pro Stück. Die Ableitung erlaubt eine lokale Entscheidung, ohne die Gesamtkosten neu zu berechnen."
+      },
+      "closing": {
+        "heading": "Abschlussfrage",
+        "question": "„Was ist die Ableitung?\"",
+        "body": "Versuche, ohne Formeln zu antworten – einmal als Geometer, einmal als Analytiker und einmal als Physiker. Dann weiter zu Arbeitsblatt §1."
+      },
+      "historyNote": {
+        "title": "Von den Umlaufbahnen zum maschinellen Lernen",
+        "summary": "Die Ableitung ist zur gemeinsamen Sprache veränderlicher Systeme geworden.",
+        "body": "Von Newtons Mechanik bis zu den Gleichungen des Elektromagnetismus, von den Grenzkosten bis zur Optimierung von Machine-Learning-Modellen – die Ableitung macht Veränderung zu einem berechenbaren Objekt."
+      }
+    }
+  },
+  "velocityInquiry": {
+    "title": "Ein kleines numerisches Experiment",
+    "lead": {
+      "pre": "Die Position ist",
+      "mid": ". Wir möchten die Geschwindigkeit genau bei",
+      "post": "mithilfe immer kürzerer Intervalle abschätzen."
+    },
+    "predictionLabel": "Vor dem Rechnen: Gegen welchen Geschwindigkeitswert glaubst du, werden wir konvergieren?",
+    "calculateButton": "Durchschnittsgeschwindigkeiten berechnen",
+    "table": {
+      "h": "h",
+      "interval": "Intervall",
+      "avgVelocity": "Durchschnittsgeschwindigkeit",
+      "intervalValue": "von {{from}} bis {{to}}"
+    },
+    "result": {
+      "pre": "Die Werte folgen",
+      "post": "und nähern sich 20. Die Momentangeschwindigkeit beträgt also 20 Längeneinheiten pro Zeiteinheit."
+    },
+    "warning": {
+      "pre": "Wir setzen",
+      "post": "nie im Quotienten: Wir würden durch null dividieren. Stattdessen bestimmen wir den Wert, gegen den der Quotient strebt, wenn h klein wird."
+    }
+  },
+  "lessonTwo": {
+    "warmup": {
+      "q1": "Was sind die drei Lesarten der Ableitung?",
+      "a1": "Geometrisch: Steigung der Tangente. Analytisch: Grenzwert des Differenzenquotienten. Physikalisch: momentane Änderungsrate.",
+      "q2": "Was ist der Unterschied zwischen f′(x₀) und f′(x)?",
+      "a2": "f′(x₀) ist eine Zahl, die einem bestimmten Punkt zugeordnet ist; f′(x) ist die Funktion, die jedem x die Steigung an diesem Punkt zuordnet.",
+      "q3": "Impliziert Stetigkeit Differenzierbarkeit?",
+      "a3": "Nein. |x| ist in null stetig, hat aber einseitige Ableitungen −1 und +1 und ist daher in null nicht differenzierbar.",
+      "objectiveTitle": "Ziel der Stunde",
+      "objectiveHeading": "Die Tabelle selbst aufbauen – nicht nur empfangen.",
+      "objectiveBody": "Jede grundlegende Formel und jede Regel wird aus dem hergeleitet, was wir über Grenzwerte bereits wissen.",
+      "prereqEyebrow": "Vorwissen reaktiviert",
+      "prereqTitle": "Die zwei Standardgrenzwerte, die wir brauchen",
+      "prereqBody": "Wir beweisen sie hier nicht: Wir rufen sie numerisch in Erinnerung und erklären sie zu bekannten Ergebnissen. Sie sind die nötige Brücke, um Sinus und Exponentialfunktion ohne versteckte Schritte abzuleiten.",
+      "limit1Note": "Für t = 0,1 beträgt das Verhältnis etwa 0,9983; für t = 0,01 etwa 0,99998.",
+      "limit2Note": "Für t = 0,1 beträgt das Verhältnis etwa 1,0517; für t = 0,01 etwa 1,0050."
+    },
+    "fundamentals": {
+      "colFunction": "Funktion",
+      "colTool": "Hilfsmittel",
+      "colDerivative": "Ableitung",
+      "toolNewtonBinomial": "Binomischer Lehrsatz",
+      "toolAdditionFormulas": "Additionstheoreme",
+      "demoEyebrow": "Beweisversion",
+      "demoTitle": "Drei Ideen, die man rekonstruieren können sollte",
+      "powerTitle": "Ganzzahlige Potenz",
+      "powerMeaning": "Dient zur Ableitung einer Potenz von \\(x\\): der Exponent \\(n\\) tritt als Faktor nach vorne und wird danach um eins verringert. Zum Beispiel \\((x^3)'=3x^2\\).",
+      "stepDefinition": "Definition",
+      "powerStep1": "Wir beginnen mit dem Differenzenquotienten.",
+      "stepNewton": "Binomischer Lehrsatz",
+      "powerStep2": "Der erste Term hebt \\(x^n\\) auf; alle anderen enthalten h.",
+      "stepDivideH": "Durch h dividieren",
+      "powerStep3": "Nach Vereinfachung enthält nur der erste Term keinen Faktor h mehr.",
+      "stepLimit": "Grenzwert",
+      "powerStep4": "Die Terme, die h enthalten, streben gegen null.",
+      "powerConclusion": "Die Potenzregel ist kein Trick: Es ist der erste Koeffizient des Binomischen Lehrsatzes, der den Grenzübergang überlebt.",
+      "sineTitle": "Sinus · geführter Beweis",
+      "sineMeaning": "Der Kosinus misst die Steigung des Sinus im selben Punkt.",
+      "sineCheckQ": "Welche Voraussetzung ermöglicht den letzten Schritt?",
+      "sineCheckC0": "Der Grenzwert von sin(t)/t beträgt 1",
+      "sineCheckC1": "sin(0) beträgt 1",
+      "sineCheckC2": "Der Kosinus ist immer konstant",
+      "sineCheckExp": "Genau: Der im Warm-up in Erinnerung gerufene Standardgrenzwert taucht auf.",
+      "stepDiffQuotient": "Differenzenquotient",
+      "sineStep1": "Wir beginnen mit der Definition.",
+      "stepProsthaphaeresis": "Prosthaphärese-Formel",
+      "sineStep2": "Die Prosthaphärese wandelt die Differenz in ein Produkt um; den Begriff finden Sie im Glossar.",
+      "stepNotableLimit": "Standardgrenzwert",
+      "sineStep3": "Der zweite Faktor strebt gegen 1, wie im Warm-up erinnert.",
+      "sineConclusion": "Daher gilt \\((\\sin x)'=\\cos x\\).",
+      "cosineTitle": "Kosinus",
+      "cosineMeaning": "Besagt, dass die Steigung des Kosinus an \\(x\\) der negative Wert des Sinus am selben Punkt ist. Das Minuszeichen zeigt, dass der Kosinus anfangs fällt.",
+      "stepAdditionFormula": "Additionstheorem",
+      "cosineStep1": "Wir setzen in den Differenzenquotienten ein.",
+      "stepSeparate": "Trennen",
+      "cosineStep2": "Zwei Standardgrenzwerte erscheinen.",
+      "stepNotableLimits": "Standardgrenzwerte",
+      "cosineStep3": "\\((\\cos h-1)/h\\to0\\) und \\(\\sin h/h\\to1\\).",
+      "cosineConclusion": "Der Kosinus wird zu negativem Sinus abgeleitet.",
+      "expInsightTitle": "Warum \\((e^x)'=e^x\\) außergewöhnlich ist",
+      "expInsightBody": "Es ist die einzige Funktion, deren Wachstumsrate stets mit ihrem eigenen Wert übereinstimmt. Deshalb erscheint sie bei Bakterienwachstum, radioaktivem Zerfall und stetiger Verzinsung.",
+      "historyTitle": "Die Exponentialfunktion und selbstverstärkende Systeme",
+      "historySummary": "Wenn die Wachstumsrate proportional zur vorhandenen Menge ist, erscheint eˣ.",
+      "historyBody": "Wenn eine Population mit einer Rate wächst, die proportional zu ihrer Größe ist, lautet die Gleichung N′ = kN. Ihre Lösungen sind Exponentialfunktionen: die Funktion eˣ ist das natürliche Modell für Prozesse mit proportionaler Rückkopplung."
+    },
+    "rules": {
+      "linearityTitle": "Linearität",
+      "linearityMeaning": "Für Summen und Vielfache: \\(f\\) und \\(g\\) sind Funktionen, \\(\\alpha\\) und \\(\\beta\\) konstante Zahlen. Jede Funktion wird separat abgeleitet, die Konstanten bleiben erhalten.",
+      "linearityStep1": "Wir gruppieren die Änderungen von f und g getrennt.",
+      "stepSeparateLimit": "Trennen und zum Grenzwert übergehen",
+      "linearityStep2": "Der Grenzwert einer Summe ist die Summe der Grenzwerte; Konstanten treten heraus.",
+      "linearityConclusion": "Das Ableiten ist eine lineare Operation.",
+      "productTitle": "Produktregel",
+      "productMeaning": "Wenn \\(f(x)\\) und \\(g(x)\\) multipliziert werden: zunächst \\(f\\) ableiten und \\(g\\) festhalten, dann \\(f\\) festhalten und \\(g\\) ableiten; schließlich die beiden Beiträge addieren.",
+      "productCheckQ": "Warum enthält die Formel zwei Summanden?",
+      "productCheckC0": "Jeder Summand misst die Änderung eines Faktors, während der andere festgehalten wird",
+      "productCheckC1": "Weil man einfach die beiden Ableitungen multipliziert",
+      "productCheckC2": "Weil ein Produkt immer zu einer Summe wird",
+      "productCheckExp": "Genau: Die zwei Summanden trennen die Beiträge der einzelnen Faktoren.",
+      "productStep1": "Der Zähler lässt sich nicht direkt aufteilen.",
+      "stepAddZero": "Null addieren",
+      "productStep2": "Wir addieren und subtrahieren \\(f(x)g(x+h)\\): das ist Leibniz' Trick.",
+      "stepFactor": "Ausklammern",
+      "productStep3": "Wir erkennen nun die beiden Differenzenquotienten.",
+      "productStep4": "Differenzierbarkeit impliziert Stetigkeit, also \\(g(x+h)\\to g(x)\\).",
+      "productConclusion": "Einen Faktor nach dem anderen ableiten, den anderen festhalten, dann die Beiträge addieren.",
+      "quotientTitle": "Quotientenregel",
+      "quotientMeaning": "Wenn eine Funktion \\(f\\) durch eine Funktion \\(g\\) geteilt wird, mit \\(g(x)\\neq0\\). Die Reihenfolge im Zähler ist wichtig: Ableitung des Zählers mal Nenner minus Zähler mal Ableitung des Nenners.",
+      "stepRewriteProduct": "Als Produkt umschreiben",
+      "quotientStep1": "Wir leiten sie aus der Produktregel her, mit \\(g\\neq0\\).",
+      "stepDerive": "Ableiten",
+      "quotientStep2": "Wir wenden die Produktregel auf die rechte Seite an.",
+      "stepIsolate": "Ableitung isolieren",
+      "quotientStep3": "Den zweiten Term nach links bringen und durch g dividieren.",
+      "quotientConclusion": "Die Reihenfolge im Zähler zählt: Ableitung des Zählers mal Nenner minus Zähler mal Ableitung des Nenners.",
+      "chainTitle": "Kettenregel",
+      "chainMeaning": "Wenn eine Funktion in einer anderen steckt: \\(f\\circ g\\) bedeutet \\(f(g(x))\\). Die äußere Funktion an der inneren auswerten und ableiten, dann mit der Ableitung der inneren Funktion multiplizieren.",
+      "stepCompositeRatio": "Differenzenquotient der Komposition",
+      "chainStep1": "Die äußere Änderung hängt von der Änderung der inneren Funktion ab.",
+      "stepIntroduceK": "k einführen ohne durch null zu dividieren",
+      "chainStep2": "Setze φ(k)=[f(g(x)+k)-f(g(x))]/k für k≠0 und φ(0)=f′(g(x)). So bleibt die Identität auch gültig, wenn die innere Änderung null ist.",
+      "stepPassLimit": "Zum Grenzwert übergehen",
+      "chainStep3": "Wegen der Stetigkeit von g impliziert \\(h\\to0\\) auch \\(k\\to0\\).",
+      "chainConclusion": "Die äußere Funktion an der inneren auswerten und ableiten, dann mit der Ableitung der inneren multiplizieren.",
+      "canonicalEyebrow": "Kanonisches Beispiel",
+      "canonicalTitle": "sin(x²): die Schichten lesen",
+      "afterChainEyebrow": "Nach der Kettenregel",
+      "afterChainTitle": "Jetzt können wir den Logarithmus begründen",
+      "lnTitle": "Natürlicher Logarithmus · Vertiefung",
+      "lnMeaning": "Der Beweis verwendet die Kettenregel, daher wird er erst jetzt vorgestellt.",
+      "stepInverseFunctions": "Umkehrfunktionen",
+      "lnStep1": "Der Logarithmus ist die Umkehrfunktion der Exponentialfunktion.",
+      "stepDeriveChain": "Mit der Kettenregel ableiten",
+      "lnStep2": "Beim Ableiten von e^y nach x taucht dy/dx auf.",
+      "stepSolve": "Auflösen",
+      "lnStep3": "Wir ersetzen e^y=x, mit x>0.",
+      "lnConclusion": "Der Beweis ist nicht mehr zirkulär: Die Kettenregel wurde bereits aufgebaut.",
+      "historyProductTitle": "Der Trick in der Produktregel",
+      "historyProductSummary": "Das Addieren und Subtrahieren desselben Terms wandelt einen undurchsichtigen Ausdruck in zwei Differenzenquotienten um.",
+      "historyProductBody": "Der entscheidende Schritt ist das Einfügen von null in der Form f(x)g(x+h) − f(x)g(x+h). Der Wert ändert sich nicht, aber es ermöglicht, die Änderung jedes Faktors zu isolieren. Dies ist ein klassisches Beispiel dafür, wie ein Beweis auch die beste Möglichkeit vorschlägt, eine Formel zu behalten.",
+      "historyChainTitle": "Kettenregel: Intuition und Strenge",
+      "historyChainSummary": "dy/dx = dy/du · du/dx ist eine ausgezeichnete Intuition, aber der Grenzwert erklärt, warum es funktioniert.",
+      "historyChainBody": "Leibniz' Notation lässt die Differentiale wie Brüche aussehen, die sich kürzen. Der strenge Beweis ersetzt dieses Kürzen durch zwei Differenzenquotienten und nutzt die Stetigkeit der inneren Funktion."
+    },
+    "secondDerivative": {
+      "heading": "Zweite Ableitung",
+      "concaveUpTitle": "Konkav nach oben",
+      "concaveUpBody": "Die Steigungen nehmen zu: der Graph hat die Form einer Schale.",
+      "concaveDownTitle": "Konkav nach unten",
+      "concaveDownBody": "Die Steigungen nehmen ab: der Graph hat die Form einer Kuppel.",
+      "physicsLabel": "PHYSIK",
+      "accelerationTitle": "Beschleunigung",
+      "accelerationBody": "Wenn \\(s(t)\\) die Position ist, gilt \\(v(t)=s'(t)\\) und \\(a(t)=s''(t)\\).",
+      "lookFirstEyebrow": "Erst beobachten, dann rechnen",
+      "lookFirstTitle": "Die zweite Ableitung zeigt, in welche Richtung der Graph biegt",
+      "lookFirstBody": "Es reicht nicht, sich „Schale\" und „Kuppel\" zu merken. Die zweite Ableitung vergleicht die Steigungen benachbarter Tangenten: nehmen sie zu, gilt \\(f''&gt;0\\); nehmen sie ab, gilt \\(f''&lt;0\\). Die gelben Linien in den Grafiken machen diese Änderung sichtbar.",
+      "labEyebrow": "Interaktives Labor",
+      "labTitle": "Punkt verschieben und Krümmungsänderung beobachten",
+      "labBody": "Verschiebe den Punkt entlang der Funktion und vergleiche die Tangente mit dem Vorzeichen von \\(f''\\). Beim Öffnen der Vertiefung liefert der",
+      "osculatingCircleTerm": "Schmiegkreis",
+      "labBodyEnd": " zusätzliche Informationen über Betrag und Richtung der Krümmung.",
+      "stationaryEyebrow": "Vorschau auf die Kurvendiskussion",
+      "stationaryTitle": "Stationäre Punkte und Wendepunkte",
+      "stationaryBody": "Ein Punkt ist stationär, wenn \\(f'(x_0)=0\\): die Tangente ist waagerecht. Er kann ein Maximum, ein Minimum oder ein Wendepunkt sein; um sie zu unterscheiden, muss das Vorzeichen von f′ und f″ untersucht werden.",
+      "stationaryNote": "Beide Punkte haben eine waagerechte Tangente. Die zweite Ableitung \\(f''(x)=6x\\) hilft zu erkennen, dass einer ein Maximum und der andere ein Minimum ist.",
+      "alert": "Dies ist nur eine Brücke: Die vollständige Untersuchung von Maxima, Minima und Wendepunkten kommt später. Im Anhang nach Taylor finden Sie Rolle, Lagrange und die anderen Sätze grafisch und anhand praktischer Fälle."
+    },
+    "taylor": {
+      "advancedLabel": "Vertiefungsthema.",
+      "advancedNote": "Dieser Abschnitt gehört nicht zur Grundprüfung.",
+      "beforeFormulaEyebrow": "Vor der Formel",
+      "beforeFormulaTitle": "Was wollen wir erreichen?",
+      "beforeFormulaP1": "Funktionen wie \\(e^x\\), \\(\\sin x\\) oder \\(\\cos x\\) sind keine Polynome. Taylor baut jedoch einen lokalen Ersatz, das sogenannte Näherungspolynom: eine Formel aus Summen, Produkten und Potenzen, also leicht zu berechnen und darzustellen.",
+      "beforeFormulaP2": "„Annähern\" bedeutet nicht, eine genaue Kopie zu finden. Es bedeutet, einen Punkt \\(x_0\\) zu wählen und ein Polynom zu konstruieren, das dort denselben Wert hat und – durch hinzufügen weiterer Terme – dieselbe Steigung, dieselbe Krümmung usw. Nahe \\(x_0\\) überlagern sich die beiden Kurven fast; weiter entfernt können sie auseinanderlaufen.",
+      "card1Eyebrow": "Das Ziel",
+      "card1Title": "Eine handlichere Funktion",
+      "card1Body": "Ein einfaches Polynom anstelle der ursprünglichen Funktion verwenden, aber nur in dem Bereich, in dem die Ähnlichkeit gut genug ist.",
+      "card2Eyebrow": "Der Mittelpunkt x₀",
+      "card2Title": "Der Punkt maximaler Treue",
+      "card2Body": "Dies ist der Punkt, um den wir die Näherung aufbauen. Einen anderen Mittelpunkt zu wählen bedeutet, vom Polynom Genauigkeit in einem anderen Bereich zu verlangen.",
+      "card3Eyebrow": "Der Fehler",
+      "card3Title": "Wie weit wir entfernt sind",
+      "card3Body": "In einem Punkt x ist es der vertikale Abstand zwischen den beiden Graphen: \\(|f(x)-P_n(x)|\\). Ein kleiner Fehler bedeutet eine gute Näherung.",
+      "simpleExampleTitle": "Ein Beispiel ohne Fachbegriffe",
+      "simpleExampleBody": "Nahe null ähnelt \\(e^x\\) der Geraden \\(1+x\\). Für \\(x=0{,}1\\) ergibt sich \\(1+0{,}1=1{,}1\\), während der wahre Wert etwa \\(1{,}10517\\) beträgt. Der Fehler beträgt etwa \\(0{,}00517\\): er ist nicht null, aber wir wissen genau, was wir durch die einfachere Formel verlieren.",
+      "buildEyebrow": "Aufbau in drei Schritten",
+      "buildTitle": "Wie viele Informationen wollen wir bewahren?",
+      "step0Title": "Gleicher Wert",
+      "step0Text": "Das konstante Polynom kennt nur die Höhe der Funktion am gewählten Mittelpunkt.",
+      "step1Title": "Gleicher Wert und gleiche Steigung",
+      "step1Text": "Wir fügen die Tangente hinzu: am Mittelpunkt haben beide Kurven auch dieselbe Richtung.",
+      "step2Title": "Wir fügen die Krümmung hinzu",
+      "step2Text": "Die zweite Ableitung lässt auch die Art, wie sich die Kurve biegt, übereinstimmen.",
+      "summaryNote": "Die Summenformel muss nicht sofort auswendig gelernt werden: Sie sagt nur „nimm die Informationen der Funktion in \\(x_0\\) und füge sie nacheinander hinzu, von der Position bis zu den feinsten Änderungen\".",
+      "labEyebrow": "Labor",
+      "labTitle": "Mittelpunkt verschieben und beobachten, wo das Polynom funktioniert",
+      "developsTitle": "Drei grundlegende Entwicklungen um den Nullpunkt",
+      "macLaurinNote": "Wenn der Mittelpunkt null ist, spricht man auch von der Maclaurin-Reihe. Für diese drei Funktionen konvergiert die vollständige Reihe auf ganz ℝ, aber mit endlich vielen Termen ist die Näherung in der Regel in der Nähe des Mittelpunkts besser.",
+      "insightTitle": "Zentraler Gedanke",
+      "insightBody": "Jeder Term verwendet eine Ableitung der Ordnung k am gewählten Mittelpunkt. Die Ableitung ist die lokale DNA der Funktion: Sie enthält die Information über Wert, Richtung, Krümmung und Variationen höherer Ordnung. Der Fehler erinnert uns jedoch daran, dass lokale Information nicht Gleichheit überall bedeutet.",
+      "historyTitle": "Taylor, Maclaurin und Cauchy",
+      "historySummary": "Die Formel entstand im 18. Jahrhundert; zu verstehen, wann sie die Funktion wirklich darstellt, brauchte ein weiteres Jahrhundert.",
+      "historyBody": "Brook Taylor veröffentlichte die Formel 1715. Colin Maclaurin untersuchte systematisch den um null zentrierten Fall. Im 19. Jahrhundert klärte Cauchy, dass der Besitz von Ableitungen jeder Ordnung nicht automatisch die Konvergenz der Reihe zur Funktion garantiert."
+    },
+    "theorems": {}
+  },
+  "taylorLab": {
+    "functions": {
+      "exponential": "Exponential",
+      "sine": "Sinus",
+      "cosine": "Kosinus"
+    },
+    "chips": {
+      "function": "Funktion",
+      "error": "Fehler"
+    },
+    "tooltips": {
+      "zoomIn": "Vergrößern",
+      "zoomOut": "Verkleinern",
+      "resetView": "Ansicht zurücksetzen"
+    },
+    "dragHint": "Ziehen zum Verschieben · Rad oder Schaltflächen zum Zoomen",
+    "canvasAriaLabel": "Interaktiver Graph der Funktion und ihres Taylor-Polynoms. Ziehen zum Verschieben, Mausrad zum Zoomen.",
+    "message": {
+      "order0": "Wir kennen nur den Funktionswert in x₀ = {{x0}}.",
+      "order1": "Wert und Steigung stimmen jetzt überein: das Polynom ist die Tangente.",
+      "order2": "Die zweite Ableitung fügt die Krümmung hinzu: die beiden Kurven stimmen über ein längeres Intervall überein.",
+      "orderN": "Wir verwenden {{count}} lokale Informationen: den Wert und Ableitungen bis zur Ordnung {{order}}."
+    },
+    "sliders": {
+      "centerLabel": "MITTELPUNKT · x₀ = {{x0}}",
+      "centerAriaLabel": "Mittelpunkt x null",
+      "orderLabel": "POLYNOMGRAD · {{order}}",
+      "orderAriaLabel": "Grad des Taylor-Polynoms"
+    },
+    "polynomial": {
+      "caption": "DARGESTELLTES POLYNOM",
+      "roundingNote": "Koeffizienten sind auf drei Stellen gerundet; der Graph verwendet die vollständigen Werte."
+    },
+    "errorLineNote": "Die grüne Linie misst den Abstand zwischen Funktion und Polynom bei",
+    "errorDisplay": {
+      "label": "FEHLER BEI x = {{x}}"
+    },
+    "challenge": {
+      "title": "Herausforderung: der minimale Grad",
+      "instructions": "Bewege den Grad-Regler und finde den ersten Grad, bei dem der Fehler am grünen Punkt kleiner als {{threshold}} ist.",
+      "button": "Meine Wahl prüfen",
+      "feedback": {
+        "noThresholdReached": "Keiner der verfügbaren Grade erreicht die Schwelle: Verschiebe den Punkt näher zur Mitte.",
+        "exact": "Richtig: P{{order}} ist das erste Polynom, das die Schwelle einhält.",
+        "errorTooLarge": "Der Fehler ist noch zu groß. Versuche, den Grad zu erhöhen.",
+        "thresholdMetButSuboptimal": "Die Schwelle ist eingehalten, aber P{{minimumOrder}} wäre bereits ausreichend: suche den minimalen Grad."
+      }
+    }
+  },
+  "theorems": {
+    "appendixNote": {
+      "strong": "So nutzt man diesen Anhang.",
+      "body": "Die Beweise müssen nicht auswendig gelernt werden: Für jeden Satz sollte man sich fragen, welche Voraussetzungen zu prüfen sind, welche Figur man sich vorstellen soll und welches praktische Problem er löst."
+    },
+    "accordion": {
+      "openCard": "Karte öffnen",
+      "hypotheses": "Voraussetzungen",
+      "geometry": "Mentales Bild",
+      "use": "Wann anwenden",
+      "caution": "Achtung"
+    },
+    "sketch": {
+      "ariaLabel": "Geometrische Interpretation: {{title}}"
+    },
+    "groups": {
+      "existence": {
+        "eyebrow": "Existenz",
+        "title": "Drei Sätze zur Suche besonderer Punkte"
+      },
+      "behavior": {
+        "eyebrow": "Graphenlesen",
+        "title": "Vom Vorzeichen der Ableitungen zum Verhalten"
+      },
+      "advanced": {
+        "eyebrow": "Fortgeschrittene Werkzeuge",
+        "title": "Fünf Ideen, die bei Bedarf nachgeschlagen werden"
+      }
+    },
+    "mvtLab": {
+      "eyebrow": "Labor",
+      "title": "Die Sekante sucht eine parallele Tangente",
+      "body": "Verschiebe die Endpunkte auf der Parabel. Lagrange garantiert einen Punkt",
+      "bodyTail": "wo die Tangente parallel zur Sekante ist; wenn beide Endpunkte gleiche Höhe haben, tritt der Sonderfall von Rolle auf.",
+      "canvasAriaLabel": "Parabel mit Sekante AB und paralleler Tangente im Punkt c",
+      "chordChip": "Sekante AB",
+      "tangentChip": "Tangente in c",
+      "caseLagrange": "Fall Lagrange",
+      "caseRolle": "Fall Rolle",
+      "endpointA": "ENDPUNKT a = {{a}}",
+      "endpointAAriaLabel": "Linker Endpunkt a",
+      "endpointB": "ENDPUNKT b = {{b}}",
+      "endpointBAriaLabel": "Rechter Endpunkt b",
+      "slopeChord": "Steigung der Sekante",
+      "pointC": "Garantierter Punkt c",
+      "slopeTangent": "Steigung der Tangente",
+      "alertRolle": "Rolle: A und B haben dieselbe Höhe, daher sind die Sekante und die garantierte Tangente horizontal.",
+      "alertLagrange": "Lagrange: die grüne Tangente ist parallel zur gelben Sekante; beide stellen dieselbe Änderungsrate dar."
+    },
+    "practicalBox": {
+      "title": "Eine praktische Anwendung ohne vollständige Kurvendiskussion",
+      "bodyPre": "Wenn man ein Intervall kennt, in dem",
+      "bodyMid": ", erlaubt Lagrange den Schluss, dass bei einer Vergrößerung von",
+      "bodyPost": "um 4 die Funktion zwischen 8 und 12 wächst. Der gesamte Graph muss nicht gezeichnet werden: Es genügt, die möglichen Steigungen zu prüfen."
+    },
+    "history": {
+      "fermat": {
+        "title": "Fermat vor der Notation f′",
+        "summary": "Fermat suchte Maxima, Minima und Tangenten mit der Methode der Adäquationsrechnung.",
+        "body": "In den 1630er Jahren entwickelte Pierre de Fermat eine algebraische Methode für Maxima, Minima und Tangenten. Er verwendete noch keine Grenzwerte oder die moderne Notation, aber die Idee nahm die Bedingung der horizontalen Tangente in glatten Extrema vorweg."
+      },
+      "rolleEtAl": {
+        "title": "Rolle, Lagrange und Cauchy",
+        "summary": "Ein Ergebnis über Nullstellen von Gleichungen führte zum Mittelwertsatz.",
+        "body": "Michel Rolle veröffentlichte 1691 das heute nach ihm benannte Ergebnis, ursprünglich im Kontext algebraischer Gleichungen. Lagrange gliederte es in die neue Analysis ein; im 19. Jahrhundert gab Cauchy dem Mittelwertsatz eine strenge Formulierung und einen strengen Beweis."
+      },
+      "darboux": {
+        "title": "Darboux und Ableitungen ohne Sprünge",
+        "summary": "1875 bewies Darboux, dass eine Ableitung stets Zwischenwerte annimmt.",
+        "body": "Gaston Darboux zeigte, dass eine Ableitung unstetig sein kann, aber nicht direkt von einer Steigung zu einer anderen springen kann. Das Ergebnis trennte endgültig zwei Ideen: Stetigkeit und die Zwischenwerteigenschaft."
+      },
+      "lhopital": {
+        "title": "Eine Regel, zwei Namen",
+        "summary": "Die Regel von L'Hôpital erschien im ersten Lehrbuch der Differenzialrechnung, stammt aber aus den Vorlesungen von Johann Bernoulli.",
+        "body": "1696 veröffentlichte Guillaume de L'Hôpital die Analyse des infiniment petits, das erste systematische Lehrbuch der Differenzialrechnung. Die Regel trägt seinen Namen, aber historische Dokumente zeigen, dass das Ergebnis aus den Vorlesungen von Johann Bernoulli stammte, den L'Hôpital finanziell unterstützt hatte."
+      },
+      "taylorError": {
+        "title": "Lagrange, Cauchy und das Taylor-Restglied",
+        "summary": "Das Restglied verwandelt eine gute Näherung in eine kontrollierbare Schätzung.",
+        "body": "Lagrange formulierte einen der am häufigsten verwendeten Ausdrücke für das Taylor-Restglied; Cauchy entwickelte eine andere Form und trug zur Klärung der Konvergenzbedingungen bei. Die praktische Idee ist modern und entscheidend: Approximieren reicht nicht — man muss wissen, wie groß der Fehler sein kann."
+      }
+    },
+    "fermat": {
+      "title": "Satz von Fermat",
+      "subtitle": "Wo man Maxima und Minima sucht",
+      "hypotheses": "Der Punkt \\(x_0\\) ist innerer Punkt des Definitionsbereichs, die Funktion ist in \\(x_0\\) differenzierbar und besitzt dort ein lokales Maximum oder Minimum.",
+      "geometry": "In einem glatten Extremum kann die Kurve nicht weiter steigen oder fallen: die Tangente muss horizontal sein.",
+      "use": "Reduziert die Suche nach Extrema auf stationäre Punkte und Punkte, an denen die Ableitung nicht existiert.",
+      "caution": "Es ist eine notwendige, keine hinreichende Bedingung: \\(f(x)=x^3\\) hat \\(f^{\\prime}(0)=0\\), aber null ist kein Extremum."
+    },
+    "rolle": {
+      "title": "Satz von Rolle",
+      "subtitle": "Gleiche Höhe, horizontale Tangente",
+      "hypotheses": "\\(f\\) ist stetig auf \\([a,b]\\), differenzierbar auf \\((a,b)\\) und nimmt an beiden Endpunkten denselben Wert an.",
+      "geometry": "Wenn der Weg auf gleicher Höhe beginnt und endet, besitzt mindestens ein Zwischenpunkt eine horizontale Tangente.",
+      "use": "Ermöglicht das Zählen oder Trennen von Nullstellen: zwischen zwei verschiedenen Nullstellen von \\(f\\) liegt mindestens eine Nullstelle von \\(f^{\\prime}\\).",
+      "caution": "Er garantiert die Existenz mindestens eines Punktes, sagt aber nichts darüber aus, wo er liegt oder ob er eindeutig ist."
+    },
+    "lagrange": {
+      "title": "Mittelwertsatz der Differenzialrechnung (Lagrange)",
+      "subtitle": "Eine momentane Rate stimmt mit der mittleren Rate überein",
+      "hypotheses": "\\(f\\) ist stetig auf dem abgeschlossenen Intervall \\([a,b]\\) und differenzierbar in seinem Inneren.",
+      "geometry": "Es gibt mindestens eine Tangente, die parallel zur Sekante durch die beiden Endpunkte des Graphen ist.",
+      "use": "Verbindet Gesamtänderung und momentane Rate; ermöglicht auch die Abschätzung, wie stark sich eine Funktion ändern kann.",
+      "caution": "Der Satz garantiert \\(c\\), liefert aber im Allgemeinen keine Formel zu seiner Berechnung."
+    },
+    "monotone": {
+      "title": "Monotoniekriterium",
+      "subtitle": "Das Vorzeichen der Ableitung bestimmt den Graphenverlauf",
+      "hypotheses": "\\(f\\) ist stetig auf dem Intervall und differenzierbar in seinem Inneren; das Vorzeichen von \\(f^{\\prime}\\) wird auf dem gesamten Intervall kontrolliert.",
+      "geometry": "Tangenten mit positiver Steigung begleiten einen steigenden Graphen; negative Steigungen einen fallenden.",
+      "use": "Erlaubt den Vergleich von Funktionswerten ohne alle zu berechnen, und das Ablesen des lokalen Verhaltens.",
+      "caution": "Eine isolierte Nullstelle von \\(f^{\\prime}\\) unterbricht die Monotonie nicht notwendigerweise: \\(x^3\\) bleibt durch null hindurch steigend."
+    },
+    "secondTest": {
+      "title": "Zweite-Ableitungs-Test",
+      "subtitle": "Klassifizierung eines stationären Punktes",
+      "hypotheses": "Die Funktion ist in einer Umgebung von \\(x_0\\) zweimal differenzierbar und \\(f^{\\prime}(x_0)=0\\).",
+      "geometry": "Eine horizontale Tangente in einer Mulde identifiziert ein Minimum; in einem Hügel ein Maximum.",
+      "use": "Klassifiziert viele stationäre Punkte schnell, ohne eine vollständige Vorzeichentabelle für \\(f^{\\prime}\\) zu erstellen.",
+      "caution": "Falls \\(f^{\\prime\\prime}(x_0)=0\\), ist der Test nicht entscheidend: \\(x^4\\), \\(-x^4\\) und \\(x^3\\) zeigen drei verschiedene Verhaltensweisen."
+    },
+    "convexity": {
+      "title": "Konvexitätskriterium",
+      "subtitle": "Das Vorzeichen von f″ beschreibt die Krümmung",
+      "hypotheses": "Die zweite Ableitung existiert auf dem betrachteten Intervall und behält dasselbe Vorzeichen.",
+      "geometry": "Bei \\(f^{\\prime\\prime}>0\\) liegen die Tangenten unterhalb des Graphen; bei \\(f^{\\prime\\prime}<0\\) oberhalb.",
+      "use": "Ermöglicht zu verstehen, in welche Richtung die Kurve sich krümmt, und mögliche Wendepunkte zu erkennen.",
+      "caution": "Der einzelne Wert \\(f^{\\prime\\prime}(x_0)=0\\) reicht nicht, um zu behaupten, dass \\(x_0\\) ein Wendepunkt ist: Ein Krümmungswechsel ist erforderlich."
+    },
+    "cauchy": {
+      "title": "Verallgemeinerter Mittelwertsatz (Cauchy)",
+      "subtitle": "Zwei Änderungen im selben Punkt verglichen",
+      "hypotheses": "\\(f\\) und \\(g\\) sind stetig auf \\([a,b]\\), differenzierbar auf \\((a,b)\\) und \\(g^{\\prime}\\neq0\\).",
+      "geometry": "Die parametrische Kurve \\((g(t),f(t))\\) besitzt eine Tangente, die zur Sekante zwischen den Endpunkten parallel ist.",
+      "use": "Vergleicht zwei gemeinsam veränderliche Größen und ist die theoretische Grundlage der Regel von L'Hôpital.",
+      "caution": "Die Voraussetzungen müssen für beide Funktionen geprüft werden, und der Nenner des Quotienten muss sinnvoll sein."
+    },
+    "darboux": {
+      "title": "Satz von Darboux",
+      "subtitle": "Steigungen können nicht springen",
+      "hypotheses": "\\(f\\) ist auf einem Intervall differenzierbar; die Ableitung muss nicht als stetig vorausgesetzt werden.",
+      "geometry": "Während die Tangente von einer Steigung zu einer anderen dreht, nimmt sie alle Zwischenneigungen an.",
+      "use": "Erlaubt es auszuschließen, dass eine Treppenfunktion die Ableitung irgendeiner Funktion ist.",
+      "caution": "Alle Zwischenwerte anzunehmen bedeutet nicht, stetig zu sein: eine Ableitung kann unstetig sein, ohne Sprünge zu machen."
+    },
+    "lhopital": {
+      "title": "Regel von L'Hôpital",
+      "subtitle": "Vergleich von Annullierungs- oder Wachstumsgeschwindigkeiten",
+      "hypotheses": "Der Quotient hat die unbestimmte Form \\(0/0\\) oder \\(\\infty/\\infty\\), die Funktionen sind in der Nähe des Punktes differenzierbar und der Grenzwert des Quotienten der Ableitungen existiert.",
+      "geometry": "In der Nähe des gemeinsamen Punktes wird der Quotient der Höhen durch den Quotienten der Steigungen ersetzt.",
+      "use": "Vereinfacht Grenzwerte wie \\(\\lim_{x\\to0}\\sin x/x\\) oder Vergleiche zwischen exponentiellem und polynomialem Wachstum.",
+      "caution": "Sie gilt nicht für jeden Bruch: Zuerst muss die unbestimmte Form überprüft werden, und das Verfahren muss manchmal wiederholt werden."
+    },
+    "inverse": {
+      "title": "Ableitung der Umkehrfunktion",
+      "subtitle": "Spiegeln des Graphen tauscht die Steigungen",
+      "hypotheses": "\\(f\\) ist in einer Umgebung von \\(x_0\\) umkehrbar, differenzierbar und \\(f^{\\prime}(x_0)\\neq0\\).",
+      "geometry": "Die Graphen von \\(f\\) und \\(f^{-1}\\) sind symmetrisch bezüglich \\(y=x\\); die Tangentensteigungen sind reziprok.",
+      "use": "Liefert auf natürliche Weise die Ableitungen von Logarithmus, Wurzel und inversen trigonometrischen Funktionen.",
+      "caution": "Falls \\(f^{\\prime}(x_0)=0\\), kann die Umkehrfunktion eine vertikale Tangente haben und die Formel liefert keinen endlichen Wert."
+    },
+    "taylorError": {
+      "title": "Taylor-Satz mit Lagrange-Restglied",
+      "subtitle": "Messen des Approximationsfehlers",
+      "hypotheses": "\\(f\\) besitzt die notwendigen Ableitungen zwischen dem Entwicklungspunkt \\(a\\) und dem Punkt \\(x\\).",
+      "geometry": "Das Polynom stimmt lokal mit Wert und Ableitungen überein; das Restglied misst den noch sichtbaren vertikalen Abstand zur Kurve.",
+      "use": "Legt fest, wie viele Stellen oder welche Genauigkeit man von einer Taylor-Approximation erwarten kann.",
+      "caution": "Der Fehler hängt von einer Ableitung höherer Ordnung an einem unbekannten Punkt \\(\\xi\\) ab: er muss über das gesamte Intervall abgeschätzt werden."
+    }
+  },
+  "geometryLab": {
+    "canvasAriaLabel": "Kartesisches Koordinatensystem mit einheitlichem Maßstab: Sekanten, Tangente und Normale",
+    "chips": {
+      "rightSecant": "rechte Sekante",
+      "leftSecant": "linke Sekante",
+      "tangent": "Tangente",
+      "normal": "Normale"
+    },
+    "sliders": {
+      "basePoint": "BASISPUNKT · x₀ = {{value}}",
+      "basePointAriaLabel": "Basispunkt x null",
+      "distance": "ABSTAND · |h| = {{value}}",
+      "distanceAriaLabel": "Betrag des Zuwachses h"
+    },
+    "metrics": {
+      "fromLeft": "von links",
+      "fromRight": "von rechts"
+    },
+    "buttons": {
+      "stop": "Anhalten",
+      "animate": "h → 0 animieren",
+      "showNormal": "Normale anzeigen",
+      "hideNormal": "Normale ausblenden"
+    },
+    "prediction": {
+      "question": "Vor dem Aufdecken: Werden die Steigungen beim Annähern von links und rechts gegen denselben Wert streben?",
+      "same": "Ja, sie stimmen überein",
+      "different": "Nein, sie bleiben verschieden",
+      "reveal": "Aufdecken und vergleichen",
+      "feedbackClose": "Die beiden Steigungen sind nun sehr nahe beieinander: der beidseitige Grenzwert ist mit einer Ableitung vereinbar. h wird nie null: der Quotient wäre undefiniert.",
+      "feedbackFar": "Die einseitigen Steigungen stimmen noch nicht überein. Verringere |h|; bleiben sie verschieden, existiert die Ableitung nicht. h wird nie null: der Quotient wäre undefiniert."
+    },
+    "canvas": {
+      "deltaX": "Δx = h",
+      "deltaY": "Δy"
+    },
+    "undefined": "nicht definiert"
+  },
+  "secondDerivativeLab": {
+    "canvasAriaLabel": "Interaktiver Krümmungsgraph mit Tangente und Schmiegekreis",
+    "concavityUp": {
+      "title": "Konvex (linksgekrümmt)",
+      "text": "Von links nach rechts nehmen die Steigungen zu: von negativ werden sie null und dann positiv."
+    },
+    "concavityDown": {
+      "title": "Konkav (rechtsgekrümmt)",
+      "text": "Von links nach rechts nehmen die Steigungen ab: von positiv werden sie null und dann negativ."
+    },
+    "inflection": {
+      "title": "Möglicher Wendepunkt",
+      "text": "Ändert die zweite Ableitung ihr Vorzeichen, ändert sich auch die Krümmung. Der Nullwert allein genügt jedoch nicht.",
+      "svgLabel": "Krümmungswechsel"
+    },
+    "chips": {
+      "function": "Funktion",
+      "tangent": "Tangente",
+      "osculatingCircle": "Schmiegekreis"
+    },
+    "sliders": {
+      "movePoint": "PUNKT VERSCHIEBEN · x₀ = {{value}}",
+      "movePointAriaLabel": "Position des Punktes auf der Funktion"
+    },
+    "buttons": {
+      "stopPoint": "Punkt anhalten",
+      "animatePoint": "Punkt animieren",
+      "hideAdvanced": "Erweiterte Krümmung ausblenden",
+      "exploreAdvanced": "Vertiefen: Krümmung und Schmiegekreis"
+    },
+    "prediction": {
+      "question": "Vor dem Ablesen: Wird f″ hier positiv, negativ oder ungefähr null sein?",
+      "reveal": "Aufdecken",
+      "correct": "Richtig vorhergesagt. In diesem Punkt",
+      "compare": "Vergleiche deine Vorhersage mit dem Graphen. In diesem Punkt"
+    },
+    "metrics": {
+      "slope": "Steigung",
+      "slopeChange": "Steigungsänderung",
+      "curvature": "Krümmung",
+      "radius": "Kreisradius"
+    },
+    "status": {
+      "positive": {
+        "title": "Konvex (linksgekrümmt)",
+        "body": "Die Steigungen nehmen zu: die Tangente dreht sich gegen den Uhrzeigersinn, während der Punkt voranschreitet."
+      },
+      "negative": {
+        "title": "Konkav (rechtsgekrümmt)",
+        "body": "Die Steigungen nehmen ab: die Tangente dreht sich im Uhrzeigersinn, während der Punkt voranschreitet."
+      },
+      "zero": {
+        "title": "Krümmung null in diesem Punkt",
+        "body": "Der Schmiegekreis hat unendlichen Radius. Prüfe benachbarte Punkte: wechselt f″ das Vorzeichen, liegt ein Wendepunkt vor."
+      }
+    },
+    "advanced": {
+      "title": "Warum ein Kreis?",
+      "body1": "Die Tangente reproduziert Wert und Steigung; der Schmiegekreis reproduziert zusätzlich die lokale Krümmung. Sein Radius erfüllt",
+      "body2": "mit",
+      "body3": "Je kleiner der Radius, desto stärker biegt sich die Kurve."
+    }
+  }
+}
