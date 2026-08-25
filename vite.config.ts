@@ -22,6 +22,7 @@ export default defineConfig({
           mui: ['@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
           katex: ['katex', 'react-katex'],
           vendor: ['react', 'react-dom', 'react-router-dom', 'zustand'],
+          excalidraw: ['@excalidraw/excalidraw'],
         },
       },
     },

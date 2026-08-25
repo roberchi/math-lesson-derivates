@@ -1,11 +1,14 @@
-import { useState } from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, AppBar, Box, Button, Dialog, IconButton, Stack, Toolbar, Typography } from '@mui/material';
+import { lazy, Suspense, useState } from 'react';
+import { Accordion, AccordionDetails, AccordionSummary, AppBar, Box, Button, CircularProgress, Dialog, IconButton, Stack, Toolbar, Typography } from '@mui/material';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import DrawRoundedIcon from '@mui/icons-material/DrawRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
+import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
 import { MathText } from '@/components/math/MathText';
-import { WritingCanvas } from './WritingCanvas';
 import { useTranslation } from 'react-i18next';
+
+// Excalidraw is a heavy dependency: load it lazily so it's only fetched once the workspace dialog actually opens.
+const WritingCanvas = lazy(() => import('./WritingCanvas').then((module) => ({ default: module.WritingCanvas })));
 
 interface DigitalWorkspaceProps {
   workspaceKey: string;
@@ -33,15 +36,18 @@ export function DigitalWorkspace({ workspaceKey, label, problemTitle, problemTex
         </Toolbar>
       </AppBar>
       <Accordion disableGutters elevation={0} sx={{ flexShrink: 0, bgcolor: 'custom.goldLight', borderBottom: '1px solid', borderColor: 'divider', '&::before': { display: 'none' } }}>
-        <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} aria-controls={`${workspaceKey}-problem-content`} id={`${workspaceKey}-problem-header`} sx={{ minHeight: 48, '& .MuiAccordionSummary-content': { my: 1 } }}>
+        <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} aria-controls={`${workspaceKey}-problem-content`} id={`${workspaceKey}-problem-header`} sx={{ minHeight: 48, '& .MuiAccordionSummary-content': { my: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' } }}>
           <Typography fontWeight={700}>{t('workspace.problem')} · {problemTitle}</Typography>
+          {onShowSolution && <Button size="small" color="warning" startIcon={<VisibilityRoundedIcon />} onClick={(event) => { event.stopPropagation(); close(); onShowSolution(); }} sx={{ mr: 1 }}>{t('workspace.solution')}</Button>}
         </AccordionSummary>
         <AccordionDetails id={`${workspaceKey}-problem-content`} sx={{ pt: 0, maxHeight: '28vh', overflowY: 'auto' }}>
           <Typography component="div" variant="body2"><MathText text={problemText} /></Typography>
         </AccordionDetails>
       </Accordion>
       <Box sx={{ flex: 1, minHeight: 0 }}>
-        <WritingCanvas storageKey={workspaceKey} label={label} onShowSolution={onShowSolution ? () => { close(); onShowSolution(); } : undefined} />
+        <Suspense fallback={<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}><CircularProgress /></Box>}>
+          <WritingCanvas storageKey={workspaceKey} label={label} />
+        </Suspense>
       </Box>
     </Dialog>
   </>;

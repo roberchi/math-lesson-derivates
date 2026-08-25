@@ -91,3 +91,12 @@ src/
 The app is available in five languages: Italian (original), English, French, German and Spanish.
 
 > **Note:** translations from Italian into English, French, German and Spanish were generated automatically using a local [Argos Translate](https://github.com/argosopentech/argos-translate) model and subsequently reviewed and corrected manually. Despite the review, some phrasing may still sound unnatural or contain minor inaccuracies. Contributions and corrections are welcome via pull request.
+
+## Acknowledgements
+
+The digital notepad used for the worksheets and exercises is built on top of [Excalidraw](https://github.com/excalidraw/excalidraw), an open-source virtual whiteboard component.
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
+

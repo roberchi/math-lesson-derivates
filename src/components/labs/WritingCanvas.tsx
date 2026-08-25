@@ -1,195 +1,81 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Box, Button, Checkbox, FormControlLabel, IconButton, Slider, Stack, Tooltip, Typography } from '@mui/material';
-import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
-import CleaningServicesRoundedIcon from '@mui/icons-material/CleaningServicesRounded';
-import DeleteSweepRoundedIcon from '@mui/icons-material/DeleteSweepRounded';
-import HighlightRoundedIcon from '@mui/icons-material/HighlightRounded';
-import PanToolAltRoundedIcon from '@mui/icons-material/PanToolAltRounded';
-import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { Box, Checkbox, FormControlLabel, Typography } from '@mui/material';
+import { Excalidraw } from '@excalidraw/excalidraw';
+import type { AppState, ExcalidrawInitialDataState } from '@excalidraw/excalidraw/types';
+import '@excalidraw/excalidraw/index.css';
 import { useWritingStore } from '@/store/writingStore';
-import { shouldExtendWritingSheet } from '@/utils/writingSheet';
 import { useTranslation } from 'react-i18next';
 
-type Tool = 'pen' | 'highlight' | 'eraser' | 'pan';
+// Mirrors the 32px line height of the ruled paper used before switching to Excalidraw: the
+// component has no notion of "numbered ruled lines", so its native dot grid is the closest
+// built-in equivalent and keeps the same visual rhythm while writing.
+const GRID_SIZE = 32;
+const SAVE_DEBOUNCE_MS = 500;
 
-const SURFACE_WIDTH = 1200;
-const INITIAL_SURFACE_HEIGHT = 768;
-const MAX_SURFACE_HEIGHT = 12000;
-const HEIGHT_INCREMENT = 384;
-const LINE_HEIGHT = 32;
-const GUTTER_WIDTH = 52;
+// Maps the app's language codes to Excalidraw's own locale codes.
+const EXCALIDRAW_LANGUAGE: Record<string, string> = { it: 'it-IT', en: 'en', fr: 'fr-FR', de: 'de-DE', es: 'es-ES' };
 
-export function WritingCanvas({ storageKey, label, onShowSolution }: { storageKey: string; label?: string; onShowSolution?: () => void }) {
-  const { t } = useTranslation();
+interface SavedScene {
+  elements: ExcalidrawInitialDataState['elements'];
+  appState: ExcalidrawInitialDataState['appState'];
+}
+
+function parseSavedScene(serialized: string | undefined): SavedScene | null {
+  if (!serialized) return null;
+  try {
+    const parsed = JSON.parse(serialized);
+    if (!parsed || typeof parsed !== 'object') return null;
+    return { elements: parsed.elements ?? [], appState: parsed.appState ?? {} };
+  } catch {
+    return null;
+  }
+}
+
+export function WritingCanvas({ storageKey, label }: { storageKey: string; label?: string }) {
+  const { t, i18n } = useTranslation();
   const workspaceLabel = label ?? t('workspace.problem');
   const initialSheet = useRef(useWritingStore.getState().sheets[storageKey]);
   const saveSheet = useWritingStore((state) => state.saveSheet);
-  const clearDrawing = useWritingStore((state) => state.clearDrawing);
   const checklist = useWritingStore((state) => state.sheets[storageKey]?.checklist);
   const setChecklistAnswer = useWritingStore((state) => state.setChecklistAnswer);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const drawing = useRef(false);
-  const drawingPointer = useRef<number | null>(null);
-  const pageUnlock = useRef<(() => void) | null>(null);
-  const unlockTimer = useRef<number | null>(null);
-  const pendingSnapshot = useRef<string | null>(null);
-  const extending = useRef(false);
-  const [tool, setTool] = useState<Tool>('pen');
-  const [color, setColor] = useState('#263B8F');
-  const [size, setSize] = useState(4);
-  const [surfaceHeight, setSurfaceHeight] = useState(() => Math.max(INITIAL_SURFACE_HEIGHT, initialSheet.current?.height ?? 0));
+  const saveTimer = useRef<number | null>(null);
 
-  const drawSnapshot = useCallback((dataUrl: string | undefined, afterDraw?: () => void) => {
-    const canvas = canvasRef.current;
-    if (!canvas || !dataUrl) { afterDraw?.(); return; }
-    const image = new Image();
-    image.onload = () => {
-      canvas.getContext('2d')?.drawImage(image, 0, 0);
-      afterDraw?.();
-    };
-    image.onerror = () => afterDraw?.();
-    image.src = dataUrl;
-  }, []);
+  const initialScene = useMemo(() => parseSavedScene(initialSheet.current?.dataUrl), []);
 
-  useEffect(() => {
-    drawSnapshot(initialSheet.current?.dataUrl);
-  }, [drawSnapshot, storageKey]);
-
-  useEffect(() => {
-    const snapshot = pendingSnapshot.current;
-    if (!snapshot) return;
-    pendingSnapshot.current = null;
-    drawSnapshot(snapshot, () => {
-      const canvas = canvasRef.current;
-      if (canvas) saveSheet(storageKey, canvas.toDataURL('image/png'), surfaceHeight);
-      extending.current = false;
+  const persist = useCallback((elements: unknown, appState: AppState) => {
+    const payload = JSON.stringify({
+      elements,
+      appState: { viewBackgroundColor: appState.viewBackgroundColor, scrollX: appState.scrollX, scrollY: appState.scrollY, zoom: appState.zoom, gridSize: appState.gridSize, gridModeEnabled: appState.gridModeEnabled },
     });
-  }, [drawSnapshot, saveSheet, storageKey, surfaceHeight]);
+    saveSheet(storageKey, payload, 0);
+  }, [saveSheet, storageKey]);
 
-  const persistDrawing = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (canvas) saveSheet(storageKey, canvas.toDataURL('image/png'), surfaceHeight);
-  }, [saveSheet, storageKey, surfaceHeight]);
+  const handleChange = useCallback((elements: unknown, appState: AppState) => {
+    if (saveTimer.current !== null) window.clearTimeout(saveTimer.current);
+    saveTimer.current = window.setTimeout(() => persist(elements, appState), SAVE_DEBOUNCE_MS);
+  }, [persist]);
 
-  const releasePageLock = useCallback(() => {
-    if (unlockTimer.current !== null) window.clearTimeout(unlockTimer.current);
-    unlockTimer.current = null;
-    pageUnlock.current?.();
-    pageUnlock.current = null;
-  }, []);
-
-  const lockPageForPencil = () => {
-    if (pageUnlock.current) return;
-    const preventPalmScroll = (event: TouchEvent) => event.preventDefault();
-    const viewport = scrollRef.current;
-    const previousOverflow = viewport?.style.overflow ?? '';
-    const previousOverscroll = document.documentElement.style.overscrollBehavior;
-    document.addEventListener('touchmove', preventPalmScroll, { passive: false, capture: true });
-    document.documentElement.style.overscrollBehavior = 'none';
-    if (viewport) viewport.style.overflow = 'hidden';
-    pageUnlock.current = () => {
-      document.removeEventListener('touchmove', preventPalmScroll, true);
-      document.documentElement.style.overscrollBehavior = previousOverscroll;
-      if (viewport) viewport.style.overflow = previousOverflow;
-    };
-  };
-
-  const releasePageLockAfterPalm = () => {
-    if (!pageUnlock.current) return;
-    if (unlockTimer.current !== null) window.clearTimeout(unlockTimer.current);
-    unlockTimer.current = window.setTimeout(releasePageLock, 300);
-  };
-
-  useEffect(() => () => releasePageLock(), [releasePageLock]);
-
-  const coordinates = (event: React.PointerEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current!;
-    const rect = canvas.getBoundingClientRect();
-    return { x: (event.clientX - rect.left) * (canvas.width / rect.width), y: (event.clientY - rect.top) * (canvas.height / rect.height) };
-  };
-
-  const start = (event: React.PointerEvent<HTMLCanvasElement>) => {
-    if (tool === 'pan') return;
-    if (event.pointerType === 'touch') { event.preventDefault(); return; }
-    if (drawingPointer.current !== null) return;
-    event.preventDefault();
-    if (event.pointerType !== 'mouse') lockPageForPencil();
-    event.currentTarget.setPointerCapture(event.pointerId);
-    drawing.current = true;
-    drawingPointer.current = event.pointerId;
-    const context = canvasRef.current?.getContext('2d');
-    if (!context) return;
-    const point = coordinates(event);
-    context.beginPath();
-    context.moveTo(point.x, point.y);
-  };
-
-  const move = (event: React.PointerEvent<HTMLCanvasElement>) => {
-    if (tool === 'pan' || !drawing.current || event.pointerId !== drawingPointer.current) return;
-    event.preventDefault();
-    const context = canvasRef.current?.getContext('2d');
-    if (!context) return;
-    const point = coordinates(event);
-    context.lineCap = 'round';
-    context.lineJoin = 'round';
-    context.globalCompositeOperation = tool === 'eraser' ? 'destination-out' : 'source-over';
-    context.globalAlpha = tool === 'highlight' ? .28 : 1;
-    context.strokeStyle = color;
-    const pressure = event.pressure > 0 ? event.pressure : .5;
-    context.lineWidth = tool === 'eraser' ? size * 5 : tool === 'highlight' ? size * 4 : size * (.75 + pressure * .5);
-    context.lineTo(point.x, point.y);
-    context.stroke();
-  };
-
-  const stop = (event: React.PointerEvent<HTMLCanvasElement>) => {
-    if (event.pointerId !== drawingPointer.current) return;
-    drawing.current = false;
-    drawingPointer.current = null;
-    const context = canvasRef.current?.getContext('2d');
-    if (context) { context.closePath(); context.globalAlpha = 1; context.globalCompositeOperation = 'source-over'; }
-    if (event.pointerType !== 'mouse') releasePageLockAfterPalm();
-    window.requestAnimationFrame(persistDrawing);
-  };
-
-  const clear = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    canvas.getContext('2d')?.clearRect(0, 0, canvas.width, canvas.height);
-    clearDrawing(storageKey);
-  };
-
-  const extendSurface = () => {
-    const canvas = canvasRef.current;
-    if (!canvas || extending.current || surfaceHeight >= MAX_SURFACE_HEIGHT) return;
-    extending.current = true;
-    pendingSnapshot.current = canvas.toDataURL('image/png');
-    setSurfaceHeight((height) => Math.min(height + HEIGHT_INCREMENT, MAX_SURFACE_HEIGHT));
-  };
-
-  const handleScroll = () => {
-    const viewport = scrollRef.current;
-    if (viewport && shouldExtendWritingSheet(viewport.scrollTop, viewport.clientHeight, viewport.scrollHeight)) extendSurface();
-  };
-
-  const lineCount = Math.ceil(surfaceHeight / LINE_HEIGHT);
+  useEffect(() => () => { if (saveTimer.current !== null) window.clearTimeout(saveTimer.current); }, []);
 
   return <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden', bgcolor: '#FFFEFA' }}>
-    <Stack direction="row" alignItems="center" gap={.5} flexWrap="wrap" px={1.5} py={.75} sx={{ bgcolor: 'background.paper', borderBottom: '1px solid', borderColor: 'divider' }}>
-        <Tooltip title={t('workspace.pen')}><IconButton size="small" color={tool === 'pen' ? 'primary' : 'default'} onClick={() => setTool('pen')} aria-label={t('workspace.pen')}><BorderColorRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <Tooltip title={t('workspace.highlighter')}><IconButton size="small" color={tool === 'highlight' ? 'primary' : 'default'} onClick={() => setTool('highlight')} aria-label={t('workspace.highlighter')}><HighlightRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <Tooltip title={t('workspace.eraser')}><IconButton size="small" color={tool === 'eraser' ? 'primary' : 'default'} onClick={() => setTool('eraser')} aria-label={t('workspace.eraser')}><CleaningServicesRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <Tooltip title={t('workspace.pan')}><IconButton size="small" color={tool === 'pan' ? 'primary' : 'default'} onClick={() => setTool('pan')} aria-label={t('workspace.pan')} aria-pressed={tool === 'pan'}><PanToolAltRoundedIcon fontSize="small" /></IconButton></Tooltip>
-        <input type="color" value={color} onChange={(event) => setColor(event.target.value)} aria-label={t('workspace.strokeColor')} style={{ width: 28, height: 28, border: 0, padding: 0, background: 'transparent' }} />
-        <Box sx={{ width: 70, px: 1 }}><Slider size="small" min={2} max={12} value={size} onChange={(_event, value) => setSize(value as number)} aria-label={t('workspace.strokeSize')} /></Box>
-        {onShowSolution && <Button size="small" color="warning" startIcon={<VisibilityRoundedIcon />} onClick={onShowSolution}>{t('workspace.solution')}</Button>}
-        <Button size="small" color="error" startIcon={<DeleteSweepRoundedIcon />} onClick={clear}>{t('workspace.clear')}</Button>
-    </Stack>
-    <Box ref={scrollRef} tabIndex={0} role="region" aria-label={t('workspace.scrollableSheet', { label: workspaceLabel })} onScroll={handleScroll} sx={{ flex: 1, minHeight: 0, overflow: 'auto', overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch', bgcolor: '#FFFEFA' }}>
-      <Box sx={{ width: GUTTER_WIDTH + SURFACE_WIDTH, height: surfaceHeight, display: 'flex', backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #C9D5E8 32px)' }}>
-        <Box aria-hidden sx={{ width: GUTTER_WIDTH, height: surfaceHeight, flexShrink: 0, position: 'sticky', left: 0, zIndex: 1, bgcolor: '#F5F1E8', borderRight: '1px solid #D7CFC0' }}>{Array.from({ length: lineCount }, (_item, index) => <Typography key={index} variant="caption" sx={{ position: 'absolute', top: index * LINE_HEIGHT + LINE_HEIGHT / 2, right: 8, transform: 'translateY(-50%)', color: '#8A8173', fontVariantNumeric: 'tabular-nums' }}>{index + 1}</Typography>)}</Box>
-        <canvas ref={canvasRef} width={SURFACE_WIDTH} height={surfaceHeight} aria-label={t('workspace.writingArea', { label: workspaceLabel })} onPointerDown={start} onPointerMove={move} onPointerUp={stop} onPointerCancel={stop} style={{ width: SURFACE_WIDTH, height: surfaceHeight, display: 'block', cursor: tool === 'pan' ? 'grab' : tool === 'eraser' ? 'cell' : 'crosshair', touchAction: tool === 'pan' ? 'pan-x pan-y' : 'none', userSelect: 'none', WebkitUserSelect: 'none' }} />
-      </Box>
+    <Box role="region" aria-label={t('workspace.scrollableSheet', { label: workspaceLabel })} sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
+      <Excalidraw
+        initialData={{
+          elements: initialScene?.elements ?? [],
+          appState: {
+            viewBackgroundColor: '#FFFEFA',
+            currentItemStrokeColor: '#263B8F',
+            gridSize: GRID_SIZE,
+            gridModeEnabled: true,
+            ...initialScene?.appState,
+          },
+          scrollToContent: true,
+        }}
+        onChange={handleChange}
+        langCode={EXCALIDRAW_LANGUAGE[i18n.language] ?? 'en'}
+        UIOptions={{ canvasActions: { loadScene: false, saveToActiveFile: false } }}
+        name={workspaceLabel}
+      />
     </Box>
     <Box sx={{ px: 1.5, py: .5, borderTop: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}>
       <Typography variant="caption" color="success.main" display="block">● {t('workspace.autosave')}</Typography>

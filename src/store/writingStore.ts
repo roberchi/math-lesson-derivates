@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 export interface SavedWritingSheet {
+  /** Serialized Excalidraw scene (elements + a subset of appState) as JSON, or '' when empty/cleared. */
   dataUrl: string;
   height: number;
   updatedAt: string;
