@@ -3,10 +3,10 @@ import { Alert, Box, Button, Chip, Grid, Paper, Slider, Stack, Typography } from
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import StopRoundedIcon from '@mui/icons-material/StopRounded';
 import { InlineMath } from 'react-katex';
+import { useTranslation } from 'react-i18next';
 
 interface CurvatureModel {
   id: string;
-  label: string;
   math: string;
   fn: (x: number) => number;
   first: (x: number) => number;
@@ -19,7 +19,6 @@ interface CurvatureModel {
 const models: CurvatureModel[] = [
   {
     id: 'cubic',
-    label: 'Cambio di concavità',
     math: '\\frac{x^3}{6}-x',
     fn: (x) => x ** 3 / 6 - x,
     first: (x) => x ** 2 / 2 - 1,
@@ -30,7 +29,6 @@ const models: CurvatureModel[] = [
   },
   {
     id: 'cup',
-    label: 'Coppa',
     math: '0{,}35x^2-1',
     fn: (x) => 0.35 * x ** 2 - 1,
     first: (x) => 0.7 * x,
@@ -41,7 +39,6 @@ const models: CurvatureModel[] = [
   },
   {
     id: 'cap',
-    label: 'Cupola',
     math: '1-0{,}35x^2',
     fn: (x) => 1 - 0.35 * x ** 2,
     first: (x) => -0.7 * x,
@@ -52,7 +49,6 @@ const models: CurvatureModel[] = [
   },
   {
     id: 'sine',
-    label: 'Concavità alternata',
     math: '1{,}4\\sin x',
     fn: (x) => 1.4 * Math.sin(x),
     first: (x) => 1.4 * Math.cos(x),
@@ -74,30 +70,31 @@ const COLORS = {
 };
 
 export function ConcavityExamples() {
+  const { t } = useTranslation();
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} md={4}>
         <ConcavityCard
           kind="up"
           formula="f''(x)>0"
-          title="Concava verso l’alto"
-          text="Procedendo da sinistra a destra, le pendenze aumentano: da negative diventano nulle e poi positive."
+          title={t('secondDerivativeLab.concavityUp.title')}
+          text={t('secondDerivativeLab.concavityUp.text')}
         />
       </Grid>
       <Grid item xs={12} md={4}>
         <ConcavityCard
           kind="down"
           formula="f''(x)<0"
-          title="Concava verso il basso"
-          text="Procedendo da sinistra a destra, le pendenze diminuiscono: da positive diventano nulle e poi negative."
+          title={t('secondDerivativeLab.concavityDown.title')}
+          text={t('secondDerivativeLab.concavityDown.text')}
         />
       </Grid>
       <Grid item xs={12} md={4}>
         <ConcavityCard
           kind="inflection"
           formula="f''(x_0)=0"
-          title="Possibile flesso"
-          text="Se la derivata seconda cambia segno, anche la concavità cambia. Il solo valore zero, però, non basta."
+          title={t('secondDerivativeLab.inflection.title')}
+          text={t('secondDerivativeLab.inflection.text')}
         />
       </Grid>
     </Grid>
@@ -105,6 +102,7 @@ export function ConcavityExamples() {
 }
 
 function ConcavityCard({ kind, formula, title, text }: { kind: 'up' | 'down' | 'inflection'; formula: string; title: string; text: string }) {
+  const { t } = useTranslation();
   const positive = kind === 'up';
   const path = kind === 'up'
     ? 'M 28 40 Q 120 164 212 40'
@@ -132,7 +130,7 @@ function ConcavityCard({ kind, formula, title, text }: { kind: 'up' | 'down' | '
           {kind === 'inflection' && <>
             <circle cx="120" cy="86" r="6" fill={COLORS.zero} />
             <line x1="78" y1="116" x2="162" y2="56" stroke={COLORS.tangent} strokeWidth="2.5" />
-            <text x="128" y="105" fill="#F4C84A" fontSize="11">cambio di concavità</text>
+            <text x="128" y="105" fill="#F4C84A" fontSize="11">{t('secondDerivativeLab.inflection.svgLabel')}</text>
           </>}
         </svg>
       </Box>
@@ -146,6 +144,7 @@ function ConcavityCard({ kind, formula, title, text }: { kind: 'up' | 'down' | '
 }
 
 export function SecondDerivativeLab() {
+  const { t } = useTranslation();
   const [modelId, setModelId] = useState('cubic');
   const [x0, setX0] = useState(-1.8);
   const [animating, setAnimating] = useState(false);
@@ -219,7 +218,7 @@ export function SecondDerivativeLab() {
     drawCurve(xMin, xMax, COLORS.curve, 3);
     drawCurve(Math.max(xMin, x0 - 0.5), Math.min(xMax, x0 + 0.5), localColor, 6);
 
-    // La tangente mostra f′; il cerchio osculatore aggiunge l’informazione di f″.
+    // La tangente mostra f′; il cerchio osculatore aggiunge l'informazione di f″.
     context.strokeStyle = COLORS.tangent;
     context.lineWidth = 2.5;
     context.setLineDash([10, 7]);
@@ -273,10 +272,10 @@ export function SecondDerivativeLab() {
 
   const format = (value: number) => Number.isFinite(value) ? value.toFixed(3) : '∞';
   const status = sign === 'positive'
-    ? { title: 'Concava verso l’alto', body: 'Le pendenze stanno aumentando: la tangente ruota in senso antiorario mentre il punto avanza.', severity: 'success' as const }
+    ? { title: t('secondDerivativeLab.status.positive.title'), body: t('secondDerivativeLab.status.positive.body'), severity: 'success' as const }
     : sign === 'negative'
-      ? { title: 'Concava verso il basso', body: 'Le pendenze stanno diminuendo: la tangente ruota in senso orario mentre il punto avanza.', severity: 'warning' as const }
-      : { title: 'Curvatura nulla in questo punto', body: 'Il cerchio osculatore ha raggio infinito. Controlla i punti vicini: se f″ cambia segno, questo è un flesso.', severity: 'info' as const };
+      ? { title: t('secondDerivativeLab.status.negative.title'), body: t('secondDerivativeLab.status.negative.body'), severity: 'warning' as const }
+      : { title: t('secondDerivativeLab.status.zero.title'), body: t('secondDerivativeLab.status.zero.body'), severity: 'info' as const };
 
   return (
     <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
@@ -291,38 +290,38 @@ export function SecondDerivativeLab() {
       </Box>
 
       <Box sx={{ bgcolor: COLORS.ink, position: 'relative' }}>
-        <canvas ref={canvasRef} width={900} height={518} aria-label="Grafico interattivo della concavità con tangente e cerchio osculatore" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <canvas ref={canvasRef} width={900} height={518} aria-label={t('secondDerivativeLab.canvasAriaLabel')} style={{ width: '100%', height: 'auto', display: 'block' }} />
         <Stack direction="row" gap={0.75} flexWrap="wrap" useFlexGap sx={{ position: 'absolute', left: 12, top: 12, right: 12 }}>
-          <Chip size="small" label="funzione" sx={{ bgcolor: COLORS.curve, color: '#17243F' }} />
-          <Chip size="small" label="tangente" sx={{ bgcolor: COLORS.tangent, color: '#17243F' }} />
-          {showAdvanced && <Chip size="small" label="cerchio osculatore" sx={{ bgcolor: COLORS.circle, color: '#17243F' }} />}
+          <Chip size="small" label={t('secondDerivativeLab.chips.function')} sx={{ bgcolor: COLORS.curve, color: '#17243F' }} />
+          <Chip size="small" label={t('secondDerivativeLab.chips.tangent')} sx={{ bgcolor: COLORS.tangent, color: '#17243F' }} />
+          {showAdvanced && <Chip size="small" label={t('secondDerivativeLab.chips.osculatingCircle')} sx={{ bgcolor: COLORS.circle, color: '#17243F' }} />}
         </Stack>
       </Box>
 
       <Box sx={{ p: { xs: 2, sm: 3 } }}>
         <Stack direction={{ xs: 'column', md: 'row' }} gap={2.5} alignItems={{ md: 'center' }}>
           <Box sx={{ flex: 1, width: '100%' }}>
-            <Typography variant="caption">SPOSTA IL PUNTO · x₀ = {x0.toFixed(2)}</Typography>
-            <Slider value={x0} min={model.min} max={model.max} step={0.02} onChange={(_event, value) => { setAnimating(false); setPrediction(null); setRevealed(false); setX0(value as number); }} aria-label="Posizione del punto sulla funzione" />
+            <Typography variant="caption">{t('secondDerivativeLab.sliders.movePoint', { value: x0.toFixed(2) })}</Typography>
+            <Slider value={x0} min={model.min} max={model.max} step={0.02} onChange={(_event, value) => { setAnimating(false); setPrediction(null); setRevealed(false); setX0(value as number); }} aria-label={t('secondDerivativeLab.sliders.movePointAriaLabel')} />
           </Box>
           <Button variant="contained" startIcon={animating ? <StopRoundedIcon /> : <PlayArrowRoundedIcon />} onClick={() => setAnimating((value) => !value)}>
-            {animating ? 'Ferma punto' : 'Anima il punto'}
+            {animating ? t('secondDerivativeLab.buttons.stopPoint') : t('secondDerivativeLab.buttons.animatePoint')}
           </Button>
         </Stack>
 
         <Paper elevation={0} sx={{ p: 2, mt: 1, bgcolor: 'action.hover' }}>
-          <Typography fontWeight={700} mb={1}>Prima di leggere il valore: qui f″ sarà positivo, negativo oppure circa zero?</Typography>
+          <Typography fontWeight={700} mb={1}>{t('secondDerivativeLab.prediction.question')}</Typography>
           <Stack direction="row" gap={1} flexWrap="wrap" useFlexGap>
             {(['positive', 'negative', 'zero'] as const).map((value) => <Button key={value} size="small" variant={prediction === value ? 'contained' : 'outlined'} onClick={() => setPrediction(value)}>{value === 'positive' ? 'f″ > 0' : value === 'negative' ? 'f″ < 0' : 'f″ ≈ 0'}</Button>)}
-            <Button size="small" color="warning" disabled={!prediction} onClick={() => setRevealed(true)}>Rivela</Button>
+            <Button size="small" color="warning" disabled={!prediction} onClick={() => setRevealed(true)}>{t('secondDerivativeLab.prediction.reveal')}</Button>
           </Stack>
-          {revealed && <Typography variant="body2" mt={1.5}>{prediction === sign ? 'Previsione corretta. ' : 'Confronta la tua previsione con il grafico. '}In questo punto <InlineMath math={`f''(x_0)=${format(second)}`} />.</Typography>}
+          {revealed && <Typography variant="body2" mt={1.5}>{prediction === sign ? t('secondDerivativeLab.prediction.correct') : t('secondDerivativeLab.prediction.compare')} <InlineMath math={`f''(x_0)=${format(second)}`} />.</Typography>}
         </Paper>
 
         <Grid container spacing={1.5} mt={0.5}>
-          <Grid item xs={6} sm={3}><Metric label="Pendenza" formula="f'(x_0)" value={format(first)} color={COLORS.tangent} /></Grid>
-          <Grid item xs={6} sm={3}><Metric label="Variazione pendenza" formula="f''(x_0)" value={revealed ? format(second) : '?'} color={sign === 'positive' ? '#13795B' : sign === 'negative' ? '#B42318' : '#B88A1D'} /></Grid>
-          {showAdvanced && <><Grid item xs={6} sm={3}><Metric label="Curvatura" formula="\\kappa" value={format(curvature)} color="#7448C8" /></Grid><Grid item xs={6} sm={3}><Metric label="Raggio del cerchio" formula="R" value={format(radius)} color="#7448C8" /></Grid></>}
+          <Grid item xs={6} sm={3}><Metric label={t('secondDerivativeLab.metrics.slope')} formula="f'(x_0)" value={format(first)} color={COLORS.tangent} /></Grid>
+          <Grid item xs={6} sm={3}><Metric label={t('secondDerivativeLab.metrics.slopeChange')} formula="f''(x_0)" value={revealed ? format(second) : '?'} color={sign === 'positive' ? '#13795B' : sign === 'negative' ? '#B42318' : '#B88A1D'} /></Grid>
+          {showAdvanced && <><Grid item xs={6} sm={3}><Metric label={t('secondDerivativeLab.metrics.curvature')} formula="\\kappa" value={format(curvature)} color="#7448C8" /></Grid><Grid item xs={6} sm={3}><Metric label={t('secondDerivativeLab.metrics.radius')} formula="R" value={format(radius)} color="#7448C8" /></Grid></>}
         </Grid>
 
         {revealed && <Alert severity={status.severity} sx={{ mt: 2.5 }}>
@@ -330,11 +329,11 @@ export function SecondDerivativeLab() {
           <Typography variant="body2">{status.body}</Typography>
         </Alert>}
 
-        <Button sx={{ mt: 2 }} variant="outlined" color="secondary" onClick={() => setShowAdvanced((value) => !value)}>{showAdvanced ? 'Nascondi curvatura avanzata' : 'Approfondisci: curvatura e cerchio osculatore'}</Button>
+        <Button sx={{ mt: 2 }} variant="outlined" color="secondary" onClick={() => setShowAdvanced((value) => !value)}>{showAdvanced ? t('secondDerivativeLab.buttons.hideAdvanced') : t('secondDerivativeLab.buttons.exploreAdvanced')}</Button>
         {showAdvanced && <Paper elevation={0} sx={{ mt: 2, p: 2, bgcolor: 'custom.purpleLight', borderLeft: '4px solid', borderColor: 'custom.purple' }}>
           <Typography variant="body2">
-            <strong>Perché un cerchio?</strong> La tangente riproduce valore e pendenza; il <em>cerchio osculatore</em> riproduce anche la curvatura locale. Il suo raggio soddisfa{' '}
-            <InlineMath math="R=1/|\\kappa|" />, con <InlineMath math="\\kappa=f''/(1+(f')^2)^{3/2}" />. Più il raggio è piccolo, più la curva piega.
+            <strong>{t('secondDerivativeLab.advanced.title')}</strong> {t('secondDerivativeLab.advanced.body1')}{' '}
+            <InlineMath math="R=1/|\\kappa|" />, {t('secondDerivativeLab.advanced.body2')} <InlineMath math="\\kappa=f''/(1+(f')^2)^{3/2}" />. {t('secondDerivativeLab.advanced.body3')}
           </Typography>
         </Paper>}
       </Box>

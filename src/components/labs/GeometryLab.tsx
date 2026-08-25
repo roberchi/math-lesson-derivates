@@ -3,11 +3,11 @@ import { Box, Button, Chip, Paper, Slider, Stack, Typography } from '@mui/materi
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
 import StopRoundedIcon from '@mui/icons-material/StopRounded';
 import { InlineMath } from 'react-katex';
+import { useTranslation } from 'react-i18next';
 import { equalScaleYRange } from '@/utils/plot';
 
 interface FunctionModel {
   id: string;
-  label: string;
   math: string;
   fn: (x: number) => number;
   derivative: (x: number) => number;
@@ -15,16 +15,17 @@ interface FunctionModel {
 }
 
 const functions: FunctionModel[] = [
-  { id: 'square', label: 'Quadratica', math: 'x^2', fn: (x) => x * x, derivative: (x) => 2 * x },
-  { id: 'cube', label: 'Cubica', math: 'x^3', fn: (x) => x ** 3, derivative: (x) => 3 * x * x },
-  { id: 'sin', label: 'Seno', math: '\\sin x', fn: Math.sin, derivative: Math.cos },
-  { id: 'exp', label: 'Esponenziale', math: 'e^x', fn: Math.exp, derivative: Math.exp },
-  { id: 'abs', label: 'Punto angoloso', math: '|x|', fn: Math.abs, derivative: (x) => x === 0 ? Number.NaN : Math.sign(x), singular: true },
-  { id: 'cusp', label: 'Cuspide', math: 'x^{2/3}', fn: (x) => Math.abs(x) ** (2 / 3), derivative: (x) => x === 0 ? Number.POSITIVE_INFINITY : (2 / 3) * Math.sign(x) / Math.abs(x) ** (1 / 3), singular: true },
-  { id: 'vertical', label: 'Tangente verticale', math: '\\sqrt[3]{x}', fn: Math.cbrt, derivative: (x) => x === 0 ? Number.POSITIVE_INFINITY : 1 / (3 * Math.cbrt(x) ** 2), singular: true },
+  { id: 'square', math: 'x^2', fn: (x) => x * x, derivative: (x) => 2 * x },
+  { id: 'cube', math: 'x^3', fn: (x) => x ** 3, derivative: (x) => 3 * x * x },
+  { id: 'sin', math: '\\sin x', fn: Math.sin, derivative: Math.cos },
+  { id: 'exp', math: 'e^x', fn: Math.exp, derivative: Math.exp },
+  { id: 'abs', math: '|x|', fn: Math.abs, derivative: (x) => x === 0 ? Number.NaN : Math.sign(x), singular: true },
+  { id: 'cusp', math: 'x^{2/3}', fn: (x) => Math.abs(x) ** (2 / 3), derivative: (x) => x === 0 ? Number.POSITIVE_INFINITY : (2 / 3) * Math.sign(x) / Math.abs(x) ** (1 / 3), singular: true },
+  { id: 'vertical', math: '\\sqrt[3]{x}', fn: Math.cbrt, derivative: (x) => x === 0 ? Number.POSITIVE_INFINITY : 1 / (3 * Math.cbrt(x) ** 2), singular: true },
 ];
 
 export function GeometryLab({ singularMode = false }: { singularMode?: boolean }) {
+  const { t } = useTranslation();
   const available = singularMode ? functions : functions.slice(0, 4);
   const [functionId, setFunctionId] = useState(singularMode ? 'abs' : 'square');
   const [x0, setX0] = useState(singularMode ? 0 : 1);
@@ -52,6 +53,9 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
     }, 90);
     return () => window.clearInterval(timer);
   }, [animating]);
+
+  const deltaXLabel = t('geometryLab.canvas.deltaX');
+  const deltaYLabel = t('geometryLab.canvas.deltaY');
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -140,12 +144,12 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
       context.beginPath(); context.moveTo(px(x0), py(y0)); context.lineTo(px(x0 + h), py(y0)); context.lineTo(px(x0 + h), py(y1)); context.stroke();
       context.setLineDash([]);
       context.fillStyle = '#F4C84A'; context.font = '15px Inter, sans-serif';
-      context.fillText('Δx = h', (px(x0) + px(x0 + h)) / 2 - 22, py(y0) + 24);
-      context.fillText('Δy', px(x0 + h) + 9, (py(y0) + py(y1)) / 2);
+      context.fillText(deltaXLabel, (px(x0) + px(x0 + h)) / 2 - 22, py(y0) + 24);
+      context.fillText(deltaYLabel, px(x0 + h) + 9, (py(y0) + py(y1)) / 2);
     }
-  }, [model, x0, h, rightSlope, leftSlope, tangentSlope, showNormal, singularMode]);
+  }, [model, x0, h, rightSlope, leftSlope, tangentSlope, showNormal, singularMode, deltaXLabel, deltaYLabel]);
 
-  const format = (value: number) => Number.isFinite(value) ? value.toFixed(4) : 'non definita';
+  const format = (value: number) => Number.isFinite(value) ? value.toFixed(4) : t('geometryLab.undefined');
 
   return (
     <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
@@ -159,38 +163,38 @@ export function GeometryLab({ singularMode = false }: { singularMode?: boolean }
         </Stack>
       </Box>
       <Box sx={{ bgcolor: '#101A30', position: 'relative' }}>
-        <canvas ref={canvasRef} width={900} height={600} aria-label="Grafico cartesiano in scala uniforme con rette secanti, tangente e normale" style={{ width: '100%', height: 'auto', display: 'block' }} />
+        <canvas ref={canvasRef} width={900} height={600} aria-label={t('geometryLab.canvasAriaLabel')} style={{ width: '100%', height: 'auto', display: 'block' }} />
         <Stack direction="row" gap={1} sx={{ position: 'absolute', left: 14, top: 14 }}>
-          <Chip size="small" label="secante destra" sx={{ bgcolor: '#F4C84A', color: '#17243F' }} />
-          <Chip size="small" label="secante sinistra" sx={{ bgcolor: '#FF8A65', color: '#17243F' }} />
-          <Chip size="small" label="tangente" sx={{ bgcolor: '#4DD4A4', color: '#17243F' }} />
-          {showNormal && <Chip size="small" label="normale" sx={{ bgcolor: '#E6A8FF', color: '#17243F' }} />}
+          <Chip size="small" label={t('geometryLab.chips.rightSecant')} sx={{ bgcolor: '#F4C84A', color: '#17243F' }} />
+          <Chip size="small" label={t('geometryLab.chips.leftSecant')} sx={{ bgcolor: '#FF8A65', color: '#17243F' }} />
+          <Chip size="small" label={t('geometryLab.chips.tangent')} sx={{ bgcolor: '#4DD4A4', color: '#17243F' }} />
+          {showNormal && <Chip size="small" label={t('geometryLab.chips.normal')} sx={{ bgcolor: '#E6A8FF', color: '#17243F' }} />}
         </Stack>
       </Box>
       <Box sx={{ p: { xs: 2, sm: 3 } }}>
         <Stack direction={{ xs: 'column', md: 'row' }} gap={3}>
-          <Box sx={{ flex: 1 }}><Typography variant="caption">PUNTO BASE · x₀ = {x0.toFixed(2)}</Typography><Slider value={x0} min={-2.5} max={2.5} step={0.05} onChange={(_event, value) => setX0(value as number)} aria-label="Punto base x zero" /></Box>
-          <Box sx={{ flex: 1 }}><Typography variant="caption">DISTANZA · |h| = {h.toFixed(2)}</Typography><Slider value={h} min={0.05} max={3} step={0.05} onChange={(_event, value) => { setAnimating(false); setRevealed(false); setH(value as number); }} aria-label="Valore assoluto dell'incremento h" /></Box>
+          <Box sx={{ flex: 1 }}><Typography variant="caption">{t('geometryLab.sliders.basePoint', { value: x0.toFixed(2) })}</Typography><Slider value={x0} min={-2.5} max={2.5} step={0.05} onChange={(_event, value) => setX0(value as number)} aria-label={t('geometryLab.sliders.basePointAriaLabel')} /></Box>
+          <Box sx={{ flex: 1 }}><Typography variant="caption">{t('geometryLab.sliders.distance', { value: h.toFixed(2) })}</Typography><Slider value={h} min={0.05} max={3} step={0.05} onChange={(_event, value) => { setAnimating(false); setRevealed(false); setH(value as number); }} aria-label={t('geometryLab.sliders.distanceAriaLabel')} /></Box>
         </Stack>
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} alignItems={{ sm: 'center' }} justifyContent="space-between" mt={1}>
           <Stack direction="row" gap={3}>
-            <Box><Typography variant="caption" color="text.secondary">da sinistra</Typography><Typography variant="h3" sx={{ color: '#D45B5B' }}>{revealed ? format(leftSlope) : '?'}</Typography></Box>
-            <Box><Typography variant="caption" color="text.secondary">da destra</Typography><Typography variant="h3" sx={{ color: '#B88A1D' }}>{revealed ? format(rightSlope) : '?'}</Typography></Box>
+            <Box><Typography variant="caption" color="text.secondary">{t('geometryLab.metrics.fromLeft')}</Typography><Typography variant="h3" sx={{ color: '#D45B5B' }}>{revealed ? format(leftSlope) : '?'}</Typography></Box>
+            <Box><Typography variant="caption" color="text.secondary">{t('geometryLab.metrics.fromRight')}</Typography><Typography variant="h3" sx={{ color: '#B88A1D' }}>{revealed ? format(rightSlope) : '?'}</Typography></Box>
             <Box><Typography variant="caption" color="text.secondary">f′(x₀)</Typography><Typography variant="h3" color="success.main">{format(tangentSlope)}</Typography></Box>
           </Stack>
           <Button variant="contained" startIcon={animating ? <StopRoundedIcon /> : <PlayArrowRoundedIcon />} onClick={() => { if (!animating && h <= .06) setH(2.5); setAnimating((value) => !value); }}>
-            {animating ? 'Ferma' : 'Anima h → 0'}
+            {animating ? t('geometryLab.buttons.stop') : t('geometryLab.buttons.animate')}
           </Button>
-          <Button variant={showNormal ? 'contained' : 'outlined'} color="secondary" onClick={() => setShowNormal((value) => !value)}>{showNormal ? 'Nascondi normale' : 'Mostra normale'}</Button>
+          <Button variant={showNormal ? 'contained' : 'outlined'} color="secondary" onClick={() => setShowNormal((value) => !value)}>{showNormal ? t('geometryLab.buttons.hideNormal') : t('geometryLab.buttons.showNormal')}</Button>
         </Stack>
         <Paper elevation={0} sx={{ mt: 2, p: 2, bgcolor: 'action.hover' }}>
-          <Typography fontWeight={700} mb={1}>Prima di rivelare: avvicinandosi da sinistra e da destra, le pendenze tenderanno allo stesso valore?</Typography>
+          <Typography fontWeight={700} mb={1}>{t('geometryLab.prediction.question')}</Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} gap={1}>
-            <Button variant={prediction === 'same' ? 'contained' : 'outlined'} onClick={() => setPrediction('same')}>Sì, coincidono</Button>
-            <Button variant={prediction === 'different' ? 'contained' : 'outlined'} onClick={() => setPrediction('different')}>No, restano diverse</Button>
-            <Button color="warning" disabled={!prediction} onClick={() => setRevealed(true)}>Rivela e confronta</Button>
+            <Button variant={prediction === 'same' ? 'contained' : 'outlined'} onClick={() => setPrediction('same')}>{t('geometryLab.prediction.same')}</Button>
+            <Button variant={prediction === 'different' ? 'contained' : 'outlined'} onClick={() => setPrediction('different')}>{t('geometryLab.prediction.different')}</Button>
+            <Button color="warning" disabled={!prediction} onClick={() => setRevealed(true)}>{t('geometryLab.prediction.reveal')}</Button>
           </Stack>
-          {revealed && <Typography variant="body2" color="text.secondary" mt={1.5}>{Math.abs(leftSlope - rightSlope) < .12 ? 'Le due pendenze sono ormai molto vicine: il limite bilaterale è compatibile con una derivata.' : 'Le pendenze laterali non coincidono ancora. Riduci |h|; se restano diverse, la derivata non esiste.'} h non diventa mai zero: il rapporto sarebbe indefinito.</Typography>}
+          {revealed && <Typography variant="body2" color="text.secondary" mt={1.5}>{Math.abs(leftSlope - rightSlope) < .12 ? t('geometryLab.prediction.feedbackClose') : t('geometryLab.prediction.feedbackFar')}</Typography>}
         </Paper>
       </Box>
     </Paper>

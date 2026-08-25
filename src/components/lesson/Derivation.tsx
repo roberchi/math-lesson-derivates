@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import { BlockMath } from 'react-katex';
+import { useTranslation } from 'react-i18next';
 import { MathText } from '@/components/math/MathText';
 import { useLessonStore } from '@/store/lessonStore';
 
@@ -34,6 +35,7 @@ interface DerivationProps {
 }
 
 export function Derivation({ title, formula, meaning, steps, conclusion, defaultExpanded = false, conceptId, checkpoint }: DerivationProps) {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState<number | null>(null);
   const verify = useLessonStore((state) => state.verifyConcept);
   return (
@@ -42,10 +44,10 @@ export function Derivation({ title, formula, meaning, steps, conclusion, default
         <Box sx={{ flex: 1, minWidth: 0, pr: { xs: .5, sm: 1.5 } }}>
           <Stack direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" alignItems={{ md: 'stretch' }} gap={{ xs: 2, md: 3 }}>
             <Box sx={{ flex: 1, minWidth: 0 }}>
-              <Typography variant="caption" color="primary.main" fontWeight={800}>VERSIONE DIMOSTRATIVA</Typography>
+              <Typography variant="caption" color="primary.main" fontWeight={800}>{t('derivation.proofVersionLabel')}</Typography>
               <Typography variant="h3" sx={{ fontSize: { xs: '1.3rem', sm: '1.45rem' }, mt: .5 }}>{title}</Typography>
               <Box sx={{ mt: 1.25 }}>
-                <Typography variant="caption" color="text.secondary" fontWeight={800}>COME SI LEGGE E QUANDO SI USA</Typography>
+                <Typography variant="caption" color="text.secondary" fontWeight={800}>{t('derivation.howToRead')}</Typography>
                 <Typography component="div" variant="body2" color="text.secondary" sx={{ mt: .35, maxWidth: 650 }}>
                   <MathText text={meaning} />
                 </Typography>
@@ -65,7 +67,7 @@ export function Derivation({ title, formula, meaning, steps, conclusion, default
               fontSize: { xs: '1.08rem', sm: '1.28rem', lg: '1.38rem' },
               '& .katex-display': { m: 0, textAlign: 'center' },
             }}>
-              <Typography variant="caption" color="primary.main" fontWeight={800} sx={{ display: 'block', mb: .5 }}>FORMULA</Typography>
+              <Typography variant="caption" color="primary.main" fontWeight={800} sx={{ display: 'block', mb: .5 }}>{t('derivation.formulaLabel')}</Typography>
               <BlockMath math={formula} />
             </Box>
           </Stack>
@@ -85,14 +87,14 @@ export function Derivation({ title, formula, meaning, steps, conclusion, default
           ))}
         </Stack>
         <Box sx={{ mt: 2, p: 2, bgcolor: 'rgba(65,88,208,.07)', borderLeft: '3px solid', borderColor: 'primary.main' }}>
-          <Typography variant="caption" color="primary.main" fontWeight={800}>CONCLUSIONE</Typography>
+          <Typography variant="caption" color="primary.main" fontWeight={800}>{t('derivation.conclusionLabel')}</Typography>
           <Typography component="div" sx={{ mt: .5 }}><MathText text={conclusion} /></Typography>
         </Box>
         {checkpoint && conceptId && <Paper elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'warning.light' }}>
-          <Typography variant="caption" color="warning.main" fontWeight={800}>CHECKPOINT OBBLIGATORIO</Typography>
+          <Typography variant="caption" color="warning.main" fontWeight={800}>{t('derivation.mandatoryCheckpoint')}</Typography>
           <Typography fontWeight={700} my={1}>{checkpoint.question}</Typography>
           <Stack gap={1}>{checkpoint.choices.map((choice, index) => <Button key={choice} variant={selected === index ? 'contained' : 'outlined'} color={selected !== null && index === checkpoint.correctIndex ? 'success' : 'warning'} onClick={() => { setSelected(index); if (index === checkpoint.correctIndex) verify(conceptId); }}>{choice}</Button>)}</Stack>
-          {selected !== null && <Alert severity={selected === checkpoint.correctIndex ? 'success' : 'warning'} sx={{ mt: 1.5 }}>{selected === checkpoint.correctIndex ? checkpoint.explanation : 'Rileggi i passaggi e riprova.'}</Alert>}
+          {selected !== null && <Alert severity={selected === checkpoint.correctIndex ? 'success' : 'warning'} sx={{ mt: 1.5 }}>{selected === checkpoint.correctIndex ? checkpoint.explanation : t('derivation.rereadAndRetry')}</Alert>}
         </Paper>}
       </AccordionDetails>
     </Accordion>

@@ -2,6 +2,8 @@ import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 import { Box, Chip, Paper, Stack, Typography } from '@mui/material';
 import { BlockMath, InlineMath } from 'react-katex';
+import { useTranslation } from 'react-i18next';
+import { MathText } from '@/components/math/MathText';
 
 type BuildLayer = {
   label: string;
@@ -10,80 +12,63 @@ type BuildLayer = {
   color: string;
 };
 
-const buildLayers: BuildLayer[] = [
-  { label: 'Ingresso', action: 'parti dalla variabile', formula: 'x', color: '#91A3FA' },
-  { label: 'Strato interno', action: 'eleva al quadrato', formula: 'x^2', color: '#4DD4A4' },
-  { label: 'Strato esterno', action: 'applica il seno', formula: '\\sin(x^2)', color: '#F4C84A' },
-];
+const buildLayerFormulas = ['x', 'x^2', '\\sin(x^2)'];
+const buildLayerColors = ['#91A3FA', '#4DD4A4', '#F4C84A'];
 
-const derivativeLayers = [
-  {
-    number: 1,
-    label: 'PARTI DALL’ESTERNO',
-    title: 'Deriva il seno, ma lascia fermo ciò che contiene',
-    formula: '\\sin(\\boxed{x^2})\\;\\longrightarrow\\;\\cos(\\boxed{x^2})',
-    explanation: 'La derivata di seno è coseno. In questo primo passaggio x² resta dentro le parentesi, identico: non lo abbiamo ancora derivato.',
-    color: '#F4C84A',
-  },
-  {
-    number: 2,
-    label: 'ENTRA NELLO STRATO SUCCESSIVO',
-    title: 'Ora deriva la parte interna',
-    formula: '(x^2)\' = 2x',
-    explanation: 'Tolto lo strato del seno, incontriamo la funzione elementare x². La sua derivata è 2x.',
-    color: '#4DD4A4',
-  },
-  {
-    number: 3,
-    label: 'COLLEGA GLI EFFETTI',
-    title: 'Moltiplica le derivate raccolte lungo il percorso',
-    formula: '(\\sin(x^2))\'=\\cos(x^2)\\cdot 2x',
-    explanation: 'Il primo fattore racconta come reagisce il seno; il secondo racconta quanto velocemente cambia il suo ingresso x².',
-    color: '#91A3FA',
-  },
+const derivativeLayerFormulas = [
+  '\\sin(\\boxed{x^2})\\;\\longrightarrow\\;\\cos(\\boxed{x^2})',
+  "(x^2)' = 2x",
+  "(\\sin(x^2))'=\\cos(x^2)\\cdot 2x",
 ];
+const derivativeLayerColors = ['#F4C84A', '#4DD4A4', '#91A3FA'];
 
-const deepLayers = [
-  {
-    number: 1,
-    layer: 'Esterno',
-    before: 'e^{\\boxed{\\sin(x^2)}}',
-    after: 'e^{\\sin(x^2)}',
-    reading: 'L’esponenziale rimane esponenziale. Tutto ciò che sta nell’esponente resta fermo per ora.',
-  },
-  {
-    number: 2,
-    layer: 'Intermedio',
-    before: '\\sin(\\boxed{x^2})',
-    after: '\\cos(x^2)',
-    reading: 'Entriamo nell’esponente: il seno diventa coseno, mantenendo x² come argomento.',
-  },
-  {
-    number: 3,
-    layer: 'Interno',
-    before: 'x^2',
-    after: '2x',
-    reading: 'Arriviamo all’ultimo strato, la potenza, e la deriviamo.',
-  },
-];
+const deepLayerBefore = ['e^{\\boxed{\\sin(x^2)}}', '\\sin(\\boxed{x^2})', 'x^2'];
+const deepLayerAfter = ['e^{\\sin(x^2)}', '\\cos(x^2)', '2x'];
 
 export function ChainRuleLayers() {
+  const { t } = useTranslation();
+
+  const buildLayers: BuildLayer[] = [
+    { label: t('chainRule.buildLayers.0.label'), action: t('chainRule.buildLayers.0.action'), formula: buildLayerFormulas[0], color: buildLayerColors[0] },
+    { label: t('chainRule.buildLayers.1.label'), action: t('chainRule.buildLayers.1.action'), formula: buildLayerFormulas[1], color: buildLayerColors[1] },
+    { label: t('chainRule.buildLayers.2.label'), action: t('chainRule.buildLayers.2.action'), formula: buildLayerFormulas[2], color: buildLayerColors[2] },
+  ];
+
+  const derivativeLayers = [
+    { number: 1, label: t('chainRule.derivativeLayers.0.label'), title: t('chainRule.derivativeLayers.0.title'), formula: derivativeLayerFormulas[0], explanation: t('chainRule.derivativeLayers.0.explanation'), color: derivativeLayerColors[0] },
+    { number: 2, label: t('chainRule.derivativeLayers.1.label'), title: t('chainRule.derivativeLayers.1.title'), formula: derivativeLayerFormulas[1], explanation: t('chainRule.derivativeLayers.1.explanation'), color: derivativeLayerColors[1] },
+    { number: 3, label: t('chainRule.derivativeLayers.2.label'), title: t('chainRule.derivativeLayers.2.title'), formula: derivativeLayerFormulas[2], explanation: t('chainRule.derivativeLayers.2.explanation'), color: derivativeLayerColors[2] },
+  ];
+
+  const deepLayers = [
+    { number: 1, layer: t('chainRule.deepLayers.0.layer'), before: deepLayerBefore[0], after: deepLayerAfter[0], reading: t('chainRule.deepLayers.0.reading') },
+    { number: 2, layer: t('chainRule.deepLayers.1.layer'), before: deepLayerBefore[1], after: deepLayerAfter[1], reading: t('chainRule.deepLayers.1.reading') },
+    { number: 3, layer: t('chainRule.deepLayers.2.layer'), before: deepLayerBefore[2], after: deepLayerAfter[2], reading: t('chainRule.deepLayers.2.reading') },
+  ];
+
+  const procedure: [string, string, string][] = [
+    ['1', t('chainRule.procedure.0.title'), t('chainRule.procedure.0.text')],
+    ['2', t('chainRule.procedure.1.title'), t('chainRule.procedure.1.text')],
+    ['3', t('chainRule.procedure.2.title'), t('chainRule.procedure.2.text')],
+    ['4', t('chainRule.procedure.3.title'), t('chainRule.procedure.3.text')],
+  ];
+
   return (
     <Stack spacing={3}>
       <Box>
         <Typography paragraph>
-          Una funzione composta è una funzione <strong>dentro</strong> un’altra. Il valore di <InlineMath math="x" /> non arriva direttamente al seno: prima viene trasformato in <InlineMath math="x^2" />, poi il risultato entra nel seno. Ogni trasformazione è uno <strong>strato</strong>.
+          <MathText text={t('chainRule.intro.paragraph1')} />
         </Typography>
         <Typography color="text.secondary">
-          Pensa a una cipolla: la formula esterna avvolge quelle interne. Per derivare correttamente togliamo uno strato alla volta, senza saltarne nessuno.
+          {t('chainRule.intro.paragraph2')}
         </Typography>
       </Box>
 
       <Paper elevation={0} sx={{ p: { xs: 2, sm: 3 }, bgcolor: 'custom.ink', color: '#F2F5FA', overflow: 'hidden' }}>
-        <Typography variant="overline" sx={{ color: '#91A3FA' }}>PRIMA: COME SI COSTRUISCE LA FUNZIONE</Typography>
-        <Typography variant="h3" mt={.5} mb={1}>Dall’interno verso l’esterno</Typography>
-        <Typography sx={{ color: '#C9D2E0', mb: 2.5 }}>Segui il viaggio del valore di x: l’uscita di uno strato diventa l’ingresso del successivo.</Typography>
-        <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="stretch" spacing={{ xs: 1, sm: 1.5 }} aria-label="Costruzione a strati di seno di x quadrato">
+        <Typography variant="overline" sx={{ color: '#91A3FA' }}>{t('chainRule.buildBox.overline')}</Typography>
+        <Typography variant="h3" mt={.5} mb={1}>{t('chainRule.buildBox.title')}</Typography>
+        <Typography sx={{ color: '#C9D2E0', mb: 2.5 }}>{t('chainRule.buildBox.subtitle')}</Typography>
+        <Stack direction={{ xs: 'column', sm: 'row' }} alignItems="stretch" spacing={{ xs: 1, sm: 1.5 }} aria-label={t('chainRule.buildBox.ariaLabel')}>
           {buildLayers.map((layer, index) => (
             <Stack key={layer.label} direction={{ xs: 'column', sm: 'row' }} alignItems="center" spacing={{ xs: 1, sm: 1.5 }} sx={{ flex: index === buildLayers.length - 1 ? 1.15 : 1 }}>
               <Paper elevation={0} sx={{ width: '100%', minHeight: 132, p: 2, bgcolor: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.16)', color: 'inherit', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -98,15 +83,15 @@ export function ChainRuleLayers() {
           ))}
         </Stack>
         <Box sx={{ mt: 2.5, p: 2, borderLeft: '3px solid #F4C84A', bgcolor: 'rgba(244,200,74,.08)' }}>
-          <Typography fontWeight={750}>In simboli: <InlineMath math="u=x^2" />, poi <InlineMath math="y=\sin u" />. Quindi <InlineMath math="y=\sin(x^2)" />.</Typography>
+          <Typography fontWeight={750}><MathText text={t('chainRule.buildBox.symbolsNote')} /></Typography>
         </Box>
       </Paper>
 
       <Paper elevation={0} sx={{ p: { xs: 2, sm: 3 }, border: '1px solid', borderColor: 'divider' }}>
-        <Typography variant="overline" color="primary.main">POI: COME SI DERIVA</Typography>
-        <Typography variant="h3" mt={.5}>Dall’esterno verso l’interno</Typography>
+        <Typography variant="overline" color="primary.main">{t('chainRule.deriveBox.overline')}</Typography>
+        <Typography variant="h3" mt={.5}>{t('chainRule.deriveBox.title')}</Typography>
         <Typography color="text.secondary" mt={1} mb={3}>
-          Ora invertiamo lo sguardo: partiamo dall’ultimo strato applicato, quello più esterno. Dopo averlo derivato entriamo nello strato successivo e moltiplichiamo il nuovo fattore.
+          {t('chainRule.deriveBox.subtitle')}
         </Typography>
 
         <Stack>
@@ -128,21 +113,21 @@ export function ChainRuleLayers() {
       </Paper>
 
       <Paper elevation={0} sx={{ p: { xs: 2.5, sm: 3 }, bgcolor: 'custom.goldLight', borderLeft: '4px solid', borderColor: 'custom.gold' }}>
-        <Typography variant="h3" mb={1}>Perché le derivate si moltiplicano?</Typography>
+        <Typography variant="h3" mb={1}>{t('chainRule.whyMultiply.title')}</Typography>
         <Typography paragraph>
-          Una piccola variazione di <InlineMath math="x" /> viene prima moltiplicata dallo strato <InlineMath math="x^2" /> per il fattore <InlineMath math="2x" />: il valore assoluto indica quanto cambia, il segno anche in quale verso. Quella variazione arriva poi al seno e viene moltiplicata ancora per <InlineMath math="\cos(x^2)" />.
+          <MathText text={t('chainRule.whyMultiply.paragraph')} />
         </Typography>
-        <Typography fontWeight={750}>L’effetto totale è il prodotto degli effetti attraversati:</Typography>
+        <Typography fontWeight={750}>{t('chainRule.whyMultiply.totalEffect')}</Typography>
         <Box sx={{ overflowX: 'auto', fontSize: { xs: '1.05rem', sm: '1.22rem' }, '& .katex-display': { mb: 0 } }}>
           <BlockMath math="\underbrace{\frac{dy}{du}}_{\text{effetto del seno}}\cdot\underbrace{\frac{du}{dx}}_{\text{effetto del quadrato}}=\cos(x^2)\cdot2x" />
         </Box>
       </Paper>
 
       <Box>
-        <Typography variant="overline" color="primary.main">UNA CIPOLLA CON TRE STRATI</Typography>
-        <Typography variant="h3" mt={.5}>E se la funzione fosse <InlineMath math="e^{\sin(x^2)}" />?</Typography>
+        <Typography variant="overline" color="primary.main">{t('chainRule.deepSection.overline')}</Typography>
+        <Typography variant="h3" mt={.5}><MathText text={t('chainRule.deepSection.title')} /></Typography>
         <Typography color="text.secondary" mt={1} mb={2.5}>
-          Il metodo non cambia. Continuiamo a entrare finché arriviamo a x, raccogliendo un fattore per ogni strato.
+          {t('chainRule.deepSection.subtitle')}
         </Typography>
 
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'minmax(0,1fr) 310px' }, gap: 2.5, alignItems: 'stretch' }}>
@@ -152,7 +137,7 @@ export function ChainRuleLayers() {
                 <Stack direction="row" spacing={1.5} alignItems="flex-start">
                   <Chip label={step.number} color="primary" sx={{ fontWeight: 850 }} />
                   <Box sx={{ minWidth: 0, flex: 1 }}>
-                    <Typography variant="caption" color="primary.main" fontWeight={850}>STRATO {step.layer.toUpperCase()}</Typography>
+                    <Typography variant="caption" color="primary.main" fontWeight={850}>{t('chainRule.deepSection.layerLabel')} {step.layer.toUpperCase()}</Typography>
                     <Stack direction={{ xs: 'column', sm: 'row' }} alignItems={{ sm: 'center' }} spacing={1} sx={{ my: .75, fontSize: '1.05rem' }}>
                       <Box sx={{ overflowX: 'auto' }}><InlineMath math={step.before} /></Box>
                       <ArrowForwardRoundedIcon color="primary" sx={{ transform: { xs: 'rotate(90deg)', sm: 'none' } }} />
@@ -166,30 +151,25 @@ export function ChainRuleLayers() {
           </Stack>
 
           <Paper elevation={0} sx={{ p: 2.5, bgcolor: 'custom.ink', color: '#F2F5FA', display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
-            <Typography variant="caption" sx={{ color: '#91A3FA', fontWeight: 850 }}>MOLTIPLICA I TRE FATTORI</Typography>
+            <Typography variant="caption" sx={{ color: '#91A3FA', fontWeight: 850 }}>{t('chainRule.multiplyThreeFactors.overline')}</Typography>
             <Box sx={{ my: 1.5, overflowX: 'auto', fontSize: { xs: '1rem', sm: '1.12rem' }, '& .katex-display': { m: 0 } }}>
               <BlockMath math="\left(e^{\sin(x^2)}\right)'=e^{\sin(x^2)}\cdot\cos(x^2)\cdot2x" />
             </Box>
             <Stack spacing={.75} sx={{ color: '#C9D2E0', textAlign: 'left' }}>
-              <Typography variant="body2">1. derivata dell’esponenziale</Typography>
+              <Typography variant="body2">{t('chainRule.multiplyThreeFactors.factor1')}</Typography>
               <ArrowDownwardRoundedIcon sx={{ alignSelf: 'center', color: '#91A3FA' }} />
-              <Typography variant="body2">2. derivata del seno</Typography>
+              <Typography variant="body2">{t('chainRule.multiplyThreeFactors.factor2')}</Typography>
               <ArrowDownwardRoundedIcon sx={{ alignSelf: 'center', color: '#91A3FA' }} />
-              <Typography variant="body2">3. derivata del quadrato</Typography>
+              <Typography variant="body2">{t('chainRule.multiplyThreeFactors.factor3')}</Typography>
             </Stack>
           </Paper>
         </Box>
       </Box>
 
       <Paper elevation={0} sx={{ p: { xs: 2.5, sm: 3 }, border: '1px solid', borderColor: 'rgba(65,88,208,.3)' }}>
-        <Typography variant="h3" mb={2}>La procedura da riutilizzare sempre</Typography>
+        <Typography variant="h3" mb={2}>{t('chainRule.procedureBox.title')}</Typography>
         <Stack spacing={1.5}>
-          {[
-            ['1', 'Cerchia mentalmente gli strati', 'Individua quale funzione avvolge tutte le altre, poi quali sono contenute al suo interno.'],
-            ['2', 'Deriva lo strato esterno', 'Lascia invariato tutto ciò che è dentro le sue parentesi.'],
-            ['3', 'Entra di uno strato e moltiplica', 'Ripeti: deriva il nuovo strato, conserva ciò che contiene e aggiungi il fattore al prodotto.'],
-            ['4', 'Fermati quando raggiungi x', 'A quel punto hai attraversato tutti gli strati; puoi riordinare e semplificare il prodotto.'],
-          ].map(([number, title, text]) => (
+          {procedure.map(([number, title, text]) => (
             <Box key={number} sx={{ display: 'grid', gridTemplateColumns: '36px minmax(0,1fr)', gap: 1.5, alignItems: 'start' }}>
               <Box sx={{ width: 36, height: 36, borderRadius: 1.5, bgcolor: 'primary.main', color: 'white', display: 'grid', placeItems: 'center', fontWeight: 850 }}>{number}</Box>
               <Box><Typography fontWeight={800}>{title}</Typography><Typography variant="body2" color="text.secondary">{text}</Typography></Box>

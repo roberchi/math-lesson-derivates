@@ -1,6 +1,7 @@
 import { Alert, Box, Grid, Paper, Stack, Typography } from '@mui/material';
 import { BlockMath, InlineMath } from 'react-katex';
 import { Navigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Derivation } from '@/components/lesson/Derivation';
 import { HistoryNote } from '@/components/lesson/HistoryNote';
 import { LessonScaffold, PerspectiveCard, SectionBlock } from '@/components/lesson/LessonScaffold';
@@ -21,117 +22,121 @@ export function LessonOnePage() {
 }
 
 function VelocitySection() {
+  const { t } = useTranslation();
   return (
-    <LessonScaffold sectionId="velocita" eyebrow="Lezione 1 · 0:00–0:10" title="Una velocità in un solo istante" lead="Prima della formula viene il problema: la velocità media è la velocità associata a un intervallo temporale, ma come possiamo esprimere la velocità da associare a un istante che non ha durata?">
-      <SectionBlock eyebrow="La situazione concreta" title="Un oggetto sta cadendo">
-        <Typography paragraph>Immagina di osservare un oggetto che cade. Il suo spazio percorso non cresce sempre allo stesso ritmo: ogni secondo va più veloce. Conoscendo due posizioni possiamo calcolare la velocità media, ma il tachimetro mostra qualcosa di diverso: una velocità in quell’istante.</Typography>
+    <LessonScaffold sectionId="velocita" eyebrow={t('lessonOne.velocity.eyebrow')} title={t('lesson.content.velocita.title')} lead={t('lesson.content.velocita.lead')}>
+      <SectionBlock eyebrow={t('lessonOne.velocity.situationEyebrow')} title={t('lessonOne.velocity.fallingObject.title')}>
+        <Typography paragraph>{t('lessonOne.velocity.fallingObject.body')}</Typography>
         <Grid container spacing={2} mt={1}>
           {[
-            { label: 'OSSERVO', value: 'due posizioni', body: 'La posizione al tempo t e poco dopo, al tempo t + h.' },
-            { label: 'MISURO', value: 'una variazione', body: 'Quanto spazio è stato percorso durante quel piccolo intervallo.' },
-            { label: 'DOMANDO', value: 'e in un istante?', body: 'Rendiamo l’intervallo sempre più piccolo, senza porlo uguale a zero.' },
+            { label: t('lessonOne.velocity.observe.label'), value: t('lessonOne.velocity.observe.value'), body: t('lessonOne.velocity.observe.body') },
+            { label: t('lessonOne.velocity.measure.label'), value: t('lessonOne.velocity.measure.value'), body: t('lessonOne.velocity.measure.body') },
+            { label: t('lessonOne.velocity.ask.label'), value: t('lessonOne.velocity.ask.value'), body: t('lessonOne.velocity.ask.body') },
           ].map((item) => <Grid item xs={12} sm={4} key={item.label}><Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}><Typography variant="caption" color="primary.main">{item.label}</Typography><Typography variant="h3" sx={{ my: 1 }}>{item.value}</Typography><Typography variant="body2">{item.body}</Typography></Paper></Grid>)}
         </Grid>
       </SectionBlock>
       <VelocityInquiry />
 
       <Paper elevation={0} sx={{ bgcolor: 'custom.ink', color: '#F2F5FA', p: { xs: 3, sm: 4 }, borderRadius: 2 }}>
-        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>Il ponte verso il limite</Typography>
-        <Typography sx={{ color: '#C9D2E0', mb: 2 }}>Dopo aver formulato la domanda, possiamo darle un linguaggio. Se la legge oraria è <InlineMath math="s(t)=\tfrac12gt^2" />, la velocità media tra <InlineMath math="t" /> e <InlineMath math="t+h" /> è:</Typography>
+        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>{t('lessonOne.velocity.bridge.title')}</Typography>
+        <Typography sx={{ color: '#C9D2E0', mb: 2 }}><MathText text={t('lessonOne.velocity.bridge.body1')} /></Typography>
         <Box sx={{ overflowX: 'auto', '& .katex': { fontSize: '1.25em' } }}><BlockMath math="v_m=\frac{s(t+h)-s(t)}{h}" /></Box>
-        <Typography sx={{ color: '#C9D2E0', mt: 2 }}>La velocità istantanea emerge osservando cosa succede quando <InlineMath math="h" /> si avvicina a zero. È esattamente il tipo di domanda a cui risponde un limite.</Typography>
+        <Typography sx={{ color: '#C9D2E0', mt: 2 }}><MathText text={t('lessonOne.velocity.bridge.body2')} /></Typography>
       </Paper>
 
-      <HistoryNote title="Galileo e il problema della velocità" summary="Galileo descrive il moto accelerato nel 1638, ma gli manca ancora il calcolo infinitesimale." href="https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/">
-        Galileo comprese che nella caduta libera lo spazio cresce come il quadrato del tempo. Poteva descrivere il moto su intervalli, ma non disponeva ancora di una definizione rigorosa di velocità istantanea. Newton e Leibniz costruiranno gli strumenti necessari alcuni decenni dopo la sua morte.
+      <HistoryNote title={t('lessonOne.velocity.historyNote.title')} summary={t('lessonOne.velocity.historyNote.summary')} href="https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/">
+        {t('lessonOne.velocity.historyNote.body')}
       </HistoryNote>
 
-      <Alert severity="info"><strong>Domanda da portare alla sezione successiva:</strong> se la velocità è la pendenza di un grafico spazio-tempo, come troviamo la pendenza di una curva in un punto?</Alert>
+      <Alert severity="info"><strong>{t('lessonOne.velocity.alert.strong')}</strong> {t('lessonOne.velocity.alert.body')}</Alert>
     </LessonScaffold>
   );
 }
 
 function GeometrySection() {
+  const { t } = useTranslation();
   return (
-    <LessonScaffold sectionId="geometria" eyebrow="Lezione 1 · 0:10–0:30" title="La secante diventa tangente" lead="La derivata nasce geometricamente facendo avvicinare due punti del grafico. Muovi h e guarda la pendenza della secante convergere verso quella della tangente.">
+    <LessonScaffold sectionId="geometria" eyebrow={t('lessonOne.geometry.eyebrow')} title={t('lesson.content.geometria.title')} lead={t('lesson.content.geometria.lead')}>
       <GeometryLab />
-      <SectionBlock eyebrow="Lettura guidata" title={<>Dal <GlossaryTerm term="Rapporto incrementale" /> alla pendenza</>}>
-        <Typography paragraph>Fissiamo il punto <InlineMath math="P=(x_0,f(x_0))" /> e scegliamo un secondo punto <InlineMath math="Q=(x_0+h,f(x_0+h))" />. La retta che li attraversa è una secante.</Typography>
+      <SectionBlock eyebrow={t('lessonOne.geometry.guided.eyebrow')} title={<>{t('lessonOne.geometry.guided.titlePre')} <GlossaryTerm term="Rapporto incrementale" /> {t('lessonOne.geometry.guided.titlePost')}</>}>
+        <Typography paragraph><MathText text={t('lessonOne.geometry.guided.para1')} /></Typography>
         <Paper elevation={0} sx={{ p: 2, bgcolor: 'rgba(65,88,208,.07)', borderLeft: '3px solid', borderColor: 'primary.main', overflowX: 'auto' }}><BlockMath math="m_{\mathrm{sec}}=\frac{\Delta y}{\Delta x}=\frac{f(x_0+h)-f(x_0)}{h}" /></Paper>
-        <Typography paragraph mt={2}>Quando <InlineMath math="h\to0" />, il punto Q si avvicina a P e le rette secanti tendono a una posizione limite: la retta tangente. La sua pendenza è <InlineMath math="f'(x_0)" />.</Typography>
+        <Typography paragraph mt={2}><MathText text={t('lessonOne.geometry.guided.para2')} /></Typography>
       </SectionBlock>
-      <SectionBlock eyebrow="Esempio obbligatorio" title="Per f(x) = x² nel punto x₀ = 1">
+      <SectionBlock eyebrow={t('lessonOne.geometry.example.eyebrow')} title={t('lessonOne.geometry.example.title')}>
         <Stack spacing={1.25}>
-          <MathLine number="1" formula="\frac{f(1+h)-f(1)}{h}=\frac{(1+h)^2-1}{h}" text="Sostituiamo la funzione nel rapporto incrementale." />
-          <MathLine number="2" formula="\frac{1+2h+h^2-1}{h}=\frac{2h+h^2}{h}=2+h" text="Sviluppiamo il quadrato e semplifichiamo h, che è diverso da zero mentre calcoliamo il rapporto." />
-          <MathLine number="3" formula="\lim_{h\to0}(2+h)=2" text="La pendenza della tangente in x₀ = 1 è 2." />
+          <MathLine number="1" formula="\frac{f(1+h)-f(1)}{h}=\frac{(1+h)^2-1}{h}" text={t('lessonOne.geometry.example.step1')} />
+          <MathLine number="2" formula="\frac{1+2h+h^2-1}{h}=\frac{2h+h^2}{h}=2+h" text={t('lessonOne.geometry.example.step2')} />
+          <MathLine number="3" formula="\lim_{h\to0}(2+h)=2" text={t('lessonOne.geometry.example.step3')} />
         </Stack>
       </SectionBlock>
-      <SectionBlock eyebrow="Un’altra direzione" title="La retta normale">
-        <Typography paragraph>La normale passa per lo stesso punto della tangente, ma è perpendicolare. Se la tangente ha pendenza finita e diversa da zero, <InlineMath math="m_n=-1/m_t" />.</Typography>
+      <SectionBlock eyebrow={t('lessonOne.geometry.normal.eyebrow')} title={t('lessonOne.geometry.normal.title')}>
+        <Typography paragraph><MathText text={t('lessonOne.geometry.normal.para')} /></Typography>
         <Paper elevation={0} sx={{ p: 2.5, border: '1px solid', borderColor: 'divider', overflowX: 'auto' }}><BlockMath math="f(x)=x^2,\ x_0=1:\quad m_t=2,\quad t:y-1=2(x-1),\quad n:y-1=-\frac12(x-1)" /></Paper>
-        <Typography variant="body2" color="text.secondary" mt={1.5}>Se la tangente è orizzontale, la normale è verticale: <InlineMath math="x=x_0" />. Se la tangente è verticale, la normale è orizzontale: <InlineMath math="y=f(x_0)" />.</Typography>
+        <Typography variant="body2" color="text.secondary" mt={1.5}><MathText text={t('lessonOne.geometry.normal.note')} /></Typography>
       </SectionBlock>
-      <HistoryNote title="Leibniz, gli infinitesimi e dy/dx" summary="La notazione dy/dx conserva l’intuizione geometrica di un rapporto fra variazioni." href="https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/">
-        Nel 1675 Leibniz introdusse i simboli dx e dy. Li pensava come variazioni infinitamente piccole: un’idea potentissima, anche se la base rigorosa arriverà nell’Ottocento con la definizione di limite di Cauchy.
+      <HistoryNote title={t('lessonOne.geometry.historyNote.title')} summary={t('lessonOne.geometry.historyNote.summary')} href="https://mathshistory.st-andrews.ac.uk/Biographies/Leibniz/">
+        {t('lessonOne.geometry.historyNote.body')}
       </HistoryNote>
     </LessonScaffold>
   );
 }
 
 function DefinitionSection() {
+  const { t } = useTranslation();
   return (
-    <LessonScaffold sectionId="definizione" eyebrow="Lezione 1 · 0:30–0:55" title="La definizione formale" lead="Ora diamo forma precisa all’intuizione geometrica e fisica. La derivata esiste quando il rapporto incrementale tende a un valore finito.">
+    <LessonScaffold sectionId="definizione" eyebrow={t('lessonOne.definition.eyebrow')} title={t('lesson.content.definizione.title')} lead={t('lesson.content.definizione.lead')}>
       <Paper elevation={0} sx={{ p: { xs: 3, sm: 4 }, bgcolor: 'custom.ink', color: '#F2F5FA', textAlign: 'center' }}>
-        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>Definizione</Typography>
-        <Typography sx={{ color: '#C9D2E0' }}>f si dice derivabile in x₀ se esiste finito il limite</Typography>
+        <Typography variant="h4" sx={{ color: '#91A3FA', mb: 2 }}>{t('lessonOne.definition.box.heading')}</Typography>
+        <Typography sx={{ color: '#C9D2E0' }}>{t('lessonOne.definition.box.line1')}</Typography>
         <Box sx={{ overflowX: 'auto', my: 2, '& .katex': { fontSize: '1.35em' } }}><BlockMath math="f'(x_0)=\lim_{h\to0}\frac{f(x_0+h)-f(x_0)}{h}" /></Box>
-        <Typography sx={{ color: '#C9D2E0' }}>Quel numero è la derivata di f in x₀.</Typography>
+        <Typography sx={{ color: '#C9D2E0' }}>{t('lessonOne.definition.box.line2')}</Typography>
       </Paper>
 
-      <SectionBlock title="Un numero oppure una funzione?">
+      <SectionBlock title={t('lessonOne.definition.numberOrFunction.title')}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}><PerspectiveCard icon="•" label="IN UN PUNTO" title="f′(x₀) è un numero">Misura la pendenza o il tasso di variazione in uno specifico punto x₀.</PerspectiveCard></Grid>
-          <Grid item xs={12} sm={6}><PerspectiveCard icon="ƒ" label="PER OGNI PUNTO" title="f′(x) è una funzione">Ripetendo il limite per ogni x otteniamo una nuova funzione: la funzione derivata.</PerspectiveCard></Grid>
+          <Grid item xs={12} sm={6}><PerspectiveCard icon="•" label={t('lessonOne.definition.atPoint.label')} title={t('lessonOne.definition.atPoint.title')}>{t('lessonOne.definition.atPoint.body')}</PerspectiveCard></Grid>
+          <Grid item xs={12} sm={6}><PerspectiveCard icon="ƒ" label={t('lessonOne.definition.asFunction.label')} title={t('lessonOne.definition.asFunction.title')}>{t('lessonOne.definition.asFunction.body')}</PerspectiveCard></Grid>
         </Grid>
-        <Paper component="details" elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'divider' }}><Typography component="summary" fontWeight={700} sx={{ cursor: 'pointer' }}>Approfondimento: quattro notazioni storiche</Typography><Stack direction="row" gap={1} flexWrap="wrap" useFlexGap mt={2}>{["f'(x)\\;\\text{(Lagrange)}", '\\frac{dy}{dx}\\;\\text{(Leibniz)}', 'Df\\;\\text{(operatoriale)}', '\\dot{x}\\;\\text{(Newton, nel tempo)}'].map((math) => <Paper key={math} elevation={0} sx={{ py: 1, px: 1.5, border: '1px solid', borderColor: 'divider' }}><InlineMath math={math} /></Paper>)}</Stack></Paper>
+        <Paper component="details" elevation={0} sx={{ mt: 2, p: 2, border: '1px solid', borderColor: 'divider' }}><Typography component="summary" fontWeight={700} sx={{ cursor: 'pointer' }}>{t('lessonOne.definition.notations.summary')}</Typography><Stack direction="row" gap={1} flexWrap="wrap" useFlexGap mt={2}>{["f'(x)\\;\\text{(Lagrange)}", '\\frac{dy}{dx}\\;\\text{(Leibniz)}', 'Df\\;\\text{(operatoriale)}', '\\dot{x}\\;\\text{(Newton, nel tempo)}'].map((math) => <Paper key={math} elevation={0} sx={{ py: 1, px: 1.5, border: '1px solid', borderColor: 'divider' }}><InlineMath math={math} /></Paper>)}</Stack></Paper>
       </SectionBlock>
 
-      <SectionBlock eyebrow="Dimostrazione guidata obbligatoria" title="La formula nasce dal limite">
+      <SectionBlock eyebrow={t('lessonOne.definition.proof.eyebrow')} title={t('lessonOne.definition.proof.title')}>
         <Stack spacing={2}>
-          <Derivation title="Derivata di x²" formula="(x^2)'=2x" meaning="Dice che la pendenza della parabola \(y=x^2\), in ogni punto \(x\), vale \(2x\). A destra dell’origine è positiva, a sinistra è negativa e in zero vale zero." defaultExpanded conceptId="proof-square" checkpoint={{ question: 'Perché possiamo semplificare il fattore h?', choices: ['Perché nel rapporto h è diverso da zero; il limite viene dopo', 'Perché poniamo subito h=0', 'Perché h vale sempre 1'], correctIndex: 0, explanation: 'Esatto: si semplifica per h≠0 e soltanto dopo si studia il limite.' }} steps={[
-            { label: 'Rapporto incrementale', formula: "\\frac{(x+h)^2-x^2}{h}", explanation: 'Partiamo dalla definizione con \\(f(x)=x^2\\).' },
-            { label: 'Sviluppa il quadrato', formula: "\\frac{x^2+2xh+h^2-x^2}{h}", explanation: 'Usiamo \\((x+h)^2=x^2+2xh+h^2\\) e cancelliamo \\(x^2\\).' },
-            { label: 'Semplifica h', formula: "\\frac{h(2x+h)}{h}=2x+h", explanation: 'Per \\(h\\neq0\\) possiamo semplificare il fattore h.' },
-            { label: 'Passa al limite', formula: "\\lim_{h\\to0}(2x+h)=2x", explanation: 'Quando h tende a zero rimane \\(2x\\).' },
-          ]} conclusion="Quindi, per ogni x, \((x^2)'=2x\)." />
+          <Derivation title={t('lessonOne.definition.proof.derivationTitle')} formula="(x^2)'=2x" meaning={t('lessonOne.definition.proof.meaning')} defaultExpanded conceptId="proof-square" checkpoint={{ question: t('lessonOne.definition.proof.checkpoint.question'), choices: [t('lessonOne.definition.proof.checkpoint.choice0'), t('lessonOne.definition.proof.checkpoint.choice1'), t('lessonOne.definition.proof.checkpoint.choice2')], correctIndex: 0, explanation: t('lessonOne.definition.proof.checkpoint.explanation') }} steps={[
+            { label: t('lessonOne.definition.proof.step1.label'), formula: "\\frac{(x+h)^2-x^2}{h}", explanation: t('lessonOne.definition.proof.step1.explanation') },
+            { label: t('lessonOne.definition.proof.step2.label'), formula: "\\frac{x^2+2xh+h^2-x^2}{h}", explanation: t('lessonOne.definition.proof.step2.explanation') },
+            { label: t('lessonOne.definition.proof.step3.label'), formula: "\\frac{h(2x+h)}{h}=2x+h", explanation: t('lessonOne.definition.proof.step3.explanation') },
+            { label: t('lessonOne.definition.proof.step4.label'), formula: "\\lim_{h\\to0}(2x+h)=2x", explanation: t('lessonOne.definition.proof.step4.explanation') },
+          ]} conclusion={t('lessonOne.definition.proof.conclusion')} />
         </Stack>
       </SectionBlock>
 
-      <HistoryNote title="Newton e Leibniz: due linguaggi per il cambiamento" summary="Due scoperte indipendenti, una disputa accesa e notazioni che usiamo ancora oggi." href="https://mathshistory.st-andrews.ac.uk/HistTopics/Newton_Leibniz/">
-        Newton sviluppò il metodo delle flussioni pensando a grandezze che scorrono nel tempo; Leibniz costruì un linguaggio di differenziali più adatto al calcolo simbolico. Oggi usiamo entrambe le intuizioni, rese rigorose dalla teoria dei limiti.
+      <HistoryNote title={t('lessonOne.definition.historyNote.title')} summary={t('lessonOne.definition.historyNote.summary')} href="https://mathshistory.st-andrews.ac.uk/HistTopics/Newton_Leibniz/">
+        {t('lessonOne.definition.historyNote.body')}
       </HistoryNote>
     </LessonScaffold>
   );
 }
 
 function DifferentiabilitySection() {
+  const { t } = useTranslation();
   return (
-    <LessonScaffold sectionId="derivabilita" eyebrow="Lezione 1 · 1:05–1:30" title="Continua non significa derivabile" lead="Una funzione derivabile è sempre continua. Il contrario, però, può fallire: un grafico può non spezzarsi e avere comunque uno spigolo o una tangente verticale.">
-      <SectionBlock eyebrow="Teorema" title="Derivabilità ⇒ continuità">
-        <Typography paragraph>Se f è derivabile in x₀, allora è continua in x₀. La dimostrazione usa lo stesso rapporto incrementale:</Typography>
+    <LessonScaffold sectionId="derivabilita" eyebrow={t('lessonOne.differentiability.eyebrow')} title={t('lesson.content.derivabilita.title')} lead={t('lesson.content.derivabilita.lead')}>
+      <SectionBlock eyebrow={t('lessonOne.differentiability.theorem.eyebrow')} title={t('lessonOne.differentiability.theorem.title')}>
+        <Typography paragraph><MathText text={t('lessonOne.differentiability.theorem.para')} /></Typography>
         <Paper elevation={0} sx={{ bgcolor: 'custom.ink', color: '#F2F5FA', px: 2, py: 1, overflowX: 'auto' }}><BlockMath math="f(x_0+h)-f(x_0)=\frac{f(x_0+h)-f(x_0)}{h}\cdot h\longrightarrow f'(x_0)\cdot0=0" /></Paper>
-        <Typography mt={2}>Quindi <InlineMath math="f(x_0+h)\to f(x_0)" />. Il viceversa non vale: <InlineMath math="f(x)=|x|" /> è continua in 0 ma le pendenze laterali sono −1 e +1.</Typography>
+        <Typography mt={2}><MathText text={t('lessonOne.differentiability.theorem.note')} /></Typography>
       </SectionBlock>
-      <SectionBlock eyebrow="Laboratorio dei casi limite" title="Che cosa fa la secante nel punto singolare?">
-        <Typography paragraph>Seleziona i tre casi e porta x₀ a zero. Nel punto angoloso le due pendenze laterali non coincidono; nella cuspide e nella tangente verticale la pendenza non resta finita.</Typography>
+      <SectionBlock eyebrow={t('lessonOne.differentiability.lab.eyebrow')} title={t('lessonOne.differentiability.lab.title')}>
+        <Typography paragraph>{t('lessonOne.differentiability.lab.para')}</Typography>
         <GeometryLab singularMode />
       </SectionBlock>
       <Grid container spacing={2}>
         {[
-          { title: 'Punto angoloso', math: '|x|', body: 'Le derivate laterali esistono e sono finite, ma hanno valori diversi.' },
-          { title: 'Cuspide', math: 'x^{2/3}', body: 'Le pendenze laterali diventano infinite con segni opposti: il grafico forma una punta.' },
-          { title: 'Tangente verticale', math: '\\sqrt[3]{x}', body: 'Le pendenze crescono senza limite con lo stesso segno: la tangente è verticale.' },
+          { title: t('lessonOne.differentiability.cases.corner.title'), math: '|x|', body: t('lessonOne.differentiability.cases.corner.body') },
+          { title: t('lessonOne.differentiability.cases.cusp.title'), math: 'x^{2/3}', body: t('lessonOne.differentiability.cases.cusp.body') },
+          { title: t('lessonOne.differentiability.cases.vertical.title'), math: '\\sqrt[3]{x}', body: t('lessonOne.differentiability.cases.vertical.body') },
         ].map((item) => <Grid item xs={12} sm={4} key={item.title}><Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}><Typography variant="h3" sx={{ fontSize: '1.3rem' }}>{item.title}</Typography><Box sx={{ my: 1.5, color: 'primary.main' }}><InlineMath math={`f(x)=${item.math}`} /></Box><Typography variant="body2">{item.body}</Typography></Paper></Grid>)}
       </Grid>
     </LessonScaffold>
@@ -139,37 +144,38 @@ function DifferentiabilitySection() {
 }
 
 function InterpretationsSection() {
+  const { t } = useTranslation();
   return (
-    <LessonScaffold sectionId="interpretazioni" eyebrow="Lezione 1 · 1:30–2:00" title="Tre modi di dire “derivata”" lead="Lo stesso oggetto matematico descrive una pendenza, un limite e un tasso di variazione. Saper passare da una lettura all’altra è il vero obiettivo della lezione.">
+    <LessonScaffold sectionId="interpretazioni" eyebrow={t('lessonOne.interpretations.eyebrow')} title={t('lesson.content.interpretazioni.title')} lead={t('lesson.content.interpretazioni.lead')}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={4}><PerspectiveCard icon="◢" label="GEOMETRICA" title="Pendenza della tangente">Sul grafico, f′(x₀) dice quanto è inclinata la curva nel punto x₀.</PerspectiveCard></Grid>
-        <Grid item xs={12} md={4}><PerspectiveCard icon="lim" label="ANALITICA" title="Limite del rapporto"><MathText text={'\\(f′(x_0)=\\lim_{h\\to0}[f(x_0+h)-f(x_0)]/h\\).'} /></PerspectiveCard></Grid>
-        <Grid item xs={12} md={4}><PerspectiveCard icon="↗" label="FISICA" title="Tasso istantaneo">Se f misura una grandezza, f′ misura quanto rapidamente sta cambiando.</PerspectiveCard></Grid>
+        <Grid item xs={12} md={4}><PerspectiveCard icon="◢" label={t('lessonOne.interpretations.geometric.label')} title={t('lessonOne.interpretations.geometric.title')}>{t('lessonOne.interpretations.geometric.body')}</PerspectiveCard></Grid>
+        <Grid item xs={12} md={4}><PerspectiveCard icon="lim" label={t('lessonOne.interpretations.analytic.label')} title={t('lessonOne.interpretations.analytic.title')}><MathText text={'\\(f′(x_0)=\\lim_{h\\to0}[f(x_0+h)-f(x_0)]/h\\).'} /></PerspectiveCard></Grid>
+        <Grid item xs={12} md={4}><PerspectiveCard icon="↗" label={t('lessonOne.interpretations.physical.label')} title={t('lessonOne.interpretations.physical.title')}>{t('lessonOne.interpretations.physical.body')}</PerspectiveCard></Grid>
       </Grid>
-      <SectionBlock eyebrow="Nel mondo reale" title="La stessa idea cambia nome">
+      <SectionBlock eyebrow={t('lessonOne.interpretations.realWorld.eyebrow')} title={t('lessonOne.interpretations.realWorld.title')}>
         <Grid container spacing={2}>
           {[
-            { icon: '🚗', title: 'Velocità', formula: "v(t)=s'(t)", body: 'La derivata della posizione rispetto al tempo.' },
-            { icon: '⚡', title: 'Corrente', formula: 'i(t)=\\frac{dq}{dt}', body: 'La velocità con cui passa la carica elettrica.' },
-            { icon: '🦠', title: 'Crescita', formula: "N'(t)", body: 'Il tasso di crescita istantaneo di una popolazione.' },
-            { icon: '€', title: 'Costo marginale', formula: "C'(q)", body: 'Quanto costa produrre una piccola unità in più.' },
+            { icon: '🚗', title: t('lessonOne.interpretations.realWorld.velocity.title'), formula: "v(t)=s'(t)", body: t('lessonOne.interpretations.realWorld.velocity.body') },
+            { icon: '⚡', title: t('lessonOne.interpretations.realWorld.current.title'), formula: 'i(t)=\\frac{dq}{dt}', body: t('lessonOne.interpretations.realWorld.current.body') },
+            { icon: '🦠', title: t('lessonOne.interpretations.realWorld.growth.title'), formula: "N'(t)", body: t('lessonOne.interpretations.realWorld.growth.body') },
+            { icon: '€', title: t('lessonOne.interpretations.realWorld.cost.title'), formula: "C'(q)", body: t('lessonOne.interpretations.realWorld.cost.body') },
           ].map((item) => <Grid item xs={12} sm={6} key={item.title}><Paper elevation={0} sx={{ p: 2.5, height: '100%', border: '1px solid', borderColor: 'divider' }}><Stack direction="row" gap={2}><Typography fontSize="1.6rem">{item.icon}</Typography><Box><Typography variant="h3" sx={{ fontSize: '1.3rem' }}>{item.title}</Typography><Box my={1} color="primary.main"><InlineMath math={item.formula} /></Box><Typography variant="body2">{item.body}</Typography></Box></Stack></Paper></Grid>)}
         </Grid>
       </SectionBlock>
-      <SectionBlock eyebrow="Problema interpretato" title="Quanto costa produrre una unità in più?">
+      <SectionBlock eyebrow={t('lessonOne.interpretations.problem.eyebrow')} title={t('lessonOne.interpretations.problem.title')}>
         <Paper elevation={0} sx={{ p: 3, border: '1px solid', borderColor: 'divider' }}>
-          <Typography paragraph>Una piccola impresa modella il costo totale, in euro, con <InlineMath math="C(q)=0{,}02q^2+8q+500" />, dove q è il numero di pezzi.</Typography>
+          <Typography paragraph><MathText text={t('lessonOne.interpretations.problem.para')} /></Typography>
           <BlockMath math="C'(q)=0{,}04q+8\quad\Rightarrow\quad C'(100)=12" />
-          <Typography><strong>Interpretazione:</strong> attorno a 100 pezzi, produrre un pezzo aggiuntivo aumenta il costo di circa 12 €. Il segno positivo indica un aumento; l’unità è <strong>euro per pezzo</strong>. La derivata permette una decisione locale senza ricalcolare l’intero costo.</Typography>
+          <Typography><strong>{t('lessonOne.interpretations.problem.interpretationLabel')}</strong> <MathText text={t('lessonOne.interpretations.problem.interpretationBody')} /></Typography>
         </Paper>
       </SectionBlock>
       <Paper elevation={0} sx={{ p: 3, bgcolor: 'custom.goldLight', borderLeft: '4px solid', borderColor: 'custom.gold' }}>
-        <Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>Domanda di chiusura</Typography>
-        <Typography variant="h3">«Cos’è la derivata?»</Typography>
-        <Typography mt={1}>Prova a rispondere senza formule, una volta da geometra, una da analista e una da fisico. Poi passa alla scheda §1.</Typography>
+        <Typography variant="h4" sx={{ color: 'custom.gold', mb: 1 }}>{t('lessonOne.interpretations.closing.heading')}</Typography>
+        <Typography variant="h3">{t('lessonOne.interpretations.closing.question')}</Typography>
+        <Typography mt={1}>{t('lessonOne.interpretations.closing.body')}</Typography>
       </Paper>
-      <HistoryNote title="Dalle orbite al machine learning" summary="La derivata è diventata il linguaggio comune dei sistemi che cambiano." href="https://www.3blue1brown.com/lessons/essence-of-calculus">
-        Dalla meccanica di Newton alle equazioni dell’elettromagnetismo, dal costo marginale all’ottimizzazione dei modelli di machine learning, la derivata permette di trasformare il cambiamento in un oggetto calcolabile.
+      <HistoryNote title={t('lessonOne.interpretations.historyNote.title')} summary={t('lessonOne.interpretations.historyNote.summary')} href="https://www.3blue1brown.com/lessons/essence-of-calculus">
+        {t('lessonOne.interpretations.historyNote.body')}
       </HistoryNote>
     </LessonScaffold>
   );

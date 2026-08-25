@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Accordion,
   AccordionDetails,
@@ -32,121 +33,121 @@ interface TheoremInfo {
   sketch: Sketch;
 }
 
-const existenceTheorems: TheoremInfo[] = [
+const getExistenceTheorems = (t: (key: string) => string): TheoremInfo[] => [
   {
-    title: 'Teorema di Fermat',
-    subtitle: 'Dove cercare massimi e minimi',
+    title: t('theorems.fermat.title'),
+    subtitle: t('theorems.fermat.subtitle'),
     formula: "x_0\\text{ estremo interno e }f\\text{ derivabile}\\;\\Longrightarrow\\;f'(x_0)=0",
-    hypotheses: 'Il punto \\(x_0\\) è interno al dominio, la funzione è derivabile in \\(x_0\\) e lì ha un massimo o minimo locale.',
-    geometry: 'In un estremo regolare la curva non può continuare a salire o scendere: la tangente deve essere orizzontale.',
-    use: 'Riduce la ricerca degli estremi ai punti stazionari e ai punti in cui la derivata non esiste.',
-    caution: 'È una condizione necessaria, non sufficiente: \\(f(x)=x^3\\) ha \\(f^{\\prime}(0)=0\\), ma zero non è un estremo.',
+    hypotheses: t('theorems.fermat.hypotheses'),
+    geometry: t('theorems.fermat.geometry'),
+    use: t('theorems.fermat.use'),
+    caution: t('theorems.fermat.caution'),
     sketch: 'fermat',
   },
   {
-    title: 'Teorema di Rolle',
-    subtitle: 'Stessa quota, tangente orizzontale',
+    title: t('theorems.rolle.title'),
+    subtitle: t('theorems.rolle.subtitle'),
     formula: "f(a)=f(b)\\;\\Longrightarrow\\;\\exists c\\in(a,b):f'(c)=0",
-    hypotheses: '\\(f\\) è continua su \\([a,b]\\), derivabile su \\((a,b)\\) e assume lo stesso valore agli estremi.',
-    geometry: 'Se il percorso parte e arriva alla stessa altezza, in almeno un punto intermedio la tangente è orizzontale.',
-    use: 'Permette di contare o separare gli zeri: tra due zeri distinti di \\(f\\) esiste almeno uno zero di \\(f^{\\prime}\\).',
-    caution: 'Garantisce l’esistenza di almeno un punto, ma non dice dove sia né se sia unico.',
+    hypotheses: t('theorems.rolle.hypotheses'),
+    geometry: t('theorems.rolle.geometry'),
+    use: t('theorems.rolle.use'),
+    caution: t('theorems.rolle.caution'),
     sketch: 'rolle',
   },
   {
-    title: 'Teorema di Lagrange',
-    subtitle: 'Una velocità istantanea uguaglia quella media',
+    title: t('theorems.lagrange.title'),
+    subtitle: t('theorems.lagrange.subtitle'),
     formula: "\\exists c\\in(a,b):\\quad f'(c)=\\frac{f(b)-f(a)}{b-a}",
-    hypotheses: '\\(f\\) è continua sull’intervallo chiuso \\([a,b]\\) e derivabile al suo interno.',
-    geometry: 'Esiste almeno una tangente parallela alla corda che congiunge i due estremi del grafico.',
-    use: 'Collega variazione totale e tasso istantaneo; permette anche di stimare quanto può cambiare una funzione.',
-    caution: 'Il teorema garantisce \\(c\\), ma in generale non fornisce una formula per calcolarlo.',
+    hypotheses: t('theorems.lagrange.hypotheses'),
+    geometry: t('theorems.lagrange.geometry'),
+    use: t('theorems.lagrange.use'),
+    caution: t('theorems.lagrange.caution'),
     sketch: 'lagrange',
   },
 ];
 
-const behaviorTheorems: TheoremInfo[] = [
+const getBehaviorTheorems = (t: (key: string) => string): TheoremInfo[] => [
   {
-    title: 'Criterio di monotonia',
-    subtitle: 'Il segno della derivata orienta il grafico',
+    title: t('theorems.monotone.title'),
+    subtitle: t('theorems.monotone.subtitle'),
     formula: "f'>0\\Rightarrow f\\text{ crescente},\\qquad f'<0\\Rightarrow f\\text{ decrescente}",
-    hypotheses: '\\(f\\) è continua sull’intervallo e derivabile al suo interno; il segno di \\(f^{\\prime}\\) è controllato su tutto l’intervallo.',
-    geometry: 'Tangenti con pendenza positiva accompagnano un grafico che sale; pendenze negative un grafico che scende.',
-    use: 'Consente di confrontare valori della funzione senza calcolarli tutti e di leggere l’andamento locale.',
-    caution: 'Uno zero isolato di \\(f^{\\prime}\\) non interrompe necessariamente la crescita: \\(x^3\\) resta crescente attraversando zero.',
+    hypotheses: t('theorems.monotone.hypotheses'),
+    geometry: t('theorems.monotone.geometry'),
+    use: t('theorems.monotone.use'),
+    caution: t('theorems.monotone.caution'),
     sketch: 'monotone',
   },
   {
-    title: 'Test della derivata seconda',
-    subtitle: 'Classificare un punto stazionario',
+    title: t('theorems.secondTest.title'),
+    subtitle: t('theorems.secondTest.subtitle'),
     formula: "f'(x_0)=0,\\quad f''(x_0)>0\\Rightarrow\\min,\\quad f''(x_0)<0\\Rightarrow\\max",
-    hypotheses: 'La funzione è derivabile due volte vicino a \\(x_0\\) e \\(f^{\\prime}(x_0)=0\\).',
-    geometry: 'Una tangente orizzontale dentro una coppa individua un minimo; dentro una cupola individua un massimo.',
-    use: 'Classifica rapidamente molti punti stazionari senza costruire uno studio completo del segno di \\(f^{\\prime}\\).',
-    caution: 'Se \\(f^{\\prime\\prime}(x_0)=0\\), il test non decide: \\(x^4\\), \\(-x^4\\) e \\(x^3\\) danno tre comportamenti diversi.',
+    hypotheses: t('theorems.secondTest.hypotheses'),
+    geometry: t('theorems.secondTest.geometry'),
+    use: t('theorems.secondTest.use'),
+    caution: t('theorems.secondTest.caution'),
     sketch: 'second-test',
   },
   {
-    title: 'Criterio di convessità',
-    subtitle: 'Il segno di f″ descrive la curvatura',
+    title: t('theorems.convexity.title'),
+    subtitle: t('theorems.convexity.subtitle'),
     formula: "f''>0\\Rightarrow\\text{concava verso l'alto},\\qquad f''<0\\Rightarrow\\text{concava verso il basso}",
-    hypotheses: 'La derivata seconda esiste nell’intervallo considerato e mantiene lo stesso segno.',
-    geometry: 'Con \\(f^{\\prime\\prime}>0\\) le tangenti restano sotto il grafico; con \\(f^{\\prime\\prime}<0\\) restano sopra.',
-    use: 'Permette di capire verso dove piega la curva e di riconoscere possibili cambi di concavità.',
-    caution: 'Il solo valore \\(f^{\\prime\\prime}(x_0)=0\\) non basta per affermare che \\(x_0\\) sia un flesso: serve un cambio di concavità.',
+    hypotheses: t('theorems.convexity.hypotheses'),
+    geometry: t('theorems.convexity.geometry'),
+    use: t('theorems.convexity.use'),
+    caution: t('theorems.convexity.caution'),
     sketch: 'convexity',
   },
 ];
 
-const advancedTheorems: TheoremInfo[] = [
+const getAdvancedTheorems = (t: (key: string) => string): TheoremInfo[] => [
   {
-    title: 'Teorema di Cauchy',
-    subtitle: 'Due variazioni confrontate nello stesso punto',
+    title: t('theorems.cauchy.title'),
+    subtitle: t('theorems.cauchy.subtitle'),
     formula: "\\frac{f(b)-f(a)}{g(b)-g(a)}=\\frac{f'(c)}{g'(c)}",
-    hypotheses: '\\(f\\) e \\(g\\) sono continue su \\([a,b]\\), derivabili in \\((a,b)\\) e \\(g^{\\prime}\\neq0\\).',
-    geometry: 'La curva parametrica \\((g(t),f(t))\\) possiede una tangente parallela alla corda tra gli estremi.',
-    use: 'Confronta due grandezze che cambiano insieme ed è la base teorica della regola di de l’Hôpital.',
-    caution: 'Occorre controllare le ipotesi su entrambe le funzioni e che il denominatore del rapporto sia significativo.',
+    hypotheses: t('theorems.cauchy.hypotheses'),
+    geometry: t('theorems.cauchy.geometry'),
+    use: t('theorems.cauchy.use'),
+    caution: t('theorems.cauchy.caution'),
     sketch: 'cauchy',
   },
   {
-    title: 'Teorema di Darboux',
-    subtitle: 'Le pendenze non possono saltare',
+    title: t('theorems.darboux.title'),
+    subtitle: t('theorems.darboux.subtitle'),
     formula: "f'(a)<m<f'(b)\\;\\Longrightarrow\\;\\exists c:f'(c)=m",
-    hypotheses: '\\(f\\) è derivabile su un intervallo; non è necessario supporre continua la funzione derivata.',
-    geometry: 'Mentre la tangente ruota da una pendenza a un’altra, assume tutte le inclinazioni intermedie.',
-    use: 'Permette di escludere che una funzione a gradino sia la derivata di qualche funzione.',
-    caution: 'Avere tutti i valori intermedi non significa essere continua: una derivata può essere discontinua senza fare salti.',
+    hypotheses: t('theorems.darboux.hypotheses'),
+    geometry: t('theorems.darboux.geometry'),
+    use: t('theorems.darboux.use'),
+    caution: t('theorems.darboux.caution'),
     sketch: 'darboux',
   },
   {
-    title: 'Regola di de l’Hôpital',
-    subtitle: 'Confrontare velocità di annullamento o crescita',
+    title: t('theorems.lhopital.title'),
+    subtitle: t('theorems.lhopital.subtitle'),
     formula: "\\lim\\frac{f}{g}\\overset{0/0\\text{ o }\\infty/\\infty}{=}\\lim\\frac{f'}{g'}",
-    hypotheses: 'Il rapporto presenta una forma \\(0/0\\) o \\(\\infty/\\infty\\), le funzioni sono derivabili vicino al punto e il limite del rapporto delle derivate esiste.',
-    geometry: 'Vicino al punto comune, il rapporto tra le altezze viene sostituito dal rapporto tra le pendenze.',
-    use: 'Semplifica limiti come \\(\\lim_{x\\to0}\\sin x/x\\) o confronti tra crescite esponenziali e polinomiali.',
-    caution: 'Non si applica a qualunque frazione: prima va verificata la forma indeterminata e talvolta serve ripetere il procedimento.',
+    hypotheses: t('theorems.lhopital.hypotheses'),
+    geometry: t('theorems.lhopital.geometry'),
+    use: t('theorems.lhopital.use'),
+    caution: t('theorems.lhopital.caution'),
     sketch: 'lhopital',
   },
   {
-    title: 'Derivata della funzione inversa',
-    subtitle: 'Riflettere il grafico scambia le pendenze',
+    title: t('theorems.inverse.title'),
+    subtitle: t('theorems.inverse.subtitle'),
     formula: "(f^{-1})'(y_0)=\\frac{1}{f'(x_0)},\\qquad y_0=f(x_0)",
-    hypotheses: '\\(f\\) è invertibile vicino a \\(x_0\\), derivabile e \\(f^{\\prime}(x_0)\\neq0\\).',
-    geometry: 'I grafici di \\(f\\) e \\(f^{-1}\\) sono simmetrici rispetto a \\(y=x\\); le pendenze delle tangenti sono reciproche.',
-    use: 'Ricava in modo naturale le derivate di logaritmo, radice e funzioni trigonometriche inverse.',
-    caution: 'Se \\(f^{\\prime}(x_0)=0\\), l’inversa può avere una tangente verticale e la formula non produce un valore finito.',
+    hypotheses: t('theorems.inverse.hypotheses'),
+    geometry: t('theorems.inverse.geometry'),
+    use: t('theorems.inverse.use'),
+    caution: t('theorems.inverse.caution'),
     sketch: 'inverse',
   },
   {
-    title: 'Taylor con resto di Lagrange',
-    subtitle: 'Misurare l’errore dell’approssimazione',
+    title: t('theorems.taylorError.title'),
+    subtitle: t('theorems.taylorError.subtitle'),
     formula: "f(x)=T_n(x)+\\frac{f^{(n+1)}(\\xi)}{(n+1)!}(x-a)^{n+1}",
-    hypotheses: '\\(f\\) possiede le derivate necessarie tra il centro \\(a\\) e il punto \\(x\\).',
-    geometry: 'Il polinomio coincide localmente con valore e derivate; il resto misura la distanza verticale ancora visibile dalla curva.',
-    use: 'Stabilisce quante cifre o quale precisione possiamo aspettarci da un’approssimazione di Taylor.',
-    caution: 'L’errore dipende da una derivata di ordine superiore in un punto \\(\\xi\\) non noto: va stimata su tutto l’intervallo.',
+    hypotheses: t('theorems.taylorError.hypotheses'),
+    geometry: t('theorems.taylorError.geometry'),
+    use: t('theorems.taylorError.use'),
+    caution: t('theorems.taylorError.caution'),
     sketch: 'taylor-error',
   },
 ];
@@ -154,50 +155,54 @@ const advancedTheorems: TheoremInfo[] = [
 const meanValueFn = (x: number) => 0.35 * x * x - 0.8;
 
 export function DerivativeTheoremsAppendix() {
+  const { t } = useTranslation();
+  const existenceTheorems = getExistenceTheorems(t);
+  const behaviorTheorems = getBehaviorTheorems(t);
+  const advancedTheorems = getAdvancedTheorems(t);
   return (
     <Stack spacing={4.5}>
       <Alert severity="info">
-        <strong>Come usare questa appendice.</strong> Non serve memorizzare le dimostrazioni: per ogni teorema chiediti quali ipotesi controllare, quale figura immaginare e quale problema pratico risolve.
+        <strong>{t('theorems.appendixNote.strong')}</strong> {t('theorems.appendixNote.body')}
       </Alert>
 
-      <TheoremGroup eyebrow="Esistenza" title="Tre teoremi per trovare punti speciali" items={existenceTheorems} />
+      <TheoremGroup eyebrow={t('theorems.groups.existence.eyebrow')} title={t('theorems.groups.existence.title')} items={existenceTheorems} />
 
-      <SectionBlock eyebrow="Laboratorio" title="La corda cerca una tangente parallela">
+      <SectionBlock eyebrow={t('theorems.mvtLab.eyebrow')} title={t('theorems.mvtLab.title')}>
         <Typography paragraph>
-          Muovi gli estremi sulla parabola. Lagrange garantisce un punto <InlineMath math="c" /> in cui la tangente è parallela alla corda; quando gli estremi hanno la stessa quota compare il caso particolare di Rolle.
+          {t('theorems.mvtLab.body')} <InlineMath math="c" /> {t('theorems.mvtLab.bodyTail')}
         </Typography>
         <MeanValueLab />
       </SectionBlock>
 
       <Stack spacing={1.5}>
-        <HistoryNote title="Fermat prima della notazione f′" summary="Fermat cercava massimi, minimi e tangenti con il metodo dell’adeguaglianza." href="https://mathshistory.st-andrews.ac.uk/Biographies/Fermat/">
-          Negli anni Trenta del Seicento Pierre de Fermat sviluppò un metodo algebrico per massimi, minimi e tangenti. Non usava ancora limiti o la notazione moderna, ma l’idea anticipava la condizione di tangente orizzontale negli estremi regolari.
+        <HistoryNote title={t('theorems.history.fermat.title')} summary={t('theorems.history.fermat.summary')} href="https://mathshistory.st-andrews.ac.uk/Biographies/Fermat/">
+          {t('theorems.history.fermat.body')}
         </HistoryNote>
-        <HistoryNote title="Rolle, Lagrange e Cauchy" summary="Da un risultato sulle radici delle equazioni nacque il teorema del valor medio." href="https://mathshistory.st-andrews.ac.uk/Biographies/Rolle/">
-          Michel Rolle pubblicò nel 1691 il risultato oggi associato al suo nome, inizialmente nel contesto delle equazioni algebriche. Lagrange lo inserì nella nuova analisi; nell’Ottocento Cauchy diede al teorema del valor medio una formulazione e una dimostrazione rigorose.
+        <HistoryNote title={t('theorems.history.rolleEtAl.title')} summary={t('theorems.history.rolleEtAl.summary')} href="https://mathshistory.st-andrews.ac.uk/Biographies/Rolle/">
+          {t('theorems.history.rolleEtAl.body')}
         </HistoryNote>
       </Stack>
 
-      <TheoremGroup eyebrow="Lettura del grafico" title="Dal segno delle derivate al comportamento" items={behaviorTheorems} />
+      <TheoremGroup eyebrow={t('theorems.groups.behavior.eyebrow')} title={t('theorems.groups.behavior.title')} items={behaviorTheorems} />
 
       <Paper elevation={0} sx={{ p: 3, bgcolor: 'custom.goldLight', borderLeft: '4px solid', borderColor: 'custom.gold' }}>
-        <Typography variant="h3" mb={1}>Un uso pratico senza fare uno studio di funzione</Typography>
+        <Typography variant="h3" mb={1}>{t('theorems.practicalBox.title')}</Typography>
         <Typography color="text.secondary">
-          Se conosci un intervallo in cui <InlineMath math="2\le f'(x)\le3" />, Lagrange ti permette già di concludere che, aumentando <InlineMath math="x" /> di 4, la funzione cresce tra 8 e 12. Non occorre disegnare tutto il grafico: basta controllare le pendenze possibili.
+          {t('theorems.practicalBox.bodyPre')} <InlineMath math="2\le f'(x)\le3" /> {t('theorems.practicalBox.bodyMid')} <InlineMath math="x" /> {t('theorems.practicalBox.bodyPost')}
         </Typography>
       </Paper>
 
-      <TheoremGroup eyebrow="Strumenti avanzati" title="Cinque idee da consultare quando servono" items={advancedTheorems} />
+      <TheoremGroup eyebrow={t('theorems.groups.advanced.eyebrow')} title={t('theorems.groups.advanced.title')} items={advancedTheorems} />
 
       <Stack spacing={1.5}>
-        <HistoryNote title="Darboux e le derivate senza salti" summary="Nel 1875 Darboux dimostrò che una derivata assume sempre i valori intermedi." href="https://encyclopediaofmath.org/wiki/Darboux_property">
-          Gaston Darboux mostrò che una derivata può anche essere discontinua, ma non può saltare direttamente da una pendenza a un’altra. Il risultato separò definitivamente due idee: continuità e proprietà dei valori intermedi.
+        <HistoryNote title={t('theorems.history.darboux.title')} summary={t('theorems.history.darboux.summary')} href="https://encyclopediaofmath.org/wiki/Darboux_property">
+          {t('theorems.history.darboux.body')}
         </HistoryNote>
-        <HistoryNote title="Una regola, due nomi" summary="La regola di de l’Hôpital apparve nel primo manuale di calcolo, ma proveniva dalle lezioni di Johann Bernoulli." href="https://mathshistory.st-andrews.ac.uk/Biographies/De_LHopital/">
-          Nel 1696 Guillaume de l’Hôpital pubblicò <em>Analyse des infiniment petits</em>, il primo manuale sistematico di calcolo differenziale. La regola porta il suo nome, ma i documenti storici mostrano che il risultato proveniva dalle lezioni di Johann Bernoulli, che l’Hôpital aveva sostenuto economicamente.
+        <HistoryNote title={t('theorems.history.lhopital.title')} summary={t('theorems.history.lhopital.summary')} href="https://mathshistory.st-andrews.ac.uk/Biographies/De_LHopital/">
+          {t('theorems.history.lhopital.body')}
         </HistoryNote>
-        <HistoryNote title="Lagrange, Cauchy e l’errore di Taylor" summary="Il resto trasforma una buona approssimazione in una stima controllabile." href="https://mathshistory.st-andrews.ac.uk/Biographies/Lagrange/">
-          Lagrange formulò una delle espressioni più usate per il resto di Taylor; Cauchy ne sviluppò un’altra forma e contribuì a chiarire le ipotesi di convergenza. L’idea pratica è moderna e decisiva: non basta approssimare, bisogna sapere quanto possiamo sbagliare.
+        <HistoryNote title={t('theorems.history.taylorError.title')} summary={t('theorems.history.taylorError.summary')} href="https://mathshistory.st-andrews.ac.uk/Biographies/Lagrange/">
+          {t('theorems.history.taylorError.body')}
         </HistoryNote>
       </Stack>
     </Stack>
@@ -215,12 +220,13 @@ function TheoremGroup({ eyebrow, title, items }: { eyebrow: string; title: strin
 }
 
 function TheoremAccordion({ item, defaultExpanded }: { item: TheoremInfo; defaultExpanded?: boolean }) {
+  const { t } = useTranslation();
   return (
     <Accordion defaultExpanded={defaultExpanded} disableGutters sx={{ border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
       <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} sx={{ px: { xs: 2, sm: 2.5 } }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={{ xs: 0.5, sm: 2 }} alignItems={{ sm: 'center' }} sx={{ width: '100%', pr: 1 }}>
           <Box sx={{ flex: 1 }}><Typography variant="h3" sx={{ fontSize: '1.35rem' }}>{item.title}</Typography><Typography variant="body2" color="text.secondary">{item.subtitle}</Typography></Box>
-          <Chip label="Apri scheda" color="primary" variant="outlined" size="small" sx={{ alignSelf: 'flex-start' }} />
+          <Chip label={t('theorems.accordion.openCard')} color="primary" variant="outlined" size="small" sx={{ alignSelf: 'flex-start' }} />
         </Stack>
       </AccordionSummary>
       <AccordionDetails sx={{ p: { xs: 2, sm: 2.5 }, pt: 0 }}>
@@ -228,10 +234,10 @@ function TheoremAccordion({ item, defaultExpanded }: { item: TheoremInfo; defaul
           <Grid item xs={12} md={5}><TheoremSketch type={item.sketch} title={item.title} /></Grid>
           <Grid item xs={12} md={7}>
             <Box sx={{ overflowX: 'auto', color: 'primary.main', mb: 1.5 }}><BlockMath math={item.formula} /></Box>
-            <InfoLine label="Ipotesi" text={item.hypotheses} />
-            <InfoLine label="Figura mentale" text={item.geometry} color="success.main" />
-            <InfoLine label="Quando usarlo" text={item.use} color="primary.main" />
-            <InfoLine label="Attenzione" text={item.caution} color="warning.main" />
+            <InfoLine label={t('theorems.accordion.hypotheses')} text={item.hypotheses} />
+            <InfoLine label={t('theorems.accordion.geometry')} text={item.geometry} color="success.main" />
+            <InfoLine label={t('theorems.accordion.use')} text={item.use} color="primary.main" />
+            <InfoLine label={t('theorems.accordion.caution')} text={item.caution} color="warning.main" />
           </Grid>
         </Grid>
       </AccordionDetails>
@@ -244,6 +250,7 @@ function InfoLine({ label, text, color = 'text.secondary' }: { label: string; te
 }
 
 function MeanValueLab() {
+  const { t } = useTranslation();
   const [a, setA] = useState(-2.7);
   const [b, setB] = useState(1.5);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -285,12 +292,12 @@ function MeanValueLab() {
 
   return (
     <Paper elevation={0} sx={{ border: '1px solid', borderColor: 'divider', overflow: 'hidden' }}>
-      <Box sx={{ bgcolor: '#101A30', position: 'relative' }}><canvas ref={canvasRef} width={900} height={430} aria-label="Parabola con corda AB e tangente parallela nel punto c" style={{ width: '100%', height: 'auto', display: 'block' }} /><Stack direction="row" gap={1} sx={{ position: 'absolute', left: 12, top: 12 }}><Chip size="small" label="corda AB" sx={{ bgcolor: '#F4C84A', color: '#17243F' }} /><Chip size="small" label="tangente in c" sx={{ bgcolor: '#4DD4A4', color: '#17243F' }} /></Stack></Box>
+      <Box sx={{ bgcolor: '#101A30', position: 'relative' }}><canvas ref={canvasRef} width={900} height={430} aria-label={t('theorems.mvtLab.canvasAriaLabel')} style={{ width: '100%', height: 'auto', display: 'block' }} /><Stack direction="row" gap={1} sx={{ position: 'absolute', left: 12, top: 12 }}><Chip size="small" label={t('theorems.mvtLab.chordChip')} sx={{ bgcolor: '#F4C84A', color: '#17243F' }} /><Chip size="small" label={t('theorems.mvtLab.tangentChip')} sx={{ bgcolor: '#4DD4A4', color: '#17243F' }} /></Stack></Box>
       <Box sx={{ p: { xs: 2, sm: 3 } }}>
-        <Stack direction="row" gap={1} mb={2} flexWrap="wrap"><Button size="small" variant="outlined" onClick={() => { setA(-2.7); setB(1.5); }}>Caso Lagrange</Button><Button size="small" variant="outlined" color="success" onClick={() => { setA(-2.2); setB(2.2); }}>Caso Rolle</Button></Stack>
-        <Grid container spacing={2}><Grid item xs={12} sm={6}><Typography variant="caption">ESTREMO a = {a.toFixed(2)}</Typography><Slider min={-3} max={-0.2} step={0.05} value={a} onChange={(_event, value) => setA(value as number)} aria-label="Estremo sinistro a" /></Grid><Grid item xs={12} sm={6}><Typography variant="caption">ESTREMO b = {b.toFixed(2)}</Typography><Slider min={0.2} max={3} step={0.05} value={b} onChange={(_event, value) => setB(value as number)} aria-label="Estremo destro b" /></Grid></Grid>
-        <Grid container spacing={1.5} mt={0.5}><Grid item xs={6} sm={4}><Metric label="Pendenza corda" value={secantSlope.toFixed(3)} /></Grid><Grid item xs={6} sm={4}><Metric label="Punto garantito c" value={c.toFixed(3)} /></Grid><Grid item xs={12} sm={4}><Metric label="Pendenza tangente" value={secantSlope.toFixed(3)} /></Grid></Grid>
-        <Alert severity={rolle ? 'success' : 'info'} sx={{ mt: 2 }}>{rolle ? 'Rolle: A e B hanno la stessa quota, quindi la corda e la tangente garantita sono orizzontali.' : 'Lagrange: la tangente verde è parallela alla corda gialla; rappresentano la stessa variazione per unità di x.'}</Alert>
+        <Stack direction="row" gap={1} mb={2} flexWrap="wrap"><Button size="small" variant="outlined" onClick={() => { setA(-2.7); setB(1.5); }}>{t('theorems.mvtLab.caseLagrange')}</Button><Button size="small" variant="outlined" color="success" onClick={() => { setA(-2.2); setB(2.2); }}>{t('theorems.mvtLab.caseRolle')}</Button></Stack>
+        <Grid container spacing={2}><Grid item xs={12} sm={6}><Typography variant="caption">{t('theorems.mvtLab.endpointA', { a: a.toFixed(2) })}</Typography><Slider min={-3} max={-0.2} step={0.05} value={a} onChange={(_event, value) => setA(value as number)} aria-label={t('theorems.mvtLab.endpointAAriaLabel')} /></Grid><Grid item xs={12} sm={6}><Typography variant="caption">{t('theorems.mvtLab.endpointB', { b: b.toFixed(2) })}</Typography><Slider min={0.2} max={3} step={0.05} value={b} onChange={(_event, value) => setB(value as number)} aria-label={t('theorems.mvtLab.endpointBAriaLabel')} /></Grid></Grid>
+        <Grid container spacing={1.5} mt={0.5}><Grid item xs={6} sm={4}><Metric label={t('theorems.mvtLab.slopeChord')} value={secantSlope.toFixed(3)} /></Grid><Grid item xs={6} sm={4}><Metric label={t('theorems.mvtLab.pointC')} value={c.toFixed(3)} /></Grid><Grid item xs={12} sm={4}><Metric label={t('theorems.mvtLab.slopeTangent')} value={secantSlope.toFixed(3)} /></Grid></Grid>
+        <Alert severity={rolle ? 'success' : 'info'} sx={{ mt: 2 }}>{rolle ? t('theorems.mvtLab.alertRolle') : t('theorems.mvtLab.alertLagrange')}</Alert>
       </Box>
     </Paper>
   );
@@ -301,9 +308,10 @@ function Metric({ label, value }: { label: string; value: string }) {
 }
 
 function TheoremSketch({ type, title }: { type: Sketch; title: string }) {
+  const { t } = useTranslation();
   return (
     <Box sx={{ bgcolor: '#101A30', borderRadius: 1.5, overflow: 'hidden' }}>
-      <svg viewBox="0 0 360 220" role="img" aria-label={`Interpretazione geometrica: ${title}`} style={{ width: '100%', display: 'block' }}>
+      <svg viewBox="0 0 360 220" role="img" aria-label={t('theorems.sketch.ariaLabel', { title })} style={{ width: '100%', display: 'block' }}>
         <line x1="22" y1="178" x2="338" y2="178" stroke="rgba(255,255,255,.22)" /><line x1="180" y1="18" x2="180" y2="198" stroke="rgba(255,255,255,.14)" />
         {(type === 'fermat' || type === 'rolle') && <><path d={type === 'rolle' ? 'M51 145 C92 139 103 43 180 64 C248 82 262 145 309 145' : 'M35 164 C90 156 95 42 180 64 C246 82 264 154 326 148'} fill="none" stroke="#AAB8FF" strokeWidth="4" /><line x1={type === 'fermat' ? 128 : 139} y1={type === 'fermat' ? 57 : 60} x2={type === 'fermat' ? 218 : 221} y2={type === 'fermat' ? 57 : 60} stroke="#4DD4A4" strokeWidth="3" />{type === 'rolle' && <><circle cx="51" cy="145" r="6" fill="#F4C84A" /><circle cx="309" cy="145" r="6" fill="#F4C84A" /><line x1="51" y1="145" x2="309" y2="145" stroke="#F4C84A" strokeWidth="2" strokeDasharray="8 6" /></>}</>}
         {type === 'lagrange' && <><path d="M35 160 C105 145 119 50 196 75 C252 92 274 132 328 112" fill="none" stroke="#AAB8FF" strokeWidth="4" /><line x1="45" y1="153" x2="320" y2="112" stroke="#F4C84A" strokeWidth="3" /><line x1="106" y1="104" x2="237" y2="84" stroke="#4DD4A4" strokeWidth="3" strokeDasharray="8 6" /></>}

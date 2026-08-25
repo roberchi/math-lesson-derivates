@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import RestartAltRoundedIcon from '@mui/icons-material/RestartAltRounded';
 import ZoomInRoundedIcon from '@mui/icons-material/ZoomInRounded';
 import ZoomOutRoundedIcon from '@mui/icons-material/ZoomOutRounded';
@@ -8,10 +9,10 @@ import { BlockMath, InlineMath } from 'react-katex';
 type TaylorId = 'exp' | 'sin' | 'cos';
 type View = { xMin: number; xMax: number; yMin: number; yMax: number };
 
-const models: Record<TaylorId, { label: string; math: string; fn: (x: number) => number; derivative: (order: number, x: number) => number }> = {
-  exp: { label: 'Esponenziale', math: 'e^x', fn: Math.exp, derivative: (_order, x) => Math.exp(x) },
-  sin: { label: 'Seno', math: '\\sin x', fn: Math.sin, derivative: (order, x) => Math.sin(x + order * Math.PI / 2) },
-  cos: { label: 'Coseno', math: '\\cos x', fn: Math.cos, derivative: (order, x) => Math.cos(x + order * Math.PI / 2) },
+const modelDefs: Record<TaylorId, { math: string; fn: (x: number) => number; derivative: (order: number, x: number) => number }> = {
+  exp: { math: 'e^x', fn: Math.exp, derivative: (_order, x) => Math.exp(x) },
+  sin: { math: '\\sin x', fn: Math.sin, derivative: (order, x) => Math.sin(x + order * Math.PI / 2) },
+  cos: { math: '\\cos x', fn: Math.cos, derivative: (order, x) => Math.cos(x + order * Math.PI / 2) },
 };
 
 const defaultView = (id: TaylorId): View => id === 'exp'
@@ -21,7 +22,7 @@ const defaultView = (id: TaylorId): View => id === 'exp'
 const factorial = (n: number): number => n <= 1 ? 1 : n * factorial(n - 1);
 
 const polynomial = (id: TaylorId, order: number, x: number, x0: number) => {
-  const model = models[id];
+  const model = modelDefs[id];
   let value = 0;
   for (let k = 0; k <= order; k += 1) {
     value += model.derivative(k, x0) * (x - x0) ** k / factorial(k);
@@ -44,7 +45,7 @@ const centeredPower = (x0: number, order: number) => {
 const polynomialMath = (id: TaylorId, order: number, x0: number) => {
   const terms: string[] = [];
   for (let k = 0; k <= order; k += 1) {
-    const coefficient = models[id].derivative(k, x0) / factorial(k);
+    const coefficient = modelDefs[id].derivative(k, x0) / factorial(k);
     if (Math.abs(coefficient) < 0.0005) continue;
     const magnitude = rounded(Math.abs(coefficient));
     const factor = k === 0 ? magnitude : `${magnitude}\\,${centeredPower(x0, k)}`;
@@ -63,6 +64,12 @@ const niceStep = (range: number) => {
 };
 
 export function TaylorLab() {
+  const { t } = useTranslation();
+  const models = useMemo(() => ({
+    exp: { ...modelDefs.exp, label: t('taylorLab.functions.exponential') },
+    sin: { ...modelDefs.sin, label: t('taylorLab.functions.sine') },
+    cos: { ...modelDefs.cos, label: t('taylorLab.functions.cosine') },
+  }), [t]);
   const [functionId, setFunctionId] = useState<TaylorId>('exp');
   const [order, setOrder] = useState(2);
   const [x0, setX0] = useState(0);
@@ -71,7 +78,7 @@ export function TaylorLab() {
   const [challengeChecked, setChallengeChecked] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const lastPointerRef = useRef<{ x: number; y: number } | null>(null);
-  const model = useMemo(() => models[functionId], [functionId]);
+  const model = useMemo(() => models[functionId], [functionId, models]);
   const errorX = x0 + 0.75;
   const error = Math.abs(model.fn(errorX) - polynomial(functionId, order, errorX, x0));
   const challengeThreshold = 0.005;
@@ -157,12 +164,12 @@ export function TaylorLab() {
   }, [errorX, functionId, model, order, view, x0]);
 
   const message = order === 0
-    ? `Conosciamo soltanto il valore della funzione in x₀ = ${rounded(x0, 2)}.`
+    ? t('taylorLab.message.order0', { x0: rounded(x0, 2) })
     : order === 1
-      ? 'Ora coincidono valore e pendenza: il polinomio è la retta tangente.'
+      ? t('taylorLab.message.order1')
       : order === 2
-        ? 'La derivata seconda aggiunge la curvatura: le due curve si assomigliano più a lungo.'
-        : `Usiamo ${order + 1} informazioni locali: valore e derivate fino all’ordine ${order}.`;
+        ? t('taylorLab.message.order2')
+        : t('taylorLab.message.orderN', { order });
 
   const selectFunction = (id: TaylorId) => {
     setFunctionId(id);
@@ -214,7 +221,7 @@ export function TaylorLab() {
           ref={canvasRef}
           width={900}
           height={440}
-          aria-label="Grafico interattivo della funzione e del suo polinomio di Taylor. Trascina per spostare il piano e usa la rotella per lo zoom."
+          aria-label={t('taylorLab.canvasAriaLabel')}
           onWheel={handleWheel}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -223,52 +230,52 @@ export function TaylorLab() {
           style={{ width: '100%', height: 'auto', display: 'block', cursor: isPanning ? 'grabbing' : 'grab', touchAction: 'none' }}
         />
         <Stack direction="row" gap={1} sx={{ position: 'absolute', left: 14, top: 14, pointerEvents: 'none' }}>
-          <Chip size="small" label="funzione" sx={{ bgcolor: '#F2F5FA' }} />
+          <Chip size="small" label={t('taylorLab.chips.function')} sx={{ bgcolor: '#F2F5FA' }} />
           <Chip size="small" label={`P${order}`} sx={{ bgcolor: '#F4C84A' }} />
-          <Chip size="small" label="errore" sx={{ bgcolor: '#4DD4A4' }} />
+          <Chip size="small" label={t('taylorLab.chips.error')} sx={{ bgcolor: '#4DD4A4' }} />
         </Stack>
         <Paper elevation={0} sx={{ position: 'absolute', right: 12, top: 12, display: 'flex', bgcolor: 'rgba(255,255,255,.94)' }}>
-          <Tooltip title="Zoom avanti"><IconButton size="small" aria-label="Zoom avanti" onClick={() => zoom(.8)}><ZoomInRoundedIcon /></IconButton></Tooltip>
-          <Tooltip title="Zoom indietro"><IconButton size="small" aria-label="Zoom indietro" onClick={() => zoom(1.25)}><ZoomOutRoundedIcon /></IconButton></Tooltip>
-          <Tooltip title="Ripristina coordinate"><IconButton size="small" aria-label="Ripristina coordinate" onClick={() => resetView()}><RestartAltRoundedIcon /></IconButton></Tooltip>
+          <Tooltip title={t('taylorLab.tooltips.zoomIn')}><IconButton size="small" aria-label={t('taylorLab.tooltips.zoomIn')} onClick={() => zoom(.8)}><ZoomInRoundedIcon /></IconButton></Tooltip>
+          <Tooltip title={t('taylorLab.tooltips.zoomOut')}><IconButton size="small" aria-label={t('taylorLab.tooltips.zoomOut')} onClick={() => zoom(1.25)}><ZoomOutRoundedIcon /></IconButton></Tooltip>
+          <Tooltip title={t('taylorLab.tooltips.resetView')}><IconButton size="small" aria-label={t('taylorLab.tooltips.resetView')} onClick={() => resetView()}><RestartAltRoundedIcon /></IconButton></Tooltip>
         </Paper>
         <Typography variant="caption" sx={{ position: 'absolute', right: 14, bottom: 10, color: '#C9D2E0', bgcolor: 'rgba(16,26,48,.78)', px: 1, py: .4, borderRadius: 1, pointerEvents: 'none' }}>
-          Trascina per spostare · rotella o pulsanti per zoomare
+          {t('taylorLab.dragHint')}
         </Typography>
       </Box>
       <Box p={{ xs: 2, sm: 3 }}>
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 2.5, md: 4 }}>
           <Box sx={{ flex: 1 }}>
-            <Typography variant="caption">PUNTO CENTRALE · x₀ = {rounded(x0, 2)}</Typography>
-            <Slider min={-1.5} max={1.5} step={0.25} marks value={x0} onChange={(_event, value) => { setChallengeChecked(false); setX0(value as number); }} aria-label="Punto centrale x zero" />
+            <Typography variant="caption">{t('taylorLab.sliders.centerLabel', { x0: rounded(x0, 2) })}</Typography>
+            <Slider min={-1.5} max={1.5} step={0.25} marks value={x0} onChange={(_event, value) => { setChallengeChecked(false); setX0(value as number); }} aria-label={t('taylorLab.sliders.centerAriaLabel')} />
           </Box>
           <Box sx={{ flex: 1 }}>
-            <Typography variant="caption">ORDINE DEL POLINOMIO · {order}</Typography>
-            <Slider min={0} max={7} step={1} marks value={order} onChange={(_event, value) => { setChallengeChecked(false); setOrder(value as number); }} aria-label="Ordine del polinomio di Taylor" />
+            <Typography variant="caption">{t('taylorLab.sliders.orderLabel', { order })}</Typography>
+            <Slider min={0} max={7} step={1} marks value={order} onChange={(_event, value) => { setChallengeChecked(false); setOrder(value as number); }} aria-label={t('taylorLab.sliders.orderAriaLabel')} />
           </Box>
         </Stack>
 
         <Paper elevation={0} sx={{ mt: 2, p: { xs: 2, sm: 2.5 }, bgcolor: 'custom.goldLight', overflowX: 'auto', '& .katex-display': { my: 0 } }}>
-          <Typography variant="caption" color="text.secondary">POLINOMIO VISUALIZZATO</Typography>
+          <Typography variant="caption" color="text.secondary">{t('taylorLab.polynomial.caption')}</Typography>
           <BlockMath math={polynomialMath(functionId, order, x0)} />
-          <Typography variant="caption" color="text.secondary">I coefficienti sono arrotondati a tre cifre; il grafico usa i valori completi.</Typography>
+          <Typography variant="caption" color="text.secondary">{t('taylorLab.polynomial.roundingNote')}</Typography>
         </Paper>
 
         <Stack direction={{ xs: 'column', sm: 'row' }} gap={2} justifyContent="space-between" alignItems={{ sm: 'flex-end' }} mt={2}>
           <Box sx={{ maxWidth: 610 }}>
             <Typography color="text.secondary">{message}</Typography>
-            <Typography variant="body2" color="text.secondary" mt={.75}>La linea verde misura la distanza tra funzione e polinomio in <InlineMath math={`x=x_0+0{,}75=${rounded(errorX, 2)}`} />.</Typography>
+            <Typography variant="body2" color="text.secondary" mt={.75}>{t('taylorLab.errorLineNote')} <InlineMath math={`x=x_0+0{,}75=${rounded(errorX, 2)}`} />.</Typography>
           </Box>
           <Box sx={{ textAlign: { sm: 'right' }, flexShrink: 0 }}>
-            <Typography variant="caption" color="text.secondary">ERRORE IN x = {rounded(errorX, 2)}</Typography>
+            <Typography variant="caption" color="text.secondary">{t('taylorLab.errorDisplay.label', { x: rounded(errorX, 2) })}</Typography>
             <Typography variant="h3" color="primary.main">{error.toExponential(2)}</Typography>
           </Box>
         </Stack>
         <Paper elevation={0} sx={{ mt: 2.5, p: 2.5, border: '1px solid', borderColor: 'divider' }}>
-          <Typography variant="h3" sx={{ fontSize: '1.25rem' }} mb={1}>Sfida: il grado minimo</Typography>
-          <Typography variant="body2" color="text.secondary" mb={1.5}>Sposta il cursore dell’ordine e trova il primo grado per cui l’errore nel punto verde è minore di {challengeThreshold}.</Typography>
-          <Button variant="contained" onClick={() => setChallengeChecked(true)}>Controlla la mia scelta</Button>
-          {challengeChecked && <Typography mt={1.5} color={order === minimumOrder ? 'success.main' : 'warning.main'} fontWeight={700}>{minimumOrder === undefined ? 'Con gli ordini disponibili la soglia non viene raggiunta: avvicina il punto al centro.' : order === minimumOrder ? `Esatto: P${order} è il primo polinomio che rispetta la soglia.` : error >= challengeThreshold ? `L’errore è ancora troppo grande. Prova ad aumentare l’ordine.` : `La soglia è rispettata, ma anche P${minimumOrder} bastava: cerca il grado minimo.`}</Typography>}
+          <Typography variant="h3" sx={{ fontSize: '1.25rem' }} mb={1}>{t('taylorLab.challenge.title')}</Typography>
+          <Typography variant="body2" color="text.secondary" mb={1.5}>{t('taylorLab.challenge.instructions', { threshold: challengeThreshold })}</Typography>
+          <Button variant="contained" onClick={() => setChallengeChecked(true)}>{t('taylorLab.challenge.button')}</Button>
+          {challengeChecked && <Typography mt={1.5} color={order === minimumOrder ? 'success.main' : 'warning.main'} fontWeight={700}>{minimumOrder === undefined ? t('taylorLab.challenge.feedback.noThresholdReached') : order === minimumOrder ? t('taylorLab.challenge.feedback.exact', { order }) : error >= challengeThreshold ? t('taylorLab.challenge.feedback.errorTooLarge') : t('taylorLab.challenge.feedback.thresholdMetButSuboptimal', { minimumOrder })}</Typography>}
         </Paper>
       </Box>
     </Paper>
