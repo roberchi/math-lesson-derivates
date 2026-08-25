@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /settings
+Disallow: /class/
+
+Sitemap: https://math-lesson-derivates.vercel.app/sitemap.xml
