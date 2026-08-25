@@ -35,13 +35,14 @@ export function DigitalWorkspace({ workspaceKey, label, problemTitle, problemTex
           <IconButton edge="end" onClick={close} aria-label={t('workspace.close')}><CloseRoundedIcon /></IconButton>
         </Toolbar>
       </AppBar>
-      <Accordion disableGutters elevation={0} sx={{ flexShrink: 0, bgcolor: 'custom.goldLight', borderBottom: '1px solid', borderColor: 'divider', '&::before': { display: 'none' } }}>
+      <Accordion defaultExpanded disableGutters elevation={0} sx={{ flexShrink: 0, bgcolor: 'custom.goldLight', borderBottom: '1px solid', borderColor: 'divider', '&::before': { display: 'none' } }}>
         <AccordionSummary expandIcon={<ExpandMoreRoundedIcon />} aria-controls={`${workspaceKey}-problem-content`} id={`${workspaceKey}-problem-header`} sx={{ minHeight: 48, '& .MuiAccordionSummary-content': { my: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' } }}>
           <Typography fontWeight={700}>{t('workspace.problem')} · {problemTitle}</Typography>
-          {onShowSolution && <Button size="small" color="warning" startIcon={<VisibilityRoundedIcon />} onClick={(event) => { event.stopPropagation(); close(); onShowSolution(); }} sx={{ mr: 1 }}>{t('workspace.solution')}</Button>}
+          
         </AccordionSummary>
         <AccordionDetails id={`${workspaceKey}-problem-content`} sx={{ pt: 0, maxHeight: '28vh', overflowY: 'auto' }}>
           <Typography component="div" variant="body2"><MathText text={problemText} /></Typography>
+          {onShowSolution && <Button size="small" color="warning" startIcon={<VisibilityRoundedIcon />} onClick={(event) => { event.stopPropagation(); close(); onShowSolution(); }} sx={{ mr: 1 }}>{t('workspace.solution')}</Button>}
         </AccordionDetails>
       </Accordion>
       <Box sx={{ flex: 1, minHeight: 0 }}>
