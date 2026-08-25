@@ -6,7 +6,7 @@ An interactive educational application that guides students from the definition 
 
 The platform is available here:
 
-**[Open the exercises online](https://math-lesson-derivates.vercel.app/esercizi)**
+**[Open the exercises online](https://math-lesson-derivates.vercel.app)**
 
 ## Project goal
 
