@@ -25,7 +25,7 @@ import { useColorMode } from '@/theme/ThemeContext';
 import { useProgressStore } from '@/store/progressStore';
 import { useUIStore } from '@/store/uiStore';
 import { useLessonStore } from '@/store/lessonStore';
-import { useWritingStore } from '@/store/writingStore';
+import { useWritingStore, type SavedWritingSheet } from '@/store/writingStore';
 import { useTranslation } from 'react-i18next';
 
 export function SettingsPage() {
@@ -40,15 +40,17 @@ export function SettingsPage() {
   const lastSectionId = useLessonStore((state) => state.lastSectionId);
   const resetLessons = useLessonStore((state) => state.resetLessons);
   const resetWritingSheets = useWritingStore((state) => state.resetWritingSheets);
+  const writingSheets = useWritingStore((state) => state.sheets);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [importError, setImportError] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
   const download = () => {
     const payload = JSON.stringify({
-      version: 2,
+      version: 3,
       lessonProgress: { readSections, verifiedConcepts, lastSectionId },
       exerciseProgress: JSON.parse(exportProgress()) as unknown,
+      writingSheets,
     }, null, 2);
     const blob = new Blob([payload], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
@@ -65,7 +67,11 @@ export function SettingsPage() {
     const text = await file.text();
     let valid = false;
     try {
-      const parsed = JSON.parse(text) as { lessonProgress?: { readSections?: string[]; verifiedConcepts?: string[]; lastSectionId?: string | null }; exerciseProgress?: unknown };
+      const parsed = JSON.parse(text) as {
+        lessonProgress?: { readSections?: string[]; verifiedConcepts?: string[]; lastSectionId?: string | null };
+        exerciseProgress?: unknown;
+        writingSheets?: Record<string, SavedWritingSheet>;
+      };
       if (parsed.exerciseProgress) {
         valid = importProgress(JSON.stringify(parsed.exerciseProgress));
         if (valid && Array.isArray(parsed.lessonProgress?.readSections)) {
@@ -74,6 +80,9 @@ export function SettingsPage() {
             verifiedConcepts: parsed.lessonProgress.verifiedConcepts ?? [],
             lastSectionId: parsed.lessonProgress.lastSectionId ?? null,
           });
+        }
+        if (valid && parsed.writingSheets && typeof parsed.writingSheets === 'object') {
+          useWritingStore.setState({ sheets: parsed.writingSheets });
         }
       } else {
         valid = importProgress(text);
